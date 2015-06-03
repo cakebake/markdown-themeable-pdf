@@ -1,0 +1,16 @@
+{
+  "name": "markdown-themeable-pdf",
+  "main": "./lib/markdown-themeable-pdf",
+  "version": "0.1.0",
+  "description": "Converts markdown to PDF",
+  "keywords": [
+  ],
+  "repository": "https://github.com/cakebake/markdown-themeable-pdf",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=0.174.0 <2.0.0"
+  },
+  "dependencies": {
+    "markdown-pdf": "*"
+  }
+}
