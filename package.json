@@ -4,6 +4,13 @@
   "version": "0.1.0",
   "description": "Converts markdown to PDF",
   "keywords": [
+    "markdown",
+    "pdf",
+    "convert",
+    "export",
+    "template",
+    "theme",
+    "skin"
   ],
   "repository": "https://github.com/cakebake/markdown-themeable-pdf",
   "license": "MIT",

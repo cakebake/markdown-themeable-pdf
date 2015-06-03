@@ -28,7 +28,10 @@ module.exports = MarkdownThemeablePdf =
     @subscriptions.dispose()
 
   convertFile: (filePath) ->
-    console.log filePath
+    markdownpdf = require("markdown-pdf")
+    markdownpdf().from(filePath).to filePath + '.pdf', ->
+      atom.notifications.addSuccess 'PDF was created in the same directory'
+      return
 
   exportEditor: ({target}) ->
     if editor = atom.workspace.getActiveTextEditor()
