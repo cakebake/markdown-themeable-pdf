@@ -19,12 +19,38 @@ pre, code {
 }
 
 code {
-	padding: 0.2em;
+	padding: .2em;
 }
 
 blockquote {
 	padding: 0 15px;
 	color: #777;
+	border: 0 none;
 	border-left: 4px solid #DDD;
 	word-wrap: break-word;
+	margin-left: 0;
+}
+
+/**
+ * LINKS
+ */
+a,
+a:visited {
+	text-decoration: none;
+}
+
+a[href]:after {
+	content: ": " attr(href);
+}
+
+/*
+* Don't show links for images, or javascript/internal links
+*/
+
+.ir a:after,
+a[href^="javascript:"]:after,
+a[href^="#"]:after {
+	content: "";
+	text-decoration: none;
+	margin-left: 0;
 }
