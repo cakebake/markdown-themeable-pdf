@@ -29,7 +29,19 @@ module.exports = MarkdownThemeablePdf =
 
   convertFile: (filePath) ->
     markdownpdf = require("markdown-pdf")
-    markdownpdf().from(filePath).to filePath + '.pdf', ->
+
+    options =
+      paperBorder: '2cm', #Supported dimension units are: 'mm', 'cm', 'in', 'px'
+      paperOrientation: 'portrait', #'portrait' or 'landscape'.
+      paperFormat: 'A4', #'A3', 'A4', 'A5', 'Legal', 'Letter' or 'Tabloid'.
+      highlightCssPath: __dirname + "/../node_modules/markdown-pdf/node_modules/highlight.js/styles/github.css",
+      cssPath: __dirname + "/../css/document.css",
+      remarkable:
+        html: true,
+        xhtmlOut: true,
+        linkify: true
+
+    markdownpdf(options).from(filePath).to filePath + '.pdf', ->
       atom.notifications.addSuccess 'PDF was created in the same directory'
       return
 
