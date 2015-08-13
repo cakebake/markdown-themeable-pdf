@@ -1,23 +1,25 @@
-# Themeable markdown to PDF converter
+Themeable markdown to PDF converter
+===================================
 
-`markdown-themeable-pdf` package converts your markdown files easily to PDFs.
+`markdown-themeable-pdf` package converts your markdown files simple and pretty to PDFs.
 
 ### Usage
 
-You can generate the PDF in **two ways**:
+You can generate the PDF in **three ways**:
 
-- Right-click on the file in the file tree and select `Markdown to PDF` **or**
-- Right-click in the editor area when a file is opened and select `Markdown to PDF`
+-	Right-click on the file in the file tree and select `Markdown to PDF` **or**
+-	Right-click in the editor area when a file is opened and select `Markdown to PDF`
+-	Press `ctrl-E` (E = Export) in the editor area when a file is opened
 
 ### Example
 
-See `README.md.pdf` - the pdf version of this **README.md**
+See [Demo.md.pdf](tests/Demo.md.pdf) - the pdf version of [Demo.md](tests/Demo.md).
 
 ### Todo
 
-- Create the package configuration (*custom rendering settings, custom themes, custom stylesheets, ...*)
-- Documentation
-- Tests
+-	Create the package configuration (*custom rendering settings, custom themes, custom stylesheets, ...*\)
+-	Custom header and footer
+-	Documentation
 
 ### Credits
 
