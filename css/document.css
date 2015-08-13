@@ -1,5 +1,6 @@
 html, body {
     -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
 	background: #FFF;
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size: 16px;
@@ -11,7 +12,7 @@ hr {
     margin-top: 20px;
     margin-bottom: 20px;
     border: 0;
-    border-top: 1px solid #eeeeee;
+    border-top: 4px solid #EEE;
 }
 
 pre, code {
@@ -39,11 +40,10 @@ code {
 
 blockquote {
     padding: 10px 20px;
-    margin: 0 0 20px;
+    margin: 10px 0 20px;
 	color: #777;
 	border: 0 none;
 	border-left: 4px solid #EEE;
-    font-size: 18px;
 }
 blockquote p:last-child,
 blockquote ul:last-child,
@@ -60,7 +60,7 @@ table {
     margin-bottom: 20px;
     border: 1px solid #DDD;
 }
-th {
+th, td {
     text-align: left;
 }
 table > thead > tr > th,
@@ -69,7 +69,7 @@ table > tfoot > tr > th,
 table > thead > tr > td,
 table > tbody > tr > td,
 table > tfoot > tr > td {
-    padding: 8px;
+    padding: 8px 14px;
     line-height: 1.42857143;
     vertical-align: top;
     border-top: 1px solid #DDD;
@@ -103,6 +103,8 @@ table > tfoot > tr > td {
 table > thead > tr > th,
 table > thead > tr > td {
     border-bottom-width: 2px;
+    text-align: center;
+    vertical-align: middle;
 }
 table > tbody > tr:nth-of-type(odd) {
     background-color: #f9f9f9;
@@ -126,6 +128,11 @@ h6 {
     color: #111;
     margin-bottom: 10px;
 }
+h1, h2, h3 {
+    padding-bottom: 12px;
+    border-bottom: 1px solid #EEE;
+    margin-bottom: 18px;
+}
 h1 {
     font-size: 36px;
 }
@@ -143,6 +150,7 @@ h5 {
 }
 h6 {
     font-size: 14px;
+    color: #555;
 }
 
 p {
