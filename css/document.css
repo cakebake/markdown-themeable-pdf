@@ -1,6 +1,10 @@
-html, body {
+* {
+    overflow: visible !important;
     -webkit-text-size-adjust: 100%;
     -webkit-font-smoothing: antialiased;
+}
+
+html, body {
 	background: #FFF;
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size: 16px;
@@ -199,4 +203,11 @@ a[href^="#"]:after {
 	content: "";
 	text-decoration: none;
 	margin-left: 0;
+}
+
+.new-page,
+.page-break,
+.next-page,
+.page-end {
+    page-break-before: always;
 }

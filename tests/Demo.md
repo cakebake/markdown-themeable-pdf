@@ -26,18 +26,23 @@ Here's a numbered list:
 2.	second item
 3.	third item
 
-Note again how the actual text starts at 4 columns in (4 characters from the left side). Here's a code sample:
+Here's a code sample:
 
-```
-# Let me re-iterate ...
-for i in 1 .. 10 { do-something(i) }
-```
+```bash
+#!/bin/bash
 
-As you probably guessed, indented 4 spaces. By the way, instead of indenting the block, you can use delimited blocks, if you like:
+###### CONFIG
+ACCEPTED_HOSTS="/root/.hag_accepted.conf"
+BE_VERBOSE=false
 
-```
-define foobar() {
-    print "Welcome to flavor country!";
+if [ "$UID" -ne 0 ]
+then
+ echo "Superuser rights required"
+ exit 2
+fi
+
+genApacheConf(){
+ echo -e "# Host ${HOME_DIR}$1/$2 :"
 }
 ```
 
@@ -51,6 +56,8 @@ for i in range(10):
     time.sleep(0.5)
     print i
 ```
+
+<div class="page-break" />
 
 ### An h3 header
 
@@ -82,7 +89,9 @@ Notice again how text always lines up on 4-space indents (including that last li
 
 Here's a link to [a website](http://foo.bar).
 
----
+> Move the following to next page with `<div class="page-break" />`.
+
+<div class="page-break" />
 
 Some Headlines.
 
@@ -110,6 +119,12 @@ Tables can look like this:
 
 and images can be specified like so:
 
-![example image](http://placehold.it/900x250/000/FFF)
+### External image
+
+![external image](http://placehold.it/900x250/000/FFF)
+
+### Local image
+
+![local image](mali.jpg)
 
 And note that you can backslash-escape any punctuation characters which you wish to be displayed literally, ex.: \`foo\`, \*bar\*, etc.
