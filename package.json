@@ -1,7 +1,7 @@
 {
   "name": "markdown-themeable-pdf",
   "main": "./lib/markdown-themeable-pdf",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "Converts your markdown files simple and pretty to PDFs.",
   "keywords": [
     "markdown",
