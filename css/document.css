@@ -64,6 +64,9 @@ table {
     margin-bottom: 20px;
     border: 1px solid #DDD;
 }
+table div {
+    page-break-inside: avoid;
+}
 th, td {
     text-align: left;
 }
