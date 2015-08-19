@@ -33,7 +33,6 @@ See [Demo.md.pdf](https://github.com/cakebake/markdown-themeable-pdf/raw/master/
 -	Documentation
 -	Fix context menu item in tree view
 -	Local images
--	Avoid compile unsaved markdown files
 
 ### Credits
 
