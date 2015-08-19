@@ -41,5 +41,5 @@ Special thanks to
 
 -	[Atom](https://atom.io/) for this wonderful editor!
 -	[chjj/marked](https://github.com/chjj/marked) - A markdown parser and compiler. Built for speed.
--	[bauhausjs/phantom-html2pdf](https://github.com/bauhausjs/phantom-html2pdf) - Node module to generate PDFs from HTML via PhantomJS.
--	[isagalaev/highlight.js](https://github.com/isagalaev/highlight.js) - Javascript syntax highlighter
+-	[marcbachmann/node-html-pdf](https://github.com/marcbachmann/node-html-pdf) - Html to pdf converter in nodejs.
+-	[isagalaev/highlight.js](https://github.com/isagalaev/highlight.js) - Javascript syntax highlighter.

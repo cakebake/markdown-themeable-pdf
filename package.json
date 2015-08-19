@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "marked": "*",
-    "phantom-html-to-pdf": "*",
+    "html-pdf": "*",
     "highlight.js": "*"
   }
 }
