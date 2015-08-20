@@ -17,6 +17,7 @@ The PDF can be generated in various ways:
 
 -	Right-click in the editor area when a file is opened (and saved) and select `Markdown to PDF` **or**
 -	Press `ctrl-shift-E` (E = Export) in the editor area when a file is opened (and saved)
+-	Open Markdown Preview with `ctrl-shift-M`, right-click in markdown-preview area and select `Save As PDF`
 
 #### Page breaks
 
