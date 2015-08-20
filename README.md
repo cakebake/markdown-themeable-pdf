@@ -5,11 +5,15 @@ Themeable markdown to PDF converter
 
 The package was created at the beginning to help in the daily work with manuals for customers. Many people are not familiar with Markdown and they will now receive a well-formatted PDF from their developers. **Important here is that the PDF looks good and professional**. This [Atom package](https://atom.io/packages/markdown-themeable-pdf) tries to ask about this task.
 
-> If you find this module **useful** - or if you find **errors** - please send me your [feedback](https://github.com/cakebake/markdown-themeable-pdf/issues/new). :)
+> If you find this module **useful**, you find **errors**, or you have **suggestions** - please send me your [FEEDBACK](https://github.com/cakebake/markdown-themeable-pdf/issues/new) - feel free to **CONTRIBUTE**. Keep in mind that this plugin is under active development. :)
 
 ### Installation
 
 Search in atom under **Settings View -> Install -> Packages** the package `markdown-themeable-pdf` and start the installation.
+
+### Upadate
+
+Atom notifies you when a new version is available. Sometimes you must reload your atom window after updating to apply to new changes. Press `ctrl-shift-P` and hit `Window: Reload`.
 
 ### Usage
 
@@ -31,9 +35,15 @@ See [Demo.md.pdf](https://github.com/cakebake/markdown-themeable-pdf/raw/master/
 
 -	Create the package configuration (*custom rendering settings, custom themes, custom stylesheets, ...*\)
 -	Custom header and footer
--	Documentation
 -	Fix context menu item in tree view
 -	Local images
+-	More rendering options like Emojis, Todos, ...
+
+### Known Issues
+
+#### Table header glitches when a table starts directly on a new page
+
+When that happens, you can put in your markdown in front of the table an html code `<div class="page-break" />` to prevent this.
 
 ### Credits
 
