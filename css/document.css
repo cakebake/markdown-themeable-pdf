@@ -159,6 +159,10 @@ p {
     margin: 0 0 10px;
 }
 
+input[type="checkbox"] {
+    margin-right: 6px;
+}
+
 ul,
 ol {
     margin-top: 0;

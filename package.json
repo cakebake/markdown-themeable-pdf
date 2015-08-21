@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "markdown-it": "*",
+    "markdown-it-checkbox": "*",
     "html-pdf": "*",
     "highlight.js": "*"
   }

@@ -19,6 +19,13 @@ Note that --- not considering the asterisk --- the actual text content starts at
 
 Use 3 dashes for an em-dash. Use 2 dashes for ranges (ex., "it's all in chapters 12--14"). Three dots ... will be converted to an ellipsis. Unicode is supported. ☺
 
+Write a todo list
+-----------------
+
+-	[ ] Step 1
+-	[x] Step 1
+-	[x] Step 1
+
 An h2 header
 ------------
 
