@@ -13,6 +13,17 @@ New line... Some changes... :)
 
 Note that --- not considering the asterisk --- the actual text content starts at 4-columns in.
 
+Convert arrows like `-->` or `==>` to --> or ==>
+
+```
+--> →
+<-- ←
+<--> ↔
+==> ⇒
+<== ⇐
+<==> ⇔
+```
+
 > Block quotes are written like so.
 >
 > They can span multiple paragraphs, if you like.
