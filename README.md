@@ -50,6 +50,6 @@ When that happens, you can put in your markdown in front of the table an html co
 Special thanks to
 
 -	[Atom](https://atom.io/) for this wonderful editor!
--	[chjj/marked](https://github.com/chjj/marked) - A markdown parser and compiler. Built for speed.
+-	[markdown-it/markdown-it](https://github.com/markdown-it/markdown-it) - Markdown parser, done right.
 -	[marcbachmann/node-html-pdf](https://github.com/marcbachmann/node-html-pdf) - Html to pdf converter in nodejs.
 -	[isagalaev/highlight.js](https://github.com/isagalaev/highlight.js) - Javascript syntax highlighter.

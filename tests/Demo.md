@@ -3,7 +3,7 @@ An h1 header
 
 Paragraphs are separated by a blank line.
 
-New line... Some changes...
+New line... Some changes... :)
 
 2nd paragraph. *Italic*, **bold**, and `monospace`. Itemized lists look like:
 
