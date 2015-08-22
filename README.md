@@ -7,6 +7,8 @@ The package was created at the beginning to help in the daily work with manuals 
 
 > If you find this module **useful**, you find **errors**, or you have **suggestions** - please send me your [FEEDBACK](https://github.com/cakebake/markdown-themeable-pdf/issues/new) - feel free to **CONTRIBUTE**. Keep in mind that this plugin is under active development. :)
 
+![DEMO](DEMO.gif)
+
 ### Installation
 
 Search in atom under **Settings View -> Install -> Packages** the package `markdown-themeable-pdf` and start the installation.
