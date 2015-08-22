@@ -141,11 +141,21 @@ and images can be specified like so:
 
 ### External image
 
+```
+![external image](http://placehold.it/900x250/000/FFF)
+```
+
 ![external image](http://placehold.it/900x250/000/FFF)
 
 ### Local image
 
+```
 ![local image](mali.jpg)
+```
+
+![local image](mali.jpg)
+
+<div class="page-break" />
 
 And note that you can backslash-escape any punctuation characters which you wish to be displayed literally, ex.: \`foo\`, \*bar\*, etc.
 
