@@ -5,9 +5,9 @@
 }
 
 html, body {
-	background: #FFF;
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-	font-size: 16px;
+    background: #FFF;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
     line-height: 1.42857143;
     color: #444;
 }
@@ -20,14 +20,14 @@ hr {
 }
 
 pre, code {
-	padding: 16px;
-	overflow: auto;
-	line-height: 1.45;
-	background-color: #F9F9F9;
-	border-radius: 3px;
-	border: 0 none;
-	word-wrap: normal;
-	font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+    padding: 16px;
+    overflow: auto;
+    line-height: 1.45;
+    background-color: #F9F9F9;
+    border-radius: 3px;
+    border: 0 none;
+    word-wrap: normal;
+    font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
     box-shadow: inset -1px -1px 0 rgba(0, 0, 0, .08);
 }
 
@@ -39,16 +39,17 @@ code code, code pre {
 }
 
 code {
-	padding: .2em .4em;
+    padding: .2em .4em;
 }
 
 blockquote {
     padding: 10px 20px;
     margin: 10px 0 20px;
-	color: #777;
-	border: 0 none;
-	border-left: 4px solid #EEE;
+    color: #777;
+    border: 0 none;
+    border-left: 4px solid #EEE;
 }
+
 blockquote p:last-child,
 blockquote ul:last-child,
 blockquote ol:last-child {
@@ -64,12 +65,15 @@ table {
     margin-bottom: 20px;
     border: 1px solid #DDD;
 }
+
 table div {
     page-break-inside: avoid;
 }
+
 th, td {
     text-align: left;
 }
+
 table > thead > tr > th,
 table > tbody > tr > th,
 table > tfoot > tr > th,
@@ -80,6 +84,7 @@ table > tfoot > tr > td {
     vertical-align: top;
     border-top: 1px solid #DDD;
 }
+
 table > caption + thead > tr:first-child > th,
 table > colgroup + thead > tr:first-child > th,
 table > thead:first-child > tr:first-child > th,
@@ -88,12 +93,15 @@ table > colgroup + thead > tr:first-child > td,
 table > thead:first-child > tr:first-child > td {
     border-top: 0;
 }
+
 table > tbody + tbody {
     border-top: 2px solid #DDD;
 }
+
 table table {
     background-color: #FFF;
 }
+
 table > thead > tr > th,
 table > tbody > tr > th,
 table > tfoot > tr > th,
@@ -102,14 +110,16 @@ table > tbody > tr > td,
 table > tfoot > tr > td {
     border: 1px solid #DDD;
 }
+
 table > thead > tr > th,
 table > thead > tr > td {
     border-bottom-width: 2px;
     text-align: center;
     vertical-align: middle;
 }
+
 table > tbody > tr:nth-of-type(odd) {
-    background-color: #f9f9f9;
+    background-color: #F9F9F9;
 }
 
 img {
@@ -130,26 +140,33 @@ h6 {
     color: #111;
     margin-bottom: 10px;
 }
+
 h1, h2, h3 {
     padding-bottom: 12px;
     border-bottom: 1px solid #EEE;
     margin-bottom: 18px;
 }
+
 h1 {
     font-size: 36px;
 }
+
 h2 {
     font-size: 30px;
 }
+
 h3 {
     font-size: 24px;
 }
+
 h4 {
     font-size: 18px;
 }
+
 h5 {
     font-size: 16px;
 }
+
 h6 {
     font-size: 14px;
     color: #555;
@@ -168,6 +185,7 @@ ol {
     margin-top: 0;
     margin-bottom: 10px;
 }
+
 ul ul,
 ol ul,
 ul ol,
@@ -179,32 +197,37 @@ dl {
     margin-top: 0;
     margin-bottom: 20px;
 }
+
 dt,
 dd {
     line-height: 1.42857143;
 }
+
 dt {
     font-weight: bold;
 }
+
 dd {
     margin-left: 0;
 }
 
 a,
 a:visited {
-	text-decoration: none;
-	color: inherit;
+    text-decoration: none;
+    color: inherit;
 }
+
 a[href]:after {
-	content: " " attr(href);
-    color: #337ab7;
+    content: " " attr(href);
+    color: #337AB7;
 }
+
 .ir a:after,
 a[href^="javascript:"]:after,
 a[href^="#"]:after {
-	content: "";
-	text-decoration: none;
-	margin-left: 0;
+    content: "";
+    text-decoration: none;
+    margin-left: 0;
 }
 
 .new-page,
