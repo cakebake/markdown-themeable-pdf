@@ -46,7 +46,10 @@ Here's a numbered list:
 2.	second item
 3.	third item
 
+<div class="page-break" />
+
 Here's a code sample:
+---------------------
 
 ```bash
 #!/bin/bash
@@ -76,8 +79,6 @@ for i in range(10):
     time.sleep(0.5)
     print i
 ```
-
-<div class="page-break" />
 
 ### An h3 header
 

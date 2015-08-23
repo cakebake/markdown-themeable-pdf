@@ -19,10 +19,9 @@ hr {
     border-top: 4px solid #EEE;
 }
 
-pre, code {
-    padding: 16px;
-    overflow: auto;
-    line-height: 1.45;
+code {
+    padding: .1em .4em .2em;
+    display: inline-block;
     background-color: #F9F9F9;
     border-radius: 3px;
     border: 0 none;
@@ -31,15 +30,22 @@ pre, code {
     box-shadow: inset -1px -1px 0 rgba(0, 0, 0, .08);
 }
 
-pre pre, pre code,
-code code, code pre {
-    box-shadow: none;
-    padding-left: 0;
-    margin-left: 0;
+code:not(.hljs) {
+    color: #333;
 }
 
-code {
-    padding: .2em .4em;
+/* replace light background for some hljs themes */
+.github\.css,
+.github-gist\.css,
+.tomorrow\.css,
+.default\.css,
+.googlecode\.css {
+    background-color: #F9F9F9 !important;
+}
+
+pre code {
+    padding: 16px;
+    display: block;
 }
 
 blockquote {
