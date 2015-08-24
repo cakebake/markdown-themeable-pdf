@@ -1,21 +1,15 @@
-Themeable markdown to PDF converter
-===================================
+Themeable markdown converter (Print to PDF, HTML, JPEG or PNG)
+==============================================================
 
-##### This [Atom package](https://atom.io/packages/markdown-themeable-pdf) converts / prints / exports your markdown files simple and pretty to PDFs.
+##### This [Atom package](https://atom.io/packages/markdown-themeable-pdf) converts / prints / exports your markdown file simple and pretty to `PDF`, `HTML`, `JPEG` or `PNG` format.
 
-The package was created at the beginning to help in the daily work with manuals for customers. Many people are not familiar with Markdown and they will now receive a well-formatted PDF from their developers. **Important here is that the PDF looks good and professional**. This [Atom package](https://atom.io/packages/markdown-themeable-pdf) tries to ask about this task.
+The package was created at the beginning to help in the daily work with manuals for customers. Many people are not familiar with Markdown and they will now receive a well-formatted PDF from their developers. **Important here is that the document looks good and professional**. This [Atom package](https://atom.io/packages/markdown-themeable-pdf) tries to ask about this task.
 
 > If you find this module **useful**, you find **errors**, or you have **suggestions** - please send me your [FEEDBACK](https://github.com/cakebake/markdown-themeable-pdf/issues/new) - feel free to **CONTRIBUTE**. Keep in mind that this plugin is under active development. :)
-
-![DEMO](DEMO.gif)
 
 ### Installation
 
 Search in atom under **Settings View -> Install -> Packages** the package `markdown-themeable-pdf` and start the installation.
-
-### Upadate
-
-Atom notifies you when a new version is available. Sometimes you must reload your atom window after updating to apply to new changes. Press `ctrl-shift-P` and hit `Window: Reload`.
 
 ### Usage
 
@@ -29,24 +23,32 @@ The PDF can be generated in various ways:
 
 You can start any time a new page with shortcode `<div class="page-break" />` in your markdown.
 
-### Example / Demo PDF
+### Example / Demo
 
 See [Demo.md.pdf](https://github.com/cakebake/markdown-themeable-pdf/raw/master/tests/Demo.md.pdf) - the PDF version of [Demo.md](https://github.com/cakebake/markdown-themeable-pdf/raw/master/tests/Demo.md).
 
+![DEMO](https://raw.githubusercontent.com/cakebake/markdown-themeable-pdf/master/DEMO.gif)
+
 ### Todo
 
--	Create the package configuration (*custom rendering settings, custom themes, custom stylesheets, ...*\)
+-	Create the package configuration (*custom themes, custom stylesheets, ...*\)
 -	Custom header and footer
+-	Font Awesome integration
+-	Emojis
 
 ### Known Issues
 
-#### Table header glitches when a table starts directly on a new page
+-	**Table header glitches when a table starts directly on a new page**
 
-When that happens, you can put in your markdown in front of the table an html code `<div class="page-break" />` to prevent this.
+	When that happens, you can put in your markdown in front of the table an html code `<div class="page-break" />` to prevent this.
+
+-	**Exported image size**
+
+	Currently the image size is not optimal when exporting JPEG and PNG.
 
 ### Credits
 
-Special thanks to
+Special thanks to ...
 
 -	[Atom](https://atom.io/) for this wonderful editor!
 -	[markdown-it/markdown-it](https://github.com/markdown-it/markdown-it) - Markdown parser, done right.

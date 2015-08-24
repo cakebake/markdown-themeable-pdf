@@ -2,12 +2,16 @@
   "name": "markdown-themeable-pdf",
   "main": "./lib/markdown-themeable-pdf",
   "version": "0.6.0",
-  "description": "Converts your markdown files simple and pretty to PDFs.",
+  "description": "Themeable markdown converter (Print to PDF, HTML, JPEG or PNG)",
   "keywords": [
     "markdown",
     "pdf",
+    "html",
+    "jpeg",
+    "png",
     "convert",
     "export",
+    "print",
     "template",
     "theme",
     "skin"
