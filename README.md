@@ -37,7 +37,6 @@ See [Demo.md.pdf](https://github.com/cakebake/markdown-themeable-pdf/raw/master/
 
 -	Create the package configuration (*custom rendering settings, custom themes, custom stylesheets, ...*\)
 -	Custom header and footer
--	Fix context menu item in tree view
 
 ### Known Issues
 
