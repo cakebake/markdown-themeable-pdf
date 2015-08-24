@@ -1,27 +1,27 @@
 {
-    "name": "markdown-themeable-pdf",
-    "main": "./lib/markdown-themeable-pdf",
-    "version": "0.5.0",
-    "description": "Converts your markdown files simple and pretty to PDFs.",
-    "keywords": [
-        "markdown",
-        "pdf",
-        "convert",
-        "export",
-        "template",
-        "theme",
-        "skin"
-    ],
-    "repository": "https://github.com/cakebake/markdown-themeable-pdf",
-    "license": "MIT",
-    "engines": {
-        "atom": ">=0.174.0 <2.0.0"
-    },
-    "dependencies": {
-        "markdown-it": "*",
-        "markdown-it-checkbox": "*",
-        "markdown-it-smartarrows": "*",
-        "html-pdf": "*",
-        "highlight.js": "*"
-    }
+  "name": "markdown-themeable-pdf",
+  "main": "./lib/markdown-themeable-pdf",
+  "version": "0.6.0",
+  "description": "Converts your markdown files simple and pretty to PDFs.",
+  "keywords": [
+    "markdown",
+    "pdf",
+    "convert",
+    "export",
+    "template",
+    "theme",
+    "skin"
+  ],
+  "repository": "https://github.com/cakebake/markdown-themeable-pdf",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=0.174.0 <2.0.0"
+  },
+  "dependencies": {
+    "markdown-it": "*",
+    "markdown-it-checkbox": "*",
+    "markdown-it-smartarrows": "*",
+    "html-pdf": "*",
+    "highlight.js": "*"
+  }
 }
