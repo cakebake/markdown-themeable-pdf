@@ -1,7 +1,7 @@
 {
   "name": "markdown-themeable-pdf",
   "main": "./lib/markdown-themeable-pdf",
-  "version": "0.6.2",
+  "version": "0.6.3",
   "description": "Themeable markdown converter (Print to PDF, HTML, JPEG or PNG)",
   "keywords": [
     "markdown",
