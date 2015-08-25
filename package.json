@@ -7,14 +7,8 @@
     "markdown",
     "pdf",
     "html",
-    "jpeg",
-    "png",
-    "convert",
-    "export",
-    "print",
-    "template",
-    "theme",
-    "skin"
+    "image",
+    "convert"
   ],
   "repository": "https://github.com/cakebake/markdown-themeable-pdf",
   "license": "MIT",
