@@ -25,7 +25,7 @@ You can start any time a new page with shortcode `<div class="page-break" />` in
 
 ### Example / Demo
 
-See [Demo.md.pdf](https://github.com/cakebake/markdown-themeable-pdf/raw/master/tests/Demo.md.pdf) - the PDF version of [Demo.md](https://github.com/cakebake/markdown-themeable-pdf/raw/master/tests/Demo.md).
+See [Demo.pdf](https://github.com/cakebake/markdown-themeable-pdf/raw/master/tests/Demo.pdf) - the PDF version of [Demo.md](https://github.com/cakebake/markdown-themeable-pdf/raw/master/tests/Demo.md).
 
 ![DEMO](https://raw.githubusercontent.com/cakebake/markdown-themeable-pdf/master/DEMO.gif)
 
@@ -42,10 +42,6 @@ See [Demo.md.pdf](https://github.com/cakebake/markdown-themeable-pdf/raw/master/
 -	**Table header glitches when a table starts directly on a new page**
 
 	When that happens, you can put in your markdown in front of the table an html code `<div class="page-break" />` to prevent this.
-
--	**Exported image size**
-
-	Currently the image size is not optimal when exporting JPEG and PNG.
 
 ### Credits
 

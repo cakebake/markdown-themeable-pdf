@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>
-C:\Users\User\.atom\packages\markdown-themeable-pdf\tests\Demo.md.html
+comments.html
 </title>
 <style>
 /**
@@ -480,154 +480,28 @@ a[href^="#"]:after {
 </style>
 </head>
 <body>
-<h1>An h1 header</h1>
-<p>Paragraphs are separated by a blank line.</p>
-<p>New line... Some changes... :)</p>
-<p>2nd paragraph. <em>Italic</em>, <strong>bold</strong>, and <code>monospace</code>. Itemized lists look like:</p>
-<ul>
-<li>this one</li>
-<li>that one</li>
-<li>the other one</li>
-</ul>
-<p>Note that --- not considering the asterisk --- the actual text content starts at 4-columns in.</p>
-<p>Convert arrows like <code>--&gt;</code> or <code>==&gt;</code> to → or ⇒</p>
-<pre><code>--&gt; →
-&lt;-- ←
-&lt;--&gt; ↔
-==&gt; ⇒
-&lt;== ⇐
-&lt;==&gt; ⇔
-</code></pre>
-<blockquote>
-<p>Block quotes are written like so.</p>
-<p>They can span multiple paragraphs, if you like.</p>
-</blockquote>
-<p>Use 3 dashes for an em-dash. Use 2 dashes for ranges (ex., &quot;it's all in chapters 12--14&quot;). Three dots ... will be converted to an ellipsis. Unicode is supported. ☺</p>
-<h2>Write a todo list</h2>
-<ul>
-<li><div class="checkbox"><input type="checkbox" id="checkbox-0"><label for="checkbox-0">Step 1</label></div></li>
-<li><div class="checkbox"><input type="checkbox" id="checkbox-1" checked="true"><label for="checkbox-1">Step 1</label></div></li>
-<li><div class="checkbox"><input type="checkbox" id="checkbox-2" checked="true"><label for="checkbox-2">Step 1</label></div></li>
-</ul>
-<h2>An h2 header</h2>
-<p>Here's a numbered list:</p>
+<h1>Lorem ipsum</h1>
+<h2>Table of content</h2>
+<!-- TOC depth:6 withLinks:1 updateOnSave:1 orderedList:1 -->
 <ol>
-<li>first item</li>
-<li>second item</li>
-<li>third item</li>
+<li><a href="#Lorem_ipsum_dolor_sit_amet">Lorem ipsum dolor sit amet</a></li>
 </ol>
-<div class="page-break" />
-<h2>Here's a code sample:</h2>
-<pre><code class="hljs github-gist-css bash"><span class="hljs-shebang">#!/bin/bash
-</span>
-<span class="hljs-comment">###### CONFIG</span>
-ACCEPTED_HOSTS=<span class="hljs-string">"/root/.hag_accepted.conf"</span>
-BE_VERBOSE=<span class="hljs-literal">false</span>
+<!-- /TOC -->
+<!--
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
-<span class="hljs-keyword">if</span> [ <span class="hljs-string">"<span class="hljs-variable">$UID</span>"</span> <span class="hljs-operator">-ne</span> <span class="hljs-number">0</span> ]
-<span class="hljs-keyword">then</span>
- <span class="hljs-built_in">echo</span> <span class="hljs-string">"Superuser rights required"</span>
- <span class="hljs-built_in">exit</span> <span class="hljs-number">2</span>
-<span class="hljs-keyword">fi</span>
+        XXXXXXXXXX  XXXXXXXXXX  XXXXXXXXXX  XXXXXXXXXX
+        XX      XX  XX      XX  XX                  XX
+        XX      XX  XX      XX  XX                XX
+        XXXXXXXXXX  XXXXXXXXXX  XXXXXXXX        XX
+        XX          XX  XX      XX            XX
+        XX          XX    XX    XX          XX
+        XX          XX      XX  XXXXXXXXXX  XXXXXXXXXX
 
-<span class="hljs-function"><span class="hljs-title">genApacheConf</span></span>(){
- <span class="hljs-built_in">echo</span> <span class="hljs-operator">-e</span> <span class="hljs-string">"# Host <span class="hljs-variable">${HOME_DIR}</span><span class="hljs-variable">$1</span>/<span class="hljs-variable">$2</span> :"</span>
-}
-</code></pre>
-<p>(which makes copying &amp; pasting easier). You can optionally mark the delimited block for Pandoc to syntax highlight it:</p>
-<pre><code class="hljs github-gist-css python"><span class="hljs-keyword">import</span> time
-<span class="hljs-comment"># Quick, count to ten!</span>
-<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">10</span>):
-    <span class="hljs-comment"># (but not *too* quick)</span>
-    time.sleep(<span class="hljs-number">0.5</span>)
-    <span class="hljs-keyword">print</span> i
-</code></pre>
-<h3>An h3 header</h3>
-<p>Now a nested list:</p>
-<ol>
-<li>
-<p>First, get these ingredients:</p>
-<ul>
-<li>carrots</li>
-<li>celery</li>
-<li>lentils</li>
-</ul>
-</li>
-<li>
-<p>Boil some water.</p>
-</li>
-<li>
-<p>Dump everything in the pot and follow this algorithm:</p>
-<pre><code>find wooden spoon
-uncover pot
-stir
-cover pot
-balance wooden spoon precariously on pot handle
-wait 10 minutes
-goto first step (or shut off burner when done)
-</code></pre>
-<p>Do not bump wooden spoon or it will fall.</p>
-</li>
-</ol>
-<p>Notice again how text always lines up on 4-space indents (including that last line which continues item 3 above).</p>
-<p>Here's a link to <a href="http://foo.bar">a website</a>.</p>
-<blockquote>
-<p>Move the following to next page with <code>&lt;div class=&quot;page-break&quot; /&gt;</code>.</p>
-</blockquote>
-<div class="page-break" />
-<p>Some Headlines.</p>
-<h1>Headline 1</h1>
-<h2>Headline 2</h2>
-<h3>Headline 3</h3>
-<h4>Headline 4</h4>
-<h5>Headline 5</h5>
-<h6>Headline 6</h6>
-<p>Tables can look like this:</p>
-<table>
-<thead>
-<tr>
-<th>Lorem ipsum</th>
-<th>Lorem ipsum</th>
-<th>Lorem ipsum dolor</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</td>
-<td>lorem ipsum dolor</td>
-<td>hello world</td>
-</tr>
-<tr>
-<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</td>
-<td>lorem ipsum dolor</td>
-<td>hello world</td>
-</tr>
-<tr>
-<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</td>
-<td>lorem ipsum dolor</td>
-<td>hello world</td>
-</tr>
-</tbody>
-</table>
-<p>and images can be specified like so:</p>
-<h3>External image</h3>
-<pre><code>![external image](http://placehold.it/900x250/000/FFF)
-</code></pre>
-<p><img src="http://placehold.it/900x250/000/FFF" alt="external image"></p>
-<h3>Local image</h3>
-<pre><code>![local image](mali.jpg)
-</code></pre>
-<p><img src="mali.jpg" alt="local image"></p>
-<div class="page-break" />
-<p>And note that you can backslash-escape any punctuation characters which you wish to be displayed literally, ex.: `foo`, *bar*, etc.</p>
-<p>Anbei testen wir ein paar Umlaute und Sonderzeichen...</p>
-<blockquote>
-<p>Äußerst schön verändert</p>
-</blockquote>
-<p>Chinese lorem ipsum</p>
-<blockquote>
-<p>鑕鬞鬠 烺焆琀 珝砯砨 槧樈 摓, 觢 獯璯 佹侁刵 駺駹鮚 馻噈嫶, 斶檎檦 鬐鶤鶐 韎 襆贂 嬃 緳廞徲 婸媥媕 灡蠵, 爧躨 撖撱暲 姎岵帔 熤熡磎 斠 琀痑 絼 逯郹酟 哱哸娗 浘涀缹 跣 藦藞 憢憉摮 蔰蝯蝺 濇燖燏, 跣鉌鳭 駺駹鮚 眅眊 慛 鑤仜伒 巕氍爟 稢綌 觢, 漦澌 鶭黮齥 鑤仜伒 蝪蝩覤 嫀 暕 寱懤擨 溗煂獂 蘥蠩, 鋋錋 戫摴撦 糋罶羬 硾, 桏毢涒 烍烚珜 鷡鷢 鉾</p>
-</blockquote>
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+-->
+<hr>
+<h2>Lorem ipsum dolor sit amet</h2>
 
 </body>
 </html>
