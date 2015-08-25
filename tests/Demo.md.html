@@ -249,16 +249,22 @@ hr {
 code {
     padding: .1em .4em .2em;
     display: inline-block;
-    background-color: #F9F9F9;
+    background-color: #f9f2f4;
+    color: #c7254e;
     border-radius: 3px;
     border: 0 none;
     word-wrap: normal;
     font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
-    box-shadow: inset -1px -1px 0 rgba(0, 0, 0, .08);
+    white-space: nowrap;
 }
 
-code:not(.hljs) {
+pre code {
+    padding: 16px;
+    display: block;
+    background-color: #F9F9F9;
     color: #333;
+    white-space: inherit;
+    box-shadow: inset -1px -1px 0 rgba(0, 0, 0, .08);
 }
 
 /* replace light background for some hljs themes */
@@ -274,11 +280,6 @@ code.idea-css,
 code.vs-css,
 code.xcode-css {
     background-color: #F9F9F9 !important;
-}
-
-pre code {
-    padding: 16px;
-    display: block;
 }
 
 blockquote {
