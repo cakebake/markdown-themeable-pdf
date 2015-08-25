@@ -17,11 +17,14 @@ The PDF can be generated in various ways:
 
 -	Right-click in the editor area when a file is opened (and saved) and select `Markdown to PDF` **or**
 -	Press `ctrl-shift-E` (E = Export) in the editor area when a file is opened (and saved)
--	Open Markdown Preview with `ctrl-shift-M`, right-click in markdown-preview area and select `Save As PDF`
 
 #### Page breaks
 
 You can start any time a new page with shortcode `<div class="page-break" />` in your markdown.
+
+#### Custom CSS
+
+The package creates a CSS file `~/.atom/markdown-themeable-pdf/styles.css` in your atom configuration directory. You can use this file to customize everything. If you want to change the path, you can change it in the package settings.
 
 ### Example / Demo
 
@@ -31,7 +34,7 @@ See [Demo.pdf](https://github.com/cakebake/markdown-themeable-pdf/raw/master/tes
 
 ### Todo
 
--	Create the package configuration (*custom themes, custom stylesheets, ...*\)
+-	Fix: Open Markdown Preview with `ctrl-shift-M`, right-click in markdown-preview area and select `Save As PDF`
 -	Custom header and footer
 -	Font Awesome integration
 -	Emojis
