@@ -35,6 +35,7 @@ See [Demo.md.pdf](https://github.com/cakebake/markdown-themeable-pdf/raw/master/
 -	Custom header and footer
 -	Font Awesome integration
 -	Emojis
+-	Inline Links (Anchors)
 
 ### Known Issues
 
