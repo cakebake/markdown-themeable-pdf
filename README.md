@@ -20,7 +20,7 @@ The PDF can be generated in various ways:
 
 #### Page breaks
 
-You can start any time a new page with shortcode `<div class="page-break" />` in your markdown.
+You can start any time a new page with typing Snippet/Shortcode `page-break` in your markdown editor.
 
 #### Custom CSS
 

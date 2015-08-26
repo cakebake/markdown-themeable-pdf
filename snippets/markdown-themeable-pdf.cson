@@ -1,0 +1,10 @@
+'.source.gfm':
+  'Page break':
+    'prefix': 'page-break'
+    'body': '\n<div class="page-break"></div>\n'
+  'Break page':
+    'prefix': 'break-page'
+    'body': '\n<div class="page-break"></div>\n'
+  'Next page':
+    'prefix': 'next-page'
+    'body': '\n<div class="page-break"></div>\n'

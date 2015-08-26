@@ -46,7 +46,7 @@ Here's a numbered list:
 2.	second item
 3.	third item
 
-<div class="page-break" />
+<div class="page-break"></div>
 
 Here's a code sample:
 ---------------------
@@ -110,9 +110,9 @@ Notice again how text always lines up on 4-space indents (including that last li
 
 Here's a link to [a website](http://foo.bar).
 
-> Move the following to next page with `<div class="page-break" />`.
+> Move the following to next page with `<div class="page-break"></div>`.
 
-<div class="page-break" />
+<div class="page-break"></div>
 
 Some Headlines.
 
@@ -156,7 +156,7 @@ and images can be specified like so:
 
 ![local image](mali.jpg)
 
-<div class="page-break" />
+<div class="page-break"></div>
 
 And note that you can backslash-escape any punctuation characters which you wish to be displayed literally, ex.: \`foo\`, \*bar\*, etc.
 
