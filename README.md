@@ -20,7 +20,7 @@ The PDF can be generated in various ways:
 
 #### Page breaks
 
-You can start any time a new page with typing Snippet/Shortcode `page-break` in your markdown editor.
+You can start any time a new PDF page with typing Snippet/Shortcode `page-break` in your markdown editor. So you can prevent such ugly breaks in lists or other contiguous areas.
 
 #### Custom CSS
 
