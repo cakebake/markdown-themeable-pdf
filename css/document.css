@@ -249,3 +249,14 @@ a[href^="#"]:after {
 .page-end {
     page-break-before: always;
 }
+
+#page-header {
+    color: #888;
+}
+
+#page-footer {
+    border-top: 2px solid #EEE;
+    padding-top: 10px;
+    color: #888;
+    font-size: 80%;
+}
