@@ -10,6 +10,8 @@ html, body {
     font-size: 16px;
     line-height: 1.42857143;
     color: #444;
+    word-wrap: break-word;
+	hyphens: auto;
 }
 
 hr {
@@ -28,7 +30,7 @@ code {
     border: 0 none;
     word-wrap: normal;
     font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
-    white-space: nowrap;
+	hyphens: manual;
 }
 
 pre code {
@@ -36,7 +38,6 @@ pre code {
     display: block;
     background-color: #F9F9F9;
     color: #333;
-    white-space: inherit;
     box-shadow: inset -1px -1px 0 rgba(0, 0, 0, .08);
 }
 
