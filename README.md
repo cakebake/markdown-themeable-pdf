@@ -26,6 +26,8 @@ You can start any time a new PDF page with typing Snippet/Shortcode `page-break`
 
 The package creates a CSS file `~/.atom/markdown-themeable-pdf/styles.css` in your atom configuration directory. You can use this file to customize everything. If you want to change the path, you can change it in the package settings.
 
+> Tip: Export your markdown as HTML to inspect it in your favorite browser. After CSS changes you must not restart atom.
+
 #### Custom header & Custom footer
 
 The pdf document can be decorated with your own header and footer. This can be flexibly adapted to JavaScript files. Each of these files represents a node.js module, which returns an object with two required properties `height` and `contents`. After you have made any changes you need to reload or restart atom.
@@ -73,7 +75,6 @@ See [Demo.pdf](https://github.com/cakebake/markdown-themeable-pdf/raw/master/tes
 ### Todo
 
 -	Fix: Open Markdown Preview with `ctrl-shift-M`, right-click in markdown-preview area and select `Save As PDF`
--	Custom header and footer
 -	Better handling of long code lines
 -	Solving local paths within html code (Image src, ...)
 -	Font Awesome integration
