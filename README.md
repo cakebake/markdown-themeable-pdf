@@ -26,6 +26,44 @@ You can start any time a new PDF page with typing Snippet/Shortcode `page-break`
 
 The package creates a CSS file `~/.atom/markdown-themeable-pdf/styles.css` in your atom configuration directory. You can use this file to customize everything. If you want to change the path, you can change it in the package settings.
 
+#### Custom header & Custom footer
+
+The pdf document can be decorated with your own header and footer. This can be flexibly adapted to JavaScript files. Each of these files represents a node.js module, which returns an object with two required properties `height` and `contents`. After you have made any changes you need to reload or restart atom.
+
+To customize the document header, open `~/.atom/markdown-themeable-pdf/header.js` (*you can change this path in the package settings*) and change it to your needs:
+
+```javascript
+// EXAMPLE
+module.exports = function () {
+    return {
+        height: '2cm',
+        contents: '<div style="text-align: right;">Created by <span style="color: #EC4634; font-size: 120%; text-transform: uppercase;">markdown-themeable-pdf</span></div>'
+    };
+};
+```
+
+To customize the document footer, open `~/.atom/markdown-themeable-pdf/footer.js` (*you can change this path in the package settings*) and change it to your needs:
+
+```javascript
+// EXAMPLE
+module.exports = function () {
+    var dateFormat = function () {
+        return (new Date()).toLocaleDateString('en-US', {
+            weekday: 'long',
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit'
+        });
+    };
+    return {
+        height: '1cm',
+        contents: '<div style="float:left;">Page {{page}}/{{pages}}</div><div style="float:right;">&copy; Copyright ' + dateFormat() + ' by COMPANYNAME</div>'
+    };
+};
+```
+
 ### Example / Demo
 
 See [Demo.pdf](https://github.com/cakebake/markdown-themeable-pdf/raw/master/tests/Demo.pdf) - the PDF version of [Demo.md](https://github.com/cakebake/markdown-themeable-pdf/raw/master/tests/Demo.md).
