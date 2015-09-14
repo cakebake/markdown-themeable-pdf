@@ -169,3 +169,24 @@ Anbei testen wir ein paar Umlaute und Sonderzeichen...
 Chinese lorem ipsum
 
 > 鑕鬞鬠 烺焆琀 珝砯砨 槧樈 摓, 觢 獯璯 佹侁刵 駺駹鮚 馻噈嫶, 斶檎檦 鬐鶤鶐 韎 襆贂 嬃 緳廞徲 婸媥媕 灡蠵, 爧躨 撖撱暲 姎岵帔 熤熡磎 斠 琀痑 絼 逯郹酟 哱哸娗 浘涀缹 跣 藦藞 憢憉摮 蔰蝯蝺 濇燖燏, 跣鉌鳭 駺駹鮚 眅眊 慛 鑤仜伒 巕氍爟 稢綌 觢, 漦澌 鶭黮齥 鑤仜伒 蝪蝩覤 嫀 暕 寱懤擨 溗煂獂 蘥蠩, 鋋錋 戫摴撦 糋罶羬 硾, 桏毢涒 烍烚珜 鷡鷢 鉾
+
+Testing some HTML code
+----------------------
+
+Image with relative path...
+
+```
+<img src="../tests/example.png" alt="Image with relative path" />
+```
+
+<img src="../tests/example.png" alt="IMG RELATIVE" />
+
+<br /><br>
+
+Image external...
+
+```
+<img src="http://placehold.it/900x250/f3330b/fff" alt="Image external" />
+```
+
+<img src="http://placehold.it/900x250/f3330b/fff" alt="IMG EXTERNAL" />

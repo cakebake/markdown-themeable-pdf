@@ -21,6 +21,7 @@
     "markdown-it-checkbox": "*",
     "markdown-it-smartarrows": "*",
     "html-pdf": "*",
-    "highlight.js": "*"
+    "highlight.js": "*",
+    "cheerio": "*"
   }
 }
