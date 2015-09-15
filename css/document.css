@@ -251,11 +251,11 @@ a[href^="#"]:after {
     page-break-before: always;
 }
 
-#page-header {
+#pageHeader {
     color: #888;
 }
 
-#page-footer {
+#pageFooter {
     border-top: 2px solid #EEE;
     padding-top: 10px;
     color: #888;

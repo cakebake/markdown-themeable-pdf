@@ -2,10 +2,286 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>
-Demo.html
-</title>
+<title>Demo.html</title>
 <style>
+* {
+    overflow: visible !important;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+}
+
+html, body {
+    background: #FFF;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.42857143;
+    color: #444;
+    word-wrap: break-word;
+	hyphens: auto;
+}
+
+hr {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 0;
+    border-top: 4px solid #EEE;
+}
+
+code {
+    padding: .1em .4em .2em;
+    display: inline-block;
+    background-color: #f9f2f4;
+    color: #c7254e;
+    border-radius: 3px;
+    border: 0 none;
+    word-wrap: normal;
+    font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+	hyphens: manual;
+}
+
+pre code {
+    padding: 16px;
+    display: block;
+    background-color: #F9F9F9;
+    color: #333;
+    box-shadow: inset -1px -1px 0 rgba(0, 0, 0, .08);
+}
+
+/* replace light background for some hljs themes */
+code.github-css,
+code.github-gist-css,
+code.tomorrow-css,
+code.default-css,
+code.googlecode-css,
+code.ascetic-css,
+code.color-brewer-css,
+code.grayscale-css,
+code.idea-css,
+code.vs-css,
+code.xcode-css {
+    background-color: #F9F9F9 !important;
+}
+
+blockquote {
+    padding: 10px 20px;
+    margin: 10px 0 20px;
+    color: #777;
+    border: 0 none;
+    border-left: 4px solid #EEE;
+}
+
+blockquote p:last-child,
+blockquote ul:last-child,
+blockquote ol:last-child {
+    margin-bottom: 0;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    background-color: #FFF;
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+    border: 1px solid #DDD;
+}
+
+table div {
+    page-break-inside: avoid;
+}
+
+th, td {
+    text-align: left;
+}
+
+table > thead > tr > th,
+table > tbody > tr > th,
+table > tfoot > tr > th,
+table > thead > tr > td,
+table > tbody > tr > td,
+table > tfoot > tr > td {
+    padding: 8px 14px;
+    vertical-align: top;
+    border-top: 1px solid #DDD;
+}
+
+table > caption + thead > tr:first-child > th,
+table > colgroup + thead > tr:first-child > th,
+table > thead:first-child > tr:first-child > th,
+table > caption + thead > tr:first-child > td,
+table > colgroup + thead > tr:first-child > td,
+table > thead:first-child > tr:first-child > td {
+    border-top: 0;
+}
+
+table > tbody + tbody {
+    border-top: 2px solid #DDD;
+}
+
+table table {
+    background-color: #FFF;
+}
+
+table > thead > tr > th,
+table > tbody > tr > th,
+table > tfoot > tr > th,
+table > thead > tr > td,
+table > tbody > tr > td,
+table > tfoot > tr > td {
+    border: 1px solid #DDD;
+}
+
+table > thead > tr > th,
+table > thead > tr > td {
+    border-bottom-width: 2px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+table > tbody > tr:nth-of-type(odd) {
+    background-color: #F9F9F9;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.1;
+    color: #111;
+    margin-bottom: 10px;
+}
+
+h1, h2, h3 {
+    padding-bottom: 12px;
+    border-bottom: 1px solid #EEE;
+    margin-bottom: 18px;
+}
+
+h1 {
+    font-size: 36px;
+}
+
+h2 {
+    font-size: 30px;
+}
+
+h3 {
+    font-size: 24px;
+}
+
+h4 {
+    font-size: 18px;
+}
+
+h5 {
+    font-size: 16px;
+}
+
+h6 {
+    font-size: 14px;
+    color: #555;
+}
+
+p {
+    margin: 0 0 10px;
+}
+
+input[type="checkbox"] {
+    margin-right: 6px;
+}
+
+ul,
+ol {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+ul ul,
+ol ul,
+ul ol,
+ol ol {
+    margin-bottom: 0;
+}
+
+dl {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+dt,
+dd {
+    line-height: 1.42857143;
+}
+
+dt {
+    font-weight: bold;
+}
+
+dd {
+    margin-left: 0;
+}
+
+a,
+a:visited {
+    text-decoration: none;
+    color: inherit;
+}
+
+a[href]:after {
+    content: " " attr(href);
+    color: #337AB7;
+}
+
+.ir a:after,
+a[href^="javascript:"]:after,
+a[href^="#"]:after {
+    content: "";
+    text-decoration: none;
+    margin-left: 0;
+}
+
+.new-page,
+.page-break,
+.next-page,
+.page-end {
+    page-break-before: always;
+}
+
+#page-header {
+    color: #888;
+}
+
+#page-footer {
+    border-top: 2px solid #EEE;
+    padding-top: 10px;
+    color: #888;
+    font-size: 80%;
+}
+
+/**
+ * Your markdown-themeable-pdf custom styles
+ *
+ * The default file can be found in the folder ~/.atom/packages/markdown-themeable-pdf/templates
+ * The base css file can be found in the folder ~/.atom/packages/markdown-themeable-pdf/css
+ * The current highlight.js css file can be found in the folder ~/.atom/packages/markdown-themeable-pdf/node_modules/highlight.js/styles
+ */
+
+/*
+html, body {
+	color: red;
+}
+*/
+
 /**
  * GitHub Gist Theme
  * Author : Louis Barranqueiro - https://github.com/LouisBarranqueiro
@@ -225,261 +501,11 @@ Demo.html
   text-decoration: underline;
 }
 
-* {
-    overflow: visible !important;
-    -webkit-text-size-adjust: 100%;
-    -webkit-font-smoothing: antialiased;
-}
-
-html, body {
-    background: #FFF;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 16px;
-    line-height: 1.42857143;
-    color: #444;
-}
-
-hr {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    border: 0;
-    border-top: 4px solid #EEE;
-}
-
-code {
-    padding: .1em .4em .2em;
-    display: inline-block;
-    background-color: #f9f2f4;
-    color: #c7254e;
-    border-radius: 3px;
-    border: 0 none;
-    word-wrap: normal;
-    font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
-    white-space: nowrap;
-}
-
-pre code {
-    padding: 16px;
-    display: block;
-    background-color: #F9F9F9;
-    color: #333;
-    white-space: inherit;
-    box-shadow: inset -1px -1px 0 rgba(0, 0, 0, .08);
-}
-
-/* replace light background for some hljs themes */
-code.github-css,
-code.github-gist-css,
-code.tomorrow-css,
-code.default-css,
-code.googlecode-css,
-code.ascetic-css,
-code.color-brewer-css,
-code.grayscale-css,
-code.idea-css,
-code.vs-css,
-code.xcode-css {
-    background-color: #F9F9F9 !important;
-}
-
-blockquote {
-    padding: 10px 20px;
-    margin: 10px 0 20px;
-    color: #777;
-    border: 0 none;
-    border-left: 4px solid #EEE;
-}
-
-blockquote p:last-child,
-blockquote ul:last-child,
-blockquote ol:last-child {
-    margin-bottom: 0;
-}
-
-table {
-    border-collapse: collapse;
-    border-spacing: 0;
-    background-color: #FFF;
-    width: 100%;
-    max-width: 100%;
-    margin-bottom: 20px;
-    border: 1px solid #DDD;
-}
-
-table div {
-    page-break-inside: avoid;
-}
-
-th, td {
-    text-align: left;
-}
-
-table > thead > tr > th,
-table > tbody > tr > th,
-table > tfoot > tr > th,
-table > thead > tr > td,
-table > tbody > tr > td,
-table > tfoot > tr > td {
-    padding: 8px 14px;
-    vertical-align: top;
-    border-top: 1px solid #DDD;
-}
-
-table > caption + thead > tr:first-child > th,
-table > colgroup + thead > tr:first-child > th,
-table > thead:first-child > tr:first-child > th,
-table > caption + thead > tr:first-child > td,
-table > colgroup + thead > tr:first-child > td,
-table > thead:first-child > tr:first-child > td {
-    border-top: 0;
-}
-
-table > tbody + tbody {
-    border-top: 2px solid #DDD;
-}
-
-table table {
-    background-color: #FFF;
-}
-
-table > thead > tr > th,
-table > tbody > tr > th,
-table > tfoot > tr > th,
-table > thead > tr > td,
-table > tbody > tr > td,
-table > tfoot > tr > td {
-    border: 1px solid #DDD;
-}
-
-table > thead > tr > th,
-table > thead > tr > td {
-    border-bottom-width: 2px;
-    text-align: center;
-    vertical-align: middle;
-}
-
-table > tbody > tr:nth-of-type(odd) {
-    background-color: #F9F9F9;
-}
-
-img {
-    max-width: 100%;
-    height: auto;
-    vertical-align: middle;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-family: inherit;
-    font-weight: 500;
-    line-height: 1.1;
-    color: #111;
-    margin-bottom: 10px;
-}
-
-h1, h2, h3 {
-    padding-bottom: 12px;
-    border-bottom: 1px solid #EEE;
-    margin-bottom: 18px;
-}
-
-h1 {
-    font-size: 36px;
-}
-
-h2 {
-    font-size: 30px;
-}
-
-h3 {
-    font-size: 24px;
-}
-
-h4 {
-    font-size: 18px;
-}
-
-h5 {
-    font-size: 16px;
-}
-
-h6 {
-    font-size: 14px;
-    color: #555;
-}
-
-p {
-    margin: 0 0 10px;
-}
-
-input[type="checkbox"] {
-    margin-right: 6px;
-}
-
-ul,
-ol {
-    margin-top: 0;
-    margin-bottom: 10px;
-}
-
-ul ul,
-ol ul,
-ul ol,
-ol ol {
-    margin-bottom: 0;
-}
-
-dl {
-    margin-top: 0;
-    margin-bottom: 20px;
-}
-
-dt,
-dd {
-    line-height: 1.42857143;
-}
-
-dt {
-    font-weight: bold;
-}
-
-dd {
-    margin-left: 0;
-}
-
-a,
-a:visited {
-    text-decoration: none;
-    color: inherit;
-}
-
-a[href]:after {
-    content: " " attr(href);
-    color: #337AB7;
-}
-
-.ir a:after,
-a[href^="javascript:"]:after,
-a[href^="#"]:after {
-    content: "";
-    text-decoration: none;
-    margin-left: 0;
-}
-
-.new-page,
-.page-break,
-.next-page,
-.page-end {
-    page-break-before: always;
-}
 
 </style>
 </head>
 <body>
+<div id="pageContent">
 <h1>An h1 header</h1>
 <p>Paragraphs are separated by a blank line.</p>
 <p>New line... Some changes... :)</p>
@@ -516,7 +542,7 @@ a[href^="#"]:after {
 <li>second item</li>
 <li>third item</li>
 </ol>
-<div class="page-break" />
+<div class="page-break"></div>
 <h2>Here's a code sample:</h2>
 <pre><code class="hljs github-gist-css bash"><span class="hljs-shebang">#!/bin/bash
 </span>
@@ -572,9 +598,9 @@ goto first step (or shut off burner when done)
 <p>Notice again how text always lines up on 4-space indents (including that last line which continues item 3 above).</p>
 <p>Here's a link to <a href="http://foo.bar">a website</a>.</p>
 <blockquote>
-<p>Move the following to next page with <code>&lt;div class=&quot;page-break&quot; /&gt;</code>.</p>
+<p>Move the following to next page with <code>&lt;div class=&quot;page-break&quot;&gt;&lt;/div&gt;</code>.</p>
 </blockquote>
-<div class="page-break" />
+<div class="page-break"></div>
 <p>Some Headlines.</p>
 <h1>Headline 1</h1>
 <h2>Headline 2</h2>
@@ -609,16 +635,17 @@ goto first step (or shut off burner when done)
 </tr>
 </tbody>
 </table>
-<p>and images can be specified like so:</p>
+<div class="page-break"></div>
 <h3>External image</h3>
 <pre><code>![external image](http://placehold.it/900x250/000/FFF)
 </code></pre>
 <p><img src="http://placehold.it/900x250/000/FFF" alt="external image"></p>
 <h3>Local image</h3>
-<pre><code>![local image](mali.jpg)
+<p>Local image with relative path.</p>
+<pre><code>![local image](example.png)
 </code></pre>
-<p><img src="mali.jpg" alt="local image"></p>
-<div class="page-break" />
+<p><img src="example.png" alt="local image"></p>
+<div class="page-break"></div>
 <p>And note that you can backslash-escape any punctuation characters which you wish to be displayed literally, ex.: `foo`, *bar*, etc.</p>
 <p>Anbei testen wir ein paar Umlaute und Sonderzeichen...</p>
 <blockquote>
@@ -628,6 +655,16 @@ goto first step (or shut off burner when done)
 <blockquote>
 <p>鑕鬞鬠 烺焆琀 珝砯砨 槧樈 摓, 觢 獯璯 佹侁刵 駺駹鮚 馻噈嫶, 斶檎檦 鬐鶤鶐 韎 襆贂 嬃 緳廞徲 婸媥媕 灡蠵, 爧躨 撖撱暲 姎岵帔 熤熡磎 斠 琀痑 絼 逯郹酟 哱哸娗 浘涀缹 跣 藦藞 憢憉摮 蔰蝯蝺 濇燖燏, 跣鉌鳭 駺駹鮚 眅眊 慛 鑤仜伒 巕氍爟 稢綌 觢, 漦澌 鶭黮齥 鑤仜伒 蝪蝩覤 嫀 暕 寱懤擨 溗煂獂 蘥蠩, 鋋錋 戫摴撦 糋罶羬 硾, 桏毢涒 烍烚珜 鷡鷢 鉾</p>
 </blockquote>
+<h2>Testing some HTML code</h2>
+<p>Image with relative path...</p>
+<pre><code>&lt;img src=&quot;../tests/example.png&quot; alt=&quot;Image with relative path&quot; /&gt;
+</code></pre>
+<img src="../tests/example.png" alt="IMG RELATIVE" />
+<p><br /><br></p>
+<p>Image external...</p>
+<pre><code>&lt;img src=&quot;http://placehold.it/900x250/f3330b/fff&quot; alt=&quot;Image external&quot; /&gt;
+</code></pre>
+<img src="http://placehold.it/900x250/f3330b/fff" alt="IMG EXTERNAL" />
 
-</body>
+</div></body>
 </html>
