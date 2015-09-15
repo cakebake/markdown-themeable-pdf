@@ -15,8 +15,9 @@ Search in atom under **Settings View -> Install -> Packages** the package `markd
 
 The PDF can be generated in various ways:
 
--	Right-click in the editor area when a file is opened (and saved) and select `Markdown to PDF` **or**
--	Press `ctrl-shift-E` (E = Export) in the editor area when a file is opened (and saved)
+-	Right-click in the editor area when a file is opened and select `Markdown to PDF` **or**
+-	Right-click on a markdown file in Tree-View and select `Markdown to PDF` **or**
+-	Press `ctrl-shift-E` (E = Export) in the editor area when a file is opened
 
 #### Page breaks
 
