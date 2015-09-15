@@ -255,6 +255,10 @@ a[href^="#"]:after {
     color: #888;
 }
 
+#pageHeader span {
+    vertical-align: middle;
+}
+
 #pageFooter {
     border-top: 2px solid #EEE;
     padding-top: 10px;

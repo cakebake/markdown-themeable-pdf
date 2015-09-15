@@ -9,6 +9,6 @@
 module.exports = function () {
     return {
         height: '2cm',
-        contents: '<div style="text-align: right;">Created by <span style="color: #EC4634; font-size: 120%; text-transform: uppercase;">markdown-themeable-pdf</span></div>'
+        contents: '<div style="text-align: right;"><span>Created by</span> <img src="logo.png" alt="Logo" /> <span style="color: #EC4634; font-size: 120%; text-transform: uppercase;">markdown-themeable-pdf</span></div>'
     };
 };
