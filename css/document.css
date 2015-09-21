@@ -2,6 +2,7 @@
     overflow: visible !important;
     -webkit-text-size-adjust: 100%;
     -webkit-font-smoothing: antialiased;
+    box-decoration-break: clone;
 }
 
 html, body {
