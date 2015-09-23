@@ -157,9 +157,12 @@ h6 {
     page-break-after: avoid;
 }
 
+h1, h2 {
+    border-bottom: 1px solid #EEE;
+}
+
 h1, h2, h3 {
     padding-bottom: 12px;
-    border-bottom: 1px solid #EEE;
     margin-bottom: 18px;
 }
 
