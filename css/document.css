@@ -197,6 +197,8 @@ p {
 
 input[type="checkbox"] {
     margin-right: 6px;
+    position: relative;
+    bottom: 1px;
 }
 
 ul,
