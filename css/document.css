@@ -29,9 +29,8 @@ code {
     color: #c7254e;
     border-radius: 3px;
     border: 0 none;
-    word-wrap: normal;
     font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
-	hyphens: manual;
+    hyphens: manual;
 }
 
 pre code {
@@ -40,6 +39,7 @@ pre code {
     background-color: #F9F9F9;
     color: #333;
     box-shadow: inset -1px -1px 0 rgba(0, 0, 0, .08);
+    word-wrap: normal;
 }
 
 /* replace light background for some hljs themes */
