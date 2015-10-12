@@ -1,7 +1,7 @@
 Themeable markdown converter (Print to PDF, HTML, JPEG or PNG)
 ==============================================================
 
-[![Version](https://img.shields.io/apm/v/markdown-themeable-pdf.svg)](https://atom.io/packages/markdown-themeable-pdf)[![Total Downloads](https://img.shields.io/apm/dm/markdown-themeable-pdf.svg)](https://atom.io/packages/markdown-themeable-pdf)[![License](https://img.shields.io/apm/l/markdown-themeable-pdf.svg)](https://atom.io/packages/markdown-themeable-pdf)
+[![Version](https://img.shields.io/apm/v/markdown-themeable-pdf.svg)](https://atom.io/packages/markdown-themeable-pdf) [![Total Downloads](https://img.shields.io/apm/dm/markdown-themeable-pdf.svg)](https://atom.io/packages/markdown-themeable-pdf) [![License](https://img.shields.io/apm/l/markdown-themeable-pdf.svg)](https://atom.io/packages/markdown-themeable-pdf)
 
 ##### This [Atom package](https://atom.io/packages/markdown-themeable-pdf) converts / prints / exports your markdown file simple and pretty to `PDF`, `HTML`, `JPEG` or `PNG` format.
 
