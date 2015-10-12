@@ -31,7 +31,7 @@ Image with whitespaces
 
 Markdown:
 
-![local image](rattlesnake image.jpg)
+![local image](<rattlesnake image.jpg>)
 
 HTML:
 
@@ -44,7 +44,7 @@ Image with special chars
 
 Markdown:
 
-![local image](varanus Üäßbn - ubå.jpg)
+![local image](<varanus Üäßbn - ubå.jpg>)
 
 HTML:
 
