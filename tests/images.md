@@ -31,7 +31,7 @@ Image with whitespaces
 
 Markdown:
 
-![local image](<rattlesnake image.jpg>)
+![local image](rattlesnake image.jpg)
 
 HTML:
 
@@ -44,8 +44,21 @@ Image with special chars
 
 Markdown:
 
-![local image](<varanus Üäßbn - ubå.jpg>)
+![local image](varanus Üäßbn - ubå.jpg)
 
 HTML:
 
 <img src="varanus Üäßbn - ubå.jpg" alt="Test Image" />
+
+<div class="page-break"></div>
+
+Size-specified image markups
+----------------------------
+
+Markdown:
+
+![local image](example.png =300x300)
+
+HTML:
+
+<img src="example.png" alt="Test Image" width="300" height="300" />

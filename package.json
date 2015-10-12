@@ -20,6 +20,7 @@
     "markdown-it": "*",
     "markdown-it-checkbox": "*",
     "markdown-it-smartarrows": "*",
+    "markdown-it-imsize": "*",
     "html-pdf": "*",
     "highlight.js": "*",
     "cheerio": "*"
