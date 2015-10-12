@@ -1,9 +1,7 @@
 Themeable markdown converter (Print to PDF, HTML, JPEG or PNG)
 ==============================================================
 
-[![Version](https://img.shields.io/apm/v/markdown-themeable-pdf.svg)](https://atom.io/packages/markdown-themeable-pdf)
-[![Total Downloads](https://img.shields.io/apm/dm/markdown-themeable-pdf.svg)](https://atom.io/packages/markdown-themeable-pdf)
-[![License](https://img.shields.io/apm/l/markdown-themeable-pdf.svg)](https://atom.io/packages/markdown-themeable-pdf)
+[![Version](https://img.shields.io/apm/v/markdown-themeable-pdf.svg)](https://atom.io/packages/markdown-themeable-pdf)[![Total Downloads](https://img.shields.io/apm/dm/markdown-themeable-pdf.svg)](https://atom.io/packages/markdown-themeable-pdf)[![License](https://img.shields.io/apm/l/markdown-themeable-pdf.svg)](https://atom.io/packages/markdown-themeable-pdf)
 
 ##### This [Atom package](https://atom.io/packages/markdown-themeable-pdf) converts / prints / exports your markdown file simple and pretty to `PDF`, `HTML`, `JPEG` or `PNG` format.
 
@@ -29,7 +27,7 @@ You can start any time a new PDF page with typing Snippet/Shortcode `page-break`
 
 #### Custom CSS
 
-The package creates a CSS file `~/.atom/markdown-themeable-pdf/styles.css` in your atom configuration directory. You can use this file to customize everything. If you want to change the path, you can change it in the package settings.
+The package creates a CSS file `~/.atom/markdown-themeable-pdf/styles.css` in your atom configuration directory. You can use this file to customize everything. If you want to change the path, you can change it in the package settings. Alternatively, you can define with `project-path/markdown-themeable-pdf/styles.css` for each project its own CSS.
 
 > Tip: Export your markdown as HTML to inspect it in your favorite browser. After CSS changes you must not restart atom.
 
@@ -70,6 +68,8 @@ module.exports = function () {
     };
 };
 ```
+
+> Tip: Alternatively, you can define with `project-path/markdown-themeable-pdf/header.js` or `project-path/markdown-themeable-pdf/footer.js` for each project its own header and footer.
 
 ### Example / Demo
 
