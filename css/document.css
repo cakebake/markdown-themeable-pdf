@@ -7,12 +7,12 @@
 
 html, body {
     background: #FFF;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 16px;
-    line-height: 1.6;
+    font-family: "Segoe UI", Arial, freesans, sans-serif;
+    font-size: 12px;
+    line-height: 1.3;
     color: #444;
     word-wrap: break-word;
-	hyphens: auto;
+	  hyphens: auto;
 }
 
 hr {
@@ -29,7 +29,7 @@ code {
     color: #c7254e;
     border-radius: 3px;
     border: 0 none;
-    font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+    font: 12px Consolas, "Liberation Mono", Menlo, "Courier New", Courier, monospace;
     hyphens: manual;
 }
 
