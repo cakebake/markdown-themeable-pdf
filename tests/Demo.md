@@ -130,6 +130,8 @@ Headline 2
 
 ###### Headline 6
 
+<div class="page-break"></div>
+
 Tables can look like this:
 
 | Lorem ipsum                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Lorem ipsum       | Lorem ipsum dolor |
