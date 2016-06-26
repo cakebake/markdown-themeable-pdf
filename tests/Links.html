@@ -1,3 +1,9 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Links.html</title>
+<style>
 * {
     overflow: visible !important;
     -webkit-text-size-adjust: 100%;
@@ -270,3 +276,115 @@ a:visited {
 #pageFooter a:visited {
     color: #888;
 }
+
+/**
+ * Your markdown-themeable-pdf custom styles
+ *
+ * The default file can be found in the folder ~/.atom/packages/markdown-themeable-pdf/templates
+ * The base css file can be found in the folder ~/.atom/packages/markdown-themeable-pdf/css
+ * The current highlight.js css file can be found in the folder ~/.atom/packages/markdown-themeable-pdf/node_modules/highlight.js/styles
+ */
+
+/*
+html, body {
+	color: red;
+}
+*/
+
+/**
+ * GitHub Gist Theme
+ * Author : Louis Barranqueiro - https://github.com/LouisBarranqueiro
+ */
+
+.hljs {
+  display: block;
+  background: white;
+  padding: 0.5em;
+  color: #333333;
+  overflow-x: auto;
+}
+
+.hljs-comment,
+.hljs-meta {
+  color: #969896;
+}
+
+.hljs-string,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-strong,
+.hljs-emphasis,
+.hljs-quote {
+  color: #df5000;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-type {
+  color: #a71d5d;
+}
+
+.hljs-literal,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-attribute {
+  color: #0086b3;
+}
+
+.hljs-section,
+.hljs-name {
+  color: #63a35c;
+}
+
+.hljs-tag {
+  color: #333333;
+}
+
+.hljs-title,
+.hljs-attr,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-selector-attr,
+.hljs-selector-pseudo {
+  color: #795da3;
+}
+
+.hljs-addition {
+  color: #55a532;
+  background-color: #eaffea;
+}
+
+.hljs-deletion {
+  color: #bd2c00;
+  background-color: #ffecec;
+}
+
+.hljs-link {
+  text-decoration: underline;
+}
+
+pre { white-space: pre-wrap !important; word-break: break-word !important; overflow: hidden !important;}
+</style>
+</head>
+<body>
+<div id="pageContent">
+<h1 id="hyperlink-tests">Hyperlink tests</h1>
+<p>Here we test some link cases with Markdown, Markup and Plain.</p>
+<h2 id="plain">Plain</h2>
+<p>To render plain text hyperlink, please activate <strong>Autoconvert URL-like text to links</strong> in <code>markdown-themeable-pdf</code> settings.</p>
+<p><input type="checkbox" id="checkbox-0" checked="true"><label for="checkbox-0"></label><a href="https://github.com/cakebake/markdown-themeable-pdf/">https://github.com/cakebake/markdown-themeable-pdf/</a></p>
+<h2 id="markdown-links">Markdown links</h2>
+<ul>
+<li><input type="checkbox" id="checkbox-1" checked="true"><label for="checkbox-1"></label><a href="https://github.com/cakebake/markdown-themeable-pdf/">External</a></li>
+<li><input type="checkbox" id="checkbox-2"><label for="checkbox-2">[File](file:///home/jens/.atom/packages/markdown-themeable-pdf/tests/Demo.pdf)</label></li>
+<li><input type="checkbox" id="checkbox-3"><label for="checkbox-3"></label><a href="#markdown-links">Anchor</a></li>
+</ul>
+<h2 id="html-links">HTML links</h2>
+<ul>
+<li><input type="checkbox" id="checkbox-4" checked="true"><label for="checkbox-4"></label><a href="https://github.com/cakebake/markdown-themeable-pdf/">External</a></li>
+<li><input type="checkbox" id="checkbox-5" checked="true"><label for="checkbox-5"></label><a href="file:///home/jens/.atom/packages/markdown-themeable-pdf/tests/Demo.pdf">File</a></li>
+<li><input type="checkbox" id="checkbox-6"><label for="checkbox-6"></label><a href="#html-links">Anchor</a></li>
+</ul>
+
+</div></body>
+</html>
