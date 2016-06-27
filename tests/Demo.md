@@ -37,6 +37,8 @@ Write a todo list
 -	[x] Step 1
 -	[x] Step 1
 
+<div class="page-break"></div>
+
 An h2 header
 ------------
 
@@ -45,8 +47,6 @@ Here's a numbered list:
 1.	first item
 2.	second item
 3.	third item
-
-<div class="page-break"></div>
 
 Here's a code sample:
 ---------------------
@@ -79,6 +79,8 @@ for i in range(10):
     time.sleep(0.5)
     print i
 ```
+
+<div class="page-break"></div>
 
 ### An h3 header
 
@@ -171,6 +173,8 @@ Anbei testen wir ein paar Umlaute und Sonderzeichen...
 Chinese lorem ipsum
 
 > 鑕鬞鬠 烺焆琀 珝砯砨 槧樈 摓, 觢 獯璯 佹侁刵 駺駹鮚 馻噈嫶, 斶檎檦 鬐鶤鶐 韎 襆贂 嬃 緳廞徲 婸媥媕 灡蠵, 爧躨 撖撱暲 姎岵帔 熤熡磎 斠 琀痑 絼 逯郹酟 哱哸娗 浘涀缹 跣 藦藞 憢憉摮 蔰蝯蝺 濇燖燏, 跣鉌鳭 駺駹鮚 眅眊 慛 鑤仜伒 巕氍爟 稢綌 觢, 漦澌 鶭黮齥 鑤仜伒 蝪蝩覤 嫀 暕 寱懤擨 溗煂獂 蘥蠩, 鋋錋 戫摴撦 糋罶羬 硾, 桏毢涒 烍烚珜 鷡鷢 鉾
+
+<div class="page-break"></div>
 
 Testing some HTML code
 ----------------------
