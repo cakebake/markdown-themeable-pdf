@@ -1,0 +1,16 @@
+{
+  "context-menu": {
+    ".tree-view .file .name[data-name$=\\.markdown], .tree-view .file .name[data-name$=\\.md], .tree-view .file .name[data-name$=\\.mdown], .tree-view .file .name[data-name$=\\.mkd], .tree-view .file .name[data-name$=\\.mkdown], .tree-view .file .name[data-name$=\\.ron], .tree-view .file .name[data-name$=\\.txt]": [
+      {
+        "label": "--> Print/Export markdown",
+        "command": "markdown-themeable-pdf:printFile"
+      }
+    ],
+    "atom-pane[data-active-item-name$=\\.markdown] atom-text-editor, atom-pane[data-active-item-name$=\\.md] atom-text-editor, atom-pane[data-active-item-name$=\\.mdown] atom-text-editor, atom-pane[data-active-item-name$=\\.mkd] atom-text-editor, atom-pane[data-active-item-name$=\\.mkdown] atom-text-editor, atom-pane[data-active-item-name$=\\.ron] atom-text-editor, atom-pane[data-active-item-name$=\\.txt] atom-text-editor": [
+      {
+        "label": "--> Print/Export markdown",
+        "command": "markdown-themeable-pdf:printContent"
+      }
+    ]
+  }
+}

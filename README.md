@@ -1,8 +1,7 @@
 Themeable markdown converter (Print to PDF, HTML, JPEG or PNG)
 ==============================================================
 
-[![Version](https://img.shields.io/apm/v/markdown-themeable-pdf.svg)](https://github.com/cakebake/markdown-themeable-pdf/releases) [![Total Downloads](https://img.shields.io/apm/dm/markdown-themeable-pdf.svg)](https://atom.io/packages/markdown-themeable-pdf) [![License](https://img.shields.io/apm/l/markdown-themeable-pdf.svg)](https://github.com/cakebake/markdown-themeable-pdf/blob/master/package.json#L14)
-[![Dependencies](https://img.shields.io/david/cakebake/markdown-themeable-pdf.svg)](https://github.com/cakebake/markdown-themeable-pdf/blob/master/package.json#L18)
+[![Version](https://img.shields.io/apm/v/markdown-themeable-pdf.svg)](https://github.com/cakebake/markdown-themeable-pdf/releases) [![Total Downloads](https://img.shields.io/apm/dm/markdown-themeable-pdf.svg)](https://atom.io/packages/markdown-themeable-pdf) [![License](https://img.shields.io/apm/l/markdown-themeable-pdf.svg)](https://github.com/cakebake/markdown-themeable-pdf/blob/master/package.json#L14)[![Dependencies](https://img.shields.io/david/cakebake/markdown-themeable-pdf.svg)](https://github.com/cakebake/markdown-themeable-pdf/blob/master/package.json#L18)
 
 ##### This [Atom package](https://atom.io/packages/markdown-themeable-pdf) converts / prints / exports your markdown file simple and pretty to `PDF`, `HTML`, `JPEG` or `PNG` format.
 
@@ -74,9 +73,9 @@ module.exports = function () {
 
 ### Example / Demo
 
-See [Demo.pdf](https://github.com/cakebake/markdown-themeable-pdf/raw/master/tests/Demo.pdf) - the PDF version of [Demo.md](https://github.com/cakebake/markdown-themeable-pdf/raw/master/tests/Demo.md).
+See [Demo.pdf](https://github.com/cakebake/markdown-themeable-pdf/raw/master/examples/Demo.pdf) - the PDF version of [Demo.md](https://github.com/cakebake/markdown-themeable-pdf/raw/master/examples/Demo.md).
 
-![DEMO](https://raw.githubusercontent.com/cakebake/markdown-themeable-pdf/master/DEMO.gif)
+![DEMO](https://raw.githubusercontent.com/cakebake/markdown-themeable-pdf/master/examples/DEMO.gif)
 
 ### Todo
 

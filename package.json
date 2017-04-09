@@ -1,8 +1,8 @@
 {
   "name": "markdown-themeable-pdf",
-  "main": "./lib/markdown-themeable-pdf",
-  "version": "1.2.0",
-  "description": "Themeable markdown converter (Print to PDF, HTML, JPEG or PNG)",
+  "main": "./src/index",
+  "version": "2.0.0-dev",
+  "description": "Themeable markdown converter (Print/Export to PDF, HTML, JPEG or PNG)",
   "keywords": [
     "markdown",
     "pdf",
@@ -16,14 +16,7 @@
     "atom": ">=0.174.0 <2.0.0"
   },
   "dependencies": {
-    "cheerio": "^0.20.0",
-    "highlight.js": "^9.4.0",
-    "html-pdf": "^2.0.1",
-    "markdown-it": "^7.0.0",
-    "markdown-it-anchor": "^2.5.0",
-    "markdown-it-checkbox": "^1.1.0",
-    "markdown-it-imsize": "^2.0.1",
-    "markdown-it-smartarrows": "^1.0.1",
+    "lodash": "^4.17.4",
     "ncp": "^2.0.0"
   }
 }
