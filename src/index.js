@@ -1,7 +1,7 @@
 'use babel'
 
 import { CompositeDisposable } from 'atom'
-import { printContent, printFile } from './commands'
+import { convertContent, convertFile } from './commands'
 import config from './config'
 import { copyCustomTemplateFiles } from './api/filesystem'
 
@@ -9,8 +9,8 @@ export default {
   config,
   activate () {
     const commands = {
-      'markdown-themeable-pdf:printContent': printContent,
-      'markdown-themeable-pdf:printFile': printFile
+      'markdown-themeable-pdf:convertContent': convertContent,
+      'markdown-themeable-pdf:convertFile': convertFile
     }
     const pageBreakStyling = (editor) => {
       const regex = new RegExp('^<div class="page-break"></div>$', 'g')

@@ -1,18 +1,9 @@
 'use babel'
 
-import { createCapture } from './api/capture'
 import { get } from 'lodash'
+import convert from './api/convert'
 
-const print = (filePath) => {
-  if (!filePath) {
-    atom.notifications
-      .addError('Could not get file path')
-  } else {
-    createCapture(filePath)
-  }
-}
-
-export const printContent = () => {
+export const convertContent = () => {
   const editor = atom.workspace.getActiveTextEditor()
   if (editor.isEmpty()) {
     atom.notifications
@@ -22,10 +13,10 @@ export const printContent = () => {
         atom.notifications
           .addWarning('Any unsaved changes are ignored. Please save your changes before exporting.')
     }
-    print(editor.getPath())
+    convert(editor.getPath())
   }
 }
 
-export const printFile = (event) => {
-  print(get(event, 'target.dataset.path', null))
+export const convertFile = (event) => {
+  convert(get(event, 'target.dataset.path', null))
 }
