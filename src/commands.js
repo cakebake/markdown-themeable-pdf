@@ -2,21 +2,33 @@
 
 import { get } from 'lodash'
 import convert from './api/convert'
+import { getConfig, notification } from './atom'
 
 export const convertContent = () => {
   const editor = atom.workspace.getActiveTextEditor()
   if (editor.isEmpty()) {
-    atom.notifications
-      .addError('Current editor is empty')
+    notification('Current editor is empty', 'error')
   } else {
     if (editor.isModified()) {
-        atom.notifications
-          .addWarning('Any unsaved changes are ignored. Please save your changes before exporting.')
+      notification('Any unsaved changes are ignored. Please save your changes before exporting.', 'warning')
     }
-    convert(editor.getPath())
+    _convert(editor.getPath())
   }
 }
 
+// @todo file is empty error
 export const convertFile = (event) => {
-  convert(get(event, 'target.dataset.path', null))
+  _convert(get(event, 'target.dataset.path', null))
+}
+
+const _convert = (path) => {
+  const exportFileType = getConfig('exportFileType')
+  notification(`Start converting markdown to ${exportFileType}`)
+  convert(path, exportFileType)
+    .then((content) => {
+      console.log(exportFileType, content)
+    })
+    .catch((e) => {
+      console.error(e)
+    })
 }

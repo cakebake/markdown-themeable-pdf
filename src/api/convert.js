@@ -1,22 +1,46 @@
 'use babel'
 
-import { parse } from 'path'
-import { configCollection, notification } from './atom'
-
-const convert = (filePath) => {
-  if (!filePath) {
-    notification('Could not get file path', 'error')
-  } else {
-    const options = {
-      filePath,
-      fileInfo: parse(filePath),
-      ...configCollection([
-        'exportFileType'
-      ])
+const convert = (filePath, exportFileType) => {
+  return new Promise((resolve, reject) => {
+    if (!filePath) {
+      reject('Could not get file path')
+    } else {
+      markdownToHtml(filePath, exportFileType)
+        .then((html) => {
+          if (exportFileType === 'html') {
+            resolve(html)
+          } else {
+            return html
+          }
+        })
+        .then((html) => {
+          return htmlToCapture(html, exportFileType)
+        })
+        .then((capture) => {
+          resolve(capture)
+        })
+        .catch((e) => {
+          reject(e)
+        })
     }
-    notification(`Start converting ${options.fileInfo.base} to ${options.exportFileType}`)
-    console.log(options)
-  }
+  })
+}
+
+const markdownToHtml = (filePath, exportFileType) => {
+  return new Promise((resolve, reject) => {
+    const html = `
+      lorem ipsum
+      dolor sit
+    `
+    resolve(html)
+  })
+}
+
+const htmlToCapture = (html, exportFileType) => {
+  return new Promise((resolve, reject) => {
+    const capture = 'capture content. buffer?'
+    resolve(capture)
+  })
 }
 
 export default convert

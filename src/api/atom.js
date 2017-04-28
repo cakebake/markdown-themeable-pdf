@@ -23,10 +23,10 @@ export const notification = (message = '', type = 'info') => {
 
 export const getConfig = type => atom.config.get(`${PACKAGE_NAME}.${type}`)
 
-export const configCollection = keys => {
-  const collection = {}
-  forEach(keys, (key) => {
-    set(collection, key, getConfig(key))
-  })
-  return collection
-}
+// export const configCollection = keys => {
+//   const collection = {}
+//   forEach(keys, (key) => {
+//     set(collection, key, getConfig(key))
+//   })
+//   return collection
+// }
