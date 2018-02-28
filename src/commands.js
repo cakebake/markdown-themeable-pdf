@@ -1,7 +1,7 @@
 'use babel'
 
 import { get, toUpper } from 'lodash'
-import convert from './api/convert'
+import _convert from './api/convert'
 import { getConfig, getCoreConfig, notification } from './api/atom'
 import { parse } from 'path'
 
@@ -21,22 +21,20 @@ const convertContent = (type) => {
     if (editor.isModified()) {
       notification('Any unsaved changes are ignored. Please save your changes before exporting.', 'warning')
     }
-    _convert(editor.getPath(), type, editor.getEncoding())
+    convert(editor.getPath(), type, editor.getEncoding())
   }
 }
 
 const convertFile = (event, type) => {
-  _convert(get(event, 'target.dataset.path', null), type)
+  convert(get(event, 'target.dataset.path', null), type)
 }
 
-const _convert = async (path, type, encoding) => {
+const convert = async (path, type, encoding) => {
   const exportFileType = type || getConfig('exportFileType')
-  const fileInfo = parse(path)
   encoding = encoding || getCoreConfig('fileEncoding')
-
-  notification(`Start Print/Convert ${get(fileInfo, 'base')} to ${toUpper(exportFileType)}`)
+  notification(`Start Print/Convert ${get(parse(path), 'base')} to ${toUpper(exportFileType)}`)
   try {
-    const convertedFilePath = await convert(path, exportFileType, fileInfo, encoding)
+    const convertedFilePath = await _convert(path, exportFileType, encoding)
     notification(`${toUpper(exportFileType)} created in ${convertedFilePath}`, 'success')
   } catch (e) {
     notification(e, 'error')

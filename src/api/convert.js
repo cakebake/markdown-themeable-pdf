@@ -4,7 +4,7 @@ import { isEmpty } from 'lodash'
 import markdownToHTML from './convert/markdownToHTML'
 import { detectFileEncoding, readFileContent } from './filesystem'
 
-const convert = (filePath, exportFileType, fileInfo, encoding) => {
+const convert = (filePath, exportFileType, encoding) => {
   return new Promise(async (resolve, reject) => {
     if (!isEmpty(filePath)) {
       encoding = await detectFileEncoding(filePath, encoding)
