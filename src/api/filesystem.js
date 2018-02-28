@@ -1,10 +1,22 @@
 'use babel'
 
-import { readdirSync } from 'fs'
+import { readdirSync, readFile } from 'fs'
 import { resolve, extname } from 'path'
 import { ncp } from 'ncp'
 import { startCase, kebabCase, replace } from 'lodash'
 import { detectFile } from 'chardet'
+
+export const readFileContent = (path, encoding) => {
+  return new Promise((resolve, reject) => {
+    readFile(path, encoding, (e, content) => {
+      if (e) {
+        reject(e)
+      } else {
+        resolve(content)
+      }
+    })
+  })
+}
 
 export const detectFileEncoding = (path, fallback = 'utf8') => {
   return new Promise((resolve) => {

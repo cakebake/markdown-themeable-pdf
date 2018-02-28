@@ -1,6 +1,6 @@
 'use babel'
 
-const markdownToHTML = (filePath, isFinalFormat = false) => {
+const markdownToHTML = (markdown, isFinalFormat = false) => {
   return new Promise((resolve, reject) => {
     const html = `
       lorem ipsum
