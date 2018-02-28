@@ -2,10 +2,13 @@
 
 import { isEmpty } from 'lodash'
 import markdownToHTML from './convert/markdownToHTML'
+import { detectFileEncoding } from './filesystem'
 
-const convert = (filePath, exportFileType) => {
+const convert = (filePath, exportFileType, fileInfo, encoding) => {
   return new Promise(async (resolve, reject) => {
     if (!isEmpty(filePath)) {
+      encoding = await detectFileEncoding(filePath, encoding)
+      console.log({ fileInfo, encoding });
       switch (exportFileType) {
         case 'html':
           try {

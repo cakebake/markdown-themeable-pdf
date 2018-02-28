@@ -2,7 +2,8 @@
 
 import { get, toUpper } from 'lodash'
 import convert from './api/convert'
-import { getConfig, notification } from './api/atom'
+import { getConfig, getCoreConfig, notification } from './api/atom'
+import { parse } from 'path'
 
 export const convertContentToPDF = () => convertContent('pdf')
 
@@ -20,7 +21,7 @@ const convertContent = (type) => {
     if (editor.isModified()) {
       notification('Any unsaved changes are ignored. Please save your changes before exporting.', 'warning')
     }
-    _convert(editor.getPath(), type)
+    _convert(editor.getPath(), type, editor.getEncoding())
   }
 }
 
@@ -28,11 +29,14 @@ const convertFile = (event, type) => {
   _convert(get(event, 'target.dataset.path', null), type)
 }
 
-const _convert = async (path, type) => {
+const _convert = async (path, type, encoding) => {
   const exportFileType = type || getConfig('exportFileType')
-  notification(`Start Print/Convert to ${toUpper(exportFileType)}`)
+  const fileInfo = parse(path)
+  encoding = encoding || getCoreConfig('fileEncoding')
+
+  notification(`Start Print/Convert ${get(fileInfo, 'base')} to ${toUpper(exportFileType)}`)
   try {
-    const convertedFilePath = await convert(path, exportFileType)
+    const convertedFilePath = await convert(path, exportFileType, fileInfo, encoding)
     notification(`${toUpper(exportFileType)} created in ${convertedFilePath}`, 'success')
   } catch (e) {
     notification(e, 'error')

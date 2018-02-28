@@ -4,6 +4,15 @@ import { readdirSync } from 'fs'
 import { resolve, extname } from 'path'
 import { ncp } from 'ncp'
 import { startCase, kebabCase, replace } from 'lodash'
+import { detectFile } from 'chardet'
+
+export const detectFileEncoding = (path, fallback = 'utf8') => {
+  return new Promise((resolve) => {
+    detectFile(path, (e, encoding) => {
+      resolve(e ? fallback : encoding)
+    })
+  })
+}
 
 export const copyCustomTemplateFiles = (cb) => {
   const dest = resolve(atom.config.configDirPath, 'markdown-themeable-pdf')
