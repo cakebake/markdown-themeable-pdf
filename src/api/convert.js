@@ -13,9 +13,9 @@ const convert = (filePath, exportFileType, encoding) => {
         const markdown = await readFileContent(filePath, encoding)
         const html = await markdownToHTML(markdown, htmlIsFinalFormat)
         if (htmlIsFinalFormat) {
-          resolve(html)
+          resolve(filePath)
         } else {
-          resolve(html)
+          resolve(filePath)
         }
       } catch (e) {
         reject(e)

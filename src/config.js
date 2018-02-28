@@ -32,12 +32,6 @@ export default {
     description: 'E.g. 8in, overrides Papersize Format if set. Allowed units: mm, cm, in, px',
     order: 26
   },
-  // @todo add hljs class to pre > code blocks with no language definition
-  // codeHighlightingAuto: {
-  //     title: 'Try to highlight code blocks with no language definition',
-  //     type: 'boolean',
-  //     default: true
-  // },
   pageBorder: {
     title: 'Page border size',
     type: 'string',
@@ -127,6 +121,12 @@ export default {
     enum: getHighlightJsStyles(true),
     description: 'Theme preview: https://highlightjs.org/static/demo/',
     order: 140
+  },
+  codeHighlightingAuto: {
+    title: 'Highlight code blocks automaticaly',
+    type: 'boolean',
+    default: false,
+    order: 145
   },
   customStylesPath: {
     type: 'string',
