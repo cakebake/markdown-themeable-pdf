@@ -21,6 +21,19 @@ export const notification = (message = '', type = 'info') => {
   }
 }
 
+export const pageBreakStyling = (editor) => {
+  const regex = new RegExp('^<div class="page-break"></div>$', 'g')
+  editor.onDidStopChanging(() => {
+    editor.scan(regex, (res) => {
+      const marker = editor.markBufferRange(res.range, { invalidate: 'touch' })
+      editor.decorateMarker(marker, {
+        type: 'line',
+        class: 'markdown-themeable-pdf-page-break'
+      })
+    })
+  })
+}
+
 export const getConfig = type => atom.config.get(`${PACKAGE_NAME}.${type}`)
 
 // export const configCollection = keys => {

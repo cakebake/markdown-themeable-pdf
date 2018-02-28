@@ -1,27 +1,16 @@
 'use babel'
 
 import { CompositeDisposable } from 'atom'
-import { convertContent, convertFile } from './commands'
+import { convertContentToPDF, convertContentToHTML, convertFileToPDF, convertFileToHTML } from './commands'
 import config from './config'
 import { copyCustomTemplateFiles } from './api/filesystem'
-import { notification } from './api/atom'
+import { notification, pageBreakStyling } from './api/atom'
 
 const commands = {
-  'markdown-themeable-pdf:convertContent': convertContent,
-  'markdown-themeable-pdf:convertFile': convertFile
-}
-
-const pageBreakStyling = (editor) => {
-  const regex = new RegExp('^<div class="page-break"></div>$', 'g')
-  editor.onDidStopChanging(() => {
-    editor.scan(regex, (res) => {
-      const marker = editor.markBufferRange(res.range, { invalidate: 'touch' })
-      editor.decorateMarker(marker, {
-        type: 'line',
-        class: 'markdown-themeable-pdf-page-break'
-      })
-    })
-  })
+  'markdown-themeable-pdf:convertContentToPDF': convertContentToPDF,
+  'markdown-themeable-pdf:convertContentToHTML': convertContentToHTML,
+  'markdown-themeable-pdf:convertFileToPDF': convertFileToPDF,
+  'markdown-themeable-pdf:convertFileToHTML': convertFileToHTML
 }
 
 export default {
