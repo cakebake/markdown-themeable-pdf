@@ -123,8 +123,8 @@ export default {
   },
   codeHighlightingTheme: {
     type: 'string',
-    default: 'github-gist.css',
-    enum: getHighlightJsStyles(),
+    default: 'Github Gist',
+    enum: getHighlightJsStyles(true),
     description: 'Theme preview: https://highlightjs.org/static/demo/',
     order: 140
   },
