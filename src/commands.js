@@ -28,15 +28,14 @@ const convertFile = (event, type) => {
   _convert(get(event, 'target.dataset.path', null), type)
 }
 
-const _convert = (path, type) => {
+const _convert = async (path, type) => {
   const exportFileType = type || getConfig('exportFileType')
   notification(`Start Print/Convert to ${toUpper(exportFileType)}`)
-  console.log({ path, type, exportFileType })
-  // convert(path, exportFileType)
-  //   .then((content) => {
-  //     console.log(exportFileType, content)
-  //   })
-  //   .catch((e) => {
-  //     console.error(e)
-  //   })
+  try {
+    const convertedFilePath = await convert(path, exportFileType)
+    notification(`${toUpper(exportFileType)} created in ${convertedFilePath}`, 'success')
+  } catch (e) {
+    notification(e, 'error')
+    console.error(e)
+  }
 }
