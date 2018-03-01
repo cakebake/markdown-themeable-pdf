@@ -30,5 +30,25 @@
         ]
       }
     ]
-  }
+  },
+  "menu": [
+    {
+      "label": "Packages",
+      "submenu": [
+        {
+          "label": "Markdown Print/Convert",
+          "submenu": [
+            {
+              "label": "... to PDF",
+              "command": "markdown-themeable-pdf:convertContentToPDF"
+            },
+            {
+              "label": "... to HTML",
+              "command": "markdown-themeable-pdf:convertContentToHTML"
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }

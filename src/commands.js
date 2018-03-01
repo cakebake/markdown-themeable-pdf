@@ -1,6 +1,6 @@
 'use babel'
 
-import { get, toUpper } from 'lodash'
+import { get, toUpper, isEmpty } from 'lodash'
 import _convert from './api/convert'
 import { getConfig, getCoreConfig, notification } from './api/atom'
 import { parse } from 'path'
@@ -14,8 +14,8 @@ export const convertFileToPDF = (event) => convertFile(event, 'pdf')
 export const convertFileToHTML = (event) => convertFile(event, 'html')
 
 const convertContent = (type) => {
-  const editor = atom.workspace.getActiveTextEditor()
-  if (editor.isEmpty()) {
+  const editor = atom.workspace.getActiveTextEditor() || null
+  if (isEmpty(editor) || editor.isEmpty()) {
     notification('Current editor is empty - nothing to do!', 'warning')
   } else {
     if (editor.isModified()) {
