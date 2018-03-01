@@ -1,56 +1,31 @@
 'use babel'
 
-import hljs from 'highlight.js'
 import markdownIt from 'markdown-it'
 import markdownItImSize from 'markdown-it-imsize'
 import markdownItCheckbox from 'markdown-it-checkbox'
 import markdownItSmartArrows from 'markdown-it-smartarrows'
+import markdownItHljs from 'markdown-it-highlightjs'
 // import markdownItAnchor from 'markdown-it-anchor'
-import { escape } from 'lodash'
-import { getConfig } from '../atom'
+import { get } from 'lodash'
 
-const markdownToHTML = (markdown, isFinalFormat = false) => {
+const markdownToHTML = (markdown, isFinalFormat = false, options) => {
   return new Promise((resolve, reject) => {
-    const html = render(markdown)
+    const html = render(markdown, options)
     console.log(html);
     resolve(html)
   })
 }
 
-const render = (markdown) => {
-  const md = markdownIt({
-    html: getConfig('enableHtmlInMarkdown'),
-    linkify: getConfig('enableLinkify'),
-    typographer: getConfig('enableTypographer'),
-    xhtmlOut: getConfig('enableXHTML'),
-    breaks: getConfig('enableBreaks'),
-    quotes: getConfig('smartQuotes'),
-    langPrefix: `hljs `,
-    highlight: (str, lang) => {
-      const auto = getConfig('codeHighlightingAuto')
-      if (lang && hljs.getLanguage(lang)) {
-        try {
-          if (auto) {
-            return `<pre class="hljs"><code>${hljs.highlight(lang, str, true).value}</code></pre>`
-          } else {
-            return hljs.highlight(lang, str).value
-          }
-        } catch (__) {}
-      }
-      if (auto) {
-        return `<pre class="hljs"><code>${escape(str)}</code></pre>`
-      }
-      return ''
-    }
-  })
+const render = (markdown, options) => {
+  const md = markdownIt(options)
   // size-specified image markups
-  if (getConfig('enableImSizeMarkup')) {
+  if (get(options, 'enableImSizeMarkup', true)) {
     md.use(markdownItImSize, {
       autofill: false
     })
   }
   // checkboxes
-  if (getConfig('enableCheckboxes')) {
+  if (get(options, 'enableCheckboxes', true)) {
     md.use(markdownItCheckbox, {
       divWrap: false,
       divClass: 'checkbox',
@@ -58,11 +33,18 @@ const render = (markdown) => {
     })
   }
   // smart arrows
-  if (getConfig('enableSmartArrows')) {
+  if (get(options, 'enableSmartArrows', true)) {
     md.use(markdownItSmartArrows)
   }
   // header anchors
   // md.use(markdownItAnchor)
+  //highlight.js
+  if (get(options, 'enableCodeHighlighting', true)) {
+    md.use(markdownItHljs, {
+      auto: get(options, 'codeHighlightingAuto', false),
+      code: true
+    })
+  }
 
   return md.render(markdown)
 }

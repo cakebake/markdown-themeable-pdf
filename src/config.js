@@ -129,8 +129,14 @@ export default {
     description: 'Theme preview: https://highlightjs.org/static/demo/',
     order: 140
   },
+  enableCodeHighlighting: {
+    title: 'Highlight code blocks with highlight.js',
+    type: 'boolean',
+    default: true,
+    order: 142
+  },
   codeHighlightingAuto: {
-    title: 'Highlight code blocks automaticaly',
+    title: 'Highlight code blocks automatically (detect language if not specified)',
     type: 'boolean',
     default: false,
     order: 145

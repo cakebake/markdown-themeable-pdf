@@ -1,8 +1,28 @@
 'use babel'
 
-import { isEmpty } from 'lodash'
+import { isEmpty, get } from 'lodash'
 import markdownToHTML from './convert/markdownToHTML'
 import { detectFileEncoding, readFileContent } from './filesystem'
+import { getConfig } from './atom'
+
+const options = () => {
+  return {
+    markdownIt: {
+      html: getConfig('enableHtmlInMarkdown'),
+      linkify: getConfig('enableLinkify'),
+      typographer: getConfig('enableTypographer'),
+      xhtmlOut: getConfig('enableXHTML'),
+      breaks: getConfig('enableBreaks'),
+      quotes: getConfig('smartQuotes'),
+      langPrefix: 'hljs ',
+      enableCodeHighlighting: getConfig('enableCodeHighlighting'),
+      codeHighlightingAuto: getConfig('codeHighlightingAuto'),
+      enableImSizeMarkup: getConfig('enableImSizeMarkup'),
+      enableCheckboxes: getConfig('enableCheckboxes'),
+      enableSmartArrows: getConfig('enableSmartArrows')
+    }
+  }
+}
 
 const convert = (filePath, exportFileType, encoding) => {
   return new Promise(async (resolve, reject) => {
@@ -11,7 +31,7 @@ const convert = (filePath, exportFileType, encoding) => {
       try {
         const htmlIsFinalFormat = (exportFileType === 'html')
         const markdown = await readFileContent(filePath, encoding)
-        const html = await markdownToHTML(markdown, htmlIsFinalFormat)
+        const html = await markdownToHTML(markdown, htmlIsFinalFormat, get(options(), 'markdownIt'))
         if (htmlIsFinalFormat) {
           resolve(filePath)
         } else {
