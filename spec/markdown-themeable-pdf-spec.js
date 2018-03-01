@@ -8,9 +8,17 @@
 // Tests are written with https://jasmine.github.io/1.3/introduction.html
 
 describe('Markdown Themeable PDF', () => {
+
   it('has one valid test', () => {
     expect(true).toBe(true)
   })
+
+  for (var i = 0; i < 3; i++) {
+    it(`can create test ${i} inside a loop`, () => {
+      expect(true).toBe(true)
+    })
+  }
+
 })
 
 // describe('MyPackage', () => {
