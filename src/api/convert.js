@@ -32,6 +32,7 @@ const convert = (filePath, exportFileType, encoding) => {
         const htmlIsFinalFormat = (exportFileType === 'html')
         const markdown = await readFileContent(filePath, encoding)
         const html = await markdownToHTML(markdown, htmlIsFinalFormat, get(options(), 'markdownIt'))
+        console.log(html)
         if (htmlIsFinalFormat) {
           resolve(filePath)
         } else {

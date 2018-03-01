@@ -10,9 +10,11 @@ import { get } from 'lodash'
 
 const markdownToHTML = (markdown, isFinalFormat = false, options) => {
   return new Promise((resolve, reject) => {
-    const html = render(markdown, options)
-    console.log(html);
-    resolve(html)
+    try {
+      resolve(render(markdown, options))
+    } catch (e) {
+      reject(e)
+    }
   })
 }
 
