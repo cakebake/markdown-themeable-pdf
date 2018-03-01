@@ -57,21 +57,28 @@ export default {
   enableSmartArrows: {
     type: 'boolean',
     default: true,
-    description: 'Beautification for arrows like \'-->\' or \'==>\'.',
+    description: 'Beautification for arrows like <code>--></code> or <code>==></code>. Note that using this plugin will interfere with using HTML comments in your Markdown.',
     order: 60
   },
   enableCheckboxes: {
     title: 'Enable task lists',
     type: 'boolean',
     default: true,
-    description: 'Replacement for \'[ ]\' and \'[x]\' in markdown source.',
+    description: 'Replacement for <code>[ ]</code> and <code>[x]</code> in markdown source.',
     order: 70
+  },
+  enableImSizeMarkup: {
+    title: 'Enable size-specified image markups',
+    type: 'boolean',
+    default: true,
+    description: 'Enables markup like <code>!&#91;test&#93;&#40;image.png =100x200&#41;</code> and will fill the width and height fields automatically if the specified image path is valid.',
+    order: 72
   },
   enableHtmlInMarkdown: {
     title: 'Enable HTML tags in markdown source',
     type: 'boolean',
     default: true,
-    description: 'Required for \'&lt;div class=&quot;page-break&quot;&gt;&lt;/div&gt;\'!',
+    description: 'Required for <code>&lt;div class=&quot;page-break&quot;&gt;&lt;/div&gt;</code>!',
     order: 80
   },
   enableLinkify: {
@@ -98,14 +105,14 @@ export default {
     title: 'Use \'/\' to close single tags',
     type: 'boolean',
     default: false,
-    description: 'Eg. \'&lt;br /&gt;\' or \'&lt;img /&gt;\'.',
+    description: 'Eg. <code>&lt;br /&gt;</code> or <code>&lt;img /&gt;</code>.',
     order: 120
   },
   enableBreaks: {
     title: 'Convert new lines',
     type: 'boolean',
     default: false,
-    description: 'Convert new lines (\'\\n\') in paragraphs into \'&lt;br&gt;\'.',
+    description: 'Convert new lines (<code>\\n</code>) in paragraphs into <code>&lt;br&gt;</code>.',
     order: 130
   },
   preWrap: {

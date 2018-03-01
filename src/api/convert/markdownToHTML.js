@@ -2,6 +2,10 @@
 
 import hljs from 'highlight.js'
 import markdownIt from 'markdown-it'
+import markdownItImSize from 'markdown-it-imsize'
+import markdownItCheckbox from 'markdown-it-checkbox'
+import markdownItSmartArrows from 'markdown-it-smartarrows'
+// import markdownItAnchor from 'markdown-it-anchor'
 import { escape } from 'lodash'
 import { getConfig } from '../atom'
 
@@ -39,6 +43,27 @@ const render = (markdown) => {
       return ''
     }
   })
+  // size-specified image markups
+  if (getConfig('enableImSizeMarkup')) {
+    md.use(markdownItImSize, {
+      autofill: false
+    })
+  }
+  // checkboxes
+  if (getConfig('enableCheckboxes')) {
+    md.use(markdownItCheckbox, {
+      divWrap: false,
+      divClass: 'checkbox',
+      idPrefix: 'checkbox-'
+    })
+  }
+  // smart arrows
+  if (getConfig('enableSmartArrows')) {
+    md.use(markdownItSmartArrows)
+  }
+  // header anchors
+  // md.use(markdownItAnchor)
+
   return md.render(markdown)
 }
 
