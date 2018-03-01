@@ -24,14 +24,15 @@ const options = () => {
   }
 }
 
-const convert = (filePath, exportFileType, encoding) => {
+const convert = (filePath, exportFileType, encoding, opt = null) => {
   return new Promise(async (resolve, reject) => {
     if (!isEmpty(filePath)) {
       encoding = await detectFileEncoding(filePath, encoding)
+      opt = opt || options()
       try {
         const htmlIsFinalFormat = (exportFileType === 'html')
         const markdown = await readFileContent(filePath, encoding)
-        const html = await markdownToHTML(markdown, htmlIsFinalFormat, get(options(), 'markdownIt'))
+        const html = await markdownToHTML(markdown, htmlIsFinalFormat, get(opt, 'markdownIt'))
         console.log(html)
         if (htmlIsFinalFormat) {
           resolve(filePath)
