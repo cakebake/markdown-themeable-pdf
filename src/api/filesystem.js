@@ -3,11 +3,12 @@
 import { readdirSync, readFile } from 'fs'
 import { resolve, extname } from 'path'
 import { ncp } from 'ncp'
-import { startCase, kebabCase, replace } from 'lodash'
-import { detectFile } from 'chardet'
+import { get, startCase, kebabCase, replace } from 'lodash'
+import charsetDetector from 'charset-detector'
 
-export const readFileContent = (path, encoding) => {
-  return new Promise((resolve, reject) => {
+export const readFileContent = (path, encoding = null) => {
+  return new Promise(async (resolve, reject) => {
+    encoding = encoding || await detectFileEncoding(path)
     readFile(path, encoding, (e, content) => {
       if (e) {
         reject(e)
@@ -18,10 +19,15 @@ export const readFileContent = (path, encoding) => {
   })
 }
 
-export const detectFileEncoding = (path, fallback = 'utf8') => {
+export const detectFileEncoding = (path, fallback = 'UTF-8') => {
   return new Promise((resolve) => {
-    detectFile(path, (e, encoding) => {
-      resolve(e ? fallback : encoding)
+    readFile(path, (e, buffer) => {
+      if (e) {
+        reject(e)
+      } else {
+        const matches = charsetDetector(buffer)
+        resolve(get(matches, '0.charsetName', fallback))
+      }
     })
   })
 }
