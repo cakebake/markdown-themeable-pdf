@@ -1,32 +1,26 @@
 'use babel'
 
-import { readdirSync, readFile } from 'fs'
+import { readdirSync, readFile as _readFile } from 'fs'
 import { resolve, extname } from 'path'
 import { ncp } from 'ncp'
 import { get, startCase, kebabCase, replace } from 'lodash'
+// import utf8 from 'to-utf-8'
 import charsetDetector from 'charset-detector'
+import { convert as convertEncoding } from 'encoding'
 
-export const readFileContent = (path, encoding = null) => {
-  return new Promise(async (resolve, reject) => {
-    encoding = encoding || await detectFileEncoding(path)
-    readFile(path, encoding, (e, content) => {
+export const readFile = (path) => {
+  return new Promise((resolve, reject) => {
+    _readFile(path, (e, buffer) => {
       if (e) {
         reject(e)
       } else {
-        resolve(content)
-      }
-    })
-  })
-}
-
-export const detectFileEncoding = (path, fallback = 'UTF-8') => {
-  return new Promise((resolve) => {
-    readFile(path, (e, buffer) => {
-      if (e) {
-        reject(e)
-      } else {
-        const matches = charsetDetector(buffer)
-        resolve(get(matches, '0.charsetName', fallback))
+        try {
+          const fileCharset = get(charsetDetector(buffer), '0.charsetName')
+          const content = convertEncoding(buffer, 'UTF-8', fileCharset).toString()
+          resolve(content)
+        } catch (e) {
+          reject(e)
+        }
       }
     })
   })

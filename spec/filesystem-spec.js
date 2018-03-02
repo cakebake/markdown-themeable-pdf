@@ -1,7 +1,8 @@
 'use babel'
 
-import { detectFileEncoding, readFileContent } from '../src/api/filesystem'
+import { readFile } from '../src/api/filesystem'
 import { join } from 'path'
+import { escapeRegExp } from 'lodash'
 
 // Use the command `window:run-package-specs` (cmd-alt-ctrl-p) to run specs.
 //
@@ -10,25 +11,25 @@ import { join } from 'path'
 //
 // Tests are written with https://jasmine.github.io/1.3/introduction.html
 
-const detect = (testFile) => {
-  return detectFileEncoding(join(__dirname, 'markdown', testFile), 'nonsense')
+const getContent = (testFile) => {
+  return readFile(join(__dirname, 'markdown', testFile))
 }
 
 describe('Filesystem', () => {
 
-  it('could detect UTF-8 encoding', async () => {
-    const encoding = await detect('UTF-8.md')
-    expect(encoding).toBe('UTF-8')
-  })
-
-  it('could detect ISO-8859-1 encoding', async () => {
-    const encoding = await detect('ISO-8859-1.md')
-    expect(encoding).toBe('ISO-8859-1')
-  })
-
-  it('could detect Windows-1252 encoding as ISO-8859-1', async () => {
-    const encoding = await detect('Windows-1252.md')
-    expect(encoding).toBe('ISO-8859-1')
+  ['UTF-8.md', 'ISO-8859-1.md', 'Windows-1252.md'].forEach((testFile) => {
+    it(`could handle ${testFile} file`, () => {
+      let content
+      runs(async () => {
+        content = await getContent(testFile)
+      })
+      waitsFor(() => {
+        return content
+      }, 'Should get content')
+      runs(() => {
+        expect(content).toMatch(escapeRegExp('Hällö Wörld'))
+      })
+    })
   })
 
 })

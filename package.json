@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "charset-detector": "0.0.2",
+    "encoding": "^0.1.12",
     "lodash": "^4.17.5",
     "markdown-it": "^8.4.1",
     "markdown-it-anchor": "^4.0.0",

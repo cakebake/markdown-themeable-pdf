@@ -21,20 +21,19 @@ const convertContent = (type) => {
     if (editor.isModified()) {
       notification('Any unsaved changes are ignored. Please save your changes before exporting.', 'warning')
     }
-    convert(editor.getPath(), type, editor.getEncoding())
+    convert(editor.getPath(), type)
   }
 }
 
 const convertFile = (event, type) => {
-  convert(get(event, 'target.dataset.path', null), type)
+  convert(get(event, 'target.dataset.path'), type)
 }
 
-const convert = async (path, type, encoding) => {
+const convert = async (path, type) => {
   const exportFileType = type || getConfig('exportFileType')
-  encoding = encoding || getCoreConfig('fileEncoding')
   notification(`Start Print/Convert ${get(parse(path), 'base')} to ${toUpper(exportFileType)}`)
   try {
-    const convertedFilePath = await _convert(path, exportFileType, encoding)
+    const convertedFilePath = await _convert(path, exportFileType)
     notification(`${toUpper(exportFileType)} created in ${convertedFilePath}`, 'success')
   } catch (e) {
     notification(e, 'error')

@@ -1,7 +1,7 @@
 'use babel'
 
 import markdownToHTML from '../src/api/convert/markdownToHTML'
-import { readFileContent } from '../src/api/filesystem'
+import { readFile } from '../src/api/filesystem'
 import config from '../src/config'
 import { get, set, escapeRegExp } from 'lodash'
 import { join } from 'path'
@@ -33,7 +33,7 @@ let options = () => {
 let testCount = 0
 
 const getMarkdown = (testFile) => {
-  return readFileContent(join(__dirname, 'markdown', testFile))
+  return readFile(join(__dirname, 'markdown', testFile))
 }
 
 const getHtml = async (markdown, key, value, isFinalFormat = true) => {
