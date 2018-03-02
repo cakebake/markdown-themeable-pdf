@@ -25,15 +25,16 @@ export const readFile = (path) => {
   })
 }
 
-export const copyCustomTemplateFiles = (cb) => {
-  const dest = resolve(atom.config.configDirPath, 'markdown-themeable-pdf')
+export const copyCustomTemplateFiles = (cb, dest = null) => {
+  dest = dest || resolve(atom.config.configDirPath, 'markdown-themeable-pdf')
   const src = resolve(__dirname, '../../markdown-themeable-pdf')
   ncp(src, dest, { clobber: false }, (e) => {
+    let msg = null
     if (e) {
-      const msg = `Custom template coul not created at ${dest}. Please copy the files manualy from ${src}`
-      cb(msg)
+      msg = `Custom template coul not created at ${dest}. Please copy the files manualy from ${src}`
       console.error(msg, e)
     }
+    cb(msg)
   })
 }
 

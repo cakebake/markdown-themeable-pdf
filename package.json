@@ -25,6 +25,7 @@
     "markdown-it-highlightjs": "^3.0.0",
     "markdown-it-imsize": "^2.0.1",
     "markdown-it-smartarrows": "^1.0.1",
-    "ncp": "^2.0.0"
+    "ncp": "^2.0.0",
+    "rimraf": "^2.6.2"
   }
 }
