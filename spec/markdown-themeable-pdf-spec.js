@@ -13,12 +13,6 @@ describe('Markdown Themeable PDF', () => {
     expect(true).toBe(true)
   })
 
-  for (var i = 0; i < 3; i++) {
-    it(`can create test ${i} inside a loop`, () => {
-      expect(true).toBe(true)
-    })
-  }
-
 })
 
 // describe('MyPackage', () => {
