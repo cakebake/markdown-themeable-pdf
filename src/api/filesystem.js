@@ -4,7 +4,6 @@ import { readdirSync, readFile as _readFile } from 'fs'
 import { resolve, extname } from 'path'
 import { ncp } from 'ncp'
 import { get, startCase, kebabCase, replace } from 'lodash'
-// import utf8 from 'to-utf-8'
 import charsetDetector from 'charset-detector'
 import { convert as convertEncoding } from 'encoding'
 

@@ -11,17 +11,13 @@ import { escapeRegExp } from 'lodash'
 //
 // Tests are written with https://jasmine.github.io/1.3/introduction.html
 
-const getContent = (testFile) => {
-  return readFile(join(__dirname, 'markdown', testFile))
-}
-
 describe('Filesystem', () => {
 
   ['UTF-8.md', 'ISO-8859-1.md', 'Windows-1252.md'].forEach((testFile) => {
     it(`could handle ${testFile} file`, () => {
       let content
       runs(async () => {
-        content = await getContent(testFile)
+        content = await readFile(join(__dirname, 'markdown', testFile))
       })
       waitsFor(() => {
         return content
