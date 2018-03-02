@@ -36,7 +36,7 @@ const getMarkdown = (testFile) => {
   return readFile(join(__dirname, 'markdown', testFile))
 }
 
-const getHtml = async (markdown, key, value, isFinalFormat = true) => {
+const getHtml = (markdown, key, value, isFinalFormat = true) => {
   let opt = options()
   set(opt, key, value)
   return markdownToHTML(markdown, isFinalFormat, opt)
