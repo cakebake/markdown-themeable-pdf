@@ -25,7 +25,7 @@ The PDF can be generated in various ways:
 
 #### Page breaks
 
-You can start any time a new PDF page with typing Snippet/Shortcode `page-break` in your markdown editor. So you can prevent such ugly breaks in lists or other contiguous areas.
+You can start any time a new PDF page with typing snippet/shortcode `page-break` or insert the HTML-Code `<div class="page-break"></div>` in your markdown editor. So you can prevent such ugly breaks in lists or other contiguous areas.
 
 #### Custom CSS
 
