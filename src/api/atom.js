@@ -37,11 +37,3 @@ export const pageBreakStyling = (editor) => {
 export const getConfig = type => atom.config.get(`${PACKAGE_NAME}.${type}`)
 
 export const getCoreConfig = type => atom.config.get(`core.${type}`)
-
-// export const configCollection = keys => {
-//   const collection = {}
-//   forEach(keys, (key) => {
-//     set(collection, key, getConfig(key))
-//   })
-//   return collection
-// }
