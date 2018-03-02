@@ -45,20 +45,44 @@ const getHtml = async (markdown, key, value, isFinalFormat = true) => {
 describe('Markdown to HTML', () => {
 
   describe('render with option "html"', () => {
-    it('markdown has html', async () => {
-      const md = await getMarkdown('html.md')
-      expect(md).toMatch(escapeRegExp('<div class="page-break"></div>'))
+    it('markdown has html', () => {
+      let md = ''
+      runs(async () => {
+        md = await getMarkdown('html.md')
+      })
+      waitsFor(() => {
+        return md
+      }, 'Should get markdown')
+      runs(() => {
+        expect(md).toMatch(escapeRegExp('<div class="page-break"></div>'))
+      })
     })
-    it('with value true', async () => {
-      const md = await getMarkdown('html.md')
-      const html = await getHtml(md, 'html', true)
-      expect(html).toMatch(escapeRegExp('<div class="page-break"></div>'))
+    it('with value true', () => {
+      let html = ''
+      runs(async () => {
+        const md = await getMarkdown('html.md')
+        html = await getHtml(md, 'html', true)
+      })
+      waitsFor(() => {
+        return html
+      }, 'Should get html')
+      runs(() => {
+        expect(html).toMatch(escapeRegExp('<div class="page-break"></div>'))
+      })
     })
-    it('with value false', async () => {
-      const md = await getMarkdown('html.md')
-      const html = await getHtml(md, 'html', false)
-      expect(html).not.toMatch(escapeRegExp('<div class="page-break"></div>'))
-      expect(html).toMatch(escapeRegExp('&lt;div class=&quot;page-break&quot;&gt;&lt;/div&gt;'))
+    it('with value false', () => {
+      let html = ''
+      runs(async () => {
+        const md = await getMarkdown('html.md')
+        html = await getHtml(md, 'html', false)
+      })
+      waitsFor(() => {
+        return html
+      }, 'Should get html')
+      runs(() => {
+        expect(html).not.toMatch(escapeRegExp('<div class="page-break"></div>'))
+        expect(html).toMatch(escapeRegExp('&lt;div class=&quot;page-break&quot;&gt;&lt;/div&gt;'))
+      })
     })
   })
 
