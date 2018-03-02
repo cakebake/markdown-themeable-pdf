@@ -1,8 +1,6 @@
 {
-  ".platform-win32 atom-workspace atom-text-editor, .platform-linux atom-workspace atom-text-editor": {
-    "ctrl-shift-C": "markdown-themeable-pdf:convertContentToPDF"
-  },
-  ".platform-darwin atom-workspace atom-text-editor": {
-    "cmd-shift-C": "markdown-themeable-pdf:convertContentToPDF"
+  "atom-workspace atom-text-editor": {
+    "ctrl-alt-p": "markdown-themeable-pdf:convertContentToPDF",
+    "ctrl-alt-h": "markdown-themeable-pdf:convertContentToHTML"
   }
 }
