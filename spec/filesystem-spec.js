@@ -1,6 +1,6 @@
 'use babel'
 
-import { readFile } from '../src/api/filesystem'
+import { readFile, getHighlightJsStyles } from '../src/api/filesystem'
 import { join } from 'path'
 import { escapeRegExp } from 'lodash'
 
@@ -13,7 +13,13 @@ import { escapeRegExp } from 'lodash'
 
 describe('Filesystem', () => {
 
-  ['UTF-8.md', 'ISO-8859-1.md', 'Windows-1252.md'].forEach((testFile) => {
+  it(`could get highlight.js css files`, () => {
+    expect(getHighlightJsStyles()).toContain('github-gist.css')
+  })
+
+  const testFiles = ['UTF-8.md', 'ISO-8859-1.md', 'Windows-1252.md']
+
+  testFiles.forEach((testFile) => {
     it(`could handle ${testFile} file`, () => {
       let content
       runs(async () => {
