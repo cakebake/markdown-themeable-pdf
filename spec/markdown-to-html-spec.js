@@ -25,7 +25,11 @@ let options = () => {
     codeHighlightingAuto: get(config, 'codeHighlightingAuto.default'),
     enableImSizeMarkup: get(config, 'enableImSizeMarkup.default'),
     enableCheckboxes: get(config, 'enableCheckboxes.default'),
-    enableSmartArrows: get(config, 'enableSmartArrows.default')
+    enableSmartArrows: get(config, 'enableSmartArrows.default'),
+    enableTOC: get(config, 'enableTocAndAnchor.default') === 'TOC enabled' || get(config, 'enableTocAndAnchor.default') === 'TOC and Anchors enabled',
+    enableAnchor: get(config, 'enableTocAndAnchor.default') === 'Anchors enabled' || get(config, 'enableTocAndAnchor.default') === 'TOC and Anchors enabled',
+    tocFirstLevel: get(config, 'tocFirstLevel.default'),
+    tocLastLevel: get(config, 'tocLastLevel.default')
   }
 }
 
@@ -38,6 +42,101 @@ const getHtml = (markdown, _options = {}, isFinalFormat = true) => {
 }
 
 describe('Markdown to HTML', () => {
+
+  it('checks that TOC and Anchor links are disabled by default', () =>{
+    const opt = options()
+    expect(get(opt, 'enableTOC')).toBe(false)
+    expect(get(opt, 'enableAnchor')).toBe(false)
+  })
+
+  it('checks disabled TOC and disabled Anchor generation', () => {
+    let html = ''
+    runs(async () => {
+      const md = await getMarkdown('tocAndAnchor.md')
+      html = await getHtml(md, { enableTOC: false, enableAnchor: false })
+    })
+    waitsFor(() => {
+      return html
+    }, 'Should get html')
+    runs(() => {
+      expect(html).toMatch(escapeRegExp('<p>@[toc]</p>'))
+      expect(html).toMatch(escapeRegExp('<h2>h2 headline</h2>'))
+    })
+  })
+
+  it('checks disabled TOC and enabled Anchor generation', () => {
+    let html = ''
+    runs(async () => {
+      const md = await getMarkdown('tocAndAnchor.md')
+      html = await getHtml(md, { enableTOC: false, enableAnchor: true })
+    })
+    waitsFor(() => {
+      return html
+    }, 'Should get html')
+    runs(() => {
+      expect(html).toMatch(escapeRegExp('<p><strong>TOC</strong></p>\n<p></p>'))
+      expect(html).toMatch(escapeRegExp('<h2 id="h2-headline"><a class="markdown-themeable-pdf-anchor" href="#h2-headline">'))
+    })
+  })
+
+  it('checks enabled TOC and disabled Anchor generation', () => {
+    let html = ''
+    runs(async () => {
+      const md = await getMarkdown('tocAndAnchor.md')
+      html = await getHtml(md, { enableTOC: true, enableAnchor: false })
+    })
+    waitsFor(() => {
+      return html
+    }, 'Should get html')
+    runs(() => {
+      expect(html).toMatch(escapeRegExp('<ul class="markdown-themeable-pdf-toc">\n<li><a href="#'))
+      expect(html).toMatch(escapeRegExp('<h2 id="h2-headline">h2 headline</h2>'))
+    })
+  })
+
+  it('checks enabled TOC and enabled Anchor generation', () => {
+    let html = ''
+    runs(async () => {
+      const md = await getMarkdown('tocAndAnchor.md')
+      html = await getHtml(md, { enableTOC: true, enableAnchor: true })
+    })
+    waitsFor(() => {
+      return html
+    }, 'Should get html')
+    runs(() => {
+      expect(html).toMatch(escapeRegExp('<ul class="markdown-themeable-pdf-toc">\n<li><a href="#'))
+      expect(html).toMatch(escapeRegExp('<h2 id="h2-headline"><a class="markdown-themeable-pdf-anchor" href="#h2-headline">'))
+    })
+  })
+
+  it('checks TOC with heading range 2 - 4', () => {
+    let html = ''
+    runs(async () => {
+      const md = await getMarkdown('tocAndAnchor.md')
+      html = await getHtml(md, { enableTOC: true, tocFirstLevel: 2, tocLastLevel: 4 })
+    })
+    waitsFor(() => {
+      return html
+    }, 'Should get html')
+    runs(() => {
+      expect(html).toMatch(escapeRegExp('<ul class="markdown-themeable-pdf-toc">\n<li><a href="#h2-headline">h2 headline</a>'))
+      expect(html).toMatch(escapeRegExp('<li><a href="#h4-headline">h4 headline</a></li>\n</ul>\n</li>\n</ul>\n</li>\n</ul>'))
+    })
+  })
+
+  it('checks anchor link symbol', () => {
+    let html = ''
+    runs(async () => {
+      const md = await getMarkdown('tocAndAnchor.md')
+      html = await getHtml(md, { enableAnchor: true, anchorLinkSymbol: '$' })
+    })
+    waitsFor(() => {
+      return html
+    }, 'Should get html')
+    runs(() => {
+      expect(html).toMatch(escapeRegExp('<span class="markdown-themeable-pdf-anchor-symbol">$</span>'))
+    })
+  })
 
   it('checks disabled smart arrows', () => {
     let html = ''

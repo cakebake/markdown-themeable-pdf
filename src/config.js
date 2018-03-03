@@ -74,6 +74,37 @@ export default {
     description: 'Enables markup like <code>!&#91;test&#93;&#40;image.png =100x200&#41;</code> and will fill the width and height fields automatically if the specified image path is valid.',
     order: 72
   },
+  enableTocAndAnchor: {
+    title: 'TOC (Table Of Content) & Heading Anchors',
+    type: 'string',
+    enum: ['Disabled', 'TOC enabled', 'Anchors enabled', 'TOC and Anchors enabled'],
+    default: 'Disabled',
+    description: 'Config to render TOC <code>@!&#91;toc&#93;</code> and anchor links in headings.',
+    order: 74
+  },
+  tocFirstLevel: {
+    title: 'TOC first heading level',
+    type: 'integer',
+    enum: [1, 2, 3, 4, 5, 6],
+    default: 1,
+    description: 'Allows you to skip some heading level. Example: use <code>2</code> if you want to skip <code>&lt;h1&gt;</code> from the TOC.',
+    order: 76
+  },
+  tocLastLevel: {
+    title: 'TOC last heading level',
+    type: 'integer',
+    enum: [1, 2, 3, 4, 5, 6],
+    default: 6,
+    description: 'Allows you to skip some heading level. Example: use <code>5</code> if you want to skip <code>&lt;h6&gt;</code> from the TOC.',
+    order: 78
+  },
+  anchorLinkSymbol: {
+    title: 'Heading anchor link symbol',
+    type: 'string',
+    default: '#',
+    description: 'Allows you to customize the anchor link symbol.',
+    order: 79
+  },
   enableHtmlInMarkdown: {
     title: 'Enable HTML tags in markdown source',
     type: 'boolean',

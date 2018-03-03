@@ -5,7 +5,7 @@ import markdownItImSize from 'markdown-it-imsize'
 import markdownItCheckbox from 'markdown-it-checkbox'
 import markdownItSmartArrows from 'markdown-it-smartarrows'
 import markdownItHljs from 'markdown-it-highlightjs'
-// import markdownItAnchor from 'markdown-it-anchor'
+import markdownItTocAndAnchor from 'markdown-it-toc-and-anchor'
 import { get } from 'lodash'
 
 const markdownToHTML = (markdown, isFinalFormat = false, options) => {
@@ -38,13 +38,26 @@ const render = (markdown, options) => {
   if (get(options, 'enableSmartArrows', true)) {
     md.use(markdownItSmartArrows)
   }
-  // header anchors
-  // md.use(markdownItAnchor)
-  //highlight.js
+  // highlight.js
   if (get(options, 'enableCodeHighlighting', true)) {
     md.use(markdownItHljs, {
       auto: get(options, 'codeHighlightingAuto', false),
       code: false
+    })
+  }
+  // toc and anchor
+  if (get(options, 'enableTOC', true) || get(options, 'enableAnchor', true)) {
+    md.use(markdownItTocAndAnchor, {
+      toc: get(options, 'enableTOC', true),
+      tocClassName: 'markdown-themeable-pdf-toc',
+      tocFirstLevel: get(options, 'tocFirstLevel', 1),
+      tocLastLevel: get(options, 'tocLastLevel', 6),
+      anchorLink: get(options, 'enableAnchor', true),
+      anchorLinkBefore: true,
+      anchorLinkSpace: true,
+      anchorLinkSymbol: get(options, 'anchorLinkSymbol', '#'),
+      anchorClassName: 'markdown-themeable-pdf-anchor',
+      anchorLinkSymbolClassName: 'markdown-themeable-pdf-anchor-symbol'
     })
   }
 
