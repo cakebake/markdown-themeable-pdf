@@ -39,6 +39,40 @@ const getHtml = (markdown, _options = {}, isFinalFormat = true) => {
 
 describe('Markdown to HTML', () => {
 
+  it('checks disabled checkbox rendering', () => {
+    let html = ''
+    runs(async () => {
+      const md = await getMarkdown('checkbox.md')
+      html = await getHtml(md, { enableCheckboxes: false })
+    })
+    waitsFor(() => {
+      return html
+    }, 'Should get html')
+    runs(() => {
+      expect(html).toMatch(escapeRegExp('<p>[ ] checkbox</p>'))
+      expect(html).toMatch(escapeRegExp('<li>[ ] one</li>'))
+      expect(html).toMatch(escapeRegExp('five [x]'))
+      expect(html).toMatch(escapeRegExp('- [x] seven'))
+    })
+  })
+
+  it('checks enabled checkbox rendering', () => {
+    let html = ''
+    runs(async () => {
+      const md = await getMarkdown('checkbox.md')
+      html = await getHtml(md, { enableCheckboxes: true })
+    })
+    waitsFor(() => {
+      return html
+    }, 'Should get html')
+    runs(() => {
+      expect(html).toMatch(escapeRegExp('<p><input type="checkbox" id="checkbox-0"><label for="checkbox-0">checkbox</label></p>'))
+      expect(html).toMatch(escapeRegExp('<li><input type="checkbox" id="checkbox-1"><label for="checkbox-1">one</label></li>'))
+      expect(html).toMatch(escapeRegExp('five [x]'))
+      expect(html).toMatch(escapeRegExp('- [x] seven'))
+    })
+  })
+
   it('checks disabled img size markup', () => {
     let html = ''
     runs(async () => {
