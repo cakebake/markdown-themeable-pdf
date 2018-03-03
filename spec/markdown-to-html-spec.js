@@ -39,6 +39,36 @@ const getHtml = (markdown, _options = {}, isFinalFormat = true) => {
 
 describe('Markdown to HTML', () => {
 
+  it('checks disabled img size markup', () => {
+    let html = ''
+    runs(async () => {
+      const md = await getMarkdown('image.md')
+      html = await getHtml(md, { enableImSizeMarkup: false })
+    })
+    waitsFor(() => {
+      return html
+    }, 'Should get html')
+    runs(() => {
+      expect(html).toMatch(escapeRegExp('<p><img src="./img/example.png" alt="example"></p>'))
+      expect(html).not.toMatch(escapeRegExp('<p><img src="./img/example-2.jpg" alt="example-2" width="100" height="200"></p>'))
+    })
+  })
+
+  it('checks enabled img size markup', () => {
+    let html = ''
+    runs(async () => {
+      const md = await getMarkdown('image.md')
+      html = await getHtml(md, { enableImSizeMarkup: true })
+    })
+    waitsFor(() => {
+      return html
+    }, 'Should get html')
+    runs(() => {
+      expect(html).toMatch(escapeRegExp('<p><img src="./img/example.png" alt="example"></p>'))
+      expect(html).toMatch(escapeRegExp('<p><img src="./img/example-2.jpg" alt="example-2" width="100" height="200"></p>'))
+    })
+  })
+
   it('checks disabled higlight.js', () => {
     let html = ''
     runs(async () => {
