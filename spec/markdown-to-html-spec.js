@@ -39,6 +39,34 @@ const getHtml = (markdown, _options = {}, isFinalFormat = true) => {
 
 describe('Markdown to HTML', () => {
 
+  it('checks disabled smart arrows', () => {
+    let html = ''
+    runs(async () => {
+      const md = await getMarkdown('smartArrows.md')
+      html = await getHtml(md, { enableSmartArrows: false })
+    })
+    waitsFor(() => {
+      return html
+    }, 'Should get html')
+    runs(() => {
+      expect(html).toMatch(escapeRegExp('<p>–&gt; &lt;-- &lt;–&gt; ==&gt; &lt;== &lt;==&gt;</p>'))
+    })
+  })
+
+  it('checks enabled smart arrows', () => {
+    let html = ''
+    runs(async () => {
+      const md = await getMarkdown('smartArrows.md')
+      html = await getHtml(md, { enableSmartArrows: true })
+    })
+    waitsFor(() => {
+      return html
+    }, 'Should get html')
+    runs(() => {
+      expect(html).toMatch(escapeRegExp('<p>→ ← ↔ ⇒ ⇐ ⇔</p>'))
+    })
+  })
+
   it('checks disabled checkbox rendering', () => {
     let html = ''
     runs(async () => {
