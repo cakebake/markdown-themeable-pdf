@@ -24,7 +24,8 @@ const options = () => {
       tocFirstLevel: getConfig('tocFirstLevel'),
       tocLastLevel: getConfig('tocLastLevel'),
       anchorLinkSymbol: getConfig('anchorLinkSymbol'),
-      enableEmoji: getConfig('enableEmoji')
+      enableEmoji: getConfig('enableEmoji'),
+      enableFootnotes: getConfig('enableFootnotes')
     }
   }
 }

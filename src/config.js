@@ -67,6 +67,13 @@ export default {
     description: 'Replacement for <code>[ ]</code> and <code>[x]</code> in markdown source.',
     order: 70
   },
+  enableFootnotes: {
+    title: 'Footnotes support',
+    type: 'boolean',
+    default: true,
+    description: 'Enables footnotes markup like <code>!&#91;^1&#93;</code> or <code>!&#91;^longnote&#93;</code>.',
+    order: 71
+  },
   enableImSizeMarkup: {
     title: 'Enable size-specified image markups',
     type: 'boolean',

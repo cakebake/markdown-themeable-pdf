@@ -8,6 +8,7 @@ import markdownItHljs from 'markdown-it-highlightjs'
 import markdownItTocAndAnchor from 'markdown-it-toc-and-anchor'
 import markdownItEmoji from 'markdown-it-emoji'
 import markdownItEmojiLight from 'markdown-it-emoji/light'
+import markdownItFootnote from 'markdown-it-footnote'
 import { get, toLower } from 'lodash'
 
 const markdownToHTML = (markdown, isFinalFormat = false, options) => {
@@ -68,6 +69,10 @@ const render = (markdown, options) => {
   }
   if (toLower(get(options, 'enableEmoji', 'Full')) === 'light') {
     md.use(markdownItEmojiLight)
+  }
+  // footnotes
+  if (get(options, 'enableFootnotes', true)) {
+    md.use(markdownItFootnote)
   }
 
   return md.render(markdown)
