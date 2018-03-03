@@ -22,7 +22,15 @@ const markdownToHTML = (markdown, isFinalFormat = false, options) => {
 }
 
 const render = (markdown, options) => {
-  const md = markdownIt(options)
+  let md
+
+  md = markdownIt(options)
+  md = loadPlugins(md, options)
+
+  return md.render(markdown)
+}
+
+const loadPlugins = (md, options) => {
   // size-specified image markups
   if (get(options, 'enableImSizeMarkup', true)) {
     md.use(markdownItImSize, {
@@ -75,7 +83,7 @@ const render = (markdown, options) => {
     md.use(markdownItFootnote)
   }
 
-  return md.render(markdown)
+  return md
 }
 
 export default markdownToHTML
