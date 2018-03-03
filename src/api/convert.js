@@ -22,8 +22,9 @@ const options = () => {
       enableTOC: getConfig('enableTocAndAnchor') === 'TOC enabled' || getConfig('enableTocAndAnchor') === 'TOC and Anchors enabled',
       enableAnchor: getConfig('enableTocAndAnchor') === 'Anchors enabled' || getConfig('enableTocAndAnchor') === 'TOC and Anchors enabled',
       tocFirstLevel: getConfig('tocFirstLevel'),
-      tocLastLevel: getConfig('tocLastLevel')
-      anchorLinkSymbol: getConfig('anchorLinkSymbol')
+      tocLastLevel: getConfig('tocLastLevel'),
+      anchorLinkSymbol: getConfig('anchorLinkSymbol'),
+      enableEmoji: getConfig('enableEmoji')
     }
   }
 }

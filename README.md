@@ -84,7 +84,6 @@ See [Demo.pdf](https://github.com/cakebake/markdown-themeable-pdf/raw/master/exa
 -	Fix: Open Markdown Preview with `ctrl-shift-M`, right-click in markdown-preview area and select `Save As PDF`
 -	Better handling of long code lines
 -	Font Awesome integration
--	Emojis
 -	Inline Links (Anchors)
 
 ### Known Issues

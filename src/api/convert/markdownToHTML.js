@@ -6,7 +6,9 @@ import markdownItCheckbox from 'markdown-it-checkbox'
 import markdownItSmartArrows from 'markdown-it-smartarrows'
 import markdownItHljs from 'markdown-it-highlightjs'
 import markdownItTocAndAnchor from 'markdown-it-toc-and-anchor'
-import { get } from 'lodash'
+import markdownItEmoji from 'markdown-it-emoji'
+import markdownItEmojiLight from 'markdown-it-emoji/light'
+import { get, toLower } from 'lodash'
 
 const markdownToHTML = (markdown, isFinalFormat = false, options) => {
   return new Promise((resolve, reject) => {
@@ -59,6 +61,13 @@ const render = (markdown, options) => {
       anchorClassName: 'markdown-themeable-pdf-anchor',
       anchorLinkSymbolClassName: 'markdown-themeable-pdf-anchor-symbol'
     })
+  }
+  // emoji
+  if (toLower(get(options, 'enableEmoji', 'Full')) === 'full') {
+    md.use(markdownItEmoji)
+  }
+  if (toLower(get(options, 'enableEmoji', 'Full')) === 'light') {
+    md.use(markdownItEmojiLight)
   }
 
   return md.render(markdown)

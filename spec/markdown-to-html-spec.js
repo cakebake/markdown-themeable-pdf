@@ -29,7 +29,8 @@ let options = () => {
     enableTOC: get(config, 'enableTocAndAnchor.default') === 'TOC enabled' || get(config, 'enableTocAndAnchor.default') === 'TOC and Anchors enabled',
     enableAnchor: get(config, 'enableTocAndAnchor.default') === 'Anchors enabled' || get(config, 'enableTocAndAnchor.default') === 'TOC and Anchors enabled',
     tocFirstLevel: get(config, 'tocFirstLevel.default'),
-    tocLastLevel: get(config, 'tocLastLevel.default')
+    tocLastLevel: get(config, 'tocLastLevel.default'),
+    enableEmoji: get(config, 'enableEmoji.default')
   }
 }
 
@@ -42,6 +43,53 @@ const getHtml = (markdown, _options = {}, isFinalFormat = true) => {
 }
 
 describe('Markdown to HTML', () => {
+
+  it('checks disabled emoji support', () => {
+    let html = ''
+    runs(async () => {
+      const md = await getMarkdown('emoji.md')
+      html = await getHtml(md, { enableEmoji: 'disabled' })
+    })
+    waitsFor(() => {
+      return html
+    }, 'Should get html')
+    runs(() => {
+      expect(html).toMatch(escapeRegExp(':grin: :sweat_smile: :innocent: :unamused: :angry:'))
+      expect(html).toMatch(escapeRegExp(':) :-('))
+    })
+  })
+
+  it('checks full emoji support', () => {
+    let html = ''
+    runs(async () => {
+      const md = await getMarkdown('emoji.md')
+      html = await getHtml(md, { enableEmoji: 'full' })
+    })
+    waitsFor(() => {
+      return html
+    }, 'Should get html')
+    runs(() => {
+      expect(html).toMatch(escapeRegExp('😁 😅 😇 😒 😠'))
+      expect(html).toMatch(escapeRegExp('😃 😦'))
+      expect(html).toMatch(escapeRegExp('🙊'))
+    })
+  })
+
+  it('checks light emoji support', () => {
+    let html = ''
+    runs(async () => {
+      const md = await getMarkdown('emoji.md')
+      html = await getHtml(md, { enableEmoji: 'light' })
+    })
+    waitsFor(() => {
+      return html
+    }, 'Should get html')
+    runs(() => {
+      expect(html).toMatch(escapeRegExp('😁 😅 😇 😒 😠'))
+      expect(html).toMatch(escapeRegExp('😃 😦'))
+      expect(html).toMatch(escapeRegExp(':speak_no_evil:'))
+    })
+  })
 
   it('checks that TOC and Anchor links are disabled by default', () =>{
     const opt = options()

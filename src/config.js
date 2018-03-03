@@ -74,6 +74,14 @@ export default {
     description: 'Enables markup like <code>!&#91;test&#93;&#40;image.png =100x200&#41;</code> and will fill the width and height fields automatically if the specified image path is valid.',
     order: 72
   },
+  enableEmoji: {
+    title: 'Emoji support',
+    type: 'string',
+    enum: ['Disabled', 'Full', 'Light'],
+    default: 'Full',
+    description: '<code>Full</code>, with <a href="https://www.webpagefx.com/tools/emoji-cheat-sheet/">all github supported</a> emojis. <code>Light</code>, with only <a href="https://github.com/markdown-it/markdown-it-emoji/blob/master/lib/data/light.json">well-supported unicode</a> emojis.',
+    order: 73
+  },
   enableTocAndAnchor: {
     title: 'TOC (Table Of Content) & Heading Anchors',
     type: 'string',
