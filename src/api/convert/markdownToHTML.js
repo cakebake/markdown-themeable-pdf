@@ -44,7 +44,7 @@ const render = (markdown, options) => {
   if (get(options, 'enableCodeHighlighting', true)) {
     md.use(markdownItHljs, {
       auto: get(options, 'codeHighlightingAuto', false),
-      code: true
+      code: false
     })
   }
 

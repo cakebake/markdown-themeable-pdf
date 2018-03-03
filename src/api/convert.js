@@ -14,7 +14,6 @@ const options = () => {
       xhtmlOut: getConfig('enableXHTML'),
       breaks: getConfig('enableBreaks'),
       quotes: getConfig('smartQuotes'),
-      langPrefix: 'hljs ',
       enableCodeHighlighting: getConfig('enableCodeHighlighting'),
       codeHighlightingAuto: getConfig('codeHighlightingAuto'),
       enableImSizeMarkup: getConfig('enableImSizeMarkup'),
