@@ -2,6 +2,7 @@
 
 import { isEmpty, get } from 'lodash'
 import markdownToHTML from './convert/markdownToHTML'
+import createDom from './convert/createDom'
 import { readFile, getFileDirectory } from './filesystem'
 import { getConfig } from './atom'
 
@@ -38,7 +39,8 @@ const convert = (filePath, exportFileType, opt = null) => {
         const htmlIsFinalFormat = (exportFileType === 'html')
         const markdown = await readFile(filePath)
         const html = await markdownToHTML(markdown, htmlIsFinalFormat, get(opt, 'markdownIt'), getFileDirectory(filePath))
-        console.log(html)
+        const htmlDom = await createDom(html)
+        console.log(htmlDom)
         if (htmlIsFinalFormat) {
           resolve(filePath)
         } else {
