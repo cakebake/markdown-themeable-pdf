@@ -76,9 +76,9 @@ module.exports = function () {
 
 ### Example / Demo
 
-See [Demo.pdf](https://github.com/cakebake/markdown-themeable-pdf/raw/master/examples/Demo.pdf) - the PDF version of [Demo.md](https://github.com/cakebake/markdown-themeable-pdf/raw/master/examples/Demo.md).
+See [Demo.pdf](https://github.com/cakebake/markdown-themeable-pdf/raw/rewrite/spec/markdown/Demo.pdf) - the PDF version of [Demo.md](https://github.com/cakebake/markdown-themeable-pdf/raw/rewrite/spec/markdown/Demo.md).
 
-![DEMO](https://raw.githubusercontent.com/cakebake/markdown-themeable-pdf/master/examples/DEMO.gif)
+![DEMO](https://raw.githubusercontent.com/cakebake/markdown-themeable-pdf/rewrite/spec/markdown/img/DEMO.gif)
 
 ### Todo
 
