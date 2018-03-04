@@ -1,11 +1,21 @@
 'use babel'
 
 import { readdirSync, readFile as _readFile } from 'fs'
-import { resolve, extname } from 'path'
+import { resolve, extname, parse as parseFile } from 'path'
+import { parse } from 'url'
 import { ncp } from 'ncp'
 import { get } from 'lodash'
 import charsetDetector from 'charset-detector'
 import { convert as convertEncoding } from 'encoding'
+
+export const getFileDirectory = (filePath) => get(parseFile(filePath), 'dir')
+
+export const resolveImgSrc = (imgSrc, fileDirectory) => {
+  if (parse(imgSrc).protocol || resolve(imgSrc) === imgSrc) {
+    return imgSrc
+  }
+  return ('file:///' + resolve(fileDirectory, imgSrc)).replace(/\\/g, '/')
+}
 
 export const readFile = (path) => {
   return new Promise((resolve, reject) => {

@@ -2,7 +2,7 @@
 
 import { isEmpty, get } from 'lodash'
 import markdownToHTML from './convert/markdownToHTML'
-import { readFile } from './filesystem'
+import { readFile, getFileDirectory } from './filesystem'
 import { getConfig } from './atom'
 
 const options = () => {
@@ -37,7 +37,7 @@ const convert = (filePath, exportFileType, opt = null) => {
       try {
         const htmlIsFinalFormat = (exportFileType === 'html')
         const markdown = await readFile(filePath)
-        const html = await markdownToHTML(markdown, htmlIsFinalFormat, get(opt, 'markdownIt'))
+        const html = await markdownToHTML(markdown, htmlIsFinalFormat, get(opt, 'markdownIt'), getFileDirectory(filePath))
         console.log(html)
         if (htmlIsFinalFormat) {
           resolve(filePath)

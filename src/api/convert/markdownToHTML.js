@@ -10,24 +10,55 @@ import markdownItEmoji from 'markdown-it-emoji'
 import markdownItEmojiLight from 'markdown-it-emoji/light'
 import markdownItFootnote from 'markdown-it-footnote'
 import { get, toLower } from 'lodash'
+import cheerio from 'cheerio'
+import { resolveImgSrc } from '../filesystem'
 
-const markdownToHTML = (markdown, isFinalFormat = false, options) => {
+let fileDirectory = ''
+
+const markdownToHTML = (markdown, isFinalFormat, options, _fileDirectory) => {
+  fileDirectory = _fileDirectory
   return new Promise((resolve, reject) => {
     try {
-      resolve(render(markdown, options))
+      resolve(render(markdown, options, isFinalFormat))
     } catch (e) {
       reject(e)
     }
   })
 }
 
-const render = (markdown, options) => {
-  let md
-
-  md = markdownIt(options)
+const render = (markdown, options, isFinalFormat) => {
+  let md = markdownIt(options)
+  if (!isFinalFormat) {
+    md = fixSrcScheme(md)
+  }
   md = loadPlugins(md, options)
 
   return md.render(markdown)
+}
+
+const fixSrcScheme = (md) => {
+  const defaultRenderer = {
+    image: md.renderer.rules.image,
+    html_block: md.renderer.rules.html_block
+  }
+
+  md.renderer.rules.image = (tokens, idx, options, env, self) => {
+    const index = tokens[idx].attrIndex('src')
+    tokens[idx].attrs[index][1] = resolveImgSrc(tokens[idx].attrs[index][1], fileDirectory)
+    return defaultRenderer.image(tokens, idx, options, env, self)
+  }
+
+  md.renderer.rules.html_block = (tokens, idx, options, env, self) => {
+    const $ = cheerio.load(tokens[idx].content)
+    $('img').each((i, elem) => {
+      const img = $(elem)
+      img.attr('src', resolveImgSrc(img.attr('src'), fileDirectory))
+    })
+    tokens[idx].content = $('body').html()
+    return defaultRenderer.html_block(tokens, idx, options, env, self)
+  }
+
+  return md
 }
 
 const loadPlugins = (md, options) => {

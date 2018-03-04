@@ -1,7 +1,7 @@
 'use babel'
 
 import markdownToHTML from '../src/api/convert/markdownToHTML'
-import { readFile } from '../src/api/filesystem'
+import { readFile, getFileDirectory } from '../src/api/filesystem'
 import config from '../src/config'
 import { get, set, escapeRegExp, merge } from 'lodash'
 import { join } from 'path'
@@ -35,15 +35,48 @@ let options = () => {
   }
 }
 
+let currentFilePath = ''
+
 const getMarkdown = (testFile) => {
-  return readFile(join(__dirname, 'markdown', testFile))
+  currentFilePath = join(__dirname, 'markdown', testFile)
+  return readFile(currentFilePath)
 }
 
 const getHtml = (markdown, _options = {}, isFinalFormat = true) => {
-  return markdownToHTML(markdown, isFinalFormat, merge(options(), _options))
+  return markdownToHTML(markdown, isFinalFormat, merge(options(), _options), getFileDirectory(currentFilePath))
 }
 
 describe('Markdown to HTML', () => {
+
+  it('checks disabled fixed image src scheme', () => {
+    let html = ''
+    runs(async () => {
+      const md = await getMarkdown('image.md')
+      html = await getHtml(md, { html: true }, true)
+    })
+    waitsFor(() => {
+      return html
+    }, 'Should get html')
+    runs(() => {
+      expect(html).toMatch(escapeRegExp('./img/example.png" alt="example">'))
+      expect(html).toMatch(escapeRegExp('./img/example.png" alt="html image" />'))
+    })
+  })
+
+  it('checks enabled fixed image src scheme', () => {
+    let html = ''
+    runs(async () => {
+      const md = await getMarkdown('image.md')
+      html = await getHtml(md, { html: true }, false)
+    })
+    waitsFor(() => {
+      return html
+    }, 'Should get html')
+    runs(() => {
+      expect(html).toMatch(escapeRegExp('markdown-themeable-pdf/spec/markdown/img/example.png" alt="example">'))
+      expect(html).toMatch(escapeRegExp('markdown-themeable-pdf/spec/markdown/img/example.png" alt="html image">'))
+    })
+  })
 
   it('checks disabled footnotes support', () => {
     let html = ''

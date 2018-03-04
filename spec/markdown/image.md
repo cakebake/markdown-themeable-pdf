@@ -13,3 +13,7 @@ normal with size definition
 white space and specials Üäßbn - ubå
 
 ![white space and specials Üäßbn - ubå](./img/white space and specials Üäßbn - ubå.jpg)
+
+html image
+
+<img src="./img/example.png" alt="html image" />
