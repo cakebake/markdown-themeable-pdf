@@ -2,9 +2,11 @@
 
 import { isEmpty, get } from 'lodash'
 import markdownToHTML from './convert/markdownToHTML'
-import createDom from './convert/createDom'
-import { readFile, getFileDirectory } from './filesystem'
+import template from './convert/template'
+import { readFile, getFileDirectory, getFileName } from './filesystem'
 import { getConfig } from './atom'
+
+export const CHARSET = 'UTF-8'
 
 const options = () => {
   return {
@@ -40,10 +42,10 @@ const convert = (filePath, exportFileType, opt = null) => {
       }
       try {
         const htmlIsFinalFormat = (exportFileType === 'html')
-        const markdown = await readFile(filePath)
+        const markdown = await readFile(filePath, CHARSET)
         const html = await markdownToHTML(markdown, htmlIsFinalFormat, get(opt, 'markdownIt'), getFileDirectory(filePath))
-        const htmlDom = await createDom(html)
-        console.log(htmlDom)
+        const htmlTemplate = await template(html, getFileName(filePath), htmlIsFinalFormat)
+        console.log(htmlTemplate)
         if (htmlIsFinalFormat) {
           resolve(filePath)
         } else {

@@ -10,6 +10,8 @@ import { convert as convertEncoding } from 'encoding'
 
 export const getFileDirectory = (filePath) => get(parseFile(filePath), 'dir')
 
+export const getFileName = (filePath) => get(parseFile(filePath), 'name')
+
 export const resolveImgSrc = (imgSrc, fileDirectory) => {
   if (parse(imgSrc).protocol || resolve(imgSrc) === imgSrc) {
     return imgSrc
@@ -17,7 +19,7 @@ export const resolveImgSrc = (imgSrc, fileDirectory) => {
   return ('file:///' + resolve(fileDirectory, imgSrc)).replace(/\\/g, '/')
 }
 
-export const readFile = (path) => {
+export const readFile = (path, charset) => {
   return new Promise((resolve, reject) => {
     _readFile(path, (e, buffer) => {
       if (e) {
@@ -25,7 +27,7 @@ export const readFile = (path) => {
       } else {
         try {
           const fileCharset = get(charsetDetector(buffer), '0.charsetName')
-          const content = convertEncoding(buffer, 'UTF-8', fileCharset).toString()
+          const content = convertEncoding(buffer, charset, fileCharset).toString()
           resolve(content)
         } catch (e) {
           reject(e)
