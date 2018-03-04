@@ -1,7 +1,7 @@
 'use babel'
 
-import { readFile, writeFile, getHighlightJsStyles, copyCustomTemplateFiles } from '../src/api/filesystem'
-import { CHARSET } from '../src/api/convert'
+import { readFile, writeFile, getHighlightJsStyles, copyCustomTemplateFiles } from '../lib/api/filesystem'
+import { CHARSET } from '../lib/api/convert'
 import { join } from 'path'
 import { escapeRegExp } from 'lodash'
 import { existsSync, readFileSync } from 'fs'

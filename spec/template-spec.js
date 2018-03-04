@@ -1,8 +1,8 @@
 'use babel'
 
 import { escapeRegExp } from 'lodash'
-import template from '../src/api/convert/template'
-import { CHARSET } from '../src/api/convert'
+import template from '../lib/api/convert/template'
+import { CHARSET } from '../lib/api/convert'
 
 // Use the command `window:run-package-specs` (cmd-alt-ctrl-p) to run specs.
 //
