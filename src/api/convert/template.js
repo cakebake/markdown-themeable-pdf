@@ -5,8 +5,8 @@ import { CHARSET } from '../convert'
 
 const template = (content, title, htmlIsFinalFormat) => {
   return new Promise((resolve, reject) => {
-    const dom = build(content, title, htmlIsFinalFormat)
-    resolve(dom)
+    const html = build(content, title, htmlIsFinalFormat)
+    resolve(html)
   })
 }
 

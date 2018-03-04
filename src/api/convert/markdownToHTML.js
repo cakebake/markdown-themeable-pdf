@@ -16,7 +16,8 @@ import { resolveImgSrc } from '../filesystem'
 const markdownToHTML = (markdown, isFinalFormat, options, fileDirectory) => {
   return new Promise((resolve, reject) => {
     try {
-      resolve(render(markdown, options, isFinalFormat, fileDirectory))
+      const html = render(markdown, options, isFinalFormat, fileDirectory)
+      resolve(html)
     } catch (e) {
       reject(e)
     }
