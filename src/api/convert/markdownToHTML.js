@@ -30,10 +30,19 @@ const render = (markdown, options, isFinalFormat) => {
   let md = markdownIt(options)
   if (!isFinalFormat) {
     md = fixSrcScheme(md)
+    md = innerWrapTableCell(md)
   }
   md = loadPlugins(md, options)
 
   return md.render(markdown)
+}
+
+const innerWrapTableCell = (md) => {
+  md.renderer.rules.th_open = () => '<th><div>'
+  md.renderer.rules.th_close = () => '</div></th>'
+  md.renderer.rules.td_open = () => '<td><div>'
+  md.renderer.rules.td_close = () => '</div></td>'
+  return md
 }
 
 const fixSrcScheme = (md) => {

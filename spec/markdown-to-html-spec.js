@@ -13,7 +13,7 @@ import { join } from 'path'
 //
 // Tests are written with https://jasmine.github.io/1.3/introduction.html
 
-let options = () => {
+const options = () => {
   return {
     html: get(config, 'enableHtmlInMarkdown.default'),
     linkify: get(config, 'enableLinkify.default'),
@@ -47,6 +47,36 @@ const getHtml = (markdown, _options = {}, isFinalFormat = true) => {
 }
 
 describe('Markdown to HTML', () => {
+
+  it('checks disabled table cell innerWrap', () => {
+    let html = ''
+    runs(async () => {
+      const md = await getMarkdown('table.md')
+      html = await getHtml(md, { html: true }, true)
+    })
+    waitsFor(() => {
+      return html
+    }, 'Should get html')
+    runs(() => {
+      expect(html).toMatch(escapeRegExp('<th>hello</th>'))
+      expect(html).toMatch(escapeRegExp('<td>1</td>'))
+    })
+  })
+
+  it('checks enabled table cell innerWrap', () => {
+    let html = ''
+    runs(async () => {
+      const md = await getMarkdown('table.md')
+      html = await getHtml(md, { html: true }, false)
+    })
+    waitsFor(() => {
+      return html
+    }, 'Should get html')
+    runs(() => {
+      expect(html).toMatch(escapeRegExp('<th><div>hello</div></th>'))
+      expect(html).toMatch(escapeRegExp('<td><div>1</div></td>'))
+    })
+  })
 
   it('checks disabled fixed image src scheme', () => {
     let html = ''
