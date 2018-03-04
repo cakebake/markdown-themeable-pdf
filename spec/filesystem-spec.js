@@ -1,9 +1,10 @@
 'use babel'
 
-import { readFile, getHighlightJsStyles, copyCustomTemplateFiles } from '../src/api/filesystem'
+import { readFile, writeFile, getHighlightJsStyles, copyCustomTemplateFiles } from '../src/api/filesystem'
+import { CHARSET } from '../src/api/convert'
 import { join } from 'path'
 import { escapeRegExp } from 'lodash'
-import { existsSync } from 'fs'
+import { existsSync, readFileSync } from 'fs'
 import rimraf from 'rimraf'
 
 // Use the command `window:run-package-specs` (cmd-alt-ctrl-p) to run specs.
@@ -14,6 +15,23 @@ import rimraf from 'rimraf'
 // Tests are written with https://jasmine.github.io/1.3/introduction.html
 
 describe('Filesystem', () => {
+
+  it(`could write file`, () => {
+    let destination = ''
+    const content = 'Hällööö Wööörld...'
+    runs(async () => {
+      destination = await writeFile(content, join(__dirname, 'tmp'), 'couldWriteFile', 'html', CHARSET)
+    })
+    waitsFor(() => {
+      return destination
+    }, 'Should write file')
+    runs(() => {
+      expect(existsSync(destination)).toBe(true)
+      expect(readFileSync(destination, CHARSET)).toMatch(escapeRegExp(content))
+      rimraf.sync(destination)
+      expect(existsSync(destination)).toBe(false)
+    })
+  })
 
   it(`could copy theme files`, () => {
     const dest = join(__dirname, 'tmp', 'markdown-themeable-pdf')
@@ -48,10 +66,10 @@ describe('Filesystem', () => {
   const testFiles = ['UTF-8.md', 'ISO-8859-1.md', 'Windows-1252.md']
 
   testFiles.forEach((testFile) => {
-    it(`could handle ${testFile} file`, () => {
+    it(`could read ${testFile} file and convert charset to ${CHARSET}`, () => {
       let content
       runs(async () => {
-        content = await readFile(join(__dirname, 'markdown', testFile))
+        content = await readFile(join(__dirname, 'markdown', testFile), CHARSET)
       })
       waitsFor(() => {
         return content

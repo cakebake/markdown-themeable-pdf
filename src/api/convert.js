@@ -3,7 +3,7 @@
 import { isEmpty, get } from 'lodash'
 import markdownToHTML from './convert/markdownToHTML'
 import template from './convert/template'
-import { readFile, getFileDirectory, getFileName } from './filesystem'
+import { readFile, writeFile, getFileDirectory, getFileName } from './filesystem'
 import { getConfig } from './atom'
 
 export const CHARSET = 'UTF-8'
@@ -42,15 +42,14 @@ const convert = (filePath, exportFileType, opt = null) => {
       }
       try {
         const htmlIsFinalFormat = (exportFileType === 'html')
+        const directory = getFileDirectory(filePath)
+        const fileName = getFileName(filePath)
         const markdown = await readFile(filePath, CHARSET)
-        const html = await markdownToHTML(markdown, htmlIsFinalFormat, get(opt, 'markdownIt'), getFileDirectory(filePath))
-        const htmlTemplate = await template(html, getFileName(filePath), htmlIsFinalFormat)
+        const html = await markdownToHTML(markdown, htmlIsFinalFormat, get(opt, 'markdownIt'), directory)
+        const htmlTemplate = await template(html, fileName, htmlIsFinalFormat)
+        const exportFilePath = await writeFile(htmlTemplate, directory, fileName, exportFileType, CHARSET)
         console.log(htmlTemplate)
-        if (htmlIsFinalFormat) {
-          resolve(filePath)
-        } else {
-          resolve(filePath)
-        }
+        resolve(exportFilePath)
       } catch (e) {
         reject(e)
       }

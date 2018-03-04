@@ -1,7 +1,7 @@
 'use babel'
 
-import { readdirSync, readFile as _readFile } from 'fs'
-import { resolve, extname, parse as parseFile } from 'path'
+import { readdirSync, readFile as _readFile, writeFile as _writeFile } from 'fs'
+import { resolve, join, extname, parse as parseFile } from 'path'
 import { parse } from 'url'
 import { ncp } from 'ncp'
 import { get } from 'lodash'
@@ -17,6 +17,19 @@ export const resolveImgSrc = (imgSrc, fileDirectory) => {
     return imgSrc
   }
   return ('file:///' + resolve(fileDirectory, imgSrc)).replace(/\\/g, '/')
+}
+
+export const writeFile = (content, directory, fileName, fileExtension, charset) => {
+  return new Promise((resolve, reject) => {
+    const destination = join(directory, `${fileName}.${fileExtension}`)
+    _writeFile(destination, content, charset, (e) => {
+      if (e) {
+        reject(e)
+      } else {
+        resolve(destination)
+      }
+    })
+  })
 }
 
 export const readFile = (path, charset) => {
