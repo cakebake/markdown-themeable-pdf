@@ -7,9 +7,13 @@ import { parse } from 'path'
 
 export const convertContentToPDF = () => convertContent('pdf')
 
+export const convertContentToImage = () => convertContent('img')
+
 export const convertContentToHTML = () => convertContent('html')
 
 export const convertFileToPDF = (event) => convertFile(event, 'pdf')
+
+export const convertFileToImage = (event) => convertFile(event, 'img')
 
 export const convertFileToHTML = (event) => convertFile(event, 'html')
 

@@ -22,6 +22,7 @@ The PDF can be generated in various ways:
 -	Press a shortcut in the editor area when a file is opened for
   - convert to PDF: `ctrl-alt-p`
   - convert to HTML: `ctrl-alt-h`
+  - convert to Image: `ctrl-alt-i` (jpeg or png defined in package settings)
 
 #### Page breaks
 

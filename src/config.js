@@ -4,10 +4,10 @@ import { getHighlightJsStyles } from './api/filesystem'
 import { join } from 'path'
 
 export default {
-  exportFileType: {
+  imageExportFileType: {
     type: 'string',
-    default: 'pdf',
-    enum: ['html', 'pdf', 'jpeg', 'png'],
+    default: 'jpeg',
+    enum: ['jpeg', 'png'],
     order: 10
   },
   format: {

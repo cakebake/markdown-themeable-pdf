@@ -1,6 +1,7 @@
 {
   "atom-workspace atom-text-editor": {
     "ctrl-alt-p": "markdown-themeable-pdf:convertContentToPDF",
-    "ctrl-alt-h": "markdown-themeable-pdf:convertContentToHTML"
+    "ctrl-alt-h": "markdown-themeable-pdf:convertContentToHTML",
+    "ctrl-alt-i": "markdown-themeable-pdf:convertContentToImage"
   }
 }

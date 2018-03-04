@@ -11,6 +11,10 @@
           {
             "label": "... to HTML",
             "command": "markdown-themeable-pdf:convertFileToHTML"
+          },
+          {
+            "label": "... to Image",
+            "command": "markdown-themeable-pdf:convertFileToImage"
           }
         ]
       }
@@ -26,6 +30,10 @@
           {
             "label": "... to HTML",
             "command": "markdown-themeable-pdf:convertContentToHTML"
+          },
+          {
+            "label": "... to Image",
+            "command": "markdown-themeable-pdf:convertContentToImage"
           }
         ]
       }
@@ -45,6 +53,10 @@
             {
               "label": "... to HTML",
               "command": "markdown-themeable-pdf:convertContentToHTML"
+            },
+            {
+              "label": "... to Image",
+              "command": "markdown-themeable-pdf:convertContentToImage"
             }
           ]
         }
