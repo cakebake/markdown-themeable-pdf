@@ -38,7 +38,6 @@ const convert = (filePath, exportFileType, opt = null) => {
       if (exportFileType === 'img') {
         exportFileType = getConfig('imageExportFileType')
       }
-      console.log(exportFileType);
       try {
         const htmlIsFinalFormat = (exportFileType === 'html')
         const markdown = await readFile(filePath)

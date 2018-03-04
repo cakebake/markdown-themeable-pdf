@@ -10,7 +10,7 @@ import markdownItEmoji from 'markdown-it-emoji'
 import markdownItEmojiLight from 'markdown-it-emoji/light'
 import markdownItFootnote from 'markdown-it-footnote'
 import { get, toLower } from 'lodash'
-import cheerio from 'cheerio'
+import { load } from 'cheerio'
 import { resolveImgSrc } from '../filesystem'
 
 const markdownToHTML = (markdown, isFinalFormat, options, fileDirectory) => {
@@ -55,7 +55,7 @@ const fixSrcScheme = (md, fileDirectory) => {
   }
 
   md.renderer.rules.html_block = (tokens, idx, options, env, self) => {
-    const $ = cheerio.load(tokens[idx].content)
+    const $ = load(tokens[idx].content)
     $('img').each((i, elem) => {
       const img = $(elem)
       img.attr('src', resolveImgSrc(img.attr('src'), fileDirectory))
