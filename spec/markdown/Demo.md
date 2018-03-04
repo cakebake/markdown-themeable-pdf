@@ -160,7 +160,7 @@ Local image with relative path.
 ![local image](example.png)
 ```
 
-![local image](_assets/img/example.png)
+![local image](./img/example.png)
 
 <div class="page-break"></div>
 
@@ -178,10 +178,10 @@ Testing some HTML code
 Image with relative path...
 
 ```
-<img src="./_assets/img/example.png" alt="Image with relative path" />
+<img src="./img/example.png" alt="Image with relative path" />
 ```
 
-<img src="./_assets/img/example.png" alt="IMG RELATIVE" />
+<img src="./img/example.png" alt="IMG RELATIVE" />
 
 <br /><br>
 
