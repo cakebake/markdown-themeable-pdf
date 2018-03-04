@@ -48,11 +48,25 @@ const getHtml = (markdown, _options = {}, isFinalFormat = true) => {
 
 describe('Markdown to HTML', () => {
 
+  it('checks correct table rendering', () => {
+    let html = ''
+    runs(async () => {
+      const md = await getMarkdown('table.md')
+      html = await getHtml(md, {}, true)
+    })
+    waitsFor(() => {
+      return html
+    }, 'Should get html')
+    runs(() => {
+      expect(html).toMatch(escapeRegExp('<th>cdID</th>\n<th>artID</th>'))
+    })
+  })
+
   it('checks disabled table cell innerWrap', () => {
     let html = ''
     runs(async () => {
       const md = await getMarkdown('table.md')
-      html = await getHtml(md, { html: true }, true)
+      html = await getHtml(md, {}, true)
     })
     waitsFor(() => {
       return html
@@ -67,7 +81,7 @@ describe('Markdown to HTML', () => {
     let html = ''
     runs(async () => {
       const md = await getMarkdown('table.md')
-      html = await getHtml(md, { html: true }, false)
+      html = await getHtml(md, {}, false)
     })
     waitsFor(() => {
       return html
