@@ -2,9 +2,9 @@
 
 import { get, merge } from 'lodash'
 import { join } from 'path'
-import config from '../src/config'
-import { readFile, getFileDirectory } from '../src/api/filesystem'
-import markdownToHTML from '../src/api/convert/markdownToHTML'
+import config from '../lib/config'
+import { readFile, getFileDirectory } from '../lib/api/filesystem'
+import markdownToHTML from '../lib/api/convert/markdownToHTML'
 
 export const markdownItOptions = () => {
   return {
