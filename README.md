@@ -20,9 +20,9 @@ The PDF can be generated in various ways:
 -	Right-click in the editor area when a file is opened and select `Markdown Print/Convert` **or**
 -	Right-click on a markdown file in Tree-View and select `Markdown Print/Convert` **or**
 -	Press a shortcut in the editor area when a file is opened for
-  - convert to PDF: `ctrl-alt-p`
-  - convert to HTML: `ctrl-alt-h`
-  - convert to Image: `ctrl-alt-i` (jpeg or png defined in package settings)
+    - convert to PDF: `ctrl-alt-p`
+    - convert to HTML: `ctrl-alt-h`
+    - convert to Image: `ctrl-alt-i` (jpeg or png defined in package settings)
 
 #### Page breaks
 
