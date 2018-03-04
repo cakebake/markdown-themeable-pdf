@@ -4,6 +4,12 @@ import { escapeRegExp } from 'lodash'
 import template from '../lib/api/convert/template'
 import { CHARSET } from '../lib/api/convert'
 
+import {
+  getMarkdown,
+  getHtml,
+  getCurrentMdFilePath
+} from './_preset'
+
 // Use the command `window:run-package-specs` (cmd-alt-ctrl-p) to run specs.
 //
 // To run a specific `it` or `describe` block add an `f` to the front (e.g. `fit`
@@ -13,17 +19,14 @@ import { CHARSET } from '../lib/api/convert'
 
 let title = 'Lorem Title'
 
-let content = `
-<h1>Heading 1</h1>
-<p>Lorem ipsum dolor sit amet</p>
-`
-
 describe('Template', () => {
 
-  it('Create html template from content', () => {
+  it('creates html template from content', () => {
     let html = ''
     runs(async () => {
-      html = await template(content, title, true)
+      const md = await getMarkdown('simple.md')
+      const content = await getHtml(md, {})
+      html = await template(content, title, true, getCurrentMdFilePath())
     })
     waitsFor(() => {
       return html

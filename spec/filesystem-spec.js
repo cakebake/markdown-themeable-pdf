@@ -1,11 +1,18 @@
 'use babel'
 
-import { readFile, writeFile, getHighlightJsStyles, copyCustomTemplateFiles } from '../lib/api/filesystem'
 import { CHARSET } from '../lib/api/convert'
 import { join } from 'path'
 import { escapeRegExp } from 'lodash'
 import { existsSync, readFileSync } from 'fs'
 import rimraf from 'rimraf'
+
+import {
+  readFile,
+  writeFile,
+  getHighlightJsStyles,
+  copyCustomTemplateFiles,
+  getCustomConfigFilePath
+} from '../lib/api/filesystem'
 
 // Use the command `window:run-package-specs` (cmd-alt-ctrl-p) to run specs.
 //
@@ -15,6 +22,11 @@ import rimraf from 'rimraf'
 // Tests are written with https://jasmine.github.io/1.3/introduction.html
 
 describe('Filesystem', () => {
+
+  it(`could get custom config file path`, () => {
+    const cssPath = getCustomConfigFilePath('markdown-themeable-pdf/styles.css', join(__dirname, 'markdown', 'simple.md'))
+    console.log(cssPath);
+  })
 
   it(`could write file`, () => {
     let destination = ''

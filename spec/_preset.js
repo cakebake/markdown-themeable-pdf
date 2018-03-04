@@ -6,6 +6,10 @@ import config from '../lib/config'
 import { readFile, getFileDirectory } from '../lib/api/filesystem'
 import markdownToHTML from '../lib/api/convert/markdownToHTML'
 
+let currentMdFilePath = ''
+
+export const getCurrentMdFilePath = () => currentMdFilePath
+
 export const markdownItOptions = () => {
   return {
     html: get(config, 'enableHtmlInMarkdown.default'),
@@ -27,8 +31,6 @@ export const markdownItOptions = () => {
     enableFootnotes: get(config, 'enableFootnotes.default')
   }
 }
-
-let currentMdFilePath = ''
 
 export const getMarkdown = (testFile) => {
   currentMdFilePath = join(__dirname, 'markdown', testFile)
