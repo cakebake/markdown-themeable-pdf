@@ -13,23 +13,20 @@ import { get, toLower } from 'lodash'
 import cheerio from 'cheerio'
 import { resolveImgSrc } from '../filesystem'
 
-let fileDirectory = ''
-
-const markdownToHTML = (markdown, isFinalFormat, options, _fileDirectory) => {
-  fileDirectory = _fileDirectory
+const markdownToHTML = (markdown, isFinalFormat, options, fileDirectory) => {
   return new Promise((resolve, reject) => {
     try {
-      resolve(render(markdown, options, isFinalFormat))
+      resolve(render(markdown, options, isFinalFormat, fileDirectory))
     } catch (e) {
       reject(e)
     }
   })
 }
 
-const render = (markdown, options, isFinalFormat) => {
+const render = (markdown, options, isFinalFormat, fileDirectory) => {
   let md = markdownIt(options)
   if (!isFinalFormat) {
-    md = fixSrcScheme(md)
+    md = fixSrcScheme(md, fileDirectory)
     md = innerWrapTableCell(md)
   }
   md = loadPlugins(md, options)
@@ -45,7 +42,7 @@ const innerWrapTableCell = (md) => {
   return md
 }
 
-const fixSrcScheme = (md) => {
+const fixSrcScheme = (md, fileDirectory) => {
   const defaultRenderer = {
     image: md.renderer.rules.image,
     html_block: md.renderer.rules.html_block
