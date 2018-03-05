@@ -3,7 +3,7 @@
 import { escapeRegExp } from 'lodash'
 import template from '../lib/api/template'
 import { CHARSET } from '../lib/api/convert'
-import { readFilesCombine } from '../lib/api/filesystem'
+import { readFilesCombine, getHighlightJsStylePathByName } from '../lib/api/filesystem'
 import { getCssFilePaths } from '../lib/api/atom'
 
 import {
@@ -11,7 +11,8 @@ import {
   getHtml,
   getCurrentMdFilePath,
   getCustomStylesPath,
-  getProjectRootPath
+  getProjectRootPath,
+  getcodeHighlightingTheme
 } from './_preset'
 
 // Use the command `window:run-package-specs` (cmd-alt-ctrl-p) to run specs.
@@ -31,7 +32,11 @@ describe('Template', () => {
     runs(async () => {
       const md = await getMarkdown('simple.md')
       const content = await getHtml(md, {})
-      const cssFiles = getCssFilePaths(getCustomStylesPath(), getProjectRootPath())
+      const cssFiles = getCssFilePaths(
+        getCustomStylesPath(),
+        getProjectRootPath(),
+        getHighlightJsStylePathByName(getcodeHighlightingTheme())
+      )
       css = await readFilesCombine(cssFiles, CHARSET)
       html = await template(content, title, true, CHARSET, css)
     })
@@ -42,7 +47,9 @@ describe('Template', () => {
       expect(html).toMatch(escapeRegExp('<!DOCTYPE html>\n<html>'))
       expect(html).toMatch(escapeRegExp(`<meta charset="${CHARSET}">`))
       expect(html).toMatch(escapeRegExp(`<title>${title}</title>`))
-      expect(html).toMatch(escapeRegExp(`<style>${css}</style>`))
+      expect(html).toMatch(escapeRegExp('.page-break'))
+      expect(html).toMatch(escapeRegExp('Your markdown-themeable-pdf custom styles'))
+      expect(html).toMatch(escapeRegExp('.hljs'))
       expect(html).toMatch(escapeRegExp('<header id="pageHeader" class="meta">'))
       expect(html).toMatch(escapeRegExp('<main id="pageContent">'))
       expect(html).toMatch(escapeRegExp('<footer id="pageFooter" class="meta">'))

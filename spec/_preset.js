@@ -15,6 +15,8 @@ export const getProjectRootPath = () => pathResolve(__dirname, '..')
 
 export const getCustomStylesPath = () => get(config, 'customStylesPath.default')
 
+export const getcodeHighlightingTheme = () => get(config, 'codeHighlightingTheme.default')
+
 export const markdownItOptions = () => {
   return {
     html: get(config, 'enableHtmlInMarkdown.default'),
