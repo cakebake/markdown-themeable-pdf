@@ -1,13 +1,17 @@
 'use babel'
 
 import { escapeRegExp } from 'lodash'
-import template from '../lib/api/convert/template'
+import template from '../lib/api/template'
 import { CHARSET } from '../lib/api/convert'
+import { readFilesCombine } from '../lib/api/filesystem'
+import { getCssFilePaths } from '../lib/api/atom'
 
 import {
   getMarkdown,
   getHtml,
-  getCurrentMdFilePath
+  getCurrentMdFilePath,
+  getCustomStylesPath,
+  getProjectRootPath
 } from './_preset'
 
 // Use the command `window:run-package-specs` (cmd-alt-ctrl-p) to run specs.
@@ -23,10 +27,13 @@ describe('Template', () => {
 
   it('creates html template from content', () => {
     let html = ''
+    let css = ''
     runs(async () => {
       const md = await getMarkdown('simple.md')
       const content = await getHtml(md, {})
-      html = await template(content, title, true, getCurrentMdFilePath())
+      const cssFiles = getCssFilePaths(getCustomStylesPath(), getProjectRootPath())
+      css = await readFilesCombine(cssFiles, CHARSET)
+      html = await template(content, title, true, CHARSET, css)
     })
     waitsFor(() => {
       return html
@@ -35,6 +42,7 @@ describe('Template', () => {
       expect(html).toMatch(escapeRegExp('<!DOCTYPE html>\n<html>'))
       expect(html).toMatch(escapeRegExp(`<meta charset="${CHARSET}">`))
       expect(html).toMatch(escapeRegExp(`<title>${title}</title>`))
+      expect(html).toMatch(escapeRegExp(`<style>${css}</style>`))
       expect(html).toMatch(escapeRegExp('<header id="pageHeader" class="meta">'))
       expect(html).toMatch(escapeRegExp('<main id="pageContent">'))
       expect(html).toMatch(escapeRegExp('<footer id="pageFooter" class="meta">'))

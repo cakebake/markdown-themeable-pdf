@@ -10,8 +10,7 @@ import {
   readFile,
   writeFile,
   getHighlightJsStyles,
-  copyCustomTemplateFiles,
-  getCustomConfigFilePath
+  copyCustomTemplateFiles
 } from '../lib/api/filesystem'
 
 // Use the command `window:run-package-specs` (cmd-alt-ctrl-p) to run specs.
@@ -23,10 +22,10 @@ import {
 
 describe('Filesystem', () => {
 
-  it(`could get custom config file path`, () => {
-    const cssPath = getCustomConfigFilePath('markdown-themeable-pdf/styles.css', join(__dirname, 'markdown', 'simple.md'))
-    console.log(cssPath);
-  })
+  // it(`could get custom config file path`, () => {
+  //   const cssPath = getCustomConfigFilePath('markdown-themeable-pdf/styles.css', join(__dirname, 'markdown', 'simple.md'))
+  //   console.log(cssPath);
+  // })
 
   it(`could write file`, () => {
     let destination = ''

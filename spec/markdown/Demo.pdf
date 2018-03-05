@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html><head><meta charset="UTF-8"><title>Demo</title><style>html, body { color: red }</style></head><body><header id="pageHeader" class="meta"><p>header</p></header><main id="pageContent"><h1>An h1 header</h1>
+<html><head><meta charset="UTF-8"><title>Demo</title><style>html, body { color: cyan }</style></head><body><header id="pageHeader" class="meta"><p>header</p></header><main id="pageContent"><h1>An h1 header</h1>
 <p>Paragraphs are separated by a blank line.</p>
 <p>New line&#x2026; Some changes&#x2026; &#x1F603;</p>
 <p>2nd paragraph. <em>Italic</em>, <strong>bold</strong>, and <code>monospace</code>. Itemized lists look like:</p>
@@ -127,7 +127,7 @@ wait <span class="hljs-number">10</span> minutes
 <p>Local image with relative path.</p>
 <pre><code class="hljs">![<span class="hljs-string">local image</span>](<span class="hljs-link">example.png</span>)
 </code></pre>
-<p><img src="file:////home/jens/.atom/dev/packages/markdown-themeable-pdf/spec/markdown/img/example.png" alt="local image"></p>
+<p><img src="file:////home/jens/Projects/atom/markdown-themeable-pdf/spec/markdown/img/example.png" alt="local image"></p>
 <div class="page-break"></div>
 <p>And note that you can backslash-escape any punctuation characters which you wish to be displayed literally, ex.: `foo`, *bar*, etc.</p>
 <p>Anbei testen wir ein paar Umlaute und Sonderzeichen&#x2026;</p>
@@ -139,7 +139,7 @@ wait <span class="hljs-number">10</span> minutes
 <p>Image with relative path&#x2026;</p>
 <pre><code class="hljs">&lt;img <span class="hljs-attribute">src</span>=<span class="hljs-string">&quot;./img/example.png&quot;</span> <span class="hljs-attribute">alt</span>=<span class="hljs-string">&quot;Image with relative path&quot;</span> /&gt;
 </code></pre>
-<img src="file:////home/jens/.atom/dev/packages/markdown-themeable-pdf/spec/markdown/img/example.png" alt="IMG RELATIVE">
+<img src="file:////home/jens/Projects/atom/markdown-themeable-pdf/spec/markdown/img/example.png" alt="IMG RELATIVE">
 <p><br><br></p>
 <p>Image external&#x2026;</p>
 <pre><code class="hljs">&lt;img <span class="hljs-attribute">src</span>=<span class="hljs-string">&quot;http://placehold.it/900x250/f3330b/fff&quot;</span> <span class="hljs-attribute">alt</span>=<span class="hljs-string">&quot;Image external&quot;</span> /&gt;

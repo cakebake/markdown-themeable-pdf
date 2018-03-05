@@ -1,7 +1,7 @@
 'use babel'
 
 import { get, merge } from 'lodash'
-import { join } from 'path'
+import { join, resolve as pathResolve } from 'path'
 import config from '../lib/config'
 import { readFile, getFileDirectory } from '../lib/api/filesystem'
 import markdownToHTML from '../lib/api/convert/markdownToHTML'
@@ -9,6 +9,11 @@ import markdownToHTML from '../lib/api/convert/markdownToHTML'
 let currentMdFilePath = ''
 
 export const getCurrentMdFilePath = () => currentMdFilePath
+
+// fake for spec suit, because atom project path points to /tmp -.-
+export const getProjectRootPath = () => pathResolve(__dirname, '..')
+
+export const getCustomStylesPath = () => get(config, 'customStylesPath.default')
 
 export const markdownItOptions = () => {
   return {
