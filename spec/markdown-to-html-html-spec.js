@@ -19,7 +19,11 @@ describe('HTML', () => {
   it('markdown has html', () => {
     let md = ''
     runs(async () => {
-      md = await getMarkdown('html.md')
+      try {
+        md = await getMarkdown('html.md')
+      } catch (e) {
+        throw e
+      }
     })
     waitsFor(() => {
       return md
@@ -32,8 +36,12 @@ describe('HTML', () => {
   it('with value true', () => {
     let html = ''
     runs(async () => {
-      const md = await getMarkdown('html.md')
-      html = await getHtml(md, { html: true })
+      try {
+        const md = await getMarkdown('html.md')
+        html = await getHtml(md, { html: true })
+      } catch (e) {
+        throw e
+      }
     })
     waitsFor(() => {
       return html
@@ -46,8 +54,12 @@ describe('HTML', () => {
   it('with value false', () => {
     let html = ''
     runs(async () => {
-      const md = await getMarkdown('html.md')
-      html = await getHtml(md, { html: false })
+      try {
+        const md = await getMarkdown('html.md')
+        html = await getHtml(md, { html: false })
+      } catch (e) {
+        throw e
+      }
     })
     waitsFor(() => {
       return html

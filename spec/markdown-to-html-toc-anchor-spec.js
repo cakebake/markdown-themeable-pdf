@@ -26,8 +26,12 @@ describe('TOC and Anchor', () => {
   it('checks disabled TOC and disabled Anchor generation', () => {
     let html = ''
     runs(async () => {
-      const md = await getMarkdown('tocAndAnchor.md')
-      html = await getHtml(md, { enableTOC: false, enableAnchor: false })
+      try {
+        const md = await getMarkdown('tocAndAnchor.md')
+        html = await getHtml(md, { enableTOC: false, enableAnchor: false })
+      } catch (e) {
+        throw e
+      }
     })
     waitsFor(() => {
       return html
@@ -41,8 +45,12 @@ describe('TOC and Anchor', () => {
   it('checks disabled TOC and enabled Anchor generation', () => {
     let html = ''
     runs(async () => {
-      const md = await getMarkdown('tocAndAnchor.md')
-      html = await getHtml(md, { enableTOC: false, enableAnchor: true })
+      try {
+        const md = await getMarkdown('tocAndAnchor.md')
+        html = await getHtml(md, { enableTOC: false, enableAnchor: true })
+      } catch (e) {
+        throw e
+      }
     })
     waitsFor(() => {
       return html
@@ -56,8 +64,12 @@ describe('TOC and Anchor', () => {
   it('checks enabled TOC and disabled Anchor generation', () => {
     let html = ''
     runs(async () => {
-      const md = await getMarkdown('tocAndAnchor.md')
-      html = await getHtml(md, { enableTOC: true, enableAnchor: false })
+      try {
+        const md = await getMarkdown('tocAndAnchor.md')
+        html = await getHtml(md, { enableTOC: true, enableAnchor: false })
+      } catch (e) {
+        throw e
+      }
     })
     waitsFor(() => {
       return html
@@ -71,8 +83,12 @@ describe('TOC and Anchor', () => {
   it('checks enabled TOC and enabled Anchor generation', () => {
     let html = ''
     runs(async () => {
-      const md = await getMarkdown('tocAndAnchor.md')
-      html = await getHtml(md, { enableTOC: true, enableAnchor: true })
+      try {
+        const md = await getMarkdown('tocAndAnchor.md')
+        html = await getHtml(md, { enableTOC: true, enableAnchor: true })
+      } catch (e) {
+        throw e
+      }
     })
     waitsFor(() => {
       return html
@@ -86,8 +102,12 @@ describe('TOC and Anchor', () => {
   it('checks TOC with heading range 2 - 4', () => {
     let html = ''
     runs(async () => {
-      const md = await getMarkdown('tocAndAnchor.md')
-      html = await getHtml(md, { enableTOC: true, tocFirstLevel: 2, tocLastLevel: 4 })
+      try {
+        const md = await getMarkdown('tocAndAnchor.md')
+        html = await getHtml(md, { enableTOC: true, tocFirstLevel: 2, tocLastLevel: 4 })
+      } catch (e) {
+        throw e
+      }
     })
     waitsFor(() => {
       return html
@@ -101,8 +121,12 @@ describe('TOC and Anchor', () => {
   it('checks anchor link symbol', () => {
     let html = ''
     runs(async () => {
-      const md = await getMarkdown('tocAndAnchor.md')
-      html = await getHtml(md, { enableAnchor: true, anchorLinkSymbol: '$' })
+      try {
+        const md = await getMarkdown('tocAndAnchor.md')
+        html = await getHtml(md, { enableAnchor: true, anchorLinkSymbol: '$' })
+      } catch (e) {
+        throw e
+      }
     })
     waitsFor(() => {
       return html

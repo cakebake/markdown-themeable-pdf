@@ -19,8 +19,12 @@ describe('Footnotes', () => {
   it('checks disabled footnotes support', () => {
     let html = ''
     runs(async () => {
-      const md = await getMarkdown('footnotes.md')
-      html = await getHtml(md, { enableFootnotes: false })
+      try {
+        const md = await getMarkdown('footnotes.md')
+        html = await getHtml(md, { enableFootnotes: false })
+      } catch (e) {
+        throw e
+      }
     })
     waitsFor(() => {
       return html
@@ -34,8 +38,12 @@ describe('Footnotes', () => {
   it('checks enabled footnotes support', () => {
     let html = ''
     runs(async () => {
-      const md = await getMarkdown('footnotes.md')
-      html = await getHtml(md, { enableFootnotes: true })
+      try {
+        const md = await getMarkdown('footnotes.md')
+        html = await getHtml(md, { enableFootnotes: true })
+      } catch (e) {
+        throw e
+      }
     })
     waitsFor(() => {
       return html

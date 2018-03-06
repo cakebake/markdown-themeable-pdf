@@ -19,8 +19,12 @@ describe('Checkbox', () => {
   it('checks disabled checkbox rendering', () => {
     let html = ''
     runs(async () => {
-      const md = await getMarkdown('checkbox.md')
-      html = await getHtml(md, { enableCheckboxes: false })
+      try {
+        const md = await getMarkdown('checkbox.md')
+        html = await getHtml(md, { enableCheckboxes: false })
+      } catch (e) {
+        throw e
+      }
     })
     waitsFor(() => {
       return html
@@ -36,8 +40,12 @@ describe('Checkbox', () => {
   it('checks enabled checkbox rendering', () => {
     let html = ''
     runs(async () => {
-      const md = await getMarkdown('checkbox.md')
-      html = await getHtml(md, { enableCheckboxes: true })
+      try {
+        const md = await getMarkdown('checkbox.md')
+        html = await getHtml(md, { enableCheckboxes: true })
+      } catch (e) {
+        throw e
+      }
     })
     waitsFor(() => {
       return html

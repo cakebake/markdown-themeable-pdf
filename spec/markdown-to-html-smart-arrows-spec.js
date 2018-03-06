@@ -19,8 +19,12 @@ describe('Markdown to HTML', () => {
   it('checks disabled smart arrows', () => {
     let html = ''
     runs(async () => {
-      const md = await getMarkdown('smartArrows.md')
-      html = await getHtml(md, { enableSmartArrows: false })
+      try {
+        const md = await getMarkdown('smartArrows.md')
+        html = await getHtml(md, { enableSmartArrows: false })
+      } catch (e) {
+        throw e
+      }
     })
     waitsFor(() => {
       return html
@@ -33,8 +37,12 @@ describe('Markdown to HTML', () => {
   it('checks enabled smart arrows', () => {
     let html = ''
     runs(async () => {
-      const md = await getMarkdown('smartArrows.md')
-      html = await getHtml(md, { enableSmartArrows: true })
+      try {
+        const md = await getMarkdown('smartArrows.md')
+        html = await getHtml(md, { enableSmartArrows: true })
+      } catch (e) {
+        throw e
+      }
     })
     waitsFor(() => {
       return html

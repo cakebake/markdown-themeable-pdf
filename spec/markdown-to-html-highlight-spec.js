@@ -19,8 +19,12 @@ describe('Highlight', () => {
   it('checks disabled higlight.js', () => {
     let html = ''
     runs(async () => {
-      const md = await getMarkdown('highlight.md')
-      html = await getHtml(md, { enableCodeHighlighting: false })
+      try {
+        const md = await getMarkdown('highlight.md')
+        html = await getHtml(md, { enableCodeHighlighting: false })
+      } catch (e) {
+        throw e
+      }
     })
     waitsFor(() => {
       return html
@@ -36,8 +40,12 @@ describe('Highlight', () => {
   it('checks enabled higlight.js with disabled auto lang detection', () => {
     let html = ''
     runs(async () => {
-      const md = await getMarkdown('highlight.md')
-      html = await getHtml(md, { enableCodeHighlighting: true, codeHighlightingAuto: false })
+      try {
+        const md = await getMarkdown('highlight.md')
+        html = await getHtml(md, { enableCodeHighlighting: true, codeHighlightingAuto: false })
+      } catch (e) {
+        throw e
+      }
     })
     waitsFor(() => {
       return html
@@ -53,8 +61,12 @@ describe('Highlight', () => {
   it('checks enabled higlight.js with enabled auto lang detection', () => {
     let html = ''
     runs(async () => {
-      const md = await getMarkdown('highlight.md')
-      html = await getHtml(md, { enableCodeHighlighting: true, codeHighlightingAuto: true })
+      try {
+        const md = await getMarkdown('highlight.md')
+        html = await getHtml(md, { enableCodeHighlighting: true, codeHighlightingAuto: true })
+      } catch (e) {
+        throw e
+      }
     })
     waitsFor(() => {
       return html
