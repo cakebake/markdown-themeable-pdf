@@ -5,9 +5,11 @@ import { join } from 'path'
 import { escapeRegExp } from 'lodash'
 import { existsSync, readFileSync } from 'fs'
 import rimraf from 'rimraf'
+import { getMarkdownTestFilePath } from './_preset'
 
 import {
   readFile,
+  readFilesCombine,
   writeFile,
   getHighlightJsStyles,
   copyCustomTemplateFiles
@@ -21,11 +23,6 @@ import {
 // Tests are written with https://jasmine.github.io/1.3/introduction.html
 
 describe('Filesystem', () => {
-
-  // it(`could get custom config file path`, () => {
-  //   const cssPath = getCustomConfigFilePath('markdown-themeable-pdf/styles.css', join(__dirname, 'markdown', 'simple.md'))
-  //   console.log(cssPath);
-  // })
 
   it(`could write file`, () => {
     let destination = ''
@@ -88,6 +85,24 @@ describe('Filesystem', () => {
       runs(() => {
         expect(content).toMatch(escapeRegExp('Hällö Wörld'))
       })
+    })
+  })
+
+  it(`could read files and combine them`, () => {
+    let content
+    runs(async () => {
+      const filePaths = [
+        getMarkdownTestFilePath('Windows-1252.md'),
+        getMarkdownTestFilePath('simple.md')
+      ]
+      content = await readFilesCombine(filePaths, CHARSET)
+    })
+    waitsFor(() => {
+      return content
+    }, 'Should get content of files')
+    runs(() => {
+      expect(content).toMatch(escapeRegExp('Hällö Wörld'))
+      expect(content).toMatch(escapeRegExp('Heading 1'))
     })
   })
 

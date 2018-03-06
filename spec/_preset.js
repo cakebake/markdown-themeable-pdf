@@ -39,8 +39,10 @@ export const markdownItOptions = () => {
   }
 }
 
+export const getMarkdownTestFilePath = (testFile) => join(__dirname, 'markdown', testFile)
+
 export const getMarkdown = (testFile) => {
-  currentMdFilePath = join(__dirname, 'markdown', testFile)
+  currentMdFilePath = getMarkdownTestFilePath(testFile)
   return readFile(currentMdFilePath)
 }
 
