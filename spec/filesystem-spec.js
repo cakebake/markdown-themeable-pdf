@@ -48,10 +48,6 @@ describe('Filesystem', () => {
   it(`could copy theme files`, () => {
     const dest = join(__dirname, 'tmp', 'markdown-themeable-pdf')
     let fin = false
-
-    rimraf.sync(dest)
-    expect(existsSync(dest)).toBe(false)
-
     runs(() => {
       copyCustomTemplateFiles((e) => {
         if (e) {
@@ -68,6 +64,8 @@ describe('Filesystem', () => {
       expect(existsSync(join(dest, 'footer.js'))).toBe(true)
       expect(existsSync(join(dest, 'header.js'))).toBe(true)
       expect(existsSync(join(dest, 'styles.css'))).toBe(true)
+      rimraf.sync(dest)
+      expect(existsSync(dest)).toBe(false)
     })
   })
 
