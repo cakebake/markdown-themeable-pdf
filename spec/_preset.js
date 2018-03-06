@@ -1,9 +1,9 @@
 'use babel'
 
-import { get, merge } from 'lodash'
+import { merge } from 'lodash'
 import { join, resolve as pathResolve } from 'path'
-import config from '../lib/config'
 import { readFile, getFileDirectory } from '../lib/api/filesystem'
+import { getConfig } from '../lib/api/atom'
 import markdownToHTML from '../lib/api/convert/markdownToHTML'
 
 let currentMdFilePath = ''
@@ -13,29 +13,29 @@ export const getCurrentMdFilePath = () => currentMdFilePath
 // fake for spec suit, because atom project path points to /tmp -.-
 export const getProjectRootPath = () => pathResolve(__dirname, '..')
 
-export const getCustomStylesPath = () => get(config, 'customStylesPath.default')
+export const getCustomStylesPath = () => getConfig('customStylesPath', true)
 
-export const getcodeHighlightingTheme = () => get(config, 'codeHighlightingTheme.default')
+export const getcodeHighlightingTheme = () => getConfig('codeHighlightingTheme', true)
 
 export const markdownItOptions = () => {
   return {
-    html: get(config, 'enableHtmlInMarkdown.default'),
-    linkify: get(config, 'enableLinkify.default'),
-    typographer: get(config, 'enableTypographer.default'),
-    xhtmlOut: get(config, 'enableXHTML.default'),
-    breaks: get(config, 'enableBreaks.default'),
-    quotes: get(config, 'smartQuotes.default'),
-    enableCodeHighlighting: get(config, 'enableCodeHighlighting.default'),
-    codeHighlightingAuto: get(config, 'codeHighlightingAuto.default'),
-    enableImSizeMarkup: get(config, 'enableImSizeMarkup.default'),
-    enableCheckboxes: get(config, 'enableCheckboxes.default'),
-    enableSmartArrows: get(config, 'enableSmartArrows.default'),
-    enableTOC: get(config, 'enableTocAndAnchor.default') === 'TOC enabled' || get(config, 'enableTocAndAnchor.default') === 'TOC and Anchors enabled',
-    enableAnchor: get(config, 'enableTocAndAnchor.default') === 'Anchors enabled' || get(config, 'enableTocAndAnchor.default') === 'TOC and Anchors enabled',
-    tocFirstLevel: get(config, 'tocFirstLevel.default'),
-    tocLastLevel: get(config, 'tocLastLevel.default'),
-    enableEmoji: get(config, 'enableEmoji.default'),
-    enableFootnotes: get(config, 'enableFootnotes.default')
+    html: getConfig('enableHtmlInMarkdown', true),
+    linkify: getConfig('enableLinkify', true),
+    typographer: getConfig('enableTypographer', true),
+    xhtmlOut: getConfig('enableXHTML', true),
+    breaks: getConfig('enableBreaks', true),
+    quotes: getConfig('smartQuotes', true),
+    enableCodeHighlighting: getConfig('enableCodeHighlighting', true),
+    codeHighlightingAuto: getConfig('codeHighlightingAuto', true),
+    enableImSizeMarkup: getConfig('enableImSizeMarkup', true),
+    enableCheckboxes: getConfig('enableCheckboxes', true),
+    enableSmartArrows: getConfig('enableSmartArrows', true),
+    enableTOC: getConfig('enableTocAndAnchor', true) === 'TOC enabled' || getConfig('enableTocAndAnchor', true) === 'TOC and Anchors enabled',
+    enableAnchor: getConfig('enableTocAndAnchor', true) === 'Anchors enabled' || getConfig('enableTocAndAnchor', true) === 'TOC and Anchors enabled',
+    tocFirstLevel: getConfig('tocFirstLevel', true),
+    tocLastLevel: getConfig('tocLastLevel', true),
+    enableEmoji: getConfig('enableEmoji', true),
+    enableFootnotes: getConfig('enableFootnotes', true)
   }
 }
 
