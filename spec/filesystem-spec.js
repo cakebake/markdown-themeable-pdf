@@ -5,7 +5,7 @@ import { join } from 'path'
 import { escapeRegExp } from 'lodash'
 import { existsSync, readFileSync } from 'fs'
 import rimraf from 'rimraf'
-import { getMarkdownTestFilePath } from './_preset'
+import { getMarkdownTestFilePath, getcodeHighlightingTheme } from './_preset'
 
 import {
   readFile,
@@ -67,8 +67,8 @@ describe('Filesystem', () => {
     })
   })
 
-  it(`could get highlight.js css files`, () => {
-    expect(getHighlightJsStyles()).toContain('github-gist.css')
+  it(`could get highlight.js css files and files contain default highlight theme`, () => {
+    expect(getHighlightJsStyles()).toContain(getcodeHighlightingTheme())
   })
 
   const testFiles = ['UTF-8.md', 'ISO-8859-1.md', 'Windows-1252.md']
