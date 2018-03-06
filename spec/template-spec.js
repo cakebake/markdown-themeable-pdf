@@ -30,15 +30,19 @@ describe('Template', () => {
     let html = ''
     let css = ''
     runs(async () => {
-      const md = await getMarkdown('simple.md')
-      const content = await getHtml(md, {})
-      const cssFiles = getCssFilePaths(
-        getCustomStylesPath(),
-        getProjectRootPath(),
-        getHighlightJsStylePathByName(getcodeHighlightingTheme())
-      )
-      css = await readFilesCombine(cssFiles, CHARSET)
-      html = await template(content, title, true, CHARSET, css)
+      try {
+        const md = await getMarkdown('simple.md')
+        const content = await getHtml(md, {})
+        const cssFiles = getCssFilePaths(
+          getCustomStylesPath(),
+          getProjectRootPath(),
+          getHighlightJsStylePathByName(getcodeHighlightingTheme())
+        )
+        css = await readFilesCombine(cssFiles, CHARSET)
+        html = await template(content, title, true, CHARSET, css)
+      } catch (e) {
+        throw e
+      }
     })
     waitsFor(() => {
       return html

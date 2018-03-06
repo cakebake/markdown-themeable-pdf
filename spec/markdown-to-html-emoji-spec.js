@@ -19,8 +19,12 @@ describe('Emoji', () => {
   it('checks disabled emoji support', () => {
     let html = ''
     runs(async () => {
-      const md = await getMarkdown('emoji.md')
-      html = await getHtml(md, { enableEmoji: 'disabled' })
+      try {
+        const md = await getMarkdown('emoji.md')
+        html = await getHtml(md, { enableEmoji: 'disabled' })
+      } catch (e) {
+        throw e
+      }
     })
     waitsFor(() => {
       return html
@@ -34,8 +38,12 @@ describe('Emoji', () => {
   it('checks full emoji support', () => {
     let html = ''
     runs(async () => {
-      const md = await getMarkdown('emoji.md')
-      html = await getHtml(md, { enableEmoji: 'full' })
+      try {
+        const md = await getMarkdown('emoji.md')
+        html = await getHtml(md, { enableEmoji: 'full' })
+      } catch (e) {
+        throw e
+      }
     })
     waitsFor(() => {
       return html
@@ -50,8 +58,12 @@ describe('Emoji', () => {
   it('checks light emoji support', () => {
     let html = ''
     runs(async () => {
-      const md = await getMarkdown('emoji.md')
-      html = await getHtml(md, { enableEmoji: 'light' })
+      try {
+        const md = await getMarkdown('emoji.md')
+        html = await getHtml(md, { enableEmoji: 'light' })
+      } catch (e) {
+        throw e
+      }
     })
     waitsFor(() => {
       return html

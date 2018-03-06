@@ -19,8 +19,12 @@ describe('Table', () => {
   it('checks correct table rendering', () => {
     let html = ''
     runs(async () => {
-      const md = await getMarkdown('table.md')
-      html = await getHtml(md, {}, true)
+      try {
+        const md = await getMarkdown('table.md')
+        html = await getHtml(md, {}, true)
+      } catch (e) {
+        throw e
+      }
     })
     waitsFor(() => {
       return html
@@ -33,8 +37,12 @@ describe('Table', () => {
   it('checks disabled table cell innerWrap', () => {
     let html = ''
     runs(async () => {
-      const md = await getMarkdown('table.md')
-      html = await getHtml(md, {}, true)
+      try {
+        const md = await getMarkdown('table.md')
+        html = await getHtml(md, {}, true)
+      } catch (e) {
+        throw e
+      }
     })
     waitsFor(() => {
       return html
@@ -48,8 +56,12 @@ describe('Table', () => {
   it('checks enabled table cell innerWrap', () => {
     let html = ''
     runs(async () => {
-      const md = await getMarkdown('table.md')
-      html = await getHtml(md, {}, false)
+      try {
+        const md = await getMarkdown('table.md')
+        html = await getHtml(md, {}, false)
+      } catch (e) {
+        throw e
+      }
     })
     waitsFor(() => {
       return html

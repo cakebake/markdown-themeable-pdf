@@ -19,8 +19,12 @@ describe('Image', () => {
   it('checks disabled fixed image src scheme', () => {
     let html = ''
     runs(async () => {
-      const md = await getMarkdown('image.md')
-      html = await getHtml(md, { html: true }, true)
+      try {
+        const md = await getMarkdown('image.md')
+        html = await getHtml(md, { html: true }, true)
+      } catch (e) {
+        throw e
+      }
     })
     waitsFor(() => {
       return html
@@ -34,8 +38,12 @@ describe('Image', () => {
   it('checks enabled fixed image src scheme', () => {
     let html = ''
     runs(async () => {
-      const md = await getMarkdown('image.md')
-      html = await getHtml(md, { html: true }, false)
+      try {
+        const md = await getMarkdown('image.md')
+        html = await getHtml(md, { html: true }, false)
+      } catch (e) {
+        throw e
+      }
     })
     waitsFor(() => {
       return html
@@ -49,8 +57,12 @@ describe('Image', () => {
   it('checks disabled img size markup', () => {
     let html = ''
     runs(async () => {
-      const md = await getMarkdown('image.md')
-      html = await getHtml(md, { enableImSizeMarkup: false })
+      try {
+        const md = await getMarkdown('image.md')
+        html = await getHtml(md, { enableImSizeMarkup: false })
+      } catch (e) {
+        throw e
+      }
     })
     waitsFor(() => {
       return html
@@ -64,8 +76,12 @@ describe('Image', () => {
   it('checks enabled img size markup', () => {
     let html = ''
     runs(async () => {
-      const md = await getMarkdown('image.md')
-      html = await getHtml(md, { enableImSizeMarkup: true })
+      try {
+        const md = await getMarkdown('image.md')
+        html = await getHtml(md, { enableImSizeMarkup: true })
+      } catch (e) {
+        throw e
+      }
     })
     waitsFor(() => {
       return html

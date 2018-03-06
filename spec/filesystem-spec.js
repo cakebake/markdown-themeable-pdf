@@ -28,7 +28,11 @@ describe('Filesystem', () => {
     let destination = ''
     const content = 'Hällööö Wööörld...'
     runs(async () => {
-      destination = await writeFile(content, join(__dirname, 'tmp'), 'couldWriteFile', 'html', CHARSET)
+      try {
+        destination = await writeFile(content, join(__dirname, 'tmp'), 'couldWriteFile', 'html', CHARSET)
+      } catch (e) {
+        throw e
+      }
     })
     waitsFor(() => {
       return destination
@@ -44,14 +48,10 @@ describe('Filesystem', () => {
   it(`could copy theme files`, () => {
     const dest = join(__dirname, 'tmp', 'markdown-themeable-pdf')
     let fin = false
-
-    rimraf.sync(dest)
-    expect(existsSync(dest)).toBe(false)
-
     runs(() => {
       copyCustomTemplateFiles((e) => {
         if (e) {
-          console.error(e)
+          throw e
         }
         fin = true
       }, dest)
@@ -64,6 +64,8 @@ describe('Filesystem', () => {
       expect(existsSync(join(dest, 'footer.js'))).toBe(true)
       expect(existsSync(join(dest, 'header.js'))).toBe(true)
       expect(existsSync(join(dest, 'styles.css'))).toBe(true)
+      rimraf.sync(dest)
+      expect(existsSync(dest)).toBe(false)
     })
   })
 
@@ -77,7 +79,11 @@ describe('Filesystem', () => {
     it(`could read ${testFile} file and convert charset to ${CHARSET}`, () => {
       let content
       runs(async () => {
-        content = await readFile(join(__dirname, 'markdown', testFile), CHARSET)
+        try {
+          content = await readFile(join(__dirname, 'markdown', testFile), CHARSET)
+        } catch (e) {
+          throw e
+        }
       })
       waitsFor(() => {
         return content
@@ -91,11 +97,15 @@ describe('Filesystem', () => {
   it(`could read files and combine them`, () => {
     let content
     runs(async () => {
-      const filePaths = [
-        getMarkdownTestFilePath('Windows-1252.md'),
-        getMarkdownTestFilePath('simple.md')
-      ]
-      content = await readFilesCombine(filePaths, CHARSET)
+      try {
+        const filePaths = [
+          getMarkdownTestFilePath('Windows-1252.md'),
+          getMarkdownTestFilePath('simple.md')
+        ]
+        content = await readFilesCombine(filePaths, CHARSET)
+      } catch (e) {
+        throw e
+      }
     })
     waitsFor(() => {
       return content
