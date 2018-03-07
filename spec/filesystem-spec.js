@@ -47,26 +47,23 @@ describe('Filesystem', () => {
   })
 
   it(`could copy theme files`, () => {
-    const dest = join(__dirname, 'tmp', PACKAGE_NAME)
-    let fin = false
-    runs(() => {
-      copyCustomTemplateFiles((e) => {
-        if (e) {
-          throw e
-        }
-        fin = true
-      }, dest)
+    let customTemplateFilesDest
+    runs(async () => {
+      try {
+        customTemplateFilesDest = await copyCustomTemplateFiles(join(__dirname, 'tmp', PACKAGE_NAME))
+      } catch (e) {
+        throw e
+      }
     })
     waitsFor(() => {
-      return fin
+      return customTemplateFilesDest
     }, 'Should copy files')
     runs(() => {
-      expect(fin).toBe(true)
-      expect(existsSync(join(dest, 'footer.js'))).toBe(true)
-      expect(existsSync(join(dest, 'header.js'))).toBe(true)
-      expect(existsSync(join(dest, 'styles.css'))).toBe(true)
-      rimraf.sync(dest)
-      expect(existsSync(dest)).toBe(false)
+      expect(existsSync(join(customTemplateFilesDest, 'footer.js'))).toBe(true)
+      expect(existsSync(join(customTemplateFilesDest, 'header.js'))).toBe(true)
+      expect(existsSync(join(customTemplateFilesDest, 'styles.css'))).toBe(true)
+      rimraf.sync(customTemplateFilesDest)
+      expect(existsSync(customTemplateFilesDest)).toBe(false)
     })
   })
 
