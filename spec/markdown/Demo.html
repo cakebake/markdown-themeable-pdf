@@ -364,11 +364,11 @@ html, body {
 </ul>
 <p>Note that &#x2014; not considering the asterisk &#x2014; the actual text content starts at 4-columns in.</p>
 <p>Convert arrows like <code>--&gt;</code> or <code>==&gt;</code> to &#x2192; or &#x21D2;</p>
-<pre><code class="hljs">-<span class="ruby">-&gt; &#x2192;
-</span>&lt;-- &#x2190;
+<pre><code class="hljs">--&gt; &#x2192;
+&lt;-- &#x2190;
 &lt;--&gt; &#x2194;
-=<span class="ruby">=&gt; &#x21D2;
-</span>&lt;== &#x21D0;
+==&gt; &#x21D2;
+&lt;== &#x21D0;
 &lt;==&gt; &#x21D4;
 </code></pre>
 <blockquote>
@@ -436,9 +436,9 @@ BE_VERBOSE=<span class="hljs-literal">false</span>
 uncover pot
 stir
 cover pot
-balance wooden spoon precariously <span class="hljs-keyword">on</span> pot handle
-wait <span class="hljs-number">10</span> minutes
-<span class="hljs-keyword">goto</span> first <span class="hljs-keyword">step</span> (<span class="hljs-keyword">or</span> shut <span class="hljs-keyword">off</span> burner <span class="hljs-keyword">when</span> done)
+balance wooden spoon precariously on pot handle
+wait 10 minutes
+goto first step (or shut off burner when done)
 </code></pre>
 <p>Do not bump wooden spoon or it will fall.</p>
 </li>
@@ -486,12 +486,12 @@ wait <span class="hljs-number">10</span> minutes
 </table>
 <div class="page-break"></div>
 <h3>External image</h3>
-<pre><code class="hljs">![<span class="hljs-string">external image</span>](<span class="hljs-link">http://placehold.it/900x250/000/FFF</span>)
+<pre><code class="hljs">![external image](http://placehold.it/900x250/000/FFF)
 </code></pre>
 <p><img src="http://placehold.it/900x250/000/FFF" alt="external image"></p>
 <h3>Local image</h3>
 <p>Local image with relative path.</p>
-<pre><code class="hljs">![<span class="hljs-string">local image</span>](<span class="hljs-link">example.png</span>)
+<pre><code class="hljs">![local image](example.png)
 </code></pre>
 <p><img src="./img/example.png" alt="local image"></p>
 <div class="page-break"></div>
@@ -503,12 +503,12 @@ wait <span class="hljs-number">10</span> minutes
 <div class="page-break"></div>
 <h2>Testing some HTML code</h2>
 <p>Image with relative path&#x2026;</p>
-<pre><code class="hljs">&lt;img <span class="hljs-attribute">src</span>=<span class="hljs-string">&quot;./img/example.png&quot;</span> <span class="hljs-attribute">alt</span>=<span class="hljs-string">&quot;Image with relative path&quot;</span> /&gt;
+<pre><code class="hljs">&lt;img src=&quot;./img/example.png&quot; alt=&quot;Image with relative path&quot; /&gt;
 </code></pre>
 <img src="./img/example.png" alt="IMG RELATIVE">
 <p><br><br></p>
 <p>Image external&#x2026;</p>
-<pre><code class="hljs">&lt;img <span class="hljs-attribute">src</span>=<span class="hljs-string">&quot;http://placehold.it/900x250/f3330b/fff&quot;</span> <span class="hljs-attribute">alt</span>=<span class="hljs-string">&quot;Image external&quot;</span> /&gt;
+<pre><code class="hljs">&lt;img src=&quot;http://placehold.it/900x250/f3330b/fff&quot; alt=&quot;Image external&quot; /&gt;
 </code></pre>
 <img src="http://placehold.it/900x250/f3330b/fff" alt="IMG EXTERNAL">
 

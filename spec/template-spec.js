@@ -3,6 +3,7 @@
 import { escapeRegExp } from 'lodash'
 import template from '../lib/api/template'
 import { CHARSET } from '../lib/api/convert'
+import { PACKAGE_NAME } from '../lib/config'
 import { readFilesCombine, getHighlightJsStylePathByName } from '../lib/api/filesystem'
 import { getCssFilePaths } from '../lib/api/atom'
 
@@ -52,7 +53,7 @@ describe('Template', () => {
       expect(html).toMatch(escapeRegExp(`<meta charset="${CHARSET}">`))
       expect(html).toMatch(escapeRegExp(`<title>${title}</title>`))
       expect(html).toMatch(escapeRegExp('.page-break'))
-      expect(html).toMatch(escapeRegExp('Your markdown-themeable-pdf custom styles'))
+      expect(html).toMatch(escapeRegExp(`Your ${PACKAGE_NAME} custom styles`))
       expect(html).toMatch(escapeRegExp('.hljs'))
       expect(html).toMatch(escapeRegExp('<header id="pageHeader" class="meta">'))
       expect(html).toMatch(escapeRegExp('<main id="pageContent">'))

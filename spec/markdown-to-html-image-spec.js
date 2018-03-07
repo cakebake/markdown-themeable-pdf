@@ -1,6 +1,7 @@
 'use babel'
 
 import { escapeRegExp } from 'lodash'
+import { PACKAGE_NAME } from '../lib/config'
 
 import {
   getMarkdown,
@@ -49,8 +50,8 @@ describe('Image', () => {
       return html
     }, 'Should get html')
     runs(() => {
-      expect(html).toMatch(escapeRegExp('markdown-themeable-pdf/spec/markdown/img/example.png" alt="example">'))
-      expect(html).toMatch(escapeRegExp('markdown-themeable-pdf/spec/markdown/img/example.png" alt="html image">'))
+      expect(html).toMatch(escapeRegExp(`${PACKAGE_NAME}/spec/markdown/img/example.png" alt="example">`))
+      expect(html).toMatch(escapeRegExp(`${PACKAGE_NAME}/spec/markdown/img/example.png" alt="html image">`))
     })
   })
 

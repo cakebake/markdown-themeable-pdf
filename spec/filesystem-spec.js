@@ -1,6 +1,7 @@
 'use babel'
 
 import { CHARSET } from '../lib/api/convert'
+import { PACKAGE_NAME } from '../lib/config'
 import { join } from 'path'
 import { escapeRegExp } from 'lodash'
 import { existsSync, readFileSync } from 'fs'
@@ -46,7 +47,7 @@ describe('Filesystem', () => {
   })
 
   it(`could copy theme files`, () => {
-    const dest = join(__dirname, 'tmp', 'markdown-themeable-pdf')
+    const dest = join(__dirname, 'tmp', PACKAGE_NAME)
     let fin = false
     runs(() => {
       copyCustomTemplateFiles((e) => {

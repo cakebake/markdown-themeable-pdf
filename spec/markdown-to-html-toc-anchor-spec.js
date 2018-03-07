@@ -1,6 +1,7 @@
 'use babel'
 
 import { get, escapeRegExp } from 'lodash'
+import { PACKAGE_NAME } from '../lib/config'
 
 import {
   markdownItOptions,
@@ -57,7 +58,7 @@ describe('TOC and Anchor', () => {
     }, 'Should get html')
     runs(() => {
       expect(html).toMatch(escapeRegExp('<p><strong>TOC</strong></p>\n<p></p>'))
-      expect(html).toMatch(escapeRegExp('<h2 id="h2-headline"><a class="markdown-themeable-pdf-anchor" href="#h2-headline">'))
+      expect(html).toMatch(escapeRegExp(`<h2 id="h2-headline"><a class="${PACKAGE_NAME}-anchor" href="#h2-headline">`))
     })
   })
 
@@ -75,7 +76,7 @@ describe('TOC and Anchor', () => {
       return html
     }, 'Should get html')
     runs(() => {
-      expect(html).toMatch(escapeRegExp('<ul class="markdown-themeable-pdf-toc">\n<li><a href="#'))
+      expect(html).toMatch(escapeRegExp(`<ul class="${PACKAGE_NAME}-toc">\n<li><a href="#`))
       expect(html).toMatch(escapeRegExp('<h2 id="h2-headline">h2 headline</h2>'))
     })
   })
@@ -94,8 +95,8 @@ describe('TOC and Anchor', () => {
       return html
     }, 'Should get html')
     runs(() => {
-      expect(html).toMatch(escapeRegExp('<ul class="markdown-themeable-pdf-toc">\n<li><a href="#'))
-      expect(html).toMatch(escapeRegExp('<h2 id="h2-headline"><a class="markdown-themeable-pdf-anchor" href="#h2-headline">'))
+      expect(html).toMatch(escapeRegExp(`<ul class="${PACKAGE_NAME}-toc">\n<li><a href="#`))
+      expect(html).toMatch(escapeRegExp(`<h2 id="h2-headline"><a class="${PACKAGE_NAME}-anchor" href="#h2-headline">`))
     })
   })
 
@@ -113,7 +114,7 @@ describe('TOC and Anchor', () => {
       return html
     }, 'Should get html')
     runs(() => {
-      expect(html).toMatch(escapeRegExp('<ul class="markdown-themeable-pdf-toc">\n<li><a href="#h2-headline">h2 headline</a>'))
+      expect(html).toMatch(escapeRegExp(`<ul class="${PACKAGE_NAME}-toc">\n<li><a href="#h2-headline">h2 headline</a>`))
       expect(html).toMatch(escapeRegExp('<li><a href="#h4-headline">h4 headline</a></li>\n</ul>\n</li>\n</ul>\n</li>\n</ul>'))
     })
   })
@@ -132,7 +133,7 @@ describe('TOC and Anchor', () => {
       return html
     }, 'Should get html')
     runs(() => {
-      expect(html).toMatch(escapeRegExp('<span class="markdown-themeable-pdf-anchor-symbol">$</span>'))
+      expect(html).toMatch(escapeRegExp(`<span class="${PACKAGE_NAME}-anchor-symbol">$</span>`))
     })
   })
 
