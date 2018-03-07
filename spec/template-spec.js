@@ -4,7 +4,7 @@ import { escapeRegExp } from 'lodash'
 import template from '../lib/api/template'
 import { PACKAGE_NAME, CHARSET } from '../lib/config'
 import { readFilesCombine, getHighlightJsStylePathByName } from '../lib/api/filesystem'
-import { getCssFilePaths } from '../lib/api/atom'
+import { getCssFilePaths } from '../lib/atom'
 
 import {
   getMarkdown,

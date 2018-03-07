@@ -1,9 +1,19 @@
 'use babel'
 
 import convert from '../lib/api/convert'
-import { options, getMarkdownTestFilePath } from './_preset'
+import { getCssFilePaths, getProjectRootPathByFilePath } from '../lib/atom'
+import { getHighlightJsStylePathByName } from '../lib/api/filesystem'
+import {
+  options,
+  getMarkdownTestFilePath,
+  getCustomStylesPath,
+  getcodeHighlightingTheme,
+  enableCodeHighlighting,
+  getProjectRootPath
+} from './_preset'
 import { existsSync } from 'fs'
 import { extname } from 'path'
+import { get } from 'lodash'
 
 // Use the command `window:run-package-specs` (cmd-alt-ctrl-p) to run specs.
 //
@@ -16,11 +26,17 @@ describe('Convert', () => {
 
   const markdownFilePath = getMarkdownTestFilePath('Demo.md')
 
+  const cssFilePaths = getCssFilePaths(
+    getCustomStylesPath(),
+    getProjectRootPath(),
+    enableCodeHighlighting() ? getHighlightJsStylePathByName(getcodeHighlightingTheme()) : null
+  )
+
   it(`converts to html`, () => {
     let convertedFilePath
     runs(async () => {
       try {
-        convertedFilePath = await convert(markdownFilePath, 'html', options)
+        convertedFilePath = await convert(markdownFilePath, 'html', options, cssFilePaths)
       } catch (e) {
         throw e
       }
@@ -38,7 +54,7 @@ describe('Convert', () => {
     let convertedFilePath
     runs(async () => {
       try {
-        convertedFilePath = await convert(markdownFilePath, 'pdf', options)
+        convertedFilePath = await convert(markdownFilePath, 'pdf', options, cssFilePaths)
       } catch (e) {
         throw e
       }
@@ -56,7 +72,7 @@ describe('Convert', () => {
     let convertedFilePath
     runs(async () => {
       try {
-        convertedFilePath = await convert(markdownFilePath, 'img', options)
+        convertedFilePath = await convert(markdownFilePath, 'img', options, cssFilePaths)
       } catch (e) {
         throw e
       }
@@ -74,7 +90,7 @@ describe('Convert', () => {
     let convertedFilePath
     runs(async () => {
       try {
-        convertedFilePath = await convert(markdownFilePath, 'img', { ...options, imageExportFileType: 'png' })
+        convertedFilePath = await convert(markdownFilePath, 'img', { ...options, imageExportFileType: 'png' }, cssFilePaths)
       } catch (e) {
         throw e
       }

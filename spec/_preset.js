@@ -3,7 +3,7 @@
 import { get, merge } from 'lodash'
 import { join, resolve as pathResolve } from 'path'
 import { readFile, getFileDirectory } from '../lib/api/filesystem'
-import { options as _options } from '../lib/api/atom'
+import { options as _options } from '../lib/atom'
 import markdownToHTML from '../lib/api/convert/markdownToHTML'
 
 let _currentMdFilePath = ''
@@ -14,6 +14,8 @@ export const options = _options(true)
 export const getProjectRootPath = () => pathResolve(__dirname, '..')
 
 export const getCustomStylesPath = () => get(options, 'customStylesPath')
+
+export const enableCodeHighlighting = () => get(options, 'markdownIt.enableCodeHighlighting')
 
 export const getcodeHighlightingTheme = () => get(options, 'codeHighlightingTheme')
 
