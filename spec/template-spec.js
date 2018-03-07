@@ -2,8 +2,7 @@
 
 import { escapeRegExp } from 'lodash'
 import template from '../lib/api/template'
-import { CHARSET } from '../lib/api/convert'
-import { PACKAGE_NAME } from '../lib/config'
+import { PACKAGE_NAME, CHARSET } from '../lib/config'
 import { readFilesCombine, getHighlightJsStylePathByName } from '../lib/api/filesystem'
 import { getCssFilePaths } from '../lib/api/atom'
 
