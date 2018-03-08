@@ -3,7 +3,7 @@
 import { CHARSET } from '../lib/config'
 import convert from '../lib/api/convert'
 import { getCssFilePaths, getProjectRootPathByFilePath } from '../lib/atom'
-import { getHighlightJsStylePathByName, readFile } from '../lib/api/filesystem'
+import { getHighlightJsStylePathByName, readFile, getDefaultExportFilePath } from '../lib/api/filesystem'
 import {
   options,
   getMarkdownTestFilePath,
@@ -38,7 +38,8 @@ describe('Convert', () => {
     let content
     runs(async () => {
       try {
-        convertedFilePath = await convert(markdownFilePath, 'html', options, cssFilePaths)
+        const destinationPath = getDefaultExportFilePath(markdownFilePath, 'html')
+        convertedFilePath = await convert(markdownFilePath, 'html', options, cssFilePaths, destinationPath)
         content = await readFile(convertedFilePath, CHARSET)
       } catch (e) {
         throw e
@@ -59,7 +60,8 @@ describe('Convert', () => {
     let content
     runs(async () => {
       try {
-        convertedFilePath = await convert(markdownFilePath, 'pdf', options, cssFilePaths)
+        const destinationPath = getDefaultExportFilePath(markdownFilePath, 'pdf')
+        convertedFilePath = await convert(markdownFilePath, 'pdf', options, cssFilePaths, destinationPath)
         content = await readFile(convertedFilePath, CHARSET)
       } catch (e) {
         throw e
@@ -80,7 +82,8 @@ describe('Convert', () => {
     let content
     runs(async () => {
       try {
-        convertedFilePath = await convert(markdownFilePath, 'img', options, cssFilePaths)
+        const destinationPath = getDefaultExportFilePath(markdownFilePath, 'jpeg')
+        convertedFilePath = await convert(markdownFilePath, 'jpeg', options, cssFilePaths, destinationPath)
         content = await readFile(convertedFilePath, CHARSET)
       } catch (e) {
         throw e
@@ -101,7 +104,8 @@ describe('Convert', () => {
     let content
     runs(async () => {
       try {
-        convertedFilePath = await convert(markdownFilePath, 'img', { ...options, imageExportFileType: 'png' }, cssFilePaths)
+        const destinationPath = getDefaultExportFilePath(markdownFilePath, 'png')
+        convertedFilePath = await convert(markdownFilePath, 'png', options, cssFilePaths, destinationPath)
         content = await readFile(convertedFilePath, CHARSET)
       } catch (e) {
         throw e

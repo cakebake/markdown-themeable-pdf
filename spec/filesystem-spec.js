@@ -60,7 +60,7 @@ describe('Filesystem', () => {
     const content = 'Hällööö Wööörld...'
     runs(async () => {
       try {
-        destination = await writeFile(content, join(__dirname, 'tmp'), 'couldWriteFile', 'html', CHARSET)
+        destination = await writeFile(content, join(__dirname, 'tmp', 'couldWriteFile.html'), CHARSET)
       } catch (e) {
         throw e
       }
