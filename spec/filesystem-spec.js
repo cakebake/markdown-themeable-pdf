@@ -1,7 +1,7 @@
 'use babel'
 
 import { PACKAGE_NAME, CHARSET } from '../lib/config'
-import { join } from 'path'
+import { join, parse } from 'path'
 import { escapeRegExp } from 'lodash'
 import { existsSync, readFileSync } from 'fs'
 import rimraf from 'rimraf'
@@ -12,7 +12,10 @@ import {
   readFilesCombine,
   writeFile,
   getHighlightJsStyles,
-  copyCustomTemplateFiles
+  copyCustomTemplateFiles,
+  getFileDirectory,
+  getFileName,
+  getFileExt
 } from '../lib/api/filesystem'
 
 // Use the command `window:run-package-specs` (cmd-alt-ctrl-p) to run specs.
@@ -23,6 +26,15 @@ import {
 // Tests are written with https://jasmine.github.io/1.3/introduction.html
 
 describe('Filesystem', () => {
+
+  it('could parse filePath info', () => {
+    const filePath = getMarkdownTestFilePath('Demo.md')
+    const fileInfo = parse(filePath)
+    expect(getFileDirectory(filePath)).toBe(fileInfo.dir)
+    expect(getFileName(filePath)).toBe(fileInfo.name)
+    expect(getFileName(filePath, true)).toBe(`${fileInfo.name}${fileInfo.ext}`)
+    expect(getFileExt(filePath)).toBe(fileInfo.ext)
+  })
 
   it(`could write file`, () => {
     let destination = ''
