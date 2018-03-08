@@ -34,4 +34,6 @@ export const getHtml = (markdown, _options = {}, isFinalFormat = true) => {
   return markdownToHTML(markdown, isFinalFormat, merge(markdownItOptions(), _options), getFileDirectory(getCurrentMdFilePath()))
 }
 
-export const getMarkdownTestFilePath = (testFile) => join(__dirname, 'markdown', testFile)
+export const getMarkdownTestFileDir = () => join(__dirname, 'markdown')
+
+export const getMarkdownTestFilePath = (testFile) => join(getMarkdownTestFileDir(), testFile)

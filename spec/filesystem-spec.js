@@ -2,10 +2,10 @@
 
 import { PACKAGE_NAME, CHARSET } from '../lib/config'
 import { join, parse } from 'path'
-import { escapeRegExp } from 'lodash'
+import { escapeRegExp, replace } from 'lodash'
 import { existsSync, readFileSync } from 'fs'
 import rimraf from 'rimraf'
-import { getMarkdownTestFilePath, getcodeHighlightingTheme } from './_preset'
+import { getMarkdownTestFilePath, getcodeHighlightingTheme, getMarkdownTestFileDir } from './_preset'
 
 import {
   readFile,
@@ -15,7 +15,9 @@ import {
   copyCustomTemplateFiles,
   getFileDirectory,
   getFileName,
-  getFileExt
+  getFileExt,
+  getHighlightJsStylePathByName,
+  resolveImgSrc
 } from '../lib/api/filesystem'
 
 // Use the command `window:run-package-specs` (cmd-alt-ctrl-p) to run specs.
@@ -26,6 +28,13 @@ import {
 // Tests are written with https://jasmine.github.io/1.3/introduction.html
 
 describe('Filesystem', () => {
+
+  it('could resolve image path', () => {
+    const path = resolveImgSrc('img/example.png', getMarkdownTestFileDir())
+    const scheme = 'file://'
+    expect(path).toMatch(escapeRegExp(scheme))
+    expect(existsSync(replace(path, scheme, ''))).toBe(true)
+  })
 
   it('could parse filePath info', () => {
     const filePath = getMarkdownTestFilePath('Demo.md')
@@ -80,6 +89,11 @@ describe('Filesystem', () => {
 
   it(`could get highlight.js css files and files contain default highlight theme`, () => {
     expect(getHighlightJsStyles()).toContain(getcodeHighlightingTheme())
+  })
+
+  it('could get highlight.js style path by file name', () => {
+    const path = getHighlightJsStylePathByName(getcodeHighlightingTheme())
+    expect(existsSync(path)).toBe(true)
   })
 
   const testFiles = ['UTF-8.md', 'ISO-8859-1.md', 'Windows-1252.md']
