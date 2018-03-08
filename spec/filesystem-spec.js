@@ -17,7 +17,8 @@ import {
   getFileName,
   getFileExt,
   getHighlightJsStylePathByName,
-  resolveImgSrc
+  resolveImgSrc,
+  pathExists
 } from '../lib/api/filesystem'
 
 // Use the command `window:run-package-specs` (cmd-alt-ctrl-p) to run specs.
@@ -28,6 +29,15 @@ import {
 // Tests are written with https://jasmine.github.io/1.3/introduction.html
 
 describe('Filesystem', () => {
+
+  it('should check if a file or directory exists', async () => {
+    const filePath = getMarkdownTestFilePath('Demo.md')
+    const dirPath = getMarkdownTestFileDir()
+    expect(await pathExists(filePath)).toBe(true)
+    expect(await pathExists(dirPath)).toBe(true)
+    expect(await pathExists('/hello/world')).toBe(false)
+    expect(await pathExists(null)).toBe(false)
+  })
 
   it('could resolve image path', () => {
     const path = resolveImgSrc('img/example.png', getMarkdownTestFileDir())
