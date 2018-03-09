@@ -18,9 +18,9 @@ import {
 
 describe('TOC and Anchor', () => {
 
-  it('checks that TOC and Anchor links are disabled by default', () =>{
+  it('checks that TOC is enabled and Anchor links are disabled by default', () =>{
     const opt = markdownItOptions()
-    expect(get(opt, 'enableTOC')).toBe(false)
+    expect(get(opt, 'enableTOC')).toBe(true)
     expect(get(opt, 'enableAnchor')).toBe(false)
   })
 

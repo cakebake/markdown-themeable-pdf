@@ -345,7 +345,38 @@ html, body {
 </style></head><body><header id="pageHeader" class="meta">
 <p>header</p>
 </header><main id="pageContent">
-<h1>An h1 header</h1>
+<h1 id="an-h1-header">An h1 header</h1>
+<p>Table of content:</p>
+<p></p><ul class="markdown-themeable-pdf-toc">
+<li><a href="#write-a-todo-list">Write a todo list</a></li>
+<li><a href="#an-h2-header">An h2 header</a></li>
+<li><a href="#heres-a-code-sample">Here&#x2019;s a code sample:</a>
+<ul>
+<li><a href="#an-h3-header">An h3 header</a></li>
+</ul>
+</li>
+<li><a href="#headline-2">Headline 2</a>
+<ul>
+<li><a href="#headline-3">Headline 3</a>
+<ul>
+<li><a href="#headline-4">Headline 4</a>
+<ul>
+<li><a href="#headline-5">Headline 5</a>
+<ul>
+<li><a href="#headline-6">Headline 6</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#external-image">External image</a></li>
+<li><a href="#local-image">Local image</a></li>
+</ul>
+</li>
+<li><a href="#testing-some-html-code">Testing some HTML code</a></li>
+</ul>
+<p></p>
 <p>Paragraphs are separated by a blank line.</p>
 <p>New line&#x2026; Some changes&#x2026; &#x1F603;</p>
 <p>2nd paragraph. <em>Italic</em>, <strong>bold</strong>, and <code>monospace</code>. Itemized lists look like:</p>
@@ -368,21 +399,21 @@ html, body {
 <p>They can span multiple paragraphs, if you like.</p>
 </blockquote>
 <p>Use 3 dashes for an em-dash. Use 2 dashes for ranges (ex., &quot;it&#x2019;s all in chapters 12&#x2013;14&quot;). Three dots &#x2026; will be converted to an ellipsis. Unicode is supported. &#x263A;</p>
-<h2>Write a todo list</h2>
+<h2 id="write-a-todo-list">Write a todo list</h2>
 <ul>
 <li><input type="checkbox" id="checkbox-0"><label for="checkbox-0">Step 1</label></li>
 <li><input type="checkbox" id="checkbox-1" checked="true"><label for="checkbox-1">Step 1</label></li>
 <li><input type="checkbox" id="checkbox-2" checked="true"><label for="checkbox-2">Step 1</label></li>
 </ul>
 <div class="page-break"></div>
-<h2>An h2 header</h2>
+<h2 id="an-h2-header">An h2 header</h2>
 <p>Here&#x2019;s a numbered list:</p>
 <ol>
 <li>first item</li>
 <li>second item</li>
 <li>third item</li>
 </ol>
-<h2>Here&#x2019;s a code sample:</h2>
+<h2 id="heres-a-code-sample">Here&#x2019;s a code sample:</h2>
 <pre><code class="hljs language-bash"><span class="hljs-meta">#!/bin/bash
 </span>
 <span class="hljs-comment">###### CONFIG</span>
@@ -408,7 +439,7 @@ BE_VERBOSE=<span class="hljs-literal">false</span>
     <span class="hljs-keyword">print</span> i
 </code></pre>
 <div class="page-break"></div>
-<h3>An h3 header</h3>
+<h3 id="an-h3-header">An h3 header</h3>
 <p>Now a nested list:</p>
 <ol>
 <li>
@@ -442,12 +473,12 @@ goto first step (or shut off burner when done)
 </blockquote>
 <div class="page-break"></div>
 <p>Some Headlines.</p>
-<h1>Headline 1</h1>
-<h2>Headline 2</h2>
-<h3>Headline 3</h3>
-<h4>Headline 4</h4>
-<h5>Headline 5</h5>
-<h6>Headline 6</h6>
+<h1 id="headline-1">Headline 1</h1>
+<h2 id="headline-2">Headline 2</h2>
+<h3 id="headline-3">Headline 3</h3>
+<h4 id="headline-4">Headline 4</h4>
+<h5 id="headline-5">Headline 5</h5>
+<h6 id="headline-6">Headline 6</h6>
 <div class="page-break"></div>
 <p>Tables can look like this:</p>
 <table>
@@ -477,11 +508,11 @@ goto first step (or shut off burner when done)
 </tbody>
 </table>
 <div class="page-break"></div>
-<h3>External image</h3>
+<h3 id="external-image">External image</h3>
 <pre><code class="hljs">![external image](http://placehold.it/900x250/000/FFF)
 </code></pre>
 <p><img src="http://placehold.it/900x250/000/FFF" alt="external image"></p>
-<h3>Local image</h3>
+<h3 id="local-image">Local image</h3>
 <p>Local image with relative path.</p>
 <pre><code class="hljs">![local image](example.png)
 </code></pre>
@@ -493,7 +524,7 @@ goto first step (or shut off burner when done)
 <p>&#xC4;u&#xDF;erst sch&#xF6;n ver&#xE4;ndert</p>
 </blockquote>
 <div class="page-break"></div>
-<h2>Testing some HTML code</h2>
+<h2 id="testing-some-html-code">Testing some HTML code</h2>
 <p>Image with relative path&#x2026;</p>
 <pre><code class="hljs">&lt;img src=&quot;./img/example.png&quot; alt=&quot;Image with relative path&quot; /&gt;
 </code></pre>

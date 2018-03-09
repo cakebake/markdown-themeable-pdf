@@ -1,6 +1,10 @@
 An h1 header
 ============
 
+Table of content:
+
+@[toc]
+
 Paragraphs are separated by a blank line.
 
 New line... Some changes... :)
