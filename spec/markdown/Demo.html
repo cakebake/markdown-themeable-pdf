@@ -1,48 +1,41 @@
 <!DOCTYPE html>
 <html><head><meta charset="UTF-8"><title>Demo</title><style>
-* {
-    overflow: visible !important;
-    -webkit-text-size-adjust: 100%;
-    -webkit-font-smoothing: antialiased;
-    box-decoration-break: clone;
-}
-
 html, body {
-    background: #FFF;
-    font-family: "Segoe UI", Arial, freesans, sans-serif;
-    font-size: 10px;
-    line-height: 1.4;
-    color: #333;
-    word-wrap: break-word;
-	hyphens: auto;
+  background: #FFF;
+  font-family: "Segoe UI", Arial, freesans, sans-serif;
+  font-size: 10px;
+  line-height: 1.4;
+  color: #333;
+  word-wrap: break-word;
+  hyphens: auto;
 }
 
 hr {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    border: 0;
-    border-top: 4px solid #EEE;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 0;
+  border-top: 4px solid #EEE;
 }
 
 code {
-    padding: .1em .4em;
-    display: inline-block;
-    background-color: #f9f2f4;
-    color: #c7254e;
-    border-radius: 3px;
-    border: 0 none;
-    font: 9px Consolas, "Liberation Mono", Menlo, "Courier New", Courier, monospace;
-    hyphens: manual;
+  padding: .1em .4em;
+  display: inline-block;
+  background-color: #f9f2f4;
+  color: #c7254e;
+  border-radius: 3px;
+  border: 0 none;
+  font: 9px Consolas, "Liberation Mono", Menlo, "Courier New", Courier, monospace;
+  hyphens: manual;
 }
 
 pre code {
-    padding: 15px;
-    display: block;
-    background-color: #F9F9F9;
-    color: #555;
-    font-size: 10px;
-    box-shadow: inset -1px -1px 0 rgba(0, 0, 0, .08);
-    word-wrap: normal;
+  padding: 15px;
+  display: block;
+  background-color: #F9F9F9;
+  color: #555;
+  font-size: 10px;
+  box-shadow: inset -1px -1px 0 rgba(0, 0, 0, .08);
+  word-wrap: normal;
 }
 
 /* replace light background for some hljs themes */
@@ -57,39 +50,39 @@ code.grayscale-css,
 code.idea-css,
 code.vs-css,
 code.xcode-css {
-    background-color: #F9F9F9 !important;
+  background-color: #F9F9F9 !important;
 }
 
 blockquote {
-    padding: 10px;
-    margin-left: 0;
-    color: #666;
-    border: 0 none;
-    border-left: 4px solid #EEE;
+  padding: 10px;
+  margin-left: 0;
+  color: #666;
+  border: 0 none;
+  border-left: 4px solid #EEE;
 }
 
 blockquote p:last-child,
 blockquote ul:last-child,
 blockquote ol:last-child {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 table {
-    border-collapse: collapse;
-    border-spacing: 0;
-    background-color: #FFF;
-    width: 100%;
-    max-width: 100%;
-    margin-bottom: 20px;
-    border: 1px solid #DDD;
+  border-collapse: collapse;
+  border-spacing: 0;
+  background-color: #FFF;
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 20px;
+  border: 1px solid #DDD;
 }
 
 table div {
-    page-break-inside: avoid;
+  page-break-inside: avoid;
 }
 
 th, td {
-    text-align: left;
+  text-align: left;
 }
 
 table > thead > tr > th,
@@ -98,9 +91,9 @@ table > tfoot > tr > th,
 table > thead > tr > td,
 table > tbody > tr > td,
 table > tfoot > tr > td {
-    padding: 8px 14px;
-    vertical-align: top;
-    border-top: 1px solid #DDD;
+  padding: 8px 14px;
+  vertical-align: top;
+  border-top: 1px solid #DDD;
 }
 
 table > caption + thead > tr:first-child > th,
@@ -109,15 +102,15 @@ table > thead:first-child > tr:first-child > th,
 table > caption + thead > tr:first-child > td,
 table > colgroup + thead > tr:first-child > td,
 table > thead:first-child > tr:first-child > td {
-    border-top: 0;
+  border-top: 0;
 }
 
-table > tbody + tbody {
-    border-top: 2px solid #DDD;
+table>tbody+tbody {
+  border-top: 2px solid #DDD;
 }
 
 table table {
-    background-color: #FFF;
+  background-color: #FFF;
 }
 
 table > thead > tr > th,
@@ -126,121 +119,106 @@ table > tfoot > tr > th,
 table > thead > tr > td,
 table > tbody > tr > td,
 table > tfoot > tr > td {
-    border: 1px solid #DDD;
+  border: 1px solid #DDD;
 }
 
 table > thead > tr > th,
 table > thead > tr > td {
-    border-bottom-width: 2px;
-    text-align: center;
-    vertical-align: middle;
-    font-weight: bold;
-    padding-top: 6px;
-    padding-bottom: 6px;
-    font-size: 90%;
+  border-bottom-width: 2px;
+  text-align: center;
+  vertical-align: middle;
+  font-weight: bold;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  font-size: 90%;
 }
 
 table > tbody > tr:nth-of-type(odd) {
-    background-color: #F9F9F9;
+  background-color: #F9F9F9;
 }
 
 img {
-    max-width: 100%;
-    height: auto;
-    vertical-align: middle;
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-family: inherit;
-    font-weight: normal;
-    line-height: 1.1;
-    color: #111;
-    margin-top: 20px;
-    margin-bottom: 10px;
-    padding: 0;
-    page-break-after: avoid;
+h1, h2, h3, h4, h5, h6 {
+  font-family: inherit;
+  font-weight: normal;
+  line-height: 1.1;
+  color: #111;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  padding: 0;
+  page-break-after: avoid;
 }
 
 h1, h2 {
-    border-bottom: 1px solid #EEE;
-    padding-bottom: 7px;
-    margin-top: 10px;
-    margin-bottom: 12px;
+  border-bottom: 1px solid #EEE;
+  padding-bottom: 7px;
+  margin-top: 10px;
+  margin-bottom: 12px;
 }
 
 h1 {
-    font-size: 22px;
+  font-size: 22px;
 }
 
 h2 {
-    font-size: 17px;
+  font-size: 17px;
 }
 
 h3 {
-    font-size: 15px;
+  font-size: 15px;
 }
 
 h4 {
-    font-size: 11px;
+  font-size: 11px;
 }
 
 h5, h6 {
-    font-size: 10px;
-    font-weight: bold;
-    color: #666;
+  font-size: 10px;
+  font-weight: bold;
+  color: #666;
 }
 
 p {
-    margin: 0 0 10px;
+  margin: 0 0 10px;
 }
 
 input[type="checkbox"] {
-    margin-right: 6px;
-    position: relative;
-    bottom: 1px;
+  margin-right: 6px;
+  position: relative;
+  bottom: 1px;
 }
 
-ul,
-ol {
-    margin-top: 0;
-    margin-bottom: 10px;
-    padding-left: 20px;
+ul, ol {
+  margin-top: 0;
+  margin-bottom: 10px;
+  padding-left: 20px;
 }
 
-ul li,
-ol li {
-    margin-bottom: 2px;
+ul li, ol li {
+  margin-bottom: 2px;
 }
 
 dl {
-    margin-top: 0;
-    margin-bottom: 20px;
+  margin-top: 0;
+  margin-bottom: 20px;
 }
 
 dt {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 dd {
-    margin-left: 0;
+  margin-left: 0;
 }
 
-a,
-a:visited {
-    text-decoration: none;
-    color: #4078C0;
-}
-
-.new-page,
-.page-break,
-.next-page,
-.page-end {
-    page-break-before: always;
+a, a:visited {
+  text-decoration: none;
+  color: #4078C0;
 }
 
 #pageHeader,
@@ -264,11 +242,25 @@ a:visited {
     color: #777;
 }
 
+* {
+  overflow: visible !important;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  box-decoration-break: clone;
+}
+
+.new-page,
+.page-break,
+.next-page,
+.page-end {
+  page-break-before: always;
+}
+
 /**
  * Your markdown-themeable-pdf custom styles
  *
  * The default file can be found in the folder ~/.atom/packages/markdown-themeable-pdf/markdown-themeable-pdf
- * The base css file can be found in the folder ~/.atom/packages/markdown-themeable-pdf/src/css
+ * The base css files can be found in the folder ~/.atom/packages/markdown-themeable-pdf/src/css
  * The selected highlight.js css file can be found in the folder ~/.atom/packages/markdown-themeable-pdf/node_modules/highlight.js/styles
  * NOTICE: Avoid any cowboy coding in this files! You could overwrite CSS rules in this file!
  */
