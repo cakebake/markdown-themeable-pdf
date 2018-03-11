@@ -25,16 +25,16 @@ describe('Convert', () => {
 
   const markdownFilePath = getMarkdownTestFilePath('Demo.md')
 
-  const cssFilePaths = getCssFilePaths(
-    getCustomStylesPath(),
-    getProjectRootPath(),
-    enableCodeHighlighting() ? getHighlightJsStylePathByName(getcodeHighlightingTheme()) : null
-  )
-
   it(`converts to html`, () => {
     let convertedFilePath
     runs(async () => {
       try {
+        const cssFilePaths = getCssFilePaths(
+          getCustomStylesPath(),
+          getProjectRootPath(),
+          enableCodeHighlighting() ? getHighlightJsStylePathByName(getcodeHighlightingTheme()) : null,
+          'html'
+        )
         const destinationPath = getDefaultExportFilePath(markdownFilePath, 'html')
         convertedFilePath = await convert(markdownFilePath, 'html', options, cssFilePaths, destinationPath)
       } catch (e) {
@@ -54,6 +54,12 @@ describe('Convert', () => {
     let convertedFilePath
     runs(async () => {
       try {
+        const cssFilePaths = getCssFilePaths(
+          getCustomStylesPath(),
+          getProjectRootPath(),
+          enableCodeHighlighting() ? getHighlightJsStylePathByName(getcodeHighlightingTheme()) : null,
+          'pdf'
+        )
         const destinationPath = getDefaultExportFilePath(markdownFilePath, 'pdf')
         convertedFilePath = await convert(markdownFilePath, 'pdf', options, cssFilePaths, destinationPath)
       } catch (e) {
@@ -73,6 +79,12 @@ describe('Convert', () => {
     let convertedFilePath
     runs(async () => {
       try {
+        const cssFilePaths = getCssFilePaths(
+          getCustomStylesPath(),
+          getProjectRootPath(),
+          enableCodeHighlighting() ? getHighlightJsStylePathByName(getcodeHighlightingTheme()) : null,
+          'jpeg'
+        )
         const destinationPath = getDefaultExportFilePath(markdownFilePath, 'jpeg')
         convertedFilePath = await convert(markdownFilePath, 'jpeg', options, cssFilePaths, destinationPath)
       } catch (e) {
@@ -92,6 +104,12 @@ describe('Convert', () => {
     let convertedFilePath
     runs(async () => {
       try {
+        const cssFilePaths = getCssFilePaths(
+          getCustomStylesPath(),
+          getProjectRootPath(),
+          enableCodeHighlighting() ? getHighlightJsStylePathByName(getcodeHighlightingTheme()) : null,
+          'png'
+        )
         const destinationPath = getDefaultExportFilePath(markdownFilePath, 'png')
         convertedFilePath = await convert(markdownFilePath, 'png', options, cssFilePaths, destinationPath)
       } catch (e) {

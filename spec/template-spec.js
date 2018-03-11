@@ -36,7 +36,8 @@ describe('Template', () => {
         const cssFiles = getCssFilePaths(
           getCustomStylesPath(),
           getProjectRootPath(),
-          getHighlightJsStylePathByName(getcodeHighlightingTheme())
+          getHighlightJsStylePathByName(getcodeHighlightingTheme()),
+          'html'
         )
         css = await readFilesCombine(cssFiles, CHARSET)
         html = await template(content, title, true, CHARSET, css)
@@ -51,7 +52,9 @@ describe('Template', () => {
       expect(html).toMatch(escapeRegExp('<!DOCTYPE html>\n<html>'))
       expect(html).toMatch(escapeRegExp(`<meta charset="${CHARSET}">`))
       expect(html).toMatch(escapeRegExp(`<title>${title}</title>`))
-      expect(html).toMatch(escapeRegExp('.page-break'))
+      expect(html).toMatch(escapeRegExp('html, body'))
+      expect(html).not.toMatch(escapeRegExp('.page-break'))
+      expect(html).not.toMatch(escapeRegExp('a[href^=http]:after'))
       expect(html).toMatch(escapeRegExp(`Your ${PACKAGE_NAME} custom styles`))
       expect(html).toMatch(escapeRegExp('.hljs'))
       expect(html).toMatch(escapeRegExp('<header id="pageHeader" class="meta">'))

@@ -1,0 +1,21 @@
+* {
+  overflow: visible !important;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  box-decoration-break: clone;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+img {
+  max-width: 100% !important;
+}
+
+a {
+  font-weight: bolder;
+  text-decoration: none;
+}
+
+a[href^=http]:after {
+  content:" <" attr(href) "> ";
+}

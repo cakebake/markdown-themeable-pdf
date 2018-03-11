@@ -3,6 +3,8 @@
   -webkit-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
   box-decoration-break: clone;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
 }
 
 .new-page,
@@ -10,4 +12,20 @@
 .next-page,
 .page-end {
   page-break-before: always;
+}
+
+h1, h2, h3, h4, h5, h6,
+pre {
+  page-break-after: avoid;
+}
+
+img {
+  max-width: 100% !important;
+}
+
+ul,
+img,
+table div,
+pre {
+  page-break-inside: avoid;
 }
