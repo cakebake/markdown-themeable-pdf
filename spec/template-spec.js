@@ -1,7 +1,7 @@
 'use babel'
 
 import { escapeRegExp } from 'lodash'
-import template from '../lib/api/template'
+import { document } from '../lib/api/template'
 import { PACKAGE_NAME, CHARSET } from '../lib/config'
 import { readFilesCombine, getHighlightJsStylePathByName } from '../lib/api/filesystem'
 import { getCssFilePaths } from '../lib/atom'
@@ -9,7 +9,6 @@ import { getCssFilePaths } from '../lib/atom'
 import {
   getMarkdown,
   getHtml,
-  getCurrentMdFilePath,
   getCustomStylesPath,
   getProjectRootPath,
   getcodeHighlightingTheme
@@ -26,7 +25,7 @@ let title = 'Lorem Title'
 
 describe('Template', () => {
 
-  it('creates html template from content', () => {
+  it('creates html document from content', () => {
     let html = ''
     let css = ''
     runs(async () => {
@@ -40,14 +39,14 @@ describe('Template', () => {
           'html'
         )
         css = await readFilesCombine(cssFiles, CHARSET)
-        html = await template(content, title, true, CHARSET, css)
+        html = await document(content, title, true, CHARSET, css)
       } catch (e) {
         throw e
       }
     })
     waitsFor(() => {
       return html
-    }, 'Should get template')
+    }, 'Should get document')
     runs(() => {
       expect(html).toMatch(escapeRegExp('<!DOCTYPE html>\n<html>'))
       expect(html).toMatch(escapeRegExp(`<meta charset="${CHARSET}">`))
@@ -57,9 +56,7 @@ describe('Template', () => {
       expect(html).not.toMatch(escapeRegExp('a[href^=http]:after'))
       expect(html).toMatch(escapeRegExp(`Your ${PACKAGE_NAME} custom styles`))
       expect(html).toMatch(escapeRegExp('.hljs'))
-      expect(html).toMatch(escapeRegExp('<header id="pageHeader" class="meta">'))
       expect(html).toMatch(escapeRegExp('<main id="pageContent">'))
-      expect(html).toMatch(escapeRegExp('<footer id="pageFooter" class="meta">'))
     })
   })
 
