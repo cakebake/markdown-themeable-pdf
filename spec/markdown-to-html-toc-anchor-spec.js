@@ -38,8 +38,8 @@ describe('TOC and Anchor', () => {
       return html
     }, 'Should get html')
     runs(() => {
-      expect(html).toMatch(escapeRegExp('<p>@[toc]</p>'))
-      expect(html).toMatch(escapeRegExp('<h2>h2 headline</h2>'))
+      expect(html).toMatch(escapeRegExp('<p></p>'))
+      expect(html).toMatch(escapeRegExp('\n<h2 id="h2-headline">h2 headline</h2>\n'))
     })
   })
 
@@ -77,7 +77,7 @@ describe('TOC and Anchor', () => {
     }, 'Should get html')
     runs(() => {
       expect(html).toMatch(escapeRegExp(`<ul class="${PACKAGE_NAME}-toc">\n<li><a href="#`))
-      expect(html).toMatch(escapeRegExp('<h2 id="h2-headline">h2 headline</h2>'))
+      expect(html).toMatch(escapeRegExp('\n<h2 id="h2-headline">h2 headline</h2>\n'))
     })
   })
 

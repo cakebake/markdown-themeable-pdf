@@ -8,7 +8,9 @@ import markdownToHTML from '../lib/api/convert/markdownToHTML'
 
 let _currentMdFilePath = ''
 
-export const options = _options(true)
+export const getOptions = () => _options(true)
+
+const options = getOptions()
 
 // fake for spec suit, because atom project path points to /tmp -.-
 export const getProjectRootPath = () => pathResolve(__dirname, '..')

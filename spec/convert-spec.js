@@ -4,7 +4,7 @@ import convert from '../lib/api/convert'
 import { getCssFilePaths } from '../lib/atom'
 import { getHighlightJsStylePathByName, getDefaultExportFilePath } from '../lib/api/filesystem'
 import {
-  options,
+  getOptions,
   getMarkdownTestFilePath,
   getCustomStylesPath,
   getcodeHighlightingTheme,
@@ -29,6 +29,7 @@ describe('Convert', () => {
     let convertedFilePath
     runs(async () => {
       try {
+        const options = getOptions()
         const cssFilePaths = getCssFilePaths(
           getCustomStylesPath(),
           getProjectRootPath(),
@@ -54,6 +55,7 @@ describe('Convert', () => {
     let convertedFilePath
     runs(async () => {
       try {
+        const options = getOptions()
         const cssFilePaths = getCssFilePaths(
           getCustomStylesPath(),
           getProjectRootPath(),
@@ -79,6 +81,9 @@ describe('Convert', () => {
     let convertedFilePath
     runs(async () => {
       try {
+        const options = getOptions()
+        options.markdownIt.enableTOC = false
+        options.markdownIt.enableAnchor = false
         const cssFilePaths = getCssFilePaths(
           getCustomStylesPath(),
           getProjectRootPath(),
@@ -104,6 +109,9 @@ describe('Convert', () => {
     let convertedFilePath
     runs(async () => {
       try {
+        const options = getOptions()
+        options.markdownIt.enableTOC = false
+        options.markdownIt.enableAnchor = false
         const cssFilePaths = getCssFilePaths(
           getCustomStylesPath(),
           getProjectRootPath(),
