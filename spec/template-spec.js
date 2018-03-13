@@ -39,7 +39,7 @@ describe('Template', () => {
           'html'
         )
         css = await readFilesCombine(cssFiles, CHARSET)
-        html = await document(content, title, true, CHARSET, css)
+        html = await document(content, title, CHARSET, css)
       } catch (e) {
         throw e
       }
