@@ -3,7 +3,7 @@
 import { get, merge } from 'lodash'
 import { join, resolve as pathResolve } from 'path'
 import { readFile, getFileDirectory } from '../lib/api/filesystem'
-import { options as _options } from '../lib/atom'
+import { options as _options, getConfig } from '../lib/atom'
 import markdownToHTML from '../lib/api/convert/markdownToHTML'
 
 let _currentMdFilePath = ''
@@ -15,13 +15,13 @@ const options = getOptions()
 // fake for spec suit, because atom project path points to /tmp -.-
 export const getProjectRootPath = () => pathResolve(__dirname, '..')
 
-export const getCustomStylesPath = () => get(options, 'customStylesPath')
+export const getCustomStylesPath = () => getConfig('customStylesPath', true)
 
-export const enableCodeHighlighting = () => get(options, 'markdownIt.enableCodeHighlighting')
+export const enableCodeHighlighting = () => get(htmlOptions(), 'enableCodeHighlighting')
 
-export const getcodeHighlightingTheme = () => get(options, 'codeHighlightingTheme')
+export const getcodeHighlightingTheme = () => getConfig('codeHighlightingTheme', true)
 
-export const markdownItOptions = () => get(options, 'markdownIt')
+export const htmlOptions = () => get(options, 'html')
 
 export const setCurrentMdFilePath = (path) => _currentMdFilePath = path
 
@@ -33,7 +33,7 @@ export const getMarkdown = (testFile) => {
 }
 
 export const getHtml = (markdown, _options = {}, isFinalFormat = true) => {
-  return markdownToHTML(markdown, isFinalFormat, merge(markdownItOptions(), _options), getFileDirectory(getCurrentMdFilePath()))
+  return markdownToHTML(markdown, isFinalFormat, merge(htmlOptions(), _options), getFileDirectory(getCurrentMdFilePath()))
 }
 
 export const getMarkdownTestFileDir = () => join(__dirname, 'markdown')

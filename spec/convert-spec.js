@@ -82,8 +82,8 @@ describe('Convert', () => {
     runs(async () => {
       try {
         const options = getOptions()
-        options.markdownIt.enableTOC = false
-        options.markdownIt.enableAnchor = false
+        options.html.enableTOC = false
+        options.html.enableAnchor = false
         const cssFilePaths = getCssFilePaths(
           getCustomStylesPath(),
           getProjectRootPath(),
@@ -110,8 +110,8 @@ describe('Convert', () => {
     runs(async () => {
       try {
         const options = getOptions()
-        options.markdownIt.enableTOC = false
-        options.markdownIt.enableAnchor = false
+        options.html.enableTOC = false
+        options.html.enableAnchor = false
         const cssFilePaths = getCssFilePaths(
           getCustomStylesPath(),
           getProjectRootPath(),

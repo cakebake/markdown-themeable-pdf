@@ -4,7 +4,7 @@ import { get, escapeRegExp } from 'lodash'
 import { PACKAGE_NAME } from '../lib/config'
 
 import {
-  markdownItOptions,
+  htmlOptions,
   getMarkdown,
   getHtml
 } from './_preset'
@@ -19,7 +19,7 @@ import {
 describe('TOC and Anchor', () => {
 
   it('checks that TOC is enabled and Anchor links are disabled by default', () =>{
-    const opt = markdownItOptions()
+    const opt = htmlOptions()
     expect(get(opt, 'enableTOC')).toBe(true)
     expect(get(opt, 'enableAnchor')).toBe(false)
   })

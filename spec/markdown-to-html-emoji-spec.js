@@ -21,7 +21,7 @@ describe('Emoji', () => {
     runs(async () => {
       try {
         const md = await getMarkdown('emoji.md')
-        html = await getHtml(md, { enableEmoji: 'disabled' })
+        html = await getHtml(md, { enableEmoji: 0 })
       } catch (e) {
         throw e
       }
@@ -40,7 +40,7 @@ describe('Emoji', () => {
     runs(async () => {
       try {
         const md = await getMarkdown('emoji.md')
-        html = await getHtml(md, { enableEmoji: 'full' })
+        html = await getHtml(md, { enableEmoji: 1 })
       } catch (e) {
         throw e
       }
@@ -60,7 +60,7 @@ describe('Emoji', () => {
     runs(async () => {
       try {
         const md = await getMarkdown('emoji.md')
-        html = await getHtml(md, { enableEmoji: 'light' })
+        html = await getHtml(md, { enableEmoji: 2 })
       } catch (e) {
         throw e
       }
