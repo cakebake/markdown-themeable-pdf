@@ -1,7 +1,7 @@
 'use babel'
 
 import { escapeRegExp } from 'lodash'
-import { document } from '../lib/api/template'
+import { document } from '../lib/api/convert/template'
 import { PACKAGE_NAME, CHARSET } from '../lib/config'
 import { readFilesCombine, getHighlightJsStylePathByName } from '../lib/api/filesystem'
 import { getCssFilePaths } from '../lib/atom'
