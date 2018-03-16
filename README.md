@@ -99,9 +99,8 @@ Conversion of [Demo.md](https://github.com/cakebake/markdown-themeable-pdf/raw/r
 
 ### Credits
 
-Special thanks to ...
+Special thanks to [Atom](https://atom.io/) Team for this wonderful editor and ...
 
--	[Atom](https://atom.io/) for this wonderful editor!
 -	[charset-detector](https://ghub.io/charset-detector): ICU based port of charset detection
 -	[cheerio](https://ghub.io/cheerio): Tiny, fast, and elegant implementation of core jQuery designed specifically for the server
 -	[encoding](https://ghub.io/encoding): Convert encodings, uses iconv by default and fallbacks to iconv-lite if needed
