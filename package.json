@@ -33,5 +33,8 @@
     "puppeteer": "1.1.1",
     "rimraf": "2.6.2",
     "units-css": "0.4.0"
+  },
+  "devDependencies": {
+    "image-size": "^0.6.2"
   }
 }
