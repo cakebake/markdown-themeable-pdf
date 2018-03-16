@@ -16,9 +16,9 @@
     "atom": ">=0.174.0 <2.0.0"
   },
   "scripts": {
-     "test": "apm test",
-     "devupdate": "npm update --save/--save-dev && readme ./package.json"
-   },
+    "test": "apm test",
+    "devupdate": "npm update --save/--save-dev && readme ./package.json"
+  },
   "dependencies": {
     "bootstrap": "4.0.0",
     "charset-detector": "0.0.2",
@@ -35,11 +35,11 @@
     "markdown-it-toc-and-anchor": "4.1.2",
     "ncp": "2.0.0",
     "puppeteer": "1.1.1",
-    "rimraf": "2.6.2",
     "units-css": "0.4.0"
   },
   "devDependencies": {
     "image-size": "^0.6.2",
-    "package-json-to-readme": "^2.1.1"
+    "package-json-to-readme": "^2.1.1",
+    "rimraf": "^2.6.2"
   }
 }
