@@ -135,6 +135,7 @@ describe('Convert', () => {
       expect(extname(convertedFilePath)).toBe('.png')
     })
   })
+
   it(`converts to image width different sizes and units`, () => {
     let fin = false
     const type = 'jpeg'
