@@ -20,9 +20,9 @@ The PDF can be generated in various ways:
 -	Right-click in the editor area when a file is opened and select `Markdown Print/Convert` **or**
 -	Right-click on a markdown file in Tree-View and select `Markdown Print/Convert` **or**
 -	Press a shortcut in the editor area when a file is opened for
-    - convert to PDF: `ctrl-alt-p`
-    - convert to HTML: `ctrl-alt-h`
-    - convert to Image: `ctrl-alt-i` (jpeg or png defined in package settings)
+	-	convert to PDF: `ctrl-alt-p`
+	-	convert to HTML: `ctrl-alt-h`
+	-	convert to Image: `ctrl-alt-i` (jpeg or png defined in package settings)
 
 #### Page breaks
 
@@ -78,9 +78,9 @@ module.exports = function () {
 
 Conversion of [Demo.md](https://github.com/cakebake/markdown-themeable-pdf/raw/rewrite/spec/markdown/Demo.md) to
 
-- [Demo.pdf](https://github.com/cakebake/markdown-themeable-pdf/raw/rewrite/spec/markdown/Demo.pdf)
-- [Demo.html](https://github.com/cakebake/markdown-themeable-pdf/raw/rewrite/spec/markdown/Demo.html)
-- [Demo.jpeg](https://github.com/cakebake/markdown-themeable-pdf/raw/rewrite/spec/markdown/Demo.jpeg)
+-	[Demo.pdf](https://github.com/cakebake/markdown-themeable-pdf/raw/rewrite/spec/markdown/Demo.pdf)
+-	[Demo.html](https://github.com/cakebake/markdown-themeable-pdf/raw/rewrite/spec/markdown/Demo.html)
+-	[Demo.jpeg](https://github.com/cakebake/markdown-themeable-pdf/raw/rewrite/spec/markdown/Demo.jpeg)
 
 ![DEMO](https://raw.githubusercontent.com/cakebake/markdown-themeable-pdf/rewrite/spec/markdown/img/DEMO.gif)
 
@@ -102,6 +102,20 @@ Conversion of [Demo.md](https://github.com/cakebake/markdown-themeable-pdf/raw/r
 Special thanks to ...
 
 -	[Atom](https://atom.io/) for this wonderful editor!
--	[markdown-it/markdown-it](https://github.com/markdown-it/markdown-it) - Markdown parser, done right.
--	[marcbachmann/node-html-pdf](https://github.com/marcbachmann/node-html-pdf) - Html to pdf converter in nodejs.
--	[isagalaev/highlight.js](https://github.com/isagalaev/highlight.js) - Javascript syntax highlighter.
+-	[bootstrap](https://ghub.io/bootstrap): The most popular front-end framework for developing responsive, mobile first projects on the web.
+-	[charset-detector](https://ghub.io/charset-detector): ICU based port of charset detection
+-	[cheerio](https://ghub.io/cheerio): Tiny, fast, and elegant implementation of core jQuery designed specifically for the server
+-	[encoding](https://ghub.io/encoding): Convert encodings, uses iconv by default and fallbacks to iconv-lite if needed
+-	[lodash](https://ghub.io/lodash): Lodash modular utilities.
+-	[markdown-it](https://ghub.io/markdown-it): Markdown-it - modern pluggable markdown parser.
+-	[markdown-it-checkbox](https://ghub.io/markdown-it-checkbox): Plugin to create checkboxes for markdown-it markdown parser
+-	[markdown-it-emoji](https://ghub.io/markdown-it-emoji): Emoji plugin for markdown-it markdown parser.
+-	[markdown-it-footnote](https://ghub.io/markdown-it-footnote): Footnotes for markdown-it markdown parser.
+-	[markdown-it-highlightjs](https://ghub.io/markdown-it-highlightjs): Preset to use highlight.js with markdown-it.
+-	[markdown-it-imsize](https://ghub.io/markdown-it-imsize): Markdown-it plugin to specify image size
+-	[markdown-it-smartarrows](https://ghub.io/markdown-it-smartarrows): markdown-it plugin that adds &quot;smart arrows&quot; to markdown-it&#39;s typographic enhancements
+-	[markdown-it-toc-and-anchor](https://ghub.io/markdown-it-toc-and-anchor): markdown-it plugin to add toc and anchor links in headings
+-	[ncp](https://ghub.io/ncp): Asynchronous recursive file copy utility.
+-	[puppeteer](https://ghub.io/puppeteer): A high-level API to control headless Chrome over the DevTools Protocol
+-	[rimraf](https://ghub.io/rimraf): A deep deletion module for node (like `rm -rf`\)
+-	[units-css](https://ghub.io/units-css): Parse length and angle CSS values and convert between units

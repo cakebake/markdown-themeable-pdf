@@ -15,6 +15,10 @@
   "engines": {
     "atom": ">=0.174.0 <2.0.0"
   },
+  "scripts": {
+     "test": "apm test",
+     "devupdate": "npm update --save/--save-dev && readme ./package.json"
+   },
   "dependencies": {
     "bootstrap": "4.0.0",
     "charset-detector": "0.0.2",
@@ -35,6 +39,7 @@
     "units-css": "0.4.0"
   },
   "devDependencies": {
-    "image-size": "^0.6.2"
+    "image-size": "^0.6.2",
+    "package-json-to-readme": "^2.1.1"
   }
 }
