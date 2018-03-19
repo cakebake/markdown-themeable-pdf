@@ -29,3 +29,27 @@ table div,
 pre {
   page-break-inside: avoid;
 }
+
+#pageHeader,
+#pageFooter {
+  display: block;
+  width: 100%;
+  text-align: left;
+}
+
+#pageHeader,
+#pageHeader a,
+#pageHeader a:visited {
+  color: #777;
+}
+
+#pageFooter {
+  border-top: 1px solid #EEE;
+  padding-top: 5px;
+  color: #777;
+  font-size: 80%;
+}
+#pageFooter a,
+#pageFooter a:visited {
+  color: #777;
+}
