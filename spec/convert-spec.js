@@ -15,6 +15,7 @@ import { existsSync } from 'fs'
 import { extname } from 'path'
 import { set } from 'lodash'
 import sizeOf from 'image-size'
+import rimraf from 'rimraf'
 
 // Use the command `window:run-package-specs` (cmd-alt-ctrl-p) to run specs.
 //
@@ -40,6 +41,7 @@ describe('Convert', () => {
           'html'
         )
         const destinationPath = getDefaultExportFilePath(markdownFilePath, 'html')
+        rimraf.sync(destinationPath)
         convertedFilePath = await convert(markdownFilePath, 'html', options, cssFilePaths, destinationPath)
       } catch (e) {
         throw e
@@ -66,6 +68,7 @@ describe('Convert', () => {
           'pdf'
         )
         const destinationPath = getDefaultExportFilePath(markdownFilePath, 'pdf')
+        rimraf.sync(destinationPath)
         convertedFilePath = await convert(markdownFilePath, 'pdf', options, cssFilePaths, destinationPath)
       } catch (e) {
         throw e
@@ -94,6 +97,7 @@ describe('Convert', () => {
           'jpeg'
         )
         const destinationPath = getDefaultExportFilePath(markdownFilePath, 'jpeg')
+        rimraf.sync(destinationPath)
         convertedFilePath = await convert(markdownFilePath, 'jpeg', options, cssFilePaths, destinationPath)
       } catch (e) {
         throw e
@@ -122,6 +126,7 @@ describe('Convert', () => {
           'png'
         )
         const destinationPath = getDefaultExportFilePath(markdownFilePath, 'png')
+        rimraf.sync(destinationPath)
         convertedFilePath = await convert(markdownFilePath, 'png', options, cssFilePaths, destinationPath)
       } catch (e) {
         throw e
@@ -167,7 +172,9 @@ describe('Convert', () => {
         const destinationPath = getDefaultExportFilePath(markdownFilePathSmall, type)
         for (let i = 0; i < sizes.length; i++) {
           const o = options(sizes[i].width, sizes[i].height, type)
-          converted.push(await convert(markdownFilePathSmall, type, o, cssFilePaths, `${destinationPath}.${i}.${type}`))
+          const dest = `${destinationPath}.${i}.${type}`
+          rimraf.sync(dest)
+          converted.push(await convert(markdownFilePathSmall, type, o, cssFilePaths, dest))
         }
         fin = true
       } catch (e) {
