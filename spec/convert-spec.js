@@ -161,7 +161,9 @@ describe('Convert', () => {
       { width: '250px', height: '190px', pxWidth: 250, pxHeight: 190 },
       { width: '5cm', height: '5cm', pxWidth: 189, pxHeight: 189 },
       { width: '2.3in', height: '1.3in', pxWidth: 221, pxHeight: 125 },
-      { width: '200mm', height: '200mm', pxWidth: 756, pxHeight: 756 }
+      { width: '200mm', height: '200mm', pxWidth: 756, pxHeight: 756 },
+      { width: '200mm', height: '', pxWidth: 756, pxHeight: 756 },
+      { width: '', height: '200mm', pxWidth: 756, pxHeight: 756 }
     ]
     const options = (width, height, type) => {
       let o = getOptions()
@@ -188,7 +190,7 @@ describe('Convert', () => {
         }
         fin = true
       } catch (e) {
-        throw e
+        console.error(e)
       }
     })
     waitsFor(() => {
