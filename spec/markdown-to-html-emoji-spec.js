@@ -49,9 +49,7 @@ describe('Emoji', () => {
       return html
     }, 'Should get html')
     runs(() => {
-      expect(html).toMatch(escapeRegExp('😁 😅 😇 😒 😠'))
-      expect(html).toMatch(escapeRegExp('😃 😦'))
-      expect(html).toMatch(escapeRegExp('🙊'))
+      expect(html).toMatch(escapeRegExp('<img class="emoji" draggable="false" alt="😁" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3d'))
     })
   })
 

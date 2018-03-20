@@ -9,6 +9,8 @@ Paragraphs are separated by a blank line.
 
 New line... Some changes... :)
 
+And ... :grin: :sweat_smile: some :innocent: emojis :unamused: :angry: ... :speak_no_evil:
+
 2nd paragraph. *Italic*, **bold**, and `monospace`. Itemized lists look like:
 
 -	this one
