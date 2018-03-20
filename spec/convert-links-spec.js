@@ -1,0 +1,62 @@
+'use babel'
+
+import convert from '../lib/api/convert'
+import { getCssFilePaths, getHeaderFilePath, getFooterFilePath } from '../lib/atom'
+import { getHighlightJsStylePathByName, getDefaultExportFilePath } from '../lib/api/filesystem'
+import {
+  getOptions,
+  getMarkdownTestFilePath,
+  getCustomStylesPath,
+  getCustomHeaderPath,
+  getCustomFooterPath,
+  getcodeHighlightingTheme,
+  enableCodeHighlighting,
+  getProjectRootPath
+} from './_preset'
+import { existsSync } from 'fs'
+import { extname } from 'path'
+import rimraf from 'rimraf'
+
+// Use the command `window:run-package-specs` (cmd-alt-ctrl-p) to run specs.
+//
+// To run a specific `it` or `describe` block add an `f` to the front (e.g. `fit`
+// or `fdescribe`). Remove the `f` to unfocus the block.
+//
+// Tests are written with https://jasmine.github.io/1.3/introduction.html
+
+describe('Convert links', () => {
+
+  const timeout = 15000
+  const markdownFilePath = getMarkdownTestFilePath('links.md')
+
+  it(`converts to pdf`, () => {
+    let convertedFilePath
+    runs(async () => {
+      try {
+        const options = getOptions()
+        const projectRootPath = getProjectRootPath()
+        const cssFilePaths = getCssFilePaths(
+          getCustomStylesPath(),
+          projectRootPath,
+          enableCodeHighlighting() ? getHighlightJsStylePathByName(getcodeHighlightingTheme()) : null,
+          'pdf'
+        )
+        const headerFilePath = getHeaderFilePath(getCustomHeaderPath(), projectRootPath)
+        const footerFilePath = getFooterFilePath(getCustomFooterPath(), projectRootPath)
+        const destinationPath = getDefaultExportFilePath(markdownFilePath, 'pdf')
+        rimraf.sync(destinationPath)
+        convertedFilePath = await convert(markdownFilePath, 'pdf', options, cssFilePaths, headerFilePath, footerFilePath, destinationPath)
+      } catch (e) {
+        throw e
+      }
+    })
+    waitsFor(() => {
+      return convertedFilePath
+    }, 'Should convert emoji markdown', timeout)
+    runs(() => {
+      expect(existsSync(convertedFilePath)).toBe(true)
+      expect(extname(convertedFilePath)).toBe('.pdf')
+    })
+  })
+
+})
