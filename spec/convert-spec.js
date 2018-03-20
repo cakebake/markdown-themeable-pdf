@@ -28,6 +28,7 @@ import rimraf from 'rimraf'
 
 describe('Convert', () => {
 
+  const timeout = 15000
   const markdownFilePath = getMarkdownTestFilePath('Demo.md')
   const markdownFilePathSmall = getMarkdownTestFilePath('small.md')
 
@@ -51,7 +52,7 @@ describe('Convert', () => {
     })
     waitsFor(() => {
       return convertedFilePath
-    }, 'Should convert markdown')
+    }, 'Should convert markdown', timeout)
     runs(() => {
       expect(existsSync(convertedFilePath)).toBe(true)
       expect(extname(convertedFilePath)).toBe('.html')
@@ -90,7 +91,7 @@ describe('Convert', () => {
     })
     waitsFor(() => {
       return convertedFilePath
-    }, 'Should convert markdown')
+    }, 'Should convert markdown', timeout)
     runs(() => {
       expect(existsSync(headerFilePath)).toBe(true)
       expect(existsSync(footerFilePath)).toBe(true)
@@ -123,7 +124,7 @@ describe('Convert', () => {
     })
     waitsFor(() => {
       return convertedFilePath
-    }, 'Should convert markdown')
+    }, 'Should convert markdown', timeout)
     runs(() => {
       expect(existsSync(convertedFilePath)).toBe(true)
       expect(extname(convertedFilePath)).toBe('.jpeg')
@@ -152,7 +153,7 @@ describe('Convert', () => {
     })
     waitsFor(() => {
       return convertedFilePath
-    }, 'Should convert markdown')
+    }, 'Should convert markdown', timeout)
     runs(() => {
       expect(existsSync(convertedFilePath)).toBe(true)
       expect(extname(convertedFilePath)).toBe('.png')
@@ -203,7 +204,7 @@ describe('Convert', () => {
     })
     waitsFor(() => {
       return fin
-    }, 'Should convert markdown to different sizes')
+    }, 'Should convert markdown to different sizes', timeout)
     runs(async () => {
       expect(fin).toBe(true)
       expect(converted.length).toBe(sizes.length)
