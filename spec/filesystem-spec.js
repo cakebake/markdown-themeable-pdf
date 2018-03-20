@@ -89,8 +89,8 @@ describe('Filesystem', () => {
       return customTemplateFilesDest
     }, 'Should copy files')
     runs(() => {
-      expect(existsSync(join(customTemplateFilesDest, 'footer.js'))).toBe(true)
-      expect(existsSync(join(customTemplateFilesDest, 'header.js'))).toBe(true)
+      expect(existsSync(join(customTemplateFilesDest, 'pdfFooter.html'))).toBe(true)
+      expect(existsSync(join(customTemplateFilesDest, 'pdfHeader.html'))).toBe(true)
       expect(existsSync(join(customTemplateFilesDest, 'styles.css'))).toBe(true)
       rimraf.sync(customTemplateFilesDest)
       expect(existsSync(customTemplateFilesDest)).toBe(false)

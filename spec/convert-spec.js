@@ -1,12 +1,14 @@
 'use babel'
 
 import convert from '../lib/api/convert'
-import { getCssFilePaths } from '../lib/atom'
+import { getCssFilePaths, getHeaderFilePath, getFooterFilePath } from '../lib/atom'
 import { getHighlightJsStylePathByName, getDefaultExportFilePath } from '../lib/api/filesystem'
 import {
   getOptions,
   getMarkdownTestFilePath,
   getCustomStylesPath,
+  getCustomHeaderPath,
+  getCustomFooterPath,
   getcodeHighlightingTheme,
   enableCodeHighlighting,
   getProjectRootPath
@@ -42,7 +44,7 @@ describe('Convert', () => {
         )
         const destinationPath = getDefaultExportFilePath(markdownFilePath, 'html')
         rimraf.sync(destinationPath)
-        convertedFilePath = await convert(markdownFilePath, 'html', options, cssFilePaths, destinationPath)
+        convertedFilePath = await convert(markdownFilePath, 'html', options, cssFilePaths, null, null, destinationPath)
       } catch (e) {
         throw e
       }
@@ -58,18 +60,24 @@ describe('Convert', () => {
 
   it(`converts to pdf`, () => {
     let convertedFilePath
+    let headerFilePath
+    let footerFilePath
+
     runs(async () => {
       try {
         const options = getOptions()
+        const projectRootPath = getProjectRootPath()
         const cssFilePaths = getCssFilePaths(
           getCustomStylesPath(),
-          getProjectRootPath(),
+          projectRootPath,
           enableCodeHighlighting() ? getHighlightJsStylePathByName(getcodeHighlightingTheme()) : null,
           'pdf'
         )
+        headerFilePath = getHeaderFilePath(getCustomHeaderPath(), projectRootPath)
+        footerFilePath = getFooterFilePath(getCustomFooterPath(), projectRootPath)
         const destinationPath = getDefaultExportFilePath(markdownFilePath, 'pdf')
         rimraf.sync(destinationPath)
-        convertedFilePath = await convert(markdownFilePath, 'pdf', options, cssFilePaths, destinationPath)
+        convertedFilePath = await convert(markdownFilePath, 'pdf', options, cssFilePaths, headerFilePath, footerFilePath, destinationPath)
       } catch (e) {
         throw e
       }
@@ -78,6 +86,8 @@ describe('Convert', () => {
       return convertedFilePath
     }, 'Should convert markdown')
     runs(() => {
+      expect(existsSync(headerFilePath)).toBe(true)
+      expect(existsSync(footerFilePath)).toBe(true)
       expect(existsSync(convertedFilePath)).toBe(true)
       expect(extname(convertedFilePath)).toBe('.pdf')
     })
@@ -98,7 +108,7 @@ describe('Convert', () => {
         )
         const destinationPath = getDefaultExportFilePath(markdownFilePath, 'jpeg')
         rimraf.sync(destinationPath)
-        convertedFilePath = await convert(markdownFilePath, 'jpeg', options, cssFilePaths, destinationPath)
+        convertedFilePath = await convert(markdownFilePath, 'jpeg', options, cssFilePaths, null, null, destinationPath)
       } catch (e) {
         throw e
       }
@@ -127,7 +137,7 @@ describe('Convert', () => {
         )
         const destinationPath = getDefaultExportFilePath(markdownFilePath, 'png')
         rimraf.sync(destinationPath)
-        convertedFilePath = await convert(markdownFilePath, 'png', options, cssFilePaths, destinationPath)
+        convertedFilePath = await convert(markdownFilePath, 'png', options, cssFilePaths, null, null, destinationPath)
       } catch (e) {
         throw e
       }
@@ -174,7 +184,7 @@ describe('Convert', () => {
           const o = options(sizes[i].width, sizes[i].height, type)
           const dest = `${destinationPath}.${i}.${type}`
           rimraf.sync(dest)
-          converted.push(await convert(markdownFilePathSmall, type, o, cssFilePaths, dest))
+          converted.push(await convert(markdownFilePathSmall, type, o, cssFilePaths, null, null, dest))
         }
         fin = true
       } catch (e) {

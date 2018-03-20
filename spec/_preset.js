@@ -17,6 +17,10 @@ export const getProjectRootPath = () => pathResolve(__dirname, '..')
 
 export const getCustomStylesPath = () => getConfig('customStylesPath', true)
 
+export const getCustomHeaderPath = () => getConfig('customHeaderPath', true)
+
+export const getCustomFooterPath = () => getConfig('customFooterPath', true)
+
 export const enableCodeHighlighting = () => get(htmlOptions(), 'enableCodeHighlighting')
 
 export const getcodeHighlightingTheme = () => getConfig('codeHighlightingTheme', true)
