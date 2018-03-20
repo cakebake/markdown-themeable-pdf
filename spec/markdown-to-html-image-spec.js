@@ -1,7 +1,6 @@
 'use babel'
 
 import { escapeRegExp } from 'lodash'
-import { PACKAGE_NAME } from '../lib/config'
 
 import {
   getMarkdown,
@@ -17,7 +16,7 @@ import {
 
 describe('Image', () => {
 
-  it('checks disabled fixed image src scheme', () => {
+  it('checks disabled base64 src', () => {
     let html = ''
     runs(async () => {
       try {
@@ -36,7 +35,7 @@ describe('Image', () => {
     })
   })
 
-  it('checks enabled fixed image src scheme', () => {
+  it('checks enabled base64 src', () => {
     let html = ''
     runs(async () => {
       try {
@@ -50,8 +49,8 @@ describe('Image', () => {
       return html
     }, 'Should get html')
     runs(() => {
-      expect(html).toMatch(escapeRegExp(`${PACKAGE_NAME}/spec/markdown/img/example.png" alt="example">`))
-      expect(html).toMatch(escapeRegExp(`${PACKAGE_NAME}/spec/markdown/img/example.png" alt="html image">`))
+      expect(html).toMatch(escapeRegExp(`AABAgQIEIgh8H9mPbiviYdrqwAAAABJRU5ErkJggg==" alt="example">`))
+      expect(html).toMatch(escapeRegExp(`AABAgQIEIgh8H9mPbiviYdrqwAAAABJRU5ErkJggg==" alt="html image">`))
     })
   })
 
@@ -69,8 +68,8 @@ describe('Image', () => {
       return html
     }, 'Should get html')
     runs(() => {
-      expect(html).toMatch(escapeRegExp('<p><img src="./img/example.png" alt="example"></p>'))
-      expect(html).not.toMatch(escapeRegExp('<p><img src="./img/example-2.jpg" alt="example-2" width="100" height="200"></p>'))
+      expect(html).toMatch(escapeRegExp('alt="example"></p>'))
+      expect(html).not.toMatch(escapeRegExp('alt="example-2" width="100" height="200"></p>'))
     })
   })
 
@@ -88,8 +87,8 @@ describe('Image', () => {
       return html
     }, 'Should get html')
     runs(() => {
-      expect(html).toMatch(escapeRegExp('<p><img src="./img/example.png" alt="example"></p>'))
-      expect(html).toMatch(escapeRegExp('<p><img src="./img/example-2.jpg" alt="example-2" width="100" height="200"></p>'))
+      expect(html).toMatch(escapeRegExp('alt="example"></p>'))
+      expect(html).toMatch(escapeRegExp('alt="example-2" width="100" height="200"></p>'))
     })
   })
 

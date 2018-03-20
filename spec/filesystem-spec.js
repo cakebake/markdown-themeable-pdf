@@ -2,7 +2,7 @@
 
 import { PACKAGE_NAME, CHARSET } from '../lib/config'
 import { join, parse } from 'path'
-import { escapeRegExp, replace } from 'lodash'
+import { escapeRegExp } from 'lodash'
 import { existsSync, readFileSync } from 'fs'
 import rimraf from 'rimraf'
 import { getMarkdownTestFilePath, getcodeHighlightingTheme, getMarkdownTestFileDir } from './_preset'
@@ -17,7 +17,6 @@ import {
   getFileName,
   getFileExt,
   getHighlightJsStylePathByName,
-  resolveImgSrc,
   pathExists
 } from '../lib/api/filesystem'
 
@@ -37,13 +36,6 @@ describe('Filesystem', () => {
     expect(await pathExists(dirPath)).toBe(true)
     expect(await pathExists('/hello/world')).toBe(false)
     expect(await pathExists(null)).toBe(false)
-  })
-
-  it('could resolve image path', () => {
-    const path = resolveImgSrc('img/example.png', getMarkdownTestFileDir())
-    const scheme = 'file://'
-    expect(path).toMatch(escapeRegExp(scheme))
-    expect(existsSync(replace(path, scheme, ''))).toBe(true)
   })
 
   it('could parse filePath info', () => {
