@@ -46,21 +46,23 @@ Conversion of [Demo.md](https://github.com/cakebake/markdown-themeable-pdf/raw/r
 
 Special thanks to [Atom](https://atom.io/) Team for this wonderful editor and ...
 
--	[charset-detector](https://ghub.io/charset-detector): ICU based port of charset detection
--	[cheerio](https://ghub.io/cheerio): Tiny, fast, and elegant implementation of core jQuery designed specifically for the server
--	[encoding](https://ghub.io/encoding): Convert encodings, uses iconv by default and fallbacks to iconv-lite if needed
--	[lodash](https://ghub.io/lodash): Lodash modular utilities.
--	[markdown-it](https://ghub.io/markdown-it): Markdown-it - modern pluggable markdown parser.
--	[markdown-it-checkbox](https://ghub.io/markdown-it-checkbox): Plugin to create checkboxes for markdown-it markdown parser
--	[markdown-it-emoji](https://ghub.io/markdown-it-emoji): Emoji plugin for markdown-it markdown parser.
--	[markdown-it-footnote](https://ghub.io/markdown-it-footnote): Footnotes for markdown-it markdown parser.
--	[markdown-it-highlightjs](https://ghub.io/markdown-it-highlightjs): Preset to use highlight.js with markdown-it.
--	[markdown-it-imsize](https://ghub.io/markdown-it-imsize): Markdown-it plugin to specify image size
--	[markdown-it-smartarrows](https://ghub.io/markdown-it-smartarrows): markdown-it plugin that adds &quot;smart arrows&quot; to markdown-it&#39;s typographic enhancements
--	[markdown-it-toc-and-anchor](https://ghub.io/markdown-it-toc-and-anchor): markdown-it plugin to add toc and anchor links in headings
--	[ncp](https://ghub.io/ncp): Asynchronous recursive file copy utility.
--	[puppeteer](https://ghub.io/puppeteer): A high-level API to control headless Chrome over the DevTools Protocol
--	[units-css](https://ghub.io/units-css): Parse length and angle CSS values and convert between units
+- [bootstrap](https://ghub.io/bootstrap): The most popular front-end framework for developing responsive, mobile first projects on the web.
+- [charset-detector](https://ghub.io/charset-detector): ICU based port of charset detection
+- [cheerio](https://ghub.io/cheerio): Tiny, fast, and elegant implementation of core jQuery designed specifically for the server
+- [encoding](https://ghub.io/encoding): Convert encodings, uses iconv by default and fallbacks to iconv-lite if needed
+- [lodash](https://ghub.io/lodash): Lodash modular utilities.
+- [markdown-it](https://ghub.io/markdown-it): Markdown-it - modern pluggable markdown parser.
+- [markdown-it-checkbox](https://ghub.io/markdown-it-checkbox): Plugin to create checkboxes for markdown-it markdown parser
+- [markdown-it-emoji](https://ghub.io/markdown-it-emoji): Emoji plugin for markdown-it markdown parser.
+- [markdown-it-footnote](https://ghub.io/markdown-it-footnote): Footnotes for markdown-it markdown parser.
+- [markdown-it-highlightjs](https://ghub.io/markdown-it-highlightjs): Preset to use highlight.js with markdown-it.
+- [markdown-it-imsize](https://ghub.io/markdown-it-imsize): Markdown-it plugin to specify image size
+- [markdown-it-smartarrows](https://ghub.io/markdown-it-smartarrows): markdown-it plugin that adds &quot;smart arrows&quot; to markdown-it&#39;s typographic enhancements
+- [markdown-it-toc-and-anchor](https://ghub.io/markdown-it-toc-and-anchor): markdown-it plugin to add toc and anchor links in headings
+- [ncp](https://ghub.io/ncp): Asynchronous recursive file copy utility.
+- [puppeteer](https://ghub.io/puppeteer): A high-level API to control headless Chrome over the DevTools Protocol
+- [twemoji](https://ghub.io/twemoji): A Unicode 10.0 standard based way to implement emoji across all platforms.
+- [units-css](https://ghub.io/units-css): Parse length and angle CSS values and convert between units
 
 ### License
 
