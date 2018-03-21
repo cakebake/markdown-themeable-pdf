@@ -12,12 +12,27 @@ HTML template for the print footer. Should be valid HTML markup with following c
 
 -->
 
+<script>
+  "use strict";
+  var dateFormat = function () {
+      return (new Date()).toLocaleDateString('en-US', {
+          weekday: 'long',
+          year: 'numeric',
+          month: 'short',
+          day: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit'
+      });
+  };
+  $('.custom-date-format').html(dateFormat());
+</script>
+
 <div style="float: left;">
   Page <span class="pageNumber"></span>/<span class="totalPages"></span>
 </div>
 
 <div style="float: right;">
   &copy; Copyright
-  <span class="date"></span>
+  <span class="custom-date-format"></span>
   by COMPANYNAME
 </div>
