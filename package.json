@@ -35,7 +35,7 @@
     "markdown-it-smartarrows": "1.0.1",
     "markdown-it-toc-and-anchor": "4.1.2",
     "ncp": "2.0.0",
-    "puppeteer": "1.1.1",
+    "puppeteer": "1.2.0",
     "twemoji": "2.5.1",
     "units-css": "0.4.0"
   },
