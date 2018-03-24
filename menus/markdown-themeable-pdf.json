@@ -2,38 +2,38 @@
   "context-menu": {
     ".tree-view .file .name[data-name$=\\.markdown], .tree-view .file .name[data-name$=\\.md], .tree-view .file .name[data-name$=\\.mdown], .tree-view .file .name[data-name$=\\.mkd], .tree-view .file .name[data-name$=\\.mkdown], .tree-view .file .name[data-name$=\\.ron], .tree-view .file .name[data-name$=\\.txt]": [
       {
-        "label": "Markdown Print/Convert",
+        "label": "Markdown Themeable PDF",
         "submenu": [
           {
-            "label": "... to PDF",
-            "command": "markdown-themeable-pdf:convertFileToPDF"
+            "label": "Convert To PDF",
+            "command": "markdown-themeable-PDF:convert-to-PDF"
           },
           {
-            "label": "... to HTML",
-            "command": "markdown-themeable-pdf:convertFileToHTML"
+            "label": "Convert To HTML",
+            "command": "markdown-themeable-PDF:convert-to-HTML"
           },
           {
-            "label": "... to Image",
-            "command": "markdown-themeable-pdf:convertFileToImage"
+            "label": "Convert To Image",
+            "command": "markdown-themeable-PDF:convert-to-Image"
           }
         ]
       }
     ],
     "atom-pane[data-active-item-name$=\\.markdown] atom-text-editor, atom-pane[data-active-item-name$=\\.md] atom-text-editor, atom-pane[data-active-item-name$=\\.mdown] atom-text-editor, atom-pane[data-active-item-name$=\\.mkd] atom-text-editor, atom-pane[data-active-item-name$=\\.mkdown] atom-text-editor, atom-pane[data-active-item-name$=\\.ron] atom-text-editor, atom-pane[data-active-item-name$=\\.txt] atom-text-editor": [
       {
-        "label": "Markdown Print/Convert",
+        "label": "Markdown Themeable PDF",
         "submenu": [
           {
-            "label": "... to PDF",
-            "command": "markdown-themeable-pdf:convertContentToPDF"
+            "label": "Convert To PDF",
+            "command": "markdown-themeable-PDF:convert-to-PDF"
           },
           {
-            "label": "... to HTML",
-            "command": "markdown-themeable-pdf:convertContentToHTML"
+            "label": "Convert To HTML",
+            "command": "markdown-themeable-PDF:convert-to-HTML"
           },
           {
-            "label": "... to Image",
-            "command": "markdown-themeable-pdf:convertContentToImage"
+            "label": "Convert To Image",
+            "command": "markdown-themeable-PDF:convert-to-Image"
           }
         ]
       }
@@ -44,19 +44,19 @@
       "label": "Packages",
       "submenu": [
         {
-          "label": "Markdown Print/Convert",
+          "label": "Markdown Themeable PDF",
           "submenu": [
             {
-              "label": "... to PDF",
-              "command": "markdown-themeable-pdf:convertContentToPDF"
+              "label": "Convert To PDF",
+              "command": "markdown-themeable-PDF:convert-to-PDF"
             },
             {
-              "label": "... to HTML",
-              "command": "markdown-themeable-pdf:convertContentToHTML"
+              "label": "Convert To HTML",
+              "command": "markdown-themeable-PDF:convert-to-HTML"
             },
             {
-              "label": "... to Image",
-              "command": "markdown-themeable-pdf:convertContentToImage"
+              "label": "Convert To Image",
+              "command": "markdown-themeable-PDF:convert-to-Image"
             }
           ]
         }

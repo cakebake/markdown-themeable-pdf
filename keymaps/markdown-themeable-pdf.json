@@ -1,7 +1,7 @@
 {
   "atom-pane[data-active-item-name$=\\.markdown] atom-text-editor, atom-pane[data-active-item-name$=\\.md] atom-text-editor, atom-pane[data-active-item-name$=\\.mdown] atom-text-editor, atom-pane[data-active-item-name$=\\.mkd] atom-text-editor, atom-pane[data-active-item-name$=\\.mkdown] atom-text-editor, atom-pane[data-active-item-name$=\\.ron] atom-text-editor, atom-pane[data-active-item-name$=\\.txt] atom-text-editor": {
-    "ctrl-alt-p": "markdown-themeable-pdf:convertContentToPDF",
-    "ctrl-alt-h": "markdown-themeable-pdf:convertContentToHTML",
-    "ctrl-alt-i": "markdown-themeable-pdf:convertContentToImage"
+    "ctrl-alt-p": "markdown-themeable-PDF:convert-to-PDF",
+    "ctrl-alt-i": "markdown-themeable-PDF:convert-to-Image",
+    "ctrl-alt-h": "markdown-themeable-PDF:convert-to-HTML"
   }
 }
