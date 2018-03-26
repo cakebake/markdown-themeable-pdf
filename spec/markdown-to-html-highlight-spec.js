@@ -15,7 +15,6 @@ import {
 // Tests are written with https://jasmine.github.io/1.3/introduction.html
 
 describe('Highlight', () => {
-
   it('checks disabled higlight.js', () => {
     let html = ''
     runs(async () => {
@@ -78,5 +77,4 @@ describe('Highlight', () => {
       expect(html).toMatch(escapeRegExp('<pre><code class="hljs language-javascript">(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{'))
     })
   })
-
 })

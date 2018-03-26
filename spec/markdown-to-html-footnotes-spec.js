@@ -15,7 +15,6 @@ import {
 // Tests are written with https://jasmine.github.io/1.3/introduction.html
 
 describe('Footnotes', () => {
-
   it('checks disabled footnotes support', () => {
     let html = ''
     runs(async () => {
@@ -55,5 +54,4 @@ describe('Footnotes', () => {
       expect(html).toMatch(escapeRegExp('<li id="fn2" class="footnote-item"><p>Here’s one with multiple blocks.</p>\n<p>Subsequent paragraphs are indented to show that they belong to the previous footnote. <a href="#fnref2" class="footnote-backref">↩︎</a></p>\n</li>'))
     })
   })
-
 })

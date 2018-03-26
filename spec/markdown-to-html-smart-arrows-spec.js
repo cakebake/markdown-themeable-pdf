@@ -15,7 +15,6 @@ import {
 // Tests are written with https://jasmine.github.io/1.3/introduction.html
 
 describe('Markdown to HTML', () => {
-
   it('checks disabled smart arrows', () => {
     let html = ''
     runs(async () => {
@@ -51,5 +50,4 @@ describe('Markdown to HTML', () => {
       expect(html).toMatch(escapeRegExp('<p>→ ← ↔ ⇒ ⇐ ⇔</p>'))
     })
   })
-
 })

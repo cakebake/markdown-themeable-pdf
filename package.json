@@ -16,7 +16,9 @@
     "atom": ">=0.174.0 <2.0.0"
   },
   "scripts": {
-    "test": "apm test",
+    "lint": "eslint .",
+    "fix": "eslint . --fix",
+    "test": "apm test && eslint .",
     "devupdate": "npm update --save/--save-dev && readme ./package.json"
   },
   "dependencies": {
@@ -42,6 +44,18 @@
   "devDependencies": {
     "image-size": "^0.6.2",
     "package-json-to-readme": "^2.1.1",
-    "rimraf": "^2.6.2"
+    "rimraf": "^2.6.2",
+    "standard": "*"
+  },
+  "eslintConfig": {
+    "extends": "standard",
+    "globals": {
+      "atom": "true"
+    },
+    "env": {
+      "node": true,
+      "browser": true,
+      "jasmine": true
+    }
   }
 }

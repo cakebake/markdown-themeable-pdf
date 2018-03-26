@@ -17,8 +17,7 @@ import {
 // Tests are written with https://jasmine.github.io/1.3/introduction.html
 
 describe('TOC and Anchor', () => {
-
-  it('checks that TOC is enabled and Anchor links are disabled by default', () =>{
+  it('checks that TOC is enabled and Anchor links are disabled by default', () => {
     const opt = htmlOptions()
     expect(get(opt, 'enableTOC')).toBe(true)
     expect(get(opt, 'enableAnchor')).toBe(false)
@@ -136,5 +135,4 @@ describe('TOC and Anchor', () => {
       expect(html).toMatch(escapeRegExp(`<span class="${PACKAGE_NAME}-anchor-symbol">$</span>`))
     })
   })
-
 })

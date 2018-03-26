@@ -28,7 +28,6 @@ import {
 // Tests are written with https://jasmine.github.io/1.3/introduction.html
 
 describe('Filesystem', () => {
-
   it('should check if a file or directory exists', async () => {
     const filePath = getMarkdownTestFilePath('Demo.md')
     const dirPath = getMarkdownTestFileDir()
@@ -140,5 +139,4 @@ describe('Filesystem', () => {
       expect(content).toMatch(escapeRegExp('Heading 1'))
     })
   })
-
 })

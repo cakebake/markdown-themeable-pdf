@@ -27,7 +27,6 @@ import rimraf from 'rimraf'
 // Tests are written with https://jasmine.github.io/1.3/introduction.html
 
 describe('Convert', () => {
-
   const timeout = 15000
   const markdownFilePath = getMarkdownTestFilePath('Demo.md')
   const markdownFilePathSmall = getMarkdownTestFilePath('small.md')
@@ -98,7 +97,6 @@ describe('Convert', () => {
       expect(existsSync(convertedFilePath)).toBe(true)
       expect(extname(convertedFilePath)).toBe('.pdf')
       expect(getSizeOfPdf(convertedFilePath).pages).toBe(8)
-
     })
   })
 
@@ -217,5 +215,4 @@ describe('Convert', () => {
       }
     })
   })
-
 })

@@ -15,7 +15,6 @@ import {
 // Tests are written with https://jasmine.github.io/1.3/introduction.html
 
 describe('Image', () => {
-
   it('checks disabled base64 src', () => {
     let html = ''
     runs(async () => {
@@ -91,5 +90,4 @@ describe('Image', () => {
       expect(html).toMatch(escapeRegExp('alt="example-2" width="100" height="200"></p>'))
     })
   })
-
 })

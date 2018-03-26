@@ -25,7 +25,6 @@ import rimraf from 'rimraf'
 // Tests are written with https://jasmine.github.io/1.3/introduction.html
 
 describe('Convert links', () => {
-
   const timeout = 15000
   const markdownFilePath = getMarkdownTestFilePath('links.md')
 
@@ -58,5 +57,4 @@ describe('Convert links', () => {
       expect(extname(convertedFilePath)).toBe('.pdf')
     })
   })
-
 })

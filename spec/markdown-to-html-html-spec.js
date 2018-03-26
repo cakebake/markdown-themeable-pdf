@@ -15,7 +15,6 @@ import {
 // Tests are written with https://jasmine.github.io/1.3/introduction.html
 
 describe('HTML', () => {
-
   it('markdown has html', () => {
     let md = ''
     runs(async () => {
@@ -69,5 +68,4 @@ describe('HTML', () => {
       expect(html).toMatch(escapeRegExp('&lt;div class=&quot;page-break&quot;&gt;&lt;/div&gt;'))
     })
   })
-
 })

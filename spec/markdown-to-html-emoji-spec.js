@@ -15,7 +15,6 @@ import {
 // Tests are written with https://jasmine.github.io/1.3/introduction.html
 
 describe('Emoji', () => {
-
   it('checks disabled emoji support', () => {
     let html = ''
     runs(async () => {
@@ -72,5 +71,4 @@ describe('Emoji', () => {
       expect(html).toMatch(escapeRegExp(':speak_no_evil:'))
     })
   })
-
 })

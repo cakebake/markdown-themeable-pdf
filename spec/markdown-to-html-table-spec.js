@@ -15,7 +15,6 @@ import {
 // Tests are written with https://jasmine.github.io/1.3/introduction.html
 
 describe('Table', () => {
-
   it('checks correct table rendering', () => {
     let html = ''
     runs(async () => {
@@ -71,5 +70,4 @@ describe('Table', () => {
       expect(html).toMatch(escapeRegExp('<td><div>1</div></td>'))
     })
   })
-
 })

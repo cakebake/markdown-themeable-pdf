@@ -24,7 +24,6 @@ import {
 let title = 'Lorem Title'
 
 describe('Template', () => {
-
   it('creates html document from content', () => {
     let html = ''
     let css = ''
@@ -59,5 +58,4 @@ describe('Template', () => {
       expect(html).toMatch(escapeRegExp('<main id="pageContent">'))
     })
   })
-
 })

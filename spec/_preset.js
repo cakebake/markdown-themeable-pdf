@@ -28,7 +28,7 @@ export const getcodeHighlightingTheme = () => getConfig('codeHighlightingTheme',
 
 export const htmlOptions = () => get(options, 'html')
 
-export const setCurrentMdFilePath = (path) => _currentMdFilePath = path
+export const setCurrentMdFilePath = (path) => (_currentMdFilePath = path)
 
 export const getCurrentMdFilePath = () => _currentMdFilePath
 

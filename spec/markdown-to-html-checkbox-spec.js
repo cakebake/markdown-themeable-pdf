@@ -15,7 +15,6 @@ import {
 // Tests are written with https://jasmine.github.io/1.3/introduction.html
 
 describe('Checkbox', () => {
-
   it('checks disabled checkbox rendering', () => {
     let html = ''
     runs(async () => {
@@ -57,5 +56,4 @@ describe('Checkbox', () => {
       expect(html).toMatch(escapeRegExp('- [x] seven'))
     })
   })
-
 })
