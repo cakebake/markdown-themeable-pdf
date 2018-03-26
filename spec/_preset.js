@@ -3,7 +3,8 @@
 import { get, merge } from 'lodash'
 import { join, resolve as pathResolve } from 'path'
 import { readFile, getFileDirectory } from '../lib/api/filesystem'
-import { options as _options, getConfig } from '../lib/atom'
+import { getConfig } from '../lib/atom'
+import _options from '../lib/options'
 import markdownToHTML from '../lib/api/convert/markdownToHTML'
 
 let _currentMdFilePath = ''
