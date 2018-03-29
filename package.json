@@ -46,16 +46,5 @@
     "package-json-to-readme": "^2.1.1",
     "rimraf": "^2.6.2",
     "standard": "*"
-  },
-  "eslintConfig": {
-    "extends": "standard",
-    "globals": {
-      "atom": "true"
-    },
-    "env": {
-      "node": true,
-      "browser": true,
-      "jasmine": true
-    }
   }
 }

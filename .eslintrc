@@ -1,0 +1,11 @@
+{
+  "extends": "standard",
+  "globals": {
+    "atom": "true"
+  },
+  "env": {
+    "node": true,
+    "browser": true,
+    "jasmine": true
+  }
+}
