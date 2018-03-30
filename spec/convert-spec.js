@@ -13,11 +13,10 @@ import {
   enableCodeHighlighting,
   getProjectRootPath
 } from './_preset'
-import { existsSync, readFileSync } from 'fs'
+import { existsSync, readFileSync, removeSync } from 'fs-extra'
 import { extname } from 'path'
 import { set } from 'lodash'
 import sizeOf from 'image-size'
-import rimraf from 'rimraf'
 
 // Use the command `window:run-package-specs` (cmd-alt-ctrl-p) to run specs.
 //
@@ -43,7 +42,8 @@ describe('Convert', () => {
           'html'
         )
         const destinationPath = getDefaultExportFilePath(markdownFilePath, 'html')
-        rimraf.sync(destinationPath)
+        removeSync(destinationPath)
+        expect(existsSync(destinationPath)).toBe(false)
         convertedFilePath = await convert(markdownFilePath, 'html', options, cssFilePaths, null, null, destinationPath)
       } catch (e) {
         throw e
@@ -82,7 +82,8 @@ describe('Convert', () => {
         headerFilePath = getHeaderFilePath(getCustomHeaderPath(), projectRootPath)
         footerFilePath = getFooterFilePath(getCustomFooterPath(), projectRootPath)
         const destinationPath = getDefaultExportFilePath(markdownFilePath, 'pdf')
-        rimraf.sync(destinationPath)
+        removeSync(destinationPath)
+        expect(existsSync(destinationPath)).toBe(false)
         convertedFilePath = await convert(markdownFilePath, 'pdf', options, cssFilePaths, headerFilePath, footerFilePath, destinationPath)
       } catch (e) {
         throw e
@@ -114,7 +115,8 @@ describe('Convert', () => {
           'jpeg'
         )
         const destinationPath = getDefaultExportFilePath(markdownFilePath, 'jpeg')
-        rimraf.sync(destinationPath)
+        removeSync(destinationPath)
+        expect(existsSync(destinationPath)).toBe(false)
         convertedFilePath = await convert(markdownFilePath, 'jpeg', options, cssFilePaths, null, null, destinationPath)
       } catch (e) {
         throw e
@@ -143,7 +145,8 @@ describe('Convert', () => {
           'png'
         )
         const destinationPath = getDefaultExportFilePath(markdownFilePath, 'png')
-        rimraf.sync(destinationPath)
+        removeSync(destinationPath)
+        expect(existsSync(destinationPath)).toBe(false)
         convertedFilePath = await convert(markdownFilePath, 'png', options, cssFilePaths, null, null, destinationPath)
       } catch (e) {
         throw e
@@ -192,7 +195,8 @@ describe('Convert', () => {
         for (let i = 0; i < sizes.length; i++) {
           const o = options(sizes[i].width, sizes[i].height, type)
           const dest = `${destinationPath}.${i}.${type}`
-          rimraf.sync(dest)
+          removeSync(dest)
+          expect(existsSync(dest)).toBe(false)
           converted.push(await convert(markdownFilePathSmall, type, o, cssFilePaths, null, null, dest))
         }
         fin = true

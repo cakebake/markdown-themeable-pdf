@@ -13,9 +13,8 @@ import {
   enableCodeHighlighting,
   getProjectRootPath
 } from './_preset'
-import { existsSync } from 'fs'
+import { existsSync, removeSync } from 'fs-extra'
 import { extname } from 'path'
-import rimraf from 'rimraf'
 
 // Use the command `window:run-package-specs` (cmd-alt-ctrl-p) to run specs.
 //
@@ -43,7 +42,8 @@ describe('Convert links', () => {
         const headerFilePath = getHeaderFilePath(getCustomHeaderPath(), projectRootPath)
         const footerFilePath = getFooterFilePath(getCustomFooterPath(), projectRootPath)
         const destinationPath = getDefaultExportFilePath(markdownFilePath, 'pdf')
-        rimraf.sync(destinationPath)
+        removeSync(destinationPath)
+        expect(existsSync(destinationPath)).toBe(false)
         convertedFilePath = await convert(markdownFilePath, 'pdf', options, cssFilePaths, headerFilePath, footerFilePath, destinationPath)
       } catch (e) {
         throw e

@@ -3,8 +3,7 @@
 import { PACKAGE_NAME, CHARSET } from '../lib/config'
 import { join, parse } from 'path'
 import { escapeRegExp } from 'lodash'
-import { existsSync, readFileSync } from 'fs'
-import rimraf from 'rimraf'
+import { existsSync, readFileSync, removeSync, appendFile } from 'fs-extra'
 import { getMarkdownTestFilePath, getcodeHighlightingTheme, getMarkdownTestFileDir } from './_preset'
 
 import {
@@ -62,29 +61,61 @@ describe('Filesystem', () => {
     runs(() => {
       expect(existsSync(destination)).toBe(true)
       expect(readFileSync(destination, CHARSET)).toMatch(escapeRegExp(content))
-      rimraf.sync(destination)
+      removeSync(destination)
       expect(existsSync(destination)).toBe(false)
     })
   })
 
-  it(`could copy theme files`, () => {
+  describe('Copy/Keep template files', () => {
     let customTemplateFilesDest
-    runs(async () => {
-      try {
-        customTemplateFilesDest = await copyCustomTemplateFiles(join(__dirname, 'tmp', PACKAGE_NAME))
-      } catch (e) {
-        throw e
-      }
+    it(`could copy template files`, () => {
+      let fin = false
+      runs(async () => {
+        try {
+          const dest = join(__dirname, 'tmp', PACKAGE_NAME)
+          expect(existsSync(dest)).toBe(false)
+          customTemplateFilesDest = await copyCustomTemplateFiles(dest)
+        } catch (e) {
+          throw e
+        }
+        fin = true
+      })
+      waitsFor(() => {
+        return fin
+      }, 'Should copy files')
+      runs(() => {
+        expect(existsSync(customTemplateFilesDest)).toBe(true)
+        expect(existsSync(join(customTemplateFilesDest, 'pdfFooter.html'))).toBe(true)
+        expect(existsSync(join(customTemplateFilesDest, 'pdfHeader.html'))).toBe(true)
+        expect(existsSync(join(customTemplateFilesDest, 'styles.css'))).toBe(true)
+        expect(existsSync(join(customTemplateFilesDest, 'logo.png'))).toBe(true)
+      })
     })
-    waitsFor(() => {
-      return customTemplateFilesDest
-    }, 'Should copy files')
-    runs(() => {
-      expect(existsSync(join(customTemplateFilesDest, 'pdfFooter.html'))).toBe(true)
-      expect(existsSync(join(customTemplateFilesDest, 'pdfHeader.html'))).toBe(true)
-      expect(existsSync(join(customTemplateFilesDest, 'styles.css'))).toBe(true)
-      rimraf.sync(customTemplateFilesDest)
-      expect(existsSync(customTemplateFilesDest)).toBe(false)
+    it(`does not overwrite edited template files`, () => {
+      let fin = false
+      let content = false
+      const text = '\n/* modified */\n'
+      runs(async () => {
+        try {
+          const dest = join(customTemplateFilesDest, 'styles.css')
+          await appendFile(dest, text)
+          await copyCustomTemplateFiles(customTemplateFilesDest)
+          content = await readFile(dest, CHARSET)
+        } catch (e) {
+          throw e
+        }
+        fin = true
+      })
+      waitsFor(() => {
+        return fin
+      }, 'Should modify and copy files again')
+      runs(() => {
+        expect(existsSync(customTemplateFilesDest)).toBe(true)
+        expect(existsSync(join(customTemplateFilesDest, 'styles.css'))).toBe(true)
+        expect(content).toMatch(escapeRegExp(text))
+        removeSync(customTemplateFilesDest)
+        expect(existsSync(customTemplateFilesDest)).toBe(false)
+      })
     })
   })
 
