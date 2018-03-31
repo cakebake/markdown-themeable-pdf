@@ -1,7 +1,8 @@
 'use babel'
 
 import convert from '../lib/api/convert'
-import { getCssFilePaths, getHeaderFilePath, getFooterFilePath } from '../lib/api/atom'
+import { getHeaderFilePath, getFooterFilePath } from '../lib/api/atom'
+import { getCssFilePaths } from '../lib/theme'
 import { getDefaultExportFilePath } from '../lib/api/filesystem'
 import { getHighlightJsStylePathByName } from '../lib/theme/highlightJs'
 import {

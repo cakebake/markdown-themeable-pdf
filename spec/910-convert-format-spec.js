@@ -1,7 +1,7 @@
 'use babel'
 
 import convert from '../lib/api/convert'
-import { getCssFilePaths } from '../lib/api/atom'
+import { getCssFilePaths } from '../lib/theme'
 import { getDefaultExportFilePath } from '../lib/api/filesystem'
 import {
   getOptions,
