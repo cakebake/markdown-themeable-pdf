@@ -3,15 +3,12 @@
 import convert from '../lib/api/convert'
 import { getCssFilePaths, getHeaderFilePath, getFooterFilePath } from '../lib/api/atom'
 import { getDefaultExportFilePath } from '../lib/api/filesystem'
-import { getHighlightJsStylePathByName } from '../lib/theme/highlightJs'
 import {
   getOptions,
   getMarkdownTestFilePath,
   getCustomStylesPath,
   getCustomHeaderPath,
   getCustomFooterPath,
-  getCodeHighlightingTheme,
-  enableCodeHighlighting,
   getProjectRootPath
 } from './_preset'
 import { existsSync, removeSync } from 'fs-extra'
@@ -36,7 +33,6 @@ describe('Convert images', () => {
       const cssFilePaths = getCssFilePaths(
         getCustomStylesPath(),
         projectRootPath,
-        enableCodeHighlighting() ? getHighlightJsStylePathByName(getCodeHighlightingTheme()) : null,
         'pdf'
       )
       const headerFilePath = getHeaderFilePath(getCustomHeaderPath(), projectRootPath)

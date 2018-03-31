@@ -3,13 +3,10 @@
 import convert from '../lib/api/convert'
 import { getCssFilePaths } from '../lib/api/atom'
 import { getDefaultExportFilePath } from '../lib/api/filesystem'
-import { getHighlightJsStylePathByName } from '../lib/theme/highlightJs'
 import {
   getOptions,
   getMarkdownTestFilePath,
   getCustomStylesPath,
-  getCodeHighlightingTheme,
-  enableCodeHighlighting,
   getProjectRootPath
 } from './_preset'
 import { existsSync, removeSync } from 'fs-extra'
@@ -54,7 +51,6 @@ describe('Convert format', () => {
       const cssFilePaths = getCssFilePaths(
         getCustomStylesPath(),
         getProjectRootPath(),
-        enableCodeHighlighting() ? getHighlightJsStylePathByName(getCodeHighlightingTheme()) : null,
         type
       )
       const destinationPath = getDefaultExportFilePath(markdownFilePath, type)

@@ -4,14 +4,12 @@ import { escapeRegExp } from 'lodash'
 import { document } from '../lib/api/convert/template'
 import { PACKAGE_NAME, CHARSET } from '../lib/config'
 import { readFilesCombine } from '../lib/api/filesystem'
-import { getHighlightJsStylePathByName } from '../lib/theme/highlightJs'
 import { getCssFilePaths } from '../lib/api/atom'
 import {
   getMarkdown,
   getHtml,
   getCustomStylesPath,
-  getProjectRootPath,
-  getCodeHighlightingTheme
+  getProjectRootPath
 } from './_preset'
 
 // Use the command `window:run-package-specs` (cmd-alt-ctrl-p) to run specs.
@@ -34,7 +32,6 @@ describe('Template', () => {
         const cssFiles = getCssFilePaths(
           getCustomStylesPath(),
           getProjectRootPath(),
-          getHighlightJsStylePathByName(getCodeHighlightingTheme()),
           'html'
         )
         css = await readFilesCombine(cssFiles, CHARSET)

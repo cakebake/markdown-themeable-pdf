@@ -36,7 +36,6 @@ describe('Convert', () => {
       const cssFilePaths = getCssFilePaths(
         getCustomStylesPath(),
         getProjectRootPath(),
-        enableCodeHighlighting() ? getHighlightJsStylePathByName(getCodeHighlightingTheme()) : null,
         'html'
       )
       const destinationPath = getDefaultExportFilePath(markdownFilePath, 'html')
@@ -101,7 +100,6 @@ describe('Convert', () => {
       const cssFilePaths = getCssFilePaths(
         getCustomStylesPath(),
         getProjectRootPath(),
-        enableCodeHighlighting() ? getHighlightJsStylePathByName(getCodeHighlightingTheme()) : null,
         'jpeg'
       )
       const destinationPath = getDefaultExportFilePath(markdownFilePath, 'jpeg')
@@ -127,7 +125,6 @@ describe('Convert', () => {
       const cssFilePaths = getCssFilePaths(
         getCustomStylesPath(),
         getProjectRootPath(),
-        enableCodeHighlighting() ? getHighlightJsStylePathByName(getCodeHighlightingTheme()) : null,
         'png'
       )
       const destinationPath = getDefaultExportFilePath(markdownFilePath, 'png')
