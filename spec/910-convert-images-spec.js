@@ -10,7 +10,7 @@ import {
   getCustomStylesPath,
   getCustomHeaderPath,
   getCustomFooterPath,
-  getcodeHighlightingTheme,
+  getCodeHighlightingTheme,
   enableCodeHighlighting,
   getProjectRootPath
 } from './_preset'
@@ -36,7 +36,7 @@ describe('Convert images', () => {
       const cssFilePaths = getCssFilePaths(
         getCustomStylesPath(),
         projectRootPath,
-        enableCodeHighlighting() ? getHighlightJsStylePathByName(getcodeHighlightingTheme()) : null,
+        enableCodeHighlighting() ? getHighlightJsStylePathByName(getCodeHighlightingTheme()) : null,
         'pdf'
       )
       const headerFilePath = getHeaderFilePath(getCustomHeaderPath(), projectRootPath)

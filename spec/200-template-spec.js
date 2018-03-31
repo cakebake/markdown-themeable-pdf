@@ -11,7 +11,7 @@ import {
   getHtml,
   getCustomStylesPath,
   getProjectRootPath,
-  getcodeHighlightingTheme
+  getCodeHighlightingTheme
 } from './_preset'
 
 // Use the command `window:run-package-specs` (cmd-alt-ctrl-p) to run specs.
@@ -34,7 +34,7 @@ describe('Template', () => {
         const cssFiles = getCssFilePaths(
           getCustomStylesPath(),
           getProjectRootPath(),
-          getHighlightJsStylePathByName(getcodeHighlightingTheme()),
+          getHighlightJsStylePathByName(getCodeHighlightingTheme()),
           'html'
         )
         css = await readFilesCombine(cssFiles, CHARSET)

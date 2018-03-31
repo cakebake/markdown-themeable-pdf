@@ -24,7 +24,9 @@ export const getCustomFooterPath = () => getConfig('customFooterPath', true)
 
 export const enableCodeHighlighting = () => get(htmlOptions(), 'enableCodeHighlighting')
 
-export const getcodeHighlightingTheme = () => getConfig('codeHighlightingTheme', true)
+export const getTheme = () => getConfig('theme', true)
+
+export const getCodeHighlightingTheme = () => getConfig('codeHighlightingTheme', true)
 
 export const htmlOptions = () => get(options, 'html')
 

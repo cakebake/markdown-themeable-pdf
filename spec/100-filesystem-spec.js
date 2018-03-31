@@ -4,7 +4,7 @@ import { PACKAGE_NAME, CHARSET } from '../lib/config'
 import { join, parse } from 'path'
 import { escapeRegExp } from 'lodash'
 import { existsSync, readFileSync, removeSync, appendFile } from 'fs-extra'
-import { getMarkdownTestFilePath, getcodeHighlightingTheme, getMarkdownTestFileDir } from './_preset'
+import { getMarkdownTestFilePath, getTheme, getCodeHighlightingTheme, getMarkdownTestFileDir } from './_preset'
 import { getHighlightJsStylePathByName, getHighlightJsStyles } from '../lib/theme/highlightJs'
 import { getBootswatchThemes, getBootswatchThemePathByName } from '../lib/theme/bootswatch'
 import {
@@ -119,22 +119,22 @@ describe('Filesystem', () => {
   })
 
   it(`could get highlight.js css files and files contain default highlight theme`, () => {
-    expect(getHighlightJsStyles()).toContain(getcodeHighlightingTheme())
+    expect(getHighlightJsStyles()).toContain(getCodeHighlightingTheme())
   })
 
   it('could get highlight.js style path by file name', () => {
-    const path = getHighlightJsStylePathByName(getcodeHighlightingTheme())
+    const path = getHighlightJsStylePathByName(getCodeHighlightingTheme())
     expect(existsSync(path)).toBe(true)
   })
 
   it(`could get bootswatch theme directories and directories contain default theme`, () => {
     const dirs = getBootswatchThemes()
     expect(dirs.length).not.toBe(0)
-    expect(dirs).toContain('cyborg')
+    expect(dirs).toContain(getTheme())
   })
 
   it('could get bootswatch theme path by theme name', () => {
-    const path = getBootswatchThemePathByName('cyborg')
+    const path = getBootswatchThemePathByName(getTheme())
     expect(existsSync(path)).toBe(true)
   })
 
