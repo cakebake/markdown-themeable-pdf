@@ -2,7 +2,8 @@
 
 import convert from '../lib/api/convert'
 import { getCssFilePaths, getHeaderFilePath, getFooterFilePath } from '../lib/api/atom'
-import { getHighlightJsStylePathByName, getDefaultExportFilePath } from '../lib/api/filesystem'
+import { getDefaultExportFilePath } from '../lib/api/filesystem'
+import { getHighlightJsStylePathByName } from '../lib/theme/highlightJs'
 import {
   getOptions,
   getMarkdownTestFilePath,
@@ -30,24 +31,20 @@ describe('Convert images', () => {
   it(`converts to pdf`, () => {
     let convertedFilePath
     runs(async () => {
-      try {
-        const options = getOptions()
-        const projectRootPath = getProjectRootPath()
-        const cssFilePaths = getCssFilePaths(
-          getCustomStylesPath(),
-          projectRootPath,
-          enableCodeHighlighting() ? getHighlightJsStylePathByName(getcodeHighlightingTheme()) : null,
-          'pdf'
-        )
-        const headerFilePath = getHeaderFilePath(getCustomHeaderPath(), projectRootPath)
-        const footerFilePath = getFooterFilePath(getCustomFooterPath(), projectRootPath)
-        const destinationPath = getDefaultExportFilePath(markdownFilePath, 'pdf')
-        removeSync(destinationPath)
-        expect(existsSync(destinationPath)).toBe(false)
-        convertedFilePath = await convert(markdownFilePath, 'pdf', options, cssFilePaths, headerFilePath, footerFilePath, destinationPath)
-      } catch (e) {
-        throw e
-      }
+      const options = getOptions()
+      const projectRootPath = getProjectRootPath()
+      const cssFilePaths = getCssFilePaths(
+        getCustomStylesPath(),
+        projectRootPath,
+        enableCodeHighlighting() ? getHighlightJsStylePathByName(getcodeHighlightingTheme()) : null,
+        'pdf'
+      )
+      const headerFilePath = getHeaderFilePath(getCustomHeaderPath(), projectRootPath)
+      const footerFilePath = getFooterFilePath(getCustomFooterPath(), projectRootPath)
+      const destinationPath = getDefaultExportFilePath(markdownFilePath, 'pdf')
+      removeSync(destinationPath)
+      expect(existsSync(destinationPath)).toBe(false)
+      convertedFilePath = await convert(markdownFilePath, 'pdf', options, cssFilePaths, headerFilePath, footerFilePath, destinationPath)
     })
     waitsFor(() => {
       return convertedFilePath

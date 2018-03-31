@@ -5,20 +5,17 @@ import { join, parse } from 'path'
 import { escapeRegExp } from 'lodash'
 import { existsSync, readFileSync, removeSync, appendFile } from 'fs-extra'
 import { getMarkdownTestFilePath, getcodeHighlightingTheme, getMarkdownTestFileDir } from './_preset'
-
+import { getHighlightJsStylePathByName, getHighlightJsStyles } from '../lib/theme/highlightJs'
+import { getBootswatchThemes, getBootswatchThemePathByName } from '../lib/theme/bootswatch'
 import {
   readFile,
   readFilesCombine,
   writeFile,
-  getHighlightJsStyles,
   copyCustomTemplateFiles,
   getFileDirectory,
   getFileName,
   getFileExt,
-  getHighlightJsStylePathByName,
-  pathExists,
-  getBootswatchThemes,
-  getBootswatchThemePathByName
+  pathExists
 } from '../lib/api/filesystem'
 
 // Use the command `window:run-package-specs` (cmd-alt-ctrl-p) to run specs.

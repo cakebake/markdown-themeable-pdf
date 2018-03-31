@@ -4,12 +4,12 @@ import { get, merge } from 'lodash'
 import { join, resolve as pathResolve } from 'path'
 import { readFile, getFileDirectory } from '../lib/api/filesystem'
 import { getConfig } from '../lib/api/atom'
-import _options from '../lib/api/options'
+import convertOptions from '../lib/api/atom/convertOptions'
 import markdownToHTML from '../lib/api/convert/markdownToHTML'
 
 let _currentMdFilePath = ''
 
-export const getOptions = () => _options(true)
+export const getOptions = () => convertOptions(true)
 
 const options = getOptions()
 
@@ -37,8 +37,8 @@ export const getMarkdown = (testFile) => {
   return readFile(getCurrentMdFilePath())
 }
 
-export const getHtml = (markdown, _options = {}, isFinalFormat = true) => {
-  return markdownToHTML(markdown, isFinalFormat, merge(htmlOptions(), _options), getFileDirectory(getCurrentMdFilePath()))
+export const getHtml = (markdown, options = {}, isFinalFormat = true) => {
+  return markdownToHTML(markdown, isFinalFormat, merge(htmlOptions(), options), getFileDirectory(getCurrentMdFilePath()))
 }
 
 export const getMarkdownTestFileDir = () => join(__dirname, 'markdown')

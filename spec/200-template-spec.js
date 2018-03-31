@@ -3,9 +3,9 @@
 import { escapeRegExp } from 'lodash'
 import { document } from '../lib/api/convert/template'
 import { PACKAGE_NAME, CHARSET } from '../lib/config'
-import { readFilesCombine, getHighlightJsStylePathByName } from '../lib/api/filesystem'
+import { readFilesCombine } from '../lib/api/filesystem'
+import { getHighlightJsStylePathByName } from '../lib/theme/highlightJs'
 import { getCssFilePaths } from '../lib/api/atom'
-
 import {
   getMarkdown,
   getHtml,
