@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "base64-img": "1.0.4",
-    "bootstrap": "4.0.0",
+    "bootswatch": "^4.0.0",
     "charset-detector": "0.0.2",
     "cheerio": "1.0.0-rc.2",
     "encoding": "0.1.12",

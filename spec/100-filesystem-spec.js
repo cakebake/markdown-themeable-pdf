@@ -16,7 +16,9 @@ import {
   getFileName,
   getFileExt,
   getHighlightJsStylePathByName,
-  pathExists
+  pathExists,
+  getBootswatchThemes,
+  getBootswatchThemePathByName
 } from '../lib/api/filesystem'
 
 // Use the command `window:run-package-specs` (cmd-alt-ctrl-p) to run specs.
@@ -125,6 +127,17 @@ describe('Filesystem', () => {
 
   it('could get highlight.js style path by file name', () => {
     const path = getHighlightJsStylePathByName(getcodeHighlightingTheme())
+    expect(existsSync(path)).toBe(true)
+  })
+
+  it(`could get bootswatch theme directories and directories contain default theme`, () => {
+    const dirs = getBootswatchThemes()
+    expect(dirs.length).not.toBe(0)
+    expect(dirs).toContain('cyborg')
+  })
+
+  it('could get bootswatch theme path by theme name', () => {
+    const path = getBootswatchThemePathByName('cyborg')
     expect(existsSync(path)).toBe(true)
   })
 
