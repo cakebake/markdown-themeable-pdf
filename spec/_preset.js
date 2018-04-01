@@ -2,7 +2,7 @@
 
 import { get, merge } from 'lodash'
 import { join, resolve as pathResolve } from 'path'
-import { readFile, getFileDirectory } from '../lib/api/filesystem'
+import { readFile } from '../lib/api/filesystem'
 import { getConfig } from '../lib/api/atom'
 import convertOptions from '../lib/api/atom/convertOptions'
 import markdownToHTML from '../lib/api/convert/markdownToHTML'
@@ -10,8 +10,6 @@ import markdownToHTML from '../lib/api/convert/markdownToHTML'
 let _currentMdFilePath = ''
 
 export const getOptions = () => convertOptions(true)
-
-const options = getOptions()
 
 // fake for spec suit, because atom project path points to /tmp -.-
 export const getProjectRootPath = () => pathResolve(__dirname, '..')
@@ -28,7 +26,7 @@ export const getTheme = () => getConfig('theme', true)
 
 export const getCodeHighlightingTheme = () => getConfig('codeHighlightingTheme', true)
 
-export const htmlOptions = () => get(options, 'html')
+export const htmlOptions = () => get(getOptions(), 'html')
 
 export const setCurrentMdFilePath = (path) => (_currentMdFilePath = path)
 
@@ -39,9 +37,7 @@ export const getMarkdown = (testFile) => {
   return readFile(getCurrentMdFilePath())
 }
 
-export const getHtml = (markdown, options = {}, isFinalFormat = true) => {
-  return markdownToHTML(markdown, isFinalFormat, merge(htmlOptions(), options), getFileDirectory(getCurrentMdFilePath()))
-}
+export const getHtml = (markdown, options = {}) => markdownToHTML(markdown, merge(htmlOptions(), options))
 
 export const getMarkdownTestFileDir = () => join(__dirname, 'markdown')
 

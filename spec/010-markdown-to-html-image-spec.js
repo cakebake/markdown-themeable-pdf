@@ -15,44 +15,6 @@ import {
 // Tests are written with https://jasmine.github.io/1.3/introduction.html
 
 describe('Image', () => {
-  it('checks disabled base64 src', () => {
-    let html = ''
-    runs(async () => {
-      try {
-        const md = await getMarkdown('image.md')
-        html = await getHtml(md, { html: true }, true)
-      } catch (e) {
-        throw e
-      }
-    })
-    waitsFor(() => {
-      return html
-    }, 'Should get html')
-    runs(() => {
-      expect(html).toMatch(escapeRegExp('./img/example.png" alt="example">'))
-      expect(html).toMatch(escapeRegExp('./img/example.png" alt="html image" />'))
-    })
-  })
-
-  it('checks enabled base64 src', () => {
-    let html = ''
-    runs(async () => {
-      try {
-        const md = await getMarkdown('image.md')
-        html = await getHtml(md, { html: true }, false)
-      } catch (e) {
-        throw e
-      }
-    })
-    waitsFor(() => {
-      return html
-    }, 'Should get html')
-    runs(() => {
-      expect(html).toMatch(escapeRegExp(`AABAgQIEIgh8H9mPbiviYdrqwAAAABJRU5ErkJggg==" alt="example">`))
-      expect(html).toMatch(escapeRegExp(`AABAgQIEIgh8H9mPbiviYdrqwAAAABJRU5ErkJggg==" alt="html image">`))
-    })
-  })
-
   it('checks disabled img size markup', () => {
     let html = ''
     runs(async () => {

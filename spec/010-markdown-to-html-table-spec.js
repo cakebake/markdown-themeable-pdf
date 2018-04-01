@@ -20,7 +20,7 @@ describe('Table', () => {
     runs(async () => {
       try {
         const md = await getMarkdown('table.md')
-        html = await getHtml(md, {}, true)
+        html = await getHtml(md, {})
       } catch (e) {
         throw e
       }

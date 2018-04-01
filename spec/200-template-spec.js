@@ -1,15 +1,16 @@
 'use babel'
 
 import { escapeRegExp } from 'lodash'
-import { body } from '../lib/api/convert/template'
+import { body, header, footer } from '../lib/api/convert/template'
 import { PACKAGE_NAME, CHARSET } from '../lib/config'
-import { readFilesCombine } from '../lib/api/filesystem'
+import { readFilesCombine, getFileDirectory } from '../lib/api/filesystem'
 import { getCssFilePaths } from '../lib/theme'
 import {
   getMarkdown,
   getHtml,
   getCustomStylesPath,
-  getProjectRootPath
+  getProjectRootPath,
+  getCurrentMdFilePath
 } from './_preset'
 
 // Use the command `window:run-package-specs` (cmd-alt-ctrl-p) to run specs.
@@ -20,9 +21,8 @@ import {
 // Tests are written with https://jasmine.github.io/1.3/introduction.html
 
 describe('Template', () => {
-  it('creates html document from content', () => {
+  it('creates html body from content', () => {
     let html = ''
-    let css = ''
     runs(async () => {
       try {
         const md = await getMarkdown('simple.md')
@@ -32,15 +32,15 @@ describe('Template', () => {
           getProjectRootPath(),
           'html'
         )
-        css = await readFilesCombine(cssFiles, CHARSET)
-        html = await body(content, CHARSET, css)
+        const css = await readFilesCombine(cssFiles, CHARSET)
+        html = await body(content, CHARSET, css, getFileDirectory(getCurrentMdFilePath()))
       } catch (e) {
         throw e
       }
     })
     waitsFor(() => {
       return html
-    }, 'Should get document')
+    }, 'Should get body')
     runs(() => {
       expect(html).toMatch(escapeRegExp('<!DOCTYPE html>\n<html>'))
       expect(html).toMatch(escapeRegExp(`<meta charset="${CHARSET}">`))
@@ -51,6 +51,51 @@ describe('Template', () => {
       expect(html).toMatch(escapeRegExp(`Your ${PACKAGE_NAME} custom styles`))
       expect(html).toMatch(escapeRegExp('.hljs'))
       expect(html).toMatch(escapeRegExp('<main id="pageContent">'))
+    })
+  })
+
+  it('manipulates img src with data uri (base64) in body, header and footer', () => {
+    let bodyHtml = ''
+    let headerHtml = ''
+    let footerHtml = ''
+    let fin = false
+    runs(async () => {
+      try {
+        const md = await getMarkdown('image.md')
+        const content = await getHtml(md, {})
+        const cssFiles = getCssFilePaths(
+          getCustomStylesPath(),
+          getProjectRootPath(),
+          'html'
+        )
+        const css = await readFilesCombine(cssFiles, CHARSET)
+        const basePath = getFileDirectory(getCurrentMdFilePath())
+        bodyHtml = await body(content, CHARSET, css, basePath)
+        headerHtml = await header(content, css, {}, basePath)
+        footerHtml = await footer(content, css, {}, basePath)
+        fin = true
+      } catch (e) {
+        throw e
+      }
+    })
+    waitsFor(() => {
+      return fin
+    }, 'Should get document')
+    runs(() => {
+      expect(bodyHtml).toMatch(escapeRegExp('id="pageContent"'))
+      expect(headerHtml).toMatch(escapeRegExp('id="pageHeader"'))
+      expect(footerHtml).toMatch(escapeRegExp('id="pageFooter"'))
+      const test = [
+        // local md image
+        'AAAABJRU5ErkJggg==" alt="example"',
+        // local html image
+        'AAAABJRU5ErkJggg==" alt="html image"'
+      ]
+      test.forEach((t) => {
+        expect(bodyHtml).toMatch(escapeRegExp(t))
+        expect(headerHtml).toMatch(escapeRegExp(t))
+        expect(footerHtml).toMatch(escapeRegExp(t))
+      })
     })
   })
 })
