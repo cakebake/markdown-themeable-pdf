@@ -46,4 +46,4 @@ external normal
 
 external html image
 
-<img src="http://placehold.it/900x250/f3330b/fff" alt="IMG EXTERNAL" />
+<img src="http://placehold.it/900x250/f3330b/fff" alt="external html image" />

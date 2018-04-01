@@ -89,7 +89,11 @@ describe('Template', () => {
         // local md image
         'AAAABJRU5ErkJggg==" alt="example"',
         // local html image
-        'AAAABJRU5ErkJggg==" alt="html image"'
+        'AAAABJRU5ErkJggg==" alt="html image"',
+        // external md image
+        'AAAAASUVORK5CYII=" alt="external image"',
+        // external html image
+        'AAAAASUVORK5CYII=" alt="external html image"'
       ]
       test.forEach((t) => {
         expect(bodyHtml).toMatch(escapeRegExp(t))
