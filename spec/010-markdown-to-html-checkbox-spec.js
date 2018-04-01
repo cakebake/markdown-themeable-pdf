@@ -50,8 +50,8 @@ describe('Checkbox', () => {
       return html
     }, 'Should get html')
     runs(() => {
-      expect(html).toMatch(escapeRegExp('<p><input type="checkbox" id="checkbox-0"><label for="checkbox-0">checkbox</label></p>'))
-      expect(html).toMatch(escapeRegExp('<li><input type="checkbox" id="checkbox-1"><label for="checkbox-1">one</label></li>'))
+      expect(html).toMatch(escapeRegExp('<p><div class="checkbox"><input type="checkbox" id="checkbox-0"><label for="checkbox-0">checkbox</label></div></p>'))
+      expect(html).toMatch(escapeRegExp('<li><div class="checkbox"><input type="checkbox" id="checkbox-1"><label for="checkbox-1">one</label></div></li>'))
       expect(html).toMatch(escapeRegExp('five [x]'))
       expect(html).toMatch(escapeRegExp('- [x] seven'))
     })

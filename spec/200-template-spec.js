@@ -50,7 +50,7 @@ describe('Template', () => {
       expect(html).not.toMatch(escapeRegExp('a[href^=http]:after'))
       expect(html).toMatch(escapeRegExp(`Your ${PACKAGE_NAME} custom styles`))
       expect(html).toMatch(escapeRegExp('.hljs'))
-      expect(html).toMatch(escapeRegExp('<main id="pageContent">'))
+      expect(html).toMatch(escapeRegExp('id="pageContent"'))
     })
   })
 

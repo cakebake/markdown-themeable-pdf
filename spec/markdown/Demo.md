@@ -1,7 +1,7 @@
 An h1 header
 ============
 
-Table of content:
+**Table of content with `@[toc]` for HTML and PDF**
 
 @[toc]
 
@@ -39,9 +39,24 @@ Use 3 dashes for an em-dash. Use 2 dashes for ranges (ex., "it's all in chapters
 Write a todo list
 -----------------
 
+... with list :checkered_flag:
+
 -	[ ] Step 1
--	[x] Step 1
--	[x] Step 1
+-	[x] Step 2
+-	[x] Step 3
+
+... without list :checkered_flag:
+
+[ ] Step 1
+
+[x] Step 2
+
+[x] Step 3
+
+A very log headline for TOC testing... Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+...
 
 <div class="page-break"></div>
 
@@ -142,17 +157,17 @@ Headline 2
 
 Tables can look like this:
 
-| Lorem ipsum                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Lorem ipsum       | Lorem ipsum dolor |
-|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------|-------------------|
-| Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. | lorem ipsum dolor | hello world       |
-| Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. | lorem ipsum dolor | hello world       |
-| Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. | lorem ipsum dolor | hello world       |
+| Lorem            | Ipsum                                                    | Dolor                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+|------------------|----------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Lorem ipum dolor | Lorem ipsum dolor sit amet, consectetur adipisicing elit | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. |
+| Lorem ipum dolor | Lorem ipum dolor                                         | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. |
+| Lorem ipum dolor | Lorem ipum dolor                                         | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. |
 
 <div class="page-break"></div>
 
 ### External image
 
-```
+```markdown
 ![external image](http://placehold.it/900x250/000/FFF)
 ```
 
@@ -162,7 +177,7 @@ Tables can look like this:
 
 Local image with relative path.
 
-```
+```markdown
 ![local image](example.png)
 ```
 
@@ -183,7 +198,7 @@ Testing some HTML code
 
 Image with relative path...
 
-```
+```html
 <img src="./img/example.png" alt="Image with relative path" />
 ```
 
@@ -193,7 +208,7 @@ Image with relative path...
 
 Image external...
 
-```
+```html
 <img src="http://placehold.it/900x250/f3330b/fff" alt="Image external" />
 ```
 

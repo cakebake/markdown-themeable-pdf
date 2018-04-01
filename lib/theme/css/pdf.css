@@ -1,10 +1,9 @@
 * {
-  overflow: visible !important;
+  overflow: visible;
   -webkit-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
   box-decoration-break: clone;
   -webkit-print-color-adjust: exact;
-  print-color-adjust: exact;
 }
 
 .new-page,
@@ -19,37 +18,15 @@ pre {
   page-break-after: avoid;
 }
 
-img {
-  max-width: 100% !important;
-}
-
 ul,
 img,
 table div,
-pre {
+pre,
+code {
   page-break-inside: avoid;
 }
 
 #pageHeader,
 #pageFooter {
-  display: block;
-  width: 100%;
-  text-align: left;
-}
-
-#pageHeader,
-#pageHeader a,
-#pageHeader a:visited {
-  color: #777;
-}
-
-#pageFooter {
-  border-top: 1px solid #EEE;
-  padding-top: 5px;
-  color: #777;
-  font-size: 80%;
-}
-#pageFooter a,
-#pageFooter a:visited {
-  color: #777;
+  font-size: 12px;
 }
