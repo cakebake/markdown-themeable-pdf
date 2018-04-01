@@ -1,18 +1,12 @@
 'use babel'
 
-import convert from '../lib/api/convert'
-import { getCssFilePaths } from '../lib/theme'
+import convert from '../lib/convert'
 import { getDefaultExportFilePath } from '../lib/api/filesystem'
-import {
-  getOptions,
-  getMarkdownTestFilePath,
-  getCustomStylesPath,
-  getProjectRootPath
-} from './_preset'
 import { existsSync, removeSync } from 'fs-extra'
 import { extname } from 'path'
 import sizeOf from 'image-size'
 import { set } from 'lodash'
+import { getOptions, getMarkdownTestFilePath } from './_preset'
 
 // Use the command `window:run-package-specs` (cmd-alt-ctrl-p) to run specs.
 //
@@ -48,18 +42,13 @@ describe('Convert format', () => {
       return o
     }
     runs(async () => {
-      const cssFilePaths = getCssFilePaths(
-        getCustomStylesPath(),
-        getProjectRootPath(),
-        type
-      )
       const destinationPath = getDefaultExportFilePath(markdownFilePath, type)
       for (let i = 0; i < sizes.length; i++) {
         const o = options(sizes[i].width, sizes[i].height, type)
         const dest = `${destinationPath}.${i}.${type}`
         removeSync(dest)
         expect(existsSync(dest)).toBe(false)
-        converted.push(await convert(markdownFilePath, type, o, cssFilePaths, null, null, dest))
+        converted.push(await convert(markdownFilePath, dest, type, o))
       }
       fin = true
     })

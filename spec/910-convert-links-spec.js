@@ -1,17 +1,8 @@
 'use babel'
 
-import convert from '../lib/api/convert'
-import { getHeaderFilePath, getFooterFilePath } from '../lib/api/atom'
-import { getCssFilePaths } from '../lib/theme'
+import convert from '../lib/convert'
 import { getDefaultExportFilePath } from '../lib/api/filesystem'
-import {
-  getOptions,
-  getMarkdownTestFilePath,
-  getCustomStylesPath,
-  getCustomHeaderPath,
-  getCustomFooterPath,
-  getProjectRootPath
-} from './_preset'
+import { getOptions, getMarkdownTestFilePath } from './_preset'
 import { existsSync, removeSync } from 'fs-extra'
 import { extname } from 'path'
 
@@ -30,18 +21,10 @@ describe('Convert links', () => {
     let convertedFilePath
     runs(async () => {
       const options = getOptions()
-      const projectRootPath = getProjectRootPath()
-      const cssFilePaths = getCssFilePaths(
-        getCustomStylesPath(),
-        projectRootPath,
-        'pdf'
-      )
-      const headerFilePath = getHeaderFilePath(getCustomHeaderPath(), projectRootPath)
-      const footerFilePath = getFooterFilePath(getCustomFooterPath(), projectRootPath)
       const destinationPath = getDefaultExportFilePath(markdownFilePath, 'pdf')
       removeSync(destinationPath)
       expect(existsSync(destinationPath)).toBe(false)
-      convertedFilePath = await convert(markdownFilePath, 'pdf', options, cssFilePaths, headerFilePath, footerFilePath, destinationPath)
+      convertedFilePath = await convert(markdownFilePath, destinationPath, 'pdf', options)
     })
     waitsFor(() => {
       return convertedFilePath

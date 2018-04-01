@@ -1,23 +1,11 @@
 'use babel'
 
-import convert from '../lib/api/convert'
-import { getHeaderFilePath, getFooterFilePath } from '../lib/api/atom'
-import { getCssFilePaths } from '../lib/theme'
+import convert from '../lib/convert'
 import { getDefaultExportFilePath } from '../lib/api/filesystem'
-import { getHighlightJsStylePathByName } from '../lib/theme/highlightJs'
-import {
-  getOptions,
-  getMarkdownTestFilePath,
-  getCustomStylesPath,
-  getCustomHeaderPath,
-  getCustomFooterPath,
-  getCodeHighlightingTheme,
-  enableCodeHighlighting,
-  getProjectRootPath
-} from './_preset'
-import { existsSync, removeSync } from 'fs-extra'
+import { existsSync, removeSync, readFileSync } from 'fs-extra'
 import { extname } from 'path'
 import { set } from 'lodash'
+import { getOptions, getMarkdownTestFilePath } from './_preset'
 
 // Use the command `window:run-package-specs` (cmd-alt-ctrl-p) to run specs.
 //
@@ -26,23 +14,19 @@ import { set } from 'lodash'
 //
 // Tests are written with https://jasmine.github.io/1.3/introduction.html
 
-describe('Convert', () => {
+describe('Convert demo', () => {
   const timeout = 15000
   const markdownFilePath = getMarkdownTestFilePath('Demo.md')
 
   it(`converts to html`, () => {
     let convertedFilePath
     runs(async () => {
+      const type = 'html'
       const options = getOptions()
-      const cssFilePaths = getCssFilePaths(
-        getCustomStylesPath(),
-        getProjectRootPath(),
-        'html'
-      )
-      const destinationPath = getDefaultExportFilePath(markdownFilePath, 'html')
+      const destinationPath = getDefaultExportFilePath(markdownFilePath, type)
       removeSync(destinationPath)
       expect(existsSync(destinationPath)).toBe(false)
-      convertedFilePath = await convert(markdownFilePath, 'html', options, cssFilePaths, null, null, destinationPath)
+      convertedFilePath = await convert(markdownFilePath, destinationPath, type, options)
     })
     waitsFor(() => {
       return convertedFilePath
@@ -55,58 +39,42 @@ describe('Convert', () => {
 
   it(`converts to pdf`, () => {
     let convertedFilePath
-    let headerFilePath
-    let footerFilePath
-    // const getSizeOfPdf = (filePath) => {
-    //   const content = readFileSync(filePath, 'latin1')
-    //   const pages = content.match(/\/Type[\s]*\/Page[^s]/g).length
-    //   return {
-    //     pages
-    //   }
-    // }
+    const getSizeOfPdf = (filePath) => {
+      const content = readFileSync(filePath, 'latin1')
+      const pages = content.match(/\/Type[\s]*\/Page[^s]/g).length
+      return {
+        pages
+      }
+    }
     runs(async () => {
+      const type = 'pdf'
       const options = getOptions()
-      const projectRootPath = getProjectRootPath()
-      const cssFilePaths = getCssFilePaths(
-        getCustomStylesPath(),
-        projectRootPath,
-        enableCodeHighlighting() ? getHighlightJsStylePathByName(getCodeHighlightingTheme()) : null,
-        'pdf'
-      )
-      headerFilePath = getHeaderFilePath(getCustomHeaderPath(), projectRootPath)
-      footerFilePath = getFooterFilePath(getCustomFooterPath(), projectRootPath)
-      const destinationPath = getDefaultExportFilePath(markdownFilePath, 'pdf')
+      const destinationPath = getDefaultExportFilePath(markdownFilePath, type)
       removeSync(destinationPath)
       expect(existsSync(destinationPath)).toBe(false)
-      convertedFilePath = await convert(markdownFilePath, 'pdf', options, cssFilePaths, headerFilePath, footerFilePath, destinationPath)
+      convertedFilePath = await convert(markdownFilePath, destinationPath, type, options)
     })
     waitsFor(() => {
       return convertedFilePath
     }, 'Should convert markdown', timeout)
     runs(() => {
-      expect(existsSync(headerFilePath)).toBe(true)
-      expect(existsSync(footerFilePath)).toBe(true)
       expect(existsSync(convertedFilePath)).toBe(true)
       expect(extname(convertedFilePath)).toBe('.pdf')
-      // expect(getSizeOfPdf(convertedFilePath).pages).toBe(8)
+      expect(getSizeOfPdf(convertedFilePath).pages).toBeGreaterThan(2)
     })
   })
 
   it(`converts to jpeg`, () => {
     let convertedFilePath
     runs(async () => {
+      const type = 'jpeg'
       const options = getOptions()
       set(options, 'html.enableTOC', false)
       set(options, 'html.enableAnchor', false)
-      const cssFilePaths = getCssFilePaths(
-        getCustomStylesPath(),
-        getProjectRootPath(),
-        'jpeg'
-      )
-      const destinationPath = getDefaultExportFilePath(markdownFilePath, 'jpeg')
+      const destinationPath = getDefaultExportFilePath(markdownFilePath, type)
       removeSync(destinationPath)
       expect(existsSync(destinationPath)).toBe(false)
-      convertedFilePath = await convert(markdownFilePath, 'jpeg', options, cssFilePaths, null, null, destinationPath)
+      convertedFilePath = await convert(markdownFilePath, destinationPath, type, options)
     })
     waitsFor(() => {
       return convertedFilePath
@@ -120,18 +88,14 @@ describe('Convert', () => {
   it(`converts to png`, () => {
     let convertedFilePath
     runs(async () => {
+      const type = 'png'
       const options = getOptions()
       set(options, 'html.enableTOC', false)
       set(options, 'html.enableAnchor', false)
-      const cssFilePaths = getCssFilePaths(
-        getCustomStylesPath(),
-        getProjectRootPath(),
-        'png'
-      )
-      const destinationPath = getDefaultExportFilePath(markdownFilePath, 'png')
+      const destinationPath = getDefaultExportFilePath(markdownFilePath, type)
       removeSync(destinationPath)
       expect(existsSync(destinationPath)).toBe(false)
-      convertedFilePath = await convert(markdownFilePath, 'png', options, cssFilePaths, null, null, destinationPath)
+      convertedFilePath = await convert(markdownFilePath, destinationPath, type, options)
     })
     waitsFor(() => {
       return convertedFilePath

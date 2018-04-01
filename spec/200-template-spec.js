@@ -1,7 +1,7 @@
 'use babel'
 
 import { escapeRegExp } from 'lodash'
-import { document } from '../lib/api/convert/template'
+import { body } from '../lib/api/convert/template'
 import { PACKAGE_NAME, CHARSET } from '../lib/config'
 import { readFilesCombine } from '../lib/api/filesystem'
 import { getCssFilePaths } from '../lib/theme'
@@ -19,8 +19,6 @@ import {
 //
 // Tests are written with https://jasmine.github.io/1.3/introduction.html
 
-let title = 'Lorem Title'
-
 describe('Template', () => {
   it('creates html document from content', () => {
     let html = ''
@@ -35,7 +33,7 @@ describe('Template', () => {
           'html'
         )
         css = await readFilesCombine(cssFiles, CHARSET)
-        html = await document(content, title, CHARSET, css)
+        html = await body(content, CHARSET, css)
       } catch (e) {
         throw e
       }
@@ -46,7 +44,7 @@ describe('Template', () => {
     runs(() => {
       expect(html).toMatch(escapeRegExp('<!DOCTYPE html>\n<html>'))
       expect(html).toMatch(escapeRegExp(`<meta charset="${CHARSET}">`))
-      expect(html).toMatch(escapeRegExp(`<title>${title}</title>`))
+      expect(html).toMatch(escapeRegExp('<title>Heading 1</title>'))
       expect(html).toMatch(escapeRegExp('html, body'))
       expect(html).not.toMatch(escapeRegExp('.page-break'))
       expect(html).not.toMatch(escapeRegExp('a[href^=http]:after'))
