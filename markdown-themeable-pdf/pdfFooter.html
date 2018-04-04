@@ -27,14 +27,16 @@ HTML template for the print footer. Should be valid HTML markup with following c
   $('.custom-date-format').html(dateFormat());
 </script>
 
-<div style="border-top: 1px solid #EEE; padding-top: 5px; font-size: 90%;">
+<div style="border-top: 1px solid #EEE; padding-top: 5px; font-size: 90%; text-align: center;">
 
-  Page <span class="pageNumber"></span>/<span class="totalPages"></span>
+  <div style="width: 33.33%; float: left; text-align: left;">
+    Page <span class="pageNumber"></span> / <span class="totalPages"></span>
+  </div>
 
-  <div style="float: right;">
-    &copy; Copyright
-    <span class="custom-date-format"></span>
-    by <i>COMPANYNAME</i>
+  Created on <span class="custom-date-format"></span>
+
+  <div style="width: 33.33%; float: right; text-align: right;">
+    &copy; Copyright by <i>COMPANYNAME</i>
   </div>
 
 </div>
