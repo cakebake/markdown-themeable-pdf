@@ -3,12 +3,11 @@
 import { escapeRegExp } from 'lodash'
 import { body, header, footer } from '../lib/api/convert/template'
 import { PACKAGE_NAME, CHARSET } from '../lib/config'
-import { readFilesCombine, getFileDirectory } from '../lib/api/filesystem'
-import { getCssFilePaths } from '../lib/theme'
+import { getFileDirectory } from '../lib/api/filesystem'
+import { getBodyCss } from '../lib/theme'
 import {
   getMarkdown,
   getHtml,
-  getCustomStylesPath,
   getProjectRootPath,
   getCurrentMdFilePath
 } from './_preset'
@@ -27,12 +26,7 @@ describe('Template', () => {
       try {
         const md = await getMarkdown('simple.md')
         const content = await getHtml(md, {})
-        const cssFiles = getCssFilePaths(
-          getCustomStylesPath(),
-          getProjectRootPath(),
-          'html'
-        )
-        const css = await readFilesCombine(cssFiles, CHARSET)
+        const css = await getBodyCss(getProjectRootPath(), 'html')
         html = await body(content, CHARSET, css, getFileDirectory(getCurrentMdFilePath()))
       } catch (e) {
         throw e
@@ -63,12 +57,7 @@ describe('Template', () => {
       try {
         const md = await getMarkdown('image.md')
         const content = await getHtml(md, {})
-        const cssFiles = getCssFilePaths(
-          getCustomStylesPath(),
-          getProjectRootPath(),
-          'html'
-        )
-        const css = await readFilesCombine(cssFiles, CHARSET)
+        const css = await getBodyCss(getProjectRootPath(), 'html')
         const basePath = getFileDirectory(getCurrentMdFilePath())
         bodyHtml = await body(content, CHARSET, css, basePath)
         headerHtml = await header(content, css, {}, basePath)
