@@ -10,16 +10,18 @@ HTML template for the print header. Should be valid HTML markup with following c
 - 'pageNumber'  current page number
 - 'totalPages'  total pages in the document
 
+The $ variable is assigned to Cheerio https://cheerio.js.org/
+
 -->
 
 <script>
   "use strict";
   $('code')
-    .html('mtp')
+    .html('markdown-themeable-pdf')
     .css('text-transform', 'uppercase');
 </script>
 
-<a href="https://atom.io/packages/markdown-themeable-pdf" style="text-decoration: none;">
+<a href="https://atom.io/packages/markdown-themeable-pdf">
   <img src="./logo.png" alt="Logo" style="height: 1em; width: auto;" />
 </a>
 
@@ -27,5 +29,5 @@ HTML template for the print header. Should be valid HTML markup with following c
   Demo PDF-Header for
   <strong class="title"></strong>
   by
-  <a href="https://atom.io/packages/markdown-themeable-pdf" style="text-decoration: none; color: #E64229;"><code>...</code></a>
+  <a href="https://atom.io/packages/markdown-themeable-pdf"><code>...</code></a>
 </div>
