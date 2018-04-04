@@ -47,11 +47,12 @@ Conversion of [Demo.md](https://github.com/cakebake/markdown-themeable-pdf/raw/r
 Special thanks to [Atom](https://atom.io/) Team for this wonderful editor and ...
 
 -	[base64-img](https://ghub.io/base64-img): Convert img or svg to base64, or convert base64 to img
--	[bootstrap](https://ghub.io/bootstrap): The most popular front-end framework for developing responsive, mobile first projects on the web.
+-	[bootswatch](https://ghub.io/bootswatch): Bootswatch is a collection of themes for Bootstrap.
 -	[charset-detector](https://ghub.io/charset-detector): ICU based port of charset detection
 -	[cheerio](https://ghub.io/cheerio): Tiny, fast, and elegant implementation of core jQuery designed specifically for the server
 -	[encoding](https://ghub.io/encoding): Convert encodings, uses iconv by default and fallbacks to iconv-lite if needed
 -	[fs-extra](https://ghub.io/fs-extra): fs-extra contains methods that aren&#39;t included in the vanilla Node.js fs package. Such as mkdir -p, cp -r, and rm -rf.
+-	[github-markdown-css](https://ghub.io/github-markdown-css): The minimal amount of CSS to replicate the GitHub Markdown style
 -	[lodash](https://ghub.io/lodash): Lodash modular utilities.
 -	[markdown-it](https://ghub.io/markdown-it): Markdown-it - modern pluggable markdown parser.
 -	[markdown-it-checkbox](https://ghub.io/markdown-it-checkbox): Plugin to create checkboxes for markdown-it markdown parser
