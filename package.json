@@ -16,6 +16,7 @@
     "atom": ">=0.174.0 <2.0.0"
   },
   "scripts": {
+    "themegen": "node ./lib/theme/themegen.js",
     "lint": "eslint .",
     "fix": "eslint . --fix",
     "test": "apm test && eslint .",
@@ -27,7 +28,6 @@
     "cheerio": "1.0.0-rc.2",
     "encoding": "0.1.12",
     "fs-extra": "5.0.0",
-    "github-markdown-css": "2.10.0",
     "lodash": "4.17.5",
     "markdown-it": "8.4.1",
     "markdown-it-checkbox": "1.1.0",
@@ -43,7 +43,11 @@
   },
   "devDependencies": {
     "image-size": "^0.6.2",
+    "node-sass": "^4.8.3",
     "package-json-to-readme": "^2.1.1",
+    "primer-base": "^1.7.0",
+    "primer-markdown": "^3.7.5",
+    "primer-utilities": "^4.9.0",
     "standard": "*"
   }
 }

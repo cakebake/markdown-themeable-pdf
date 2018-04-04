@@ -16,18 +16,22 @@ The $ variable is assigned to Cheerio https://cheerio.js.org/
 
 <script>
   "use strict";
-  $('code')
+  $('.test')
     .html('markdown-themeable-pdf')
     .css('text-transform', 'uppercase');
 </script>
 
-<a href="https://atom.io/packages/markdown-themeable-pdf">
-  <img src="./logo.png" alt="Logo" style="height: 1em; width: auto;" />
-</a>
+<div class="text-gray-light" style="font-size: 12px;">
 
-<div style="float: right;">
-  Demo PDF-Header for
-  <strong class="title"></strong>
-  by
-  <a href="https://atom.io/packages/markdown-themeable-pdf"><code>...</code></a>
+  <a href="https://atom.io/packages/markdown-themeable-pdf">
+    <img src="./logo.png" alt="Logo" style="height: 1em; width: auto;" />
+  </a>
+
+  <div style="float: right;">
+    Demo PDF-Header for
+    <strong class="title"></strong>
+    by
+    <a href="https://atom.io/packages/markdown-themeable-pdf" class="text-inherit"><span class="test">...</span></a>
+  </div>
+
 </div>

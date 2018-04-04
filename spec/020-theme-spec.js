@@ -2,7 +2,6 @@
 
 import { getCodeHighlightingTheme } from './_preset'
 import { getHighlightJsStylePathByName, getHighlightJsStyles } from '../lib/theme/highlightJs'
-import { getGithubMarkdownCssPath } from '../lib/theme/githubMarkdownCss'
 import { existsSync } from 'fs'
 
 // Use the command `window:run-package-specs` (cmd-alt-ctrl-p) to run specs.
@@ -19,11 +18,6 @@ describe('Theme', () => {
 
   it('could get highlight.js style path by file name', () => {
     const path = getHighlightJsStylePathByName(getCodeHighlightingTheme())
-    expect(existsSync(path)).toBe(true)
-  })
-
-  it('could get github markdown css path', () => {
-    const path = getGithubMarkdownCssPath()
     expect(existsSync(path)).toBe(true)
   })
 })
