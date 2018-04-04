@@ -4,7 +4,7 @@ import { escapeRegExp } from 'lodash'
 import { body, header, footer } from '../lib/api/convert/template'
 import { PACKAGE_NAME, CHARSET } from '../lib/config'
 import { getFileDirectory } from '../lib/api/filesystem'
-import { getBodyCss } from '../lib/theme'
+import { getBodyCss, getHeaderFooterCss } from '../lib/theme'
 import {
   getMarkdown,
   getHtml,
@@ -57,11 +57,10 @@ describe('Template', () => {
       try {
         const md = await getMarkdown('image.md')
         const content = await getHtml(md, {})
-        const css = await getBodyCss(getProjectRootPath(), 'html')
         const basePath = getFileDirectory(getCurrentMdFilePath())
-        bodyHtml = await body(content, CHARSET, css, basePath)
-        headerHtml = await header(content, css, {}, basePath)
-        footerHtml = await footer(content, css, {}, basePath)
+        bodyHtml = await body(content, CHARSET, await getBodyCss(getProjectRootPath(), 'html'), basePath)
+        headerHtml = await header(content, await getHeaderFooterCss(), {}, basePath)
+        footerHtml = await footer(content, await getHeaderFooterCss(), {}, basePath)
         fin = true
       } catch (e) {
         throw e

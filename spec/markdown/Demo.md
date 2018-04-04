@@ -1,5 +1,5 @@
-An h1 header
-============
+Demo Document
+=============
 
 **Table of content with `@[toc]` for HTML and PDF**
 

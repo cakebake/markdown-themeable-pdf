@@ -1,0 +1,31 @@
+* {
+  overflow: hidden;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  box-decoration-break: clone;
+  -webkit-print-color-adjust: exact;
+  margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+#pageHeader,
+#pageFooter {
+  width: 100%;
+}
+
+#pageHeader,
+#pageFooter,
+#pageHeader *,
+#pageFooter * {
+  color: #777;
+  font-size: 10px;
+  font-family: "Segoe UI", Arial, freesans, sans-serif;
+}
+
+#pageHeader * *,
+#pageFooter * * {
+  color: inherit;
+  font-size: inherit;
+  font-family: inherit;
+}
