@@ -23,11 +23,11 @@
   },
   "dependencies": {
     "base64-img": "1.0.4",
-    "bootswatch": "4.0.0",
     "charset-detector": "0.0.2",
     "cheerio": "1.0.0-rc.2",
     "encoding": "0.1.12",
     "fs-extra": "5.0.0",
+    "github-markdown-css": "2.10.0",
     "lodash": "4.17.5",
     "markdown-it": "8.4.1",
     "markdown-it-checkbox": "1.1.0",

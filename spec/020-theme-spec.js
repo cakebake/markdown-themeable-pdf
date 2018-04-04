@@ -1,8 +1,8 @@
 'use babel'
 
-import { getTheme, getCodeHighlightingTheme } from './_preset'
+import { getCodeHighlightingTheme } from './_preset'
 import { getHighlightJsStylePathByName, getHighlightJsStyles } from '../lib/theme/highlightJs'
-import { getBootswatchThemes, getBootswatchThemePathByName } from '../lib/theme/bootswatch'
+import { getGithubMarkdownCssPath } from '../lib/theme/githubMarkdownCss'
 import { existsSync } from 'fs'
 
 // Use the command `window:run-package-specs` (cmd-alt-ctrl-p) to run specs.
@@ -22,14 +22,8 @@ describe('Theme', () => {
     expect(existsSync(path)).toBe(true)
   })
 
-  it(`could get bootswatch theme directories and directories contain default theme`, () => {
-    const dirs = getBootswatchThemes()
-    expect(dirs.length).not.toBe(0)
-    expect(dirs).toContain(getTheme())
-  })
-
-  it('could get bootswatch theme path by theme name', () => {
-    const path = getBootswatchThemePathByName(getTheme())
+  it('could get github markdown css path', () => {
+    const path = getGithubMarkdownCssPath()
     expect(existsSync(path)).toBe(true)
   })
 })
