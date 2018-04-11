@@ -507,3 +507,11 @@ pre { margin-top: 0; margin-bottom: 0; font-family: "SFMono-Regular", Consolas, 
 .muted-link { color: #586069 !important; }
 
 .muted-link:hover { color: #0366d6 !important; text-decoration: none; }
+
+.markdown-body .task-list-item-checkbox { margin: 0 .2em .25em 0; vertical-align: middle; }
+
+.markdown-body .task-list-item { list-style-type: none; }
+
+.markdown-body .task-list-item + .task-list-item { margin-top: 3px; }
+
+.markdown-body .task-list-item .task-list-item-checkbox { margin-left: -2em; vertical-align: middle; }

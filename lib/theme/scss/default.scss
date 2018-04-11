@@ -13,3 +13,24 @@
 // https://github.com/primer/primer/tree/master/modules/primer-utilities
 @import "primer-utilities/lib/borders.scss";
 @import "primer-utilities/lib/colors.scss";
+
+//
+// task list
+//
+
+.markdown-body {
+  .task-list-item-checkbox {
+    margin: 0 .2em .25em 0;
+    vertical-align: middle;
+  }
+  .task-list-item {
+    list-style-type: none;
+    &+.task-list-item {
+      margin-top: 3px;
+    }
+    .task-list-item-checkbox {
+      margin-left: -2em;
+      vertical-align: middle;
+    }
+  }
+}
