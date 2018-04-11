@@ -9,10 +9,6 @@ img.emoji {
   vertical-align: -0.1em;
 }
 
-ul {
-  list-style: square;
-}
-
 .toc, .toc ul {
   list-style: decimal;
 }
