@@ -1,7 +1,7 @@
 'use babel'
 
 import { getCodeHighlightingTheme } from './_preset'
-import { getHighlightJsStylePathByName, getHighlightJsStyles } from '../lib/theme/highlightJs'
+import { getHighlightJsStylePathByName, getHighlightJsStyles } from '../lib/style/highlightJs'
 import { existsSync } from 'fs'
 
 // Use the command `window:run-package-specs` (cmd-alt-ctrl-p) to run specs.

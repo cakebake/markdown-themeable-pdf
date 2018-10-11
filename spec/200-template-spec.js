@@ -4,7 +4,7 @@ import { escapeRegExp } from 'lodash'
 import { body, header, footer } from '../lib/api/convert/template'
 import { PACKAGE_NAME, CHARSET } from '../lib/config'
 import { getFileDirectory } from '../lib/api/filesystem'
-import { getBodyCss, getHeaderFooterCss } from '../lib/theme'
+import { getBodyCss, getHeaderFooterCss } from '../lib/style'
 import {
   getMarkdown,
   getHtml,
