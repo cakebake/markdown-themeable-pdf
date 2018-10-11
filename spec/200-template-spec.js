@@ -4,7 +4,7 @@ import { escapeRegExp } from 'lodash'
 import { body, header, footer } from '../lib/api/convert/template'
 import { PACKAGE_NAME, CHARSET } from '../lib/config'
 import { getFileDirectory } from '../lib/api/filesystem'
-import { getBodyCss, getHeaderFooterCss } from '../lib/style'
+import { getBodyCss } from '../lib/style'
 import {
   getMarkdown,
   getHtml,
@@ -58,9 +58,9 @@ describe('Template', () => {
         const md = await getMarkdown('image.md')
         const content = await getHtml(md, {})
         const basePath = getFileDirectory(getCurrentMdFilePath())
-        bodyHtml = await body(content, CHARSET, await getBodyCss(getProjectRootPath(), 'html'), basePath)
-        headerHtml = await header(content, await getHeaderFooterCss(), {}, basePath)
-        footerHtml = await footer(content, await getHeaderFooterCss(), {}, basePath)
+        bodyHtml = await body(content, CHARSET, '', basePath)
+        headerHtml = await header(content, '', {}, basePath)
+        footerHtml = await footer(content, '', {}, basePath)
         fin = true
       } catch (e) {
         throw e
@@ -74,14 +74,11 @@ describe('Template', () => {
       expect(headerHtml).toMatch(escapeRegExp('id="pageHeader"'))
       expect(footerHtml).toMatch(escapeRegExp('id="pageFooter"'))
       const test = [
-        // local md image
+        '3LjEwNXoiLz48L3N2Zz4="> <code>:blush:</code>',
         'AAAABJRU5ErkJggg==" alt="example"',
-        // local html image
         'AAAABJRU5ErkJggg==" alt="html image"',
-        // external md image
-        'AAAAASUVORK5CYII=" alt="external image"',
-        // external html image
-        'AAAAASUVORK5CYII=" alt="external html image"'
+        'AAAAAElFTkSuQmCC" alt="external image"',
+        'AAAAAElFTkSuQmCC" alt="external html image"'
       ]
       test.forEach((t) => {
         expect(bodyHtml).toMatch(escapeRegExp(t))

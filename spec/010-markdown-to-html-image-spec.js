@@ -30,7 +30,7 @@ describe('Image', () => {
     }, 'Should get html')
     runs(() => {
       expect(html).toMatch(escapeRegExp('alt="example"></p>'))
-      expect(html).not.toMatch(escapeRegExp('alt="example-2" width="100" height="200"></p>'))
+      expect(html).toMatch(escapeRegExp('![example 100x100](./img/example.png =100x100)'))
     })
   })
 
@@ -49,7 +49,7 @@ describe('Image', () => {
     }, 'Should get html')
     runs(() => {
       expect(html).toMatch(escapeRegExp('alt="example"></p>'))
-      expect(html).toMatch(escapeRegExp('alt="example-2" width="100" height="200"></p>'))
+      expect(html).toMatch(escapeRegExp('alt="example 100x100" width="100" height="100"></p>'))
     })
   })
 })
