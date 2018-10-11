@@ -69,6 +69,8 @@ Here's a numbered list:
 2.	second item
 3.	third item
 
+<div class="page-break"></div>
+
 Here's a code sample:
 ---------------------
 
@@ -100,6 +102,16 @@ for i in range(10):
     time.sleep(0.5)
     print i
 ```
+
+Long liner `38029ecd84f18db3e425967dbb75e4bb8c02ff6a3f1c546446532069432a6c854a0ee12d35282751360686ec666832c6b9dda169298dcb923b09b0d7f72d4d7a` as inline code.
+
+Long liner
+
+```
+38029ecd84f18db3e425967dbb75e4bb8c02ff6a3f1c546446532069432a6c854a0ee12d35282751360686ec666832c6b9dda169298dcb923b09b0d7f72d4d7a
+```
+
+as code block.
 
 <div class="page-break"></div>
 

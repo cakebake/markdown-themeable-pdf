@@ -18,3 +18,7 @@ img.emoji {
 .toc, .toc ul {
   list-style: decimal;
 }
+
+code br {
+  display: inherit !important;
+}

@@ -19,3 +19,11 @@ a {
 a[href^=http]:after {
   content:" <" attr(href) "> ";
 }
+
+pre {
+  overflow: hidden !important;
+}
+pre code {
+  white-space: pre-wrap !important;
+  word-wrap: break-word !important;
+}
