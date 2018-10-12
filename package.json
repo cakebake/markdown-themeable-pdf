@@ -19,7 +19,8 @@
     "stylegen": "node ./lib/style/stylegen.js",
     "lint": "eslint .",
     "fix": "eslint . --fix",
-    "test": "apm test && eslint .",
+    "test": "npm run lint && npm run spec",
+    "spec": "apm test",
     "devupdate": "npm update --save/--save-dev && readme ./package.json"
   },
   "dependencies": {
