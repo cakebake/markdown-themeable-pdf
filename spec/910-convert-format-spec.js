@@ -16,7 +16,7 @@ import { getOptions, getMarkdownTestFilePath } from './_preset'
 // Tests are written with https://jasmine.github.io/1.3/introduction.html
 
 describe('Convert format', () => {
-  const timeout = 15000
+  const timeout = 300000
   const markdownFilePath = getMarkdownTestFilePath('small.md')
 
   it(`converts to image width different sizes and units`, () => {

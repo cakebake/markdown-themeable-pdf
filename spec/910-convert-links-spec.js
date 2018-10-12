@@ -14,7 +14,7 @@ import { extname } from 'path'
 // Tests are written with https://jasmine.github.io/1.3/introduction.html
 
 describe('Convert links', () => {
-  const timeout = 15000
+  const timeout = 300000
   const markdownFilePath = getMarkdownTestFilePath('links.md')
 
   it(`converts to pdf`, () => {

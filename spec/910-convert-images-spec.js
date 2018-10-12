@@ -14,7 +14,7 @@ import { getOptions, getMarkdownTestFilePath } from './_preset'
 // Tests are written with https://jasmine.github.io/1.3/introduction.html
 
 describe('Convert images', () => {
-  const timeout = 15000
+  const timeout = 300000
   const markdownFilePath = getMarkdownTestFilePath('image.md')
 
   it(`converts to pdf`, () => {

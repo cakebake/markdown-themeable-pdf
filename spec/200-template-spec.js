@@ -53,6 +53,7 @@ describe('Template', () => {
     let headerHtml = ''
     let footerHtml = ''
     let fin = false
+    const timeout = 300000
     runs(async () => {
       try {
         const md = await getMarkdown('image.md')
@@ -68,7 +69,7 @@ describe('Template', () => {
     })
     waitsFor(() => {
       return fin
-    }, 'Should get document')
+    }, 'Should get document', timeout)
     runs(() => {
       expect(bodyHtml).toMatch(escapeRegExp('id="pageContent"'))
       expect(headerHtml).toMatch(escapeRegExp('id="pageHeader"'))

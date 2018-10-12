@@ -15,7 +15,7 @@ import { getOptions, getMarkdownTestFilePath } from './_preset'
 // Tests are written with https://jasmine.github.io/1.3/introduction.html
 
 describe('Convert demo', () => {
-  const timeout = 15000
+  const timeout = 300000
   const markdownFilePath = getMarkdownTestFilePath('Demo.md')
 
   it(`converts to html`, () => {

@@ -21,7 +21,7 @@ describe('Chromium', () => {
   })
   it('checks chromium is downloaded', () => {
     let status = null
-    const timeout = 54000 // 54000ms (15m)
+    const timeout = 900000 // 900000ms (15m)
     runs(async () => {
       try {
         let should = await shouldDownload()
