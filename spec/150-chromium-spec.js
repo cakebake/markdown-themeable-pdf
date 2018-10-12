@@ -1,6 +1,10 @@
 'use babel'
 
-import { shouldDownload, downloadChromium } from '../lib/api/convert/headlessChrome'
+import {
+  shouldDownload,
+  downloadChromium,
+  getWantedRevisionNumber
+} from '../lib/api/convert/headlessChrome'
 
 // Use the command `window:run-package-specs` (cmd-alt-ctrl-p) to run specs.
 //
@@ -10,6 +14,11 @@ import { shouldDownload, downloadChromium } from '../lib/api/convert/headlessChr
 // Tests are written with https://jasmine.github.io/1.3/introduction.html
 
 describe('Chromium', () => {
+  it('could get revision from puppeteer package.json', () => {
+    expect(getWantedRevisionNumber).not.toThrow()
+    const revision = getWantedRevisionNumber()
+    expect(revision).toBeDefined()
+  })
   it('checks chromium is downloaded', () => {
     let status = null
     const timeout = 54000 // 54000ms (15m)
