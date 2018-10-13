@@ -39,6 +39,7 @@
     "markdown-it-smartarrows": "1.0.1",
     "markdown-it-toc-and-anchor": "4.1.2",
     "puppeteer": "1.9.0",
+    "slash": "2.0.0",
     "twemoji": "11.0.1",
     "units-css": "0.4.0"
   },
