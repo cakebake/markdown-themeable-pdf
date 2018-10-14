@@ -1,6 +1,9 @@
 'use babel'
 
 import { escapeRegExp } from 'lodash'
+import { tmpdir } from 'os'
+import { join } from 'path'
+import { copySync } from 'fs-extra'
 import { body, header, footer } from '../lib/api/convert/template'
 import { PACKAGE_NAME, CHARSET } from '../lib/config'
 import { getFileDirectory } from '../lib/api/filesystem'
@@ -54,9 +57,17 @@ describe('Template', () => {
     let footerHtml = ''
     let fin = false
     const timeout = 300000
+    const copyImageAbsolute = (name) => {
+      const dest = join(tmpdir(), name)
+      const src = join(__dirname, 'markdown', 'img', name)
+      copySync(src, dest)
+      return dest
+    }
     runs(async () => {
       try {
-        const md = await getMarkdown('image.md')
+        const absolutePath = copyImageAbsolute('example.png')
+        let md = await getMarkdown('image.md')
+        md += `\n## absolute src\n![absolute src](${absolutePath})\n`
         const content = await getHtml(md, {})
         const basePath = getFileDirectory(getCurrentMdFilePath())
         bodyHtml = await body(content, CHARSET, '', basePath)
@@ -79,7 +90,8 @@ describe('Template', () => {
         'AAAABJRU5ErkJggg==" alt="example"',
         'AAAABJRU5ErkJggg==" alt="html image"',
         'AAAAAElFTkSuQmCC" alt="external image"',
-        'AAAAAElFTkSuQmCC" alt="external html image"'
+        'AAAAAElFTkSuQmCC" alt="external html image"',
+        'AAAABJRU5ErkJggg==" alt="absolute src"'
       ]
       test.forEach((t) => {
         expect(bodyHtml).toMatch(escapeRegExp(t))

@@ -15,6 +15,29 @@ import {
 // Tests are written with https://jasmine.github.io/1.3/introduction.html
 
 describe('Image', () => {
+  it('checks src specials', () => {
+    let html = ''
+    runs(async () => {
+      try {
+        let md = ''
+        md += '![example](./img/example.png) '
+        md += '![ex ample](./img/ex ample.png) '
+        md += '![example-ßö@](./img/example-ßö@.png) '
+        html = await getHtml(md)
+      } catch (e) {
+        throw e
+      }
+    })
+    waitsFor(() => {
+      return html
+    }, 'Should get html')
+    runs(() => {
+      expect(html).toMatch(escapeRegExp('alt="example">'))
+      expect(html).toMatch(escapeRegExp('![ex ample](./img/ex ample.png)'))
+      expect(html).toMatch(escapeRegExp('alt="example-ßö@">'))
+    })
+  })
+
   it('checks disabled img size markup', () => {
     let html = ''
     runs(async () => {
