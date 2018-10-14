@@ -5,7 +5,7 @@ Markdown Converter
 
 #### This [Atom package](https://atom.io/packages/markdown-themeable-pdf) converts / prints / exports your markdown file simple and pretty to `PDF`, `HTML`, `JPEG` or `PNG` format.
 
-The package was created at the beginning to help in the daily work with manuals for customers. Many people are not familiar with Markdown and they will now receive a well-formatted PDF from their developers. **Important here is that the document looks good and professional**. This [Atom package](https://atom.io/packages/markdown-themeable-pdf) tries to ask about this task.
+The package was created at the beginning to help in the daily work with manuals for customers. Many people are not familiar with Markdown and they will now receive a well-formatted PDF from their developers. **Important here is that the document looks good and professional**.
 
 ## Examples
 
@@ -44,16 +44,14 @@ The package creates a CSS file `~/.atom/markdown-themeable-pdf/styles.css` in yo
 
 > Tip: Export your markdown as HTML to inspect it in your favorite browser. After CSS changes you must not restart atom.
 
-### Contribute
+## Contribute
 
 Please do contribute! Issues and pull requests are welcome.
 
-If you find this package useful, find errors, or have suggestions - please send me your [feedback on GitHub](https://github.com/cakebake/markdown-themeable-pdf/issues/new) - feel free to contribute.
-
-To develop the plugin, [start here](https://github.com/cakebake/markdown-themeable-pdf/blob/rewrite/CONTRIBUTING.md).
+If you find this package useful, find errors, or have suggestions - please send me your [feedback on GitHub](https://github.com/cakebake/markdown-themeable-pdf/issues/new) - feel free to contribute. To develop the plugin, [start here](https://github.com/cakebake/markdown-themeable-pdf/blob/rewrite/CONTRIBUTING.md).
 
 Thank you for your help improving this software!
 
-### License
+## License
 
 [The MIT License (MIT)](https://github.com/cakebake/markdown-themeable-pdf/blob/rewrite/LICENSE.md)
