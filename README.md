@@ -48,7 +48,7 @@ The package creates a CSS file `~/.atom/markdown-themeable-pdf/styles.css` in yo
 
 Please do contribute! Issues and pull requests are welcome.
 
-If you find this package useful, find errors, or have suggestions - please send me your [feedback on GitHub](https://github.com/cakebake/markdown-themeable-pdf/issues/new) - feel free to contribute. To develop the plugin, [start here](https://github.com/cakebake/markdown-themeable-pdf/blob/rewrite/CONTRIBUTING.md).
+If you find this package useful, find errors, or have suggestions - please send me your [feedback on GitHub](https://github.com/cakebake/markdown-themeable-pdf/issues/new) - feel free to contribute. To develop the sources, [start here](https://github.com/cakebake/markdown-themeable-pdf/blob/rewrite/CONTRIBUTING.md).
 
 Thank you for your help improving this software!
 
