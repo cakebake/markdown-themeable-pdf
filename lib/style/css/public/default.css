@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*! normalize.css v4.1.1 | MIT License | github.com/necolas/normalize.css */
 /** 1. Change the default font family in all browsers (opinionated). 2. Prevent adjustments of font size after orientation changes in IE and iOS. */
 html { font-family: sans-serif; /* 1 */ -ms-text-size-adjust: 100%; /* 2 */ -webkit-text-size-adjust: 100%; /* 2 */ }
@@ -508,10 +509,16 @@ pre { margin-top: 0; margin-bottom: 0; font-family: "SFMono-Regular", Consolas, 
 
 .muted-link:hover { color: #0366d6 !important; text-decoration: none; }
 
-.markdown-body .task-list-item-checkbox { margin: 0 .2em .25em 0; vertical-align: middle; }
+.markdown-body .task-list-item-checkbox { margin: 0 .4em .25em 0; vertical-align: middle; }
 
 .markdown-body .task-list-item { list-style-type: none; }
 
 .markdown-body .task-list-item + .task-list-item { margin-top: 3px; }
 
 .markdown-body .task-list-item .task-list-item-checkbox { margin-left: -2em; vertical-align: middle; }
+
+input[type="checkbox"] { -webkit-appearance: none; /* Hides the default checkbox style */ height: 1em; width: 1em; position: relative; background-color: #FFF; vertical-align: top; border: 1px solid #BBB; color: #CCC; outline: 0; }
+
+input[type="checkbox"]:before, input[type="checkbox"]:checked:before { position: absolute; top: 0; left: 0; width: 100%; height: 100%; line-height: 1em; text-align: center; content: "✘"; }
+
+input[type="checkbox"]:checked:before { content: '✔'; color: green; }

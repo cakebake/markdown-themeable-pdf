@@ -20,7 +20,7 @@
 
 .markdown-body {
   .task-list-item-checkbox {
-    margin: 0 .2em .25em 0;
+    margin: 0 .4em .25em 0;
     vertical-align: middle;
   }
   .task-list-item {
@@ -32,5 +32,36 @@
       margin-left: -2em;
       vertical-align: middle;
     }
+  }
+}
+
+//
+// checkbox
+//
+
+input[type="checkbox"] {
+  -webkit-appearance: none;/* Hides the default checkbox style */
+  height: 1em;
+  width: 1em;
+  position: relative;
+  background-color: #FFF;
+  vertical-align: top;
+  border: 1px solid #BBB;
+  color: #CCC;
+  outline: 0;
+  &:before,
+  &:checked:before {
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     line-height: 1em;
+     text-align: center;
+     content: "✘";
+  }
+  &:checked:before {
+    content: '✔';
+    color: green;
   }
 }

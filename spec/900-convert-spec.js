@@ -37,7 +37,7 @@ describe('Convert demo', () => {
     })
   })
 
-  it(`converts to pdf`, () => {
+  fit(`converts to pdf`, () => {
     let convertedFilePath
     const getSizeOfPdf = (filePath) => {
       const content = readFileSync(filePath, 'latin1')
