@@ -1,0 +1,37 @@
+{
+  "name": "markdown-themeable-pdf",
+  "scopeName": "source.gfm",
+  "limitLineLength": false,
+  "fileTypes": [
+    "markdown",
+    "md",
+    "mdown",
+    "mdwn",
+    "mkd",
+    "mkdn",
+    "mkdown",
+    "rmd",
+    "ron",
+    "workbook"
+  ],
+  "patterns": [
+    {
+      "begin": "\\A<!-- \\[markdown-themeable-pdf\\] options:$",
+      "end": "^--- \\[markdown-themeable-pdf\\] options; -->$",
+      "captures": {
+        "0": {
+          "name": "comment.hr.gfm"
+        }
+      },
+      "name": "markdown-themeable-pdf.front-matter.yaml.gfm",
+      "patterns": [
+        {
+          "include": "source.yaml"
+        }
+      ]
+    },
+    {
+      "include": "source.gfm"
+    }
+  ]
+}
