@@ -11,16 +11,7 @@ let _currentMdFilePath = ''
 
 export const getOptions = () => convertOptions(true)
 
-// fake for spec suit, because atom project path points to /tmp -.-
-export const getProjectRootPath = () => pathResolve(__dirname, '..')
-
-export const getCustomStylesPath = () => getConfig('customStylesPath', true)
-
-export const getCustomHeaderPath = () => getConfig('customHeaderPath', true)
-
-export const getCustomFooterPath = () => getConfig('customFooterPath', true)
-
-export const enableCodeHighlighting = () => get(htmlOptions(), 'enableCodeHighlighting')
+export const getProjectRootPath = () => pathResolve(__dirname, '..') // fake for spec suit, because atom project path points to /tmp -.-
 
 export const getCodeHighlightingTheme = () => getConfig('codeHighlightingTheme', true)
 

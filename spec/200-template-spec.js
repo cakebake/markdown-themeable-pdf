@@ -11,8 +11,9 @@ import { getBodyCss } from '../lib/style'
 import {
   getMarkdown,
   getHtml,
-  getProjectRootPath,
-  getCurrentMdFilePath
+  // getProjectRootPath,
+  getCurrentMdFilePath,
+  getOptions
 } from './_preset'
 
 // Use the command `window:run-package-specs` (cmd-alt-ctrl-p) to run specs.
@@ -23,13 +24,14 @@ import {
 // Tests are written with https://jasmine.github.io/1.3/introduction.html
 
 describe('Template', () => {
+  const options = getOptions()
   it('creates html body from content', () => {
     let html = ''
     runs(async () => {
       try {
         const md = await getMarkdown('simple.md')
         const content = await getHtml(md, {})
-        const css = await getBodyCss(getProjectRootPath(), 'html')
+        const css = await getBodyCss(getCurrentMdFilePath(), 'html', options)
         html = await body(content, CHARSET, css, getFileDirectory(getCurrentMdFilePath()))
       } catch (e) {
         throw e
