@@ -15,6 +15,10 @@
           {
             "label": "Convert To Image",
             "command": "markdown-themeable-PDF:convert-to-Image"
+          },
+          {
+            "label": "Insert Options",
+            "command": "markdown-themeable-PDF:insert-options"
           }
         ]
       }
@@ -34,6 +38,10 @@
           {
             "label": "Convert To Image",
             "command": "markdown-themeable-PDF:convert-to-Image"
+          },
+          {
+            "label": "Insert Options",
+            "command": "markdown-themeable-PDF:insert-options"
           }
         ]
       }
@@ -57,6 +65,10 @@
             {
               "label": "Convert To Image",
               "command": "markdown-themeable-PDF:convert-to-Image"
+            },
+            {
+              "label": "Insert Options",
+              "command": "markdown-themeable-PDF:insert-options"
             }
           ]
         }
