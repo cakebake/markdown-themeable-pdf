@@ -50,7 +50,7 @@
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-standard": "^4.0.0",
     "image-size": "^0.6.3",
-    "node-sass": "^4.9.3",
+    "node-sass": "^4.9.4",
     "package-json-to-readme": "^2.1.1",
     "primer-base": "^1.7.4",
     "primer-markdown": "^3.7.9",
