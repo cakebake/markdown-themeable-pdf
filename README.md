@@ -1,5 +1,5 @@
-Markdown Converter
-==============================================================
+Themeable Markdown Converter
+============================
 
 [![Version](https://img.shields.io/apm/v/markdown-themeable-pdf.svg)](https://github.com/cakebake/markdown-themeable-pdf/releases) [![Total Downloads](https://img.shields.io/apm/dm/markdown-themeable-pdf.svg)](https://atom.io/packages/markdown-themeable-pdf) [![Build Status](https://travis-ci.org/cakebake/markdown-themeable-pdf.svg?branch=rewrite)](https://travis-ci.org/cakebake/markdown-themeable-pdf) [![Build status](https://ci.appveyor.com/api/projects/status/3wglnf4du2teyn33/branch/rewrite?svg=true)](https://ci.appveyor.com/project/cakebake/markdown-themeable-pdf/branch/rewrite) [![Dependencies](https://img.shields.io/david/cakebake/markdown-themeable-pdf.svg)](https://github.com/cakebake/markdown-themeable-pdf/blob/rewrite/package.json) [![License](https://img.shields.io/apm/l/markdown-themeable-pdf.svg)](https://github.com/cakebake/markdown-themeable-pdf/blob/rewrite/LICENSE.md) [![js-standard-style](https://img.shields.io/badge/code%20style-standard-yellow.svg)](http://standardjs.com)
 
@@ -7,23 +7,23 @@ Markdown Converter
 
 The package was created at the beginning to help in the daily work with manuals for customers. Many people are not familiar with Markdown and they will now receive a well-formatted PDF from their developers. **Important here is that the document looks good and professional**.
 
-## Examples
+Examples
+--------
 
-Conversion of [Demo.md](https://github.com/cakebake/markdown-themeable-pdf/raw/rewrite/spec/markdown/Demo.md) to
-[PDF](https://github.com/cakebake/markdown-themeable-pdf/raw/rewrite/spec/markdown/Demo.pdf),
-[HTML](https://github.com/cakebake/markdown-themeable-pdf/raw/rewrite/spec/markdown/Demo.html),
-[JPEG](https://github.com/cakebake/markdown-themeable-pdf/raw/rewrite/spec/markdown/Demo.jpeg) and
-[PNG](https://github.com/cakebake/markdown-themeable-pdf/raw/rewrite/spec/markdown/Demo.png)
+Conversion of [Demo.md](https://github.com/cakebake/markdown-themeable-pdf/raw/rewrite/spec/markdown/Demo.md) to[PDF](https://github.com/cakebake/markdown-themeable-pdf/raw/rewrite/spec/markdown/Demo.pdf),[HTML](https://github.com/cakebake/markdown-themeable-pdf/raw/rewrite/spec/markdown/Demo.html),[JPEG](https://github.com/cakebake/markdown-themeable-pdf/raw/rewrite/spec/markdown/Demo.jpeg) and[PNG](https://github.com/cakebake/markdown-themeable-pdf/raw/rewrite/spec/markdown/Demo.png)
 
-## Installation
+Installation
+------------
 
 Search in atom under **Settings View -> Install -> Packages** the package `markdown-themeable-pdf` and start the installation.
 
-## Configuration
+Configuration
+-------------
 
 ...
 
-## Usage
+Usage
+-----
 
 The PDF can be generated in various ways:
 
@@ -44,7 +44,8 @@ The package creates a CSS file `~/.atom/markdown-themeable-pdf/styles.css` in yo
 
 > Tip: Export your markdown as HTML to inspect it in your favorite browser. After CSS changes you must not restart atom.
 
-## Contribute
+Contribute
+----------
 
 Please do contribute! Issues and pull requests are welcome.
 
@@ -52,6 +53,7 @@ If you find this package useful, find errors, or have suggestions - please send 
 
 Thank you for your help improving this software!
 
-## License
+License
+-------
 
 [The MIT License (MIT)](https://github.com/cakebake/markdown-themeable-pdf/blob/rewrite/LICENSE.md)
