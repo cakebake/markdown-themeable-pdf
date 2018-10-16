@@ -7,7 +7,7 @@
 //
 // Tests are written with https://jasmine.github.io/1.3/introduction.html
 
-fdescribe('Grammar', () => {
+describe('Grammar', () => {
   it('parses the grammar', () => {
     let grammar = null
     runs(async () => {
