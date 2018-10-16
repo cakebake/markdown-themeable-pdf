@@ -1,6 +1,11 @@
-.markdown-themeable-pdf-page-break {
-	border-top: 2px dotted @background-color-info;
-	span {
-		opacity: .35;
+@markdown-themeable-pdf-page-break-border-size: 2px;
+@markdown-themeable-pdf-page-break-border-color: @background-color-info;
+@markdown-themeable-pdf-page-break-border-style: dotted;
+
+.syntax--markdown-themeable-pdf {
+	.syntax--page-break {
+		border-top: @markdown-themeable-pdf-page-break-border-size @markdown-themeable-pdf-page-break-border-style @markdown-themeable-pdf-page-break-border-color;
+		margin-top: -@markdown-themeable-pdf-page-break-border-size;
+		display: block;
 	}
 }

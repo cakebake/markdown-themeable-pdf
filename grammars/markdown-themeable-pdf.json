@@ -16,6 +16,10 @@
   ],
   "patterns": [
     {
+      "match": "^<div class=(\"|')page-break(\"|')></div>$",
+      "name": "comment.line.gfm.markdown-themeable-pdf.page-break"
+    },
+    {
       "begin": "\\A<!-- \\[markdown-themeable-pdf\\] options:$",
       "end": "^--- \\[markdown-themeable-pdf\\] options; -->$",
       "captures": {
