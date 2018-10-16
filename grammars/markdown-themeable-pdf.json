@@ -1,6 +1,6 @@
 {
   "name": "markdown-themeable-pdf",
-  "scopeName": "source.gfm",
+  "scopeName": "source.gfm.markdown-themeable-pdf",
   "limitLineLength": false,
   "fileTypes": [
     "markdown",
@@ -23,7 +23,7 @@
           "name": "comment.hr.gfm"
         }
       },
-      "name": "markdown-themeable-pdf.front-matter.yaml.gfm",
+      "name": "front-matter.yaml.gfm.markdown-themeable-pdf",
       "patterns": [
         {
           "include": "source.yaml"

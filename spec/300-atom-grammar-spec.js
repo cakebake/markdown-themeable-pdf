@@ -13,7 +13,7 @@ describe('Grammar', () => {
     runs(async () => {
       try {
         await atom.packages.activatePackage('markdown-themeable-pdf')
-        grammar = await atom.grammars.grammarForScopeName('source.gfm')
+        grammar = await atom.grammars.grammarForScopeName('source.gfm.markdown-themeable-pdf')
       } catch (e) {
         throw e
       }
@@ -23,7 +23,7 @@ describe('Grammar', () => {
     }, 'Should set grammar')
     runs(() => {
       expect(grammar).toBeTruthy()
-      expect(grammar.scopeName).toBe('source.gfm')
+      expect(grammar.scopeName).toBe('source.gfm.markdown-themeable-pdf')
     })
   })
 
@@ -32,7 +32,7 @@ describe('Grammar', () => {
     runs(async () => {
       try {
         await atom.packages.activatePackage('markdown-themeable-pdf')
-        grammar = await atom.grammars.grammarForScopeName('source.gfm')
+        grammar = await atom.grammars.grammarForScopeName('source.gfm.markdown-themeable-pdf')
       } catch (e) {
         throw e
       }
@@ -45,15 +45,15 @@ describe('Grammar', () => {
       const [firstLineTokens, secondLineTokens, thirdLineTokens] = grammar.tokenizeLines(content)
       expect(firstLineTokens[0]).toEqual({
         value: '<!-- [markdown-themeable-pdf] options:',
-        scopes: ['source.gfm', 'markdown-themeable-pdf.front-matter.yaml.gfm', 'comment.hr.gfm']
+        scopes: ['source.gfm.markdown-themeable-pdf', 'front-matter.yaml.gfm.markdown-themeable-pdf', 'comment.hr.gfm']
       })
       expect(secondLineTokens[0]).toEqual({
         value: 'front: matter',
-        scopes: ['source.gfm', 'markdown-themeable-pdf.front-matter.yaml.gfm']
+        scopes: ['source.gfm.markdown-themeable-pdf', 'front-matter.yaml.gfm.markdown-themeable-pdf']
       })
       expect(thirdLineTokens[0]).toEqual({
         value: '--- [markdown-themeable-pdf] options; -->',
-        scopes: ['source.gfm', 'markdown-themeable-pdf.front-matter.yaml.gfm', 'comment.hr.gfm']
+        scopes: ['source.gfm.markdown-themeable-pdf', 'front-matter.yaml.gfm.markdown-themeable-pdf', 'comment.hr.gfm']
       })
     })
   })
@@ -66,7 +66,7 @@ describe('Grammar', () => {
         await atom.packages.activatePackage('language-gfm')
         grammar.default = await atom.grammars.grammarForScopeName('source.gfm')
         await atom.packages.activatePackage('markdown-themeable-pdf')
-        grammar.extended = await atom.grammars.grammarForScopeName('source.gfm')
+        grammar.extended = await atom.grammars.grammarForScopeName('source.gfm.markdown-themeable-pdf')
         fin = true
       } catch (e) {
         throw e
@@ -87,21 +87,19 @@ describe('Grammar', () => {
         secondLineTokensExtended,
         thirdLineTokensExtended
       ] = grammar.extended.tokenizeLines(content)
-      expect(firstLineTokensExtended[0]).toEqual(firstLineTokensDefault[0])
-      expect(secondLineTokensExtended[0]).toEqual(secondLineTokensDefault[0])
-      expect(thirdLineTokensExtended[0]).toEqual(thirdLineTokensDefault[0])
-      // expect(firstLineTokensExtended[0]).toEqual({
-      //   value: '#',
-      //   scopes: ['source.gfm', 'markup.heading.heading-1.gfm', 'markup.heading.marker.gfm']
-      // })
-      // expect(secondLineTokensDefault[0]).toEqual({
-      //   value: '<!--',
-      //   scopes: ['source.gfm', 'comment.block.gfm', 'punctuation.definition.comment.gfm']
-      // })
-      // expect(thirdLineTokensDefault[0]).toEqual({
-      //   value: '`',
-      //   scopes: ['source.gfm', 'markup.raw.gfm']
-      // })
+      expect(grammar.default).toBeTruthy()
+      expect(grammar.default.scopeName).toBe('source.gfm')
+      expect(grammar.extended).toBeTruthy()
+      expect(grammar.extended.scopeName).toBe('source.gfm.markdown-themeable-pdf')
+      expect(firstLineTokensExtended[0].value).toEqual(firstLineTokensDefault[0].value)
+      expect(firstLineTokensExtended[0].scopes[0]).not.toEqual(firstLineTokensDefault[0].scopes[0])
+      expect(firstLineTokensExtended[0].scopes[1]).toEqual(firstLineTokensDefault[0].scopes[1])
+      expect(secondLineTokensExtended[0].value).toEqual(secondLineTokensDefault[0].value)
+      expect(secondLineTokensExtended[0].scopes[0]).not.toEqual(secondLineTokensDefault[0].scopes[0])
+      expect(secondLineTokensExtended[0].scopes[1]).toEqual(secondLineTokensDefault[0].scopes[1])
+      expect(thirdLineTokensExtended[0].value).toEqual(thirdLineTokensDefault[0].value)
+      expect(thirdLineTokensExtended[0].scopes[0]).not.toEqual(thirdLineTokensDefault[0].scopes[0])
+      expect(thirdLineTokensExtended[0].scopes[1]).toEqual(thirdLineTokensDefault[0].scopes[1])
     })
   })
 })
