@@ -24,13 +24,29 @@ import {
 // Tests are written with https://jasmine.github.io/1.3/introduction.html
 
 describe('Filesystem', () => {
-  it('should check if a file or directory exists', async () => {
-    const filePath = getMarkdownTestFilePath('Demo.md')
-    const dirPath = getMarkdownTestFileDir()
-    expect(await pathExists(filePath)).toBe(true)
-    expect(await pathExists(dirPath)).toBe(true)
-    expect(await pathExists('/hello/world')).toBe(false)
-    expect(await pathExists(null)).toBe(false)
+  it('should check if a file or directory exists', () => {
+    const state = {}
+    let fin = false
+    runs(async () => {
+      try {
+        state.filePath = await pathExists(getMarkdownTestFilePath('Demo.md'))
+        state.dirPath = await pathExists(getMarkdownTestFileDir())
+        state.notFound = await pathExists('/hello/world')
+        state.empty = await pathExists(null)
+        fin = true
+      } catch (e) {
+        throw e
+      }
+    })
+    waitsFor(() => {
+      return fin
+    }, 'Path sould be checked')
+    runs(() => {
+      expect(state.filePath).toBe(true)
+      expect(state.dirPath).toBe(true)
+      expect(state.notFound).toBe(false)
+      expect(state.empty).toBe(false)
+    })
   })
 
   it('could parse filePath info', () => {

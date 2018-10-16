@@ -11,17 +11,29 @@ import { escapeRegExp } from 'lodash'
 // Tests are written with https://jasmine.github.io/1.3/introduction.html
 
 describe('Custom options', () => {
-  it('should insert front matter to content', async () => {
+  it('should insert front matter to content', () => {
+    let contentWithOptions = ''
     const [startDelimiter, endDelimiter] = getMatterDelimiters()
     const options = { lorem: 1, ipsum: 2 }
     const content = [
       '# markdown',
       'with some content'
     ].join('\n')
-    const contentWithOptions = await addOptionsToContent(content, options)
-    expect(contentWithOptions).toMatch(escapeRegExp(startDelimiter))
-    expect(contentWithOptions).toMatch(escapeRegExp(endDelimiter))
-    expect(contentWithOptions).toMatch(escapeRegExp('lorem: 1'))
-    expect(contentWithOptions).toMatch(escapeRegExp('ipsum: 2'))
+    runs(async () => {
+      try {
+        contentWithOptions = await addOptionsToContent(content, options)
+      } catch (e) {
+        throw e
+      }
+    })
+    waitsFor(() => {
+      return contentWithOptions
+    }, 'Should add front matter')
+    runs(() => {
+      expect(contentWithOptions).toMatch(escapeRegExp(startDelimiter))
+      expect(contentWithOptions).toMatch(escapeRegExp(endDelimiter))
+      expect(contentWithOptions).toMatch(escapeRegExp('lorem: 1'))
+      expect(contentWithOptions).toMatch(escapeRegExp('ipsum: 2'))
+    })
   })
 })
