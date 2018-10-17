@@ -1,5 +1,7 @@
 'use babel'
 
+import { addGrammarToMarkdownPreviewConfig, getMarkdownPreviewGrammars } from '../lib/api/atom'
+
 // Use the command `window:run-package-specs` (cmd-alt-ctrl-p) to run specs.
 //
 // To run a specific `it` or `describe` block add an `f` to the front (e.g. `fit`
@@ -8,6 +10,35 @@
 // Tests are written with https://jasmine.github.io/1.3/introduction.html
 
 describe('Grammar', () => {
+  it('adds grammar to markdown-preview scope config', () => {
+    let grammar = null
+    let addGrammar = false
+    let grammarCount = 0
+    runs(async () => {
+      try {
+        await atom.packages.activatePackage('markdown-themeable-pdf')
+        await atom.packages.activatePackage('markdown-preview')
+        grammarCount = getMarkdownPreviewGrammars().length
+        for (var i = 0; i < 10; i++) {
+          addGrammar = addGrammarToMarkdownPreviewConfig()
+        }
+        grammar = await atom.grammars.grammarForScopeName('source.gfm.markdown-themeable-pdf')
+      } catch (e) {
+        throw e
+      }
+    })
+    waitsFor(() => {
+      return grammar
+    }, 'Should set grammar')
+    runs(() => {
+      expect(grammar).toBeTruthy()
+      expect(grammar.scopeName).toBe('source.gfm.markdown-themeable-pdf')
+      expect(addGrammar).toBeTruthy()
+      expect(getMarkdownPreviewGrammars()).toContain('source.gfm.markdown-themeable-pdf')
+      expect(getMarkdownPreviewGrammars().length).toBe(grammarCount + 1)
+    })
+  })
+
   it('parses the grammar', () => {
     let grammar = null
     runs(async () => {
