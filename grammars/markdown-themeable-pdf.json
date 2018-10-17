@@ -16,6 +16,10 @@
   ],
   "patterns": [
     {
+      "match": "\\[(x| )\\]",
+      "name": "variable.unordered.list.gfm.markdown-themeable-pdf.checkbox"
+    },
+    {
       "match": "^@\\[toc\\]$",
       "name": "markup.heading.heading-1.gfm.markdown-themeable-pdf.toc"
     },

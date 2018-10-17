@@ -58,6 +58,37 @@ describe('Grammar', () => {
     })
   })
 
+  it('tokenizes checkboxes', () => {
+    let grammar = null
+    runs(async () => {
+      try {
+        await atom.packages.activatePackage('markdown-themeable-pdf')
+        grammar = await atom.grammars.grammarForScopeName('source.gfm.markdown-themeable-pdf')
+      } catch (e) {
+        throw e
+      }
+    })
+    waitsFor(() => {
+      return grammar
+    }, 'Should set grammar')
+    runs(() => {
+      const content = '[ ]\n[x]\n`code`'
+      const [firstLineTokens, secondLineTokens, thirdLineTokens] = grammar.tokenizeLines(content)
+      expect(firstLineTokens[0]).toEqual({
+        value: '[ ]',
+        scopes: ['source.gfm.markdown-themeable-pdf', 'variable.unordered.list.gfm.markdown-themeable-pdf.checkbox']
+      })
+      expect(secondLineTokens[0]).toEqual({
+        value: '[x]',
+        scopes: ['source.gfm.markdown-themeable-pdf', 'variable.unordered.list.gfm.markdown-themeable-pdf.checkbox']
+      })
+      expect(thirdLineTokens[0]).toEqual({
+        value: '`code`',
+        scopes: ['source.gfm.markdown-themeable-pdf']
+      })
+    })
+  })
+
   it('tokenizes page-break', () => {
     let grammar = null
     runs(async () => {
