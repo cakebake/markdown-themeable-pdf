@@ -30,7 +30,7 @@
     "encoding": "0.1.12",
     "fs-extra": "7.0.0",
     "gray-matter": "^4.0.1",
-    "highlight.js": "9.13.0",
+    "highlight.js": "9.13.1",
     "lodash": "4.17.11",
     "markdown-it": "8.4.2",
     "markdown-it-checkbox": "1.1.0",
