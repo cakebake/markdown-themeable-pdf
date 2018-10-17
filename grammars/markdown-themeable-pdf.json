@@ -25,7 +25,7 @@
     },
     {
       "match": "^<div class=(\"|')page-break(\"|')></div>$",
-      "name": "comment.line.gfm.markdown-themeable-pdf.page-break"
+      "name": "comment.hr.gfm.markdown-themeable-pdf.page-break"
     },
     {
       "begin": "\\A<!-- \\[markdown-themeable-pdf\\] options:$",

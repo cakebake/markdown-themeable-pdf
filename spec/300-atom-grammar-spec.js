@@ -111,7 +111,7 @@ describe('Grammar', () => {
       })
       expect(secondLineTokens[0]).toEqual({
         value: '<div class="page-break"></div>',
-        scopes: ['source.gfm.markdown-themeable-pdf', 'comment.line.gfm.markdown-themeable-pdf.page-break']
+        scopes: ['source.gfm.markdown-themeable-pdf', 'comment.hr.gfm.markdown-themeable-pdf.page-break']
       })
       expect(thirdLineTokens[0]).toEqual({
         value: '`code`',
