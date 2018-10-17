@@ -16,6 +16,10 @@
   ],
   "patterns": [
     {
+      "match": "^@\\[toc\\]$",
+      "name": "markup.heading.heading-1.gfm.markdown-themeable-pdf.toc"
+    },
+    {
       "match": "^<div class=(\"|')page-break(\"|')></div>$",
       "name": "comment.line.gfm.markdown-themeable-pdf.page-break"
     },

@@ -27,6 +27,37 @@ describe('Grammar', () => {
     })
   })
 
+  it('tokenizes toc', () => {
+    let grammar = null
+    runs(async () => {
+      try {
+        await atom.packages.activatePackage('markdown-themeable-pdf')
+        grammar = await atom.grammars.grammarForScopeName('source.gfm.markdown-themeable-pdf')
+      } catch (e) {
+        throw e
+      }
+    })
+    waitsFor(() => {
+      return grammar
+    }, 'Should set grammar')
+    runs(() => {
+      const content = 'content\n@[toc]\n`code`'
+      const [firstLineTokens, secondLineTokens, thirdLineTokens] = grammar.tokenizeLines(content)
+      expect(firstLineTokens[0]).toEqual({
+        value: 'content',
+        scopes: ['source.gfm.markdown-themeable-pdf']
+      })
+      expect(secondLineTokens[0]).toEqual({
+        value: '@[toc]',
+        scopes: ['source.gfm.markdown-themeable-pdf', 'markup.heading.heading-1.gfm.markdown-themeable-pdf.toc']
+      })
+      expect(thirdLineTokens[0]).toEqual({
+        value: '`code`',
+        scopes: ['source.gfm.markdown-themeable-pdf']
+      })
+    })
+  })
+
   it('tokenizes page-break', () => {
     let grammar = null
     runs(async () => {
