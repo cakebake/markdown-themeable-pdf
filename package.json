@@ -30,7 +30,7 @@
     "encoding": "0.1.12",
     "fs-extra": "7.0.1",
     "gray-matter": "^4.0.1",
-    "highlight.js": "9.13.1",
+    "highlight.js": "9.14.2",
     "lodash": "4.17.11",
     "markdown-it": "8.4.2",
     "markdown-it-checkbox": "1.1.0",
@@ -39,8 +39,8 @@
     "markdown-it-imsize": "2.0.1",
     "markdown-it-smartarrows": "1.0.1",
     "markdown-it-toc-and-anchor": "4.2.0",
-    "puppeteer": "1.11.0",
-    "twemoji": "11.2.0",
+    "puppeteer": "1.12.1",
+    "twemoji": "11.3.0",
     "units-css": "0.4.0"
   },
   "devDependencies": {
@@ -50,11 +50,11 @@
     "eslint-plugin-node": "^8.0.0",
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-standard": "^4.0.0",
-    "image-size": "^0.6.3",
+    "image-size": "^0.7.1",
     "node-sass": "^4.11.0",
     "package-json-to-readme": "^2.1.1",
-    "primer-base": "^1.9.0",
-    "primer-markdown": "^3.7.11",
-    "primer-utilities": "^4.14.1"
+    "primer-base": "^2.0.0",
+    "primer-markdown": "^4.0.0",
+    "primer-utilities": "^5.0.0"
   }
 }
