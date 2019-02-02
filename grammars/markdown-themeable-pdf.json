@@ -1,49 +1,18 @@
 {
-  "name": "markdown-themeable-pdf",
-  "scopeName": "source.gfm.markdown-themeable-pdf",
-  "limitLineLength": false,
-  "fileTypes": [
-    "markdown",
-    "md",
-    "mdown",
-    "mdwn",
-    "mkd",
-    "mkdn",
-    "mkdown",
-    "rmd",
-    "ron",
-    "workbook"
-  ],
+  "scopeName": "text.markdown-themeable-pdf",
+  "injectionSelector": "source.gfm, text.md",
   "patterns": [
     {
       "match": "\\[(x| )\\]",
-      "name": "variable.unordered.list.gfm.markdown-themeable-pdf.checkbox"
+      "name": "variable.unordered.list.text.markdown-themeable-pdf.checkbox"
     },
     {
       "match": "^@\\[toc\\]$",
-      "name": "markup.heading.heading-1.gfm.markdown-themeable-pdf.toc"
+      "name": "markup.heading.heading-1.text.markdown-themeable-pdf.toc"
     },
     {
       "match": "^<div class=(\"|')page-break(\"|')></div>$",
-      "name": "comment.hr.gfm.markdown-themeable-pdf.page-break"
-    },
-    {
-      "begin": "\\A<!-- \\[markdown-themeable-pdf\\] options:$",
-      "end": "^--- \\[markdown-themeable-pdf\\] options; -->$",
-      "captures": {
-        "0": {
-          "name": "comment.hr.gfm"
-        }
-      },
-      "name": "front-matter.yaml.gfm.markdown-themeable-pdf",
-      "patterns": [
-        {
-          "include": "source.yaml"
-        }
-      ]
-    },
-    {
-      "include": "source.gfm"
+      "name": "comment.hr.text.markdown-themeable-pdf.page-break"
     }
   ]
 }
