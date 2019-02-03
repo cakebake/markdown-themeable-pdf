@@ -3,4 +3,6 @@
 !*.md
 !Demo*
 !img
-!img/*
+!img/**
+!files
+!files/**
