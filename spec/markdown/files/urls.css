@@ -1,0 +1,9 @@
+/* demo css with some url parts to resolve that paths correctly */
+
+html, body {
+  background: lightblue url("../img/example.png") no-repeat fixed center;
+}
+
+div {
+  background: cyan url(../img/logo.png) repeat fixed center;
+}

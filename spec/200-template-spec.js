@@ -6,14 +6,14 @@ import { join } from 'path'
 import { copySync } from 'fs-extra'
 import { body, header, footer } from '../lib/api/convert/template'
 import { PACKAGE_NAME, CHARSET } from '../lib/config'
-import { getFileDirectory } from '../lib/api/filesystem'
+import { getFileDirectory, readFile } from '../lib/api/filesystem'
 import { getBodyCss } from '../lib/style'
 import {
   getMarkdown,
   getHtml,
-  // getProjectRootPath,
   getCurrentMdFilePath,
-  getOptions
+  getOptions,
+  getFilesTestFilePath
 } from './_preset'
 
 // Use the command `window:run-package-specs` (cmd-alt-ctrl-p) to run specs.
@@ -100,6 +100,25 @@ describe('Template', () => {
         expect(headerHtml).toMatch(escapeRegExp(t))
         expect(footerHtml).toMatch(escapeRegExp(t))
       })
+    })
+  })
+
+  it('manipulates css urls and converts them to data uri (base64)', () => {
+    let css
+    runs(async () => {
+      try {
+        const cssPath = getFilesTestFilePath('urls.css')
+        css = await readFile(cssPath, CHARSET)
+      } catch (e) {
+        throw e
+      }
+    })
+    waitsFor(() => {
+      return css
+    }, 'Should get css and resolve paths')
+    runs(() => {
+      expect(css).toMatch(escapeRegExp('/* demo css with some url parts to resolve that paths correctly */'))
+      expect(css).toMatch(escapeRegExp('url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAARCAIAAAE76BvMAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAACk0lEQVQ4y51SXUvrQBCd2WxStRo0KkRJSzUqoiL4Ul/97UYL2hctVERSbRP8ACX0oSYN+zH3YaXWe70f3HlIltnZM3PmHCSiXq8HAK7rsl6v9/LyUq1WXdflYRgCwPv7O+cc4zgGAABgtm1nWVYUBRdCeJ4HABDHcZqmRNRqtYgoTdOyLBkALCwsAECtViOiIAgAAPv9vpQSpoOIzs/PzcPLy0utNQOASqVydnamtZZSDodDMPdENBwOy7IkIhwMBkKIL1gPDw/0txiNRlwpBQBJkqRpats253w8HgdBUKvVLi4u1tfXgyCwbZsZVETknDebzaOjI8uyEBERy7JM05QxBgDQ7/f/pS/mef709AR/jDAM4fb2Vmv9Z7x2u80454gYRdHz87PW+vX1NYoiAFBKnZ6eTvbLzUlKeXd3V61Wb25utNbmzqziQ17z01ofHh5eX1/v7e0REQAYpkmSfKljjLmuu7u763keIgLA7OysZVlLS0um4KNvo9FAxJWVFSJqNBoA4Ps+ERl/AAAXQhDRxsbGZOGT89ra2iSJRVE8Pj7+dX+Y53m3252fn3ccxzD4j2CMZVm2vLz84f8wDI0oWmtjiQk0IkopiYgx9mEJAKXUdAYRhRBXV1d8ukOSJHEcO44DAAcHB4uLi6PRqNPpKKWEEFtbW/V63WC12+08z7e3t+v1umlsvvzXyY0tOp2OZVlKKcdxzIDTNcbF37D+dhfNZnNnZ6csy83NzePjY0SccH97e4uiSAgxMzNzf3/farXG4/HnKNMoWmshhJRSKeX7vu/7xpVSSiGEsaTneScnJ3EcDwaD/f1945TPqaelmFD4SeLfJaflMlJgURTdbndubq5Sqfy3URAxy7LV1dUfddvyJiBn46kAAAAASUVORK5CYII=)'))
     })
   })
 })

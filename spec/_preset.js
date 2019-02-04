@@ -31,3 +31,5 @@ export const getHtml = (markdown, options = {}) => markdownToHTML(markdown, merg
 export const getMarkdownTestFileDir = () => join(__dirname, 'markdown')
 
 export const getMarkdownTestFilePath = (testFile) => join(getMarkdownTestFileDir(), testFile)
+
+export const getFilesTestFilePath = (testFile) => join(getMarkdownTestFileDir(), 'files', testFile)
