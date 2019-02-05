@@ -39,8 +39,8 @@
     "markdown-it-imsize": "2.0.1",
     "markdown-it-smartarrows": "1.0.1",
     "markdown-it-toc-and-anchor": "4.2.0",
+    "postcss-url": "^8.0.0",
     "puppeteer": "1.12.1",
-    "string-replace-async": "^1.2.1",
     "twemoji": "11.3.0",
     "units-css": "0.4.0"
   },

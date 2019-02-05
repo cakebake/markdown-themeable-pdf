@@ -1,7 +1,14 @@
 /* demo css with some url parts to resolve that paths correctly */
 
-html, body {
-  background: lightblue url("../img/example.png") no-repeat fixed center;
+@font-face {
+    font-family: 'open_sansregular';
+    src: url('opensans_regular_macroman/OpenSans-Regular-webfont.eot');
+    src: url('opensans_regular_macroman/OpenSans-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('opensans_regular_macroman/OpenSans-Regular-webfont.woff') format('woff'),
+         url('opensans_regular_macroman/OpenSans-Regular-webfont.ttf') format('truetype'),
+         url('opensans_regular_macroman/OpenSans-Regular-webfont.svg#open_sansregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
 }
 
 div {

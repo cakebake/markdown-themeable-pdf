@@ -117,8 +117,11 @@ describe('Template', () => {
       return css
     }, 'Should get css and resolve paths')
     runs(() => {
-      expect(css).toMatch(escapeRegExp('/* demo css with some url parts to resolve that paths correctly */'))
-      expect(css).toMatch(escapeRegExp('url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAARCAIAAAE76BvMAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAACk0lEQVQ4y51SXUvrQBCd2WxStRo0KkRJSzUqoiL4Ul/97UYL2hctVERSbRP8ACX0oSYN+zH3YaXWe70f3HlIltnZM3PmHCSiXq8HAK7rsl6v9/LyUq1WXdflYRgCwPv7O+cc4zgGAABgtm1nWVYUBRdCeJ4HABDHcZqmRNRqtYgoTdOyLBkALCwsAECtViOiIAgAAPv9vpQSpoOIzs/PzcPLy0utNQOASqVydnamtZZSDodDMPdENBwOy7IkIhwMBkKIL1gPDw/0txiNRlwpBQBJkqRpats253w8HgdBUKvVLi4u1tfXgyCwbZsZVETknDebzaOjI8uyEBERy7JM05QxBgDQ7/f/pS/mef709AR/jDAM4fb2Vmv9Z7x2u80454gYRdHz87PW+vX1NYoiAFBKnZ6eTvbLzUlKeXd3V61Wb25utNbmzqziQ17z01ofHh5eX1/v7e0REQAYpkmSfKljjLmuu7u763keIgLA7OysZVlLS0um4KNvo9FAxJWVFSJqNBoA4Ps+ERl/AAAXQhDRxsbGZOGT89ra2iSJRVE8Pj7+dX+Y53m3252fn3ccxzD4j2CMZVm2vLz84f8wDI0oWmtjiQk0IkopiYgx9mEJAKXUdAYRhRBXV1d8ukOSJHEcO44DAAcHB4uLi6PRqNPpKKWEEFtbW/V63WC12+08z7e3t+v1umlsvvzXyY0tOp2OZVlKKcdxzIDTNcbF37D+dhfNZnNnZ6csy83NzePjY0SccH97e4uiSAgxMzNzf3/farXG4/HnKNMoWmshhJRSKeX7vu/7xpVSSiGEsaTneScnJ3EcDwaD/f1945TPqaelmFD4SeLfJaflMlJgURTdbndubq5Sqfy3URAxy7LV1dUfddvyJiBn46kAAAAASUVORK5CYII=)'))
+      expect(css).toMatch(escapeRegExp("url('data:application/vnd.ms-fontobject;base64,"))
+      expect(css).toMatch(escapeRegExp("url('data:font/woff;base64,"))
+      expect(css).toMatch(escapeRegExp("url('data:font/ttf;base64,"))
+      expect(css).toMatch(escapeRegExp("url('data:image/svg+xml;base64,"))
+      expect(css).toMatch(escapeRegExp('url(data:image/png;base64,'))
     })
   })
 })
