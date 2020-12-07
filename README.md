@@ -1,6 +1,6 @@
 # This project is archived because the owner no longer uses the Atom Editor.
 
-It would be very good to find a new owner for this project, who will take care of updating and expanding the Atom package.
+It would be very good to find a new owner for this project, who will take care of updating and expanding the Atom package. A new version based on Chrome Headless has already been [prepared in a feature branch](https://github.com/cakebake/markdown-themeable-pdf/tree/rewrite).
 
 ### Themeable markdown converter (Print to PDF, HTML, JPEG or PNG)
 
