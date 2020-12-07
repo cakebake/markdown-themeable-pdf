@@ -2,6 +2,8 @@
 
 It would be very good to find a new owner for this project, who will take care of updating and expanding the Atom package. A new version based on Chrome Headless has already been [prepared in a feature branch](https://github.com/cakebake/markdown-themeable-pdf/tree/rewrite).
 
+![markdown-themeable-pdf.png](markdown-themeable-pdf.png)
+
 ### Themeable markdown converter (Print to PDF, HTML, JPEG or PNG)
 
 [![Version](https://img.shields.io/apm/v/markdown-themeable-pdf.svg)](https://github.com/cakebake/markdown-themeable-pdf/releases) [![Total Downloads](https://img.shields.io/apm/dm/markdown-themeable-pdf.svg)](https://atom.io/packages/markdown-themeable-pdf) [![License](https://img.shields.io/apm/l/markdown-themeable-pdf.svg)](https://github.com/cakebake/markdown-themeable-pdf/blob/master/package.json#L14)
